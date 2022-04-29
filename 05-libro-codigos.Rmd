@@ -1,0 +1,256 @@
+\newpage
+
+# Libro de Códigos {#libro-codigos}
+
+Para un uso adecuado de la base de datos de ELSOC COES se recomienda a los investigadores trabajar con el libro de códigos, el cual se presenta a continuación. Este apartado detalla el codigo longitudinal de cada variable; la etiqueta de variable asociada; fraseo de cada preambulo, pregunta e item; las distintas categorías de respuestas y codigos asociados; y observaciones en las variables que han tenido modificaciones a lo largo de las distintas mediciones del estudio. Adicionalmente, se incluyen tablas de frecuencia de cada pregunta según ola y muestra (se omiten variables numéricas continuas y de texto). 
+
+El libro de códigos fue diseñado de modo de que sintetice toda la información relevante sobre las variables de la base de datos en un formato común para facilitar su uso. De manera genérica, las variables incluidas en la base de datos tienen el siguiente formato:
+
+> **Código longitudinal**. Etiqueta de variable
+>
+> *Fraseo pregunta*
+> 
+> *Códigos de respuestas Categorías de respuesta*
+> 
+> Observaciones
+>
+> Tabla de frecuencias
+
+Las preguntas se presentan por módulo del cuestionario, para facilitar su lectura.
+
+El Código Longitudinal corresponde al código asociado a cada item del cuestionario en la base de datos y libros de códigos. Por medio de estos códigos se pueden identificar los distintos ítemes incluidos. En el caso de la base de datos longitudinal en formato Wide, el código incluye *_w01*, *_w02*, *_w03*, *_w04* o *_w05* al final del código para indicar si la respuesta corresponde a las olas 2016, 2017, 2018, 2019 o 221, respectivamente.
+
+Las etiquetas de variables se incluyen en el Libro de Códigos y en las bases de datos, y fueron diseñadas por el equipo ELSOC con el objetivo de describir de modo sucinto el fenómeno o dimensión a medir^[Se eliminan tildes y otros símbolos no incluidos en todos los softwares estadísticos (por ejemplo, tildes y la ñ)]. A continuación se presenta el fraseo de la pregunta, incluyendo los preámbulos, y los distintos códigos y categorías de respuesta. En la construcción de la base de datos, los códigos de respuesta fueron ingresados como valores numéricos y las categorías de respuesta como etiquetas de valores.
+
+Finalmente, se incorporan observaciones asociadas a posibles cambios en el tiempo, o aspectos a tomar en consideración al momento de utilizar las variables.
+
+Las variables de cadena (texto) no presentan códigos, ya que presentan los verbatim literales de las menciones por parte de los encuestados. En el caso de los ítems dónde se pide una respuesta numérica tampoco existen categorías de respuesta, registrándose el valor indicado por el entrevistado. 
+
+
+```{r}
+
+# Importar listado de variables
+listado_cuestionario0 <- readxl::read_excel(path = file.path('..', '..', '..', '..',
+                                                             '1_Cuestionario_y_Listado_Variables',
+                                                             '2_Listado_de_variables_definitivo',
+                                                             '0A_Listado_Variables_Global_ELSOC_v2022.xlsx'),
+                                        sheet = '2_Items_Total') %>% 
+  janitor::clean_names()
+
+listado_complementario0 <- readxl::read_excel(path = file.path('..', '..', '..', '..',
+                                                             '1_Cuestionario_y_Listado_Variables',
+                                                             '2_Listado_de_variables_definitivo',
+                                                             '0A_Listado_Variables_Global_ELSOC_v2022.xlsx'),
+                                        sheet = '3_items_cuestionario') %>% 
+  janitor::clean_names()
+
+listado_cuestionario1 <- listado_cuestionario0 %>% 
+  left_join(listado_complementario0, by = 'codigo_longitudinal')
+
+```
+
+```{r}
+# Correcciones de fraseos para armar cuestionario:
+listado_cuestionario2 <- listado_cuestionario1 %>% 
+  mutate(preambulo = str_trim(preambulo_pregunta),
+         preambulo = str_remove_all(preambulo, '-$|\\.\\.\\.$'), 
+         preambulo = ifelse(preambulo == '', '', glue('*{preambulo}...*')),
+         fraseo_pregunta = str_trim(fraseo_pregunta),
+         fraseo_pregunta = str_remove_all(fraseo_pregunta, '-$|\\.\\.\\.$|:$|\\.$'),
+         fraseo_pregunta = ifelse(fraseo_pregunta == '', '', glue('*{fraseo_pregunta}*')),
+         fraseo_item = str_trim(fraseo_item),
+         fraseo_item = str_remove(fraseo_item, '-$'),
+         fraseo_item = ifelse(fraseo_item == '', '.', glue(': *{fraseo_item}*.')),
+         fraseo_item = ifelse(fraseo_pregunta == '', '', fraseo_item),
+         opciones_respuesta = str_remove_all(opciones_respuesta, 'Valor numerico$|\\|Valor numerico$'),
+         codigos_respuesta = str_remove_all(codigos_respuesta, 'Valor numerico$|\\|Valor numerico$'),
+         observaciones = ifelse(observaciones == '-', '', glue('Observaciones: {observaciones}'))
+         ) %>% 
+  arrange(n)
+
+# Agregar códigos de respuestas:
+listado_cuestionario2$respuestas0 <- unlist(with(listado_cuestionario2, 
+                                                 purrr::map(.x = purrr::map2(.x = strsplit(codigos_respuesta, '\\|'), 
+                                      .y = strsplit(opciones_respuesta, '\\|'),  
+                                      .f = str_c, sep = ' '),
+                     .f = str_flatten,
+                     collapse = '  \n')))
+
+# Código de respuestas cuando hay valores numéricos, texto abierto o no hay respuestas (variable creada)
+listado_cuestionario2$respuestas <- with(listado_cuestionario2, 
+                                      case_when(tipo_pregunta == 'Pregunta de Alternativas (respuesta cerrada)' & niveles != '-' ~ respuestas0,
+                                                tipo_pregunta == 'Pregunta de Alternativas (respuesta cerrada)' & niveles == '-' ~ '',
+                                                respuestas0 == '-' ~ '',
+                                                TRUE ~ tipo_pregunta))
+
+# Filtrar solo variables presentes en olas 2016-2021:
+listado_cuestionario <- listado_cuestionario2 %>% 
+  filter(ola_2016_m1 == 'Si' | ola_2017_m1 == 'Si' |
+           ola_2018_m1 == 'Si' | ola_2019_m1 == 'Si' | ola_2021_m1 == 'Si' |
+           ola_2018_m2 == 'Si' | ola_2019_m2 == 'Si' | ola_2021_m2 == 'Si' | 
+           var_longitudinal == 'Si',
+           !codigo_longitudinal %in% c('r13_npila_01', 'r13_npila_02', 'r13_npila_03', 'r13_npila_04', 'r13_npila_05'))
+
+
+
+```
+
+
+```{r}
+# Formato final para que aparezca en el libro de codigos
+libro_codigo <- listado_cuestionario %>% 
+  mutate(texto_pregunta = glue::glue('  \n', 
+                                     '  -  **{codigo_longitudinal}**: {etiqueta}',
+                                     '  \n  \n',
+                                     '  > {preambulo} {fraseo_pregunta}{fraseo_item}  \n  \n',
+                                     '  > {respuestas}',
+                                     '  \n  \n',
+                                     '  {observaciones}',
+                                     '  \n  \n'))
+
+```
+
+
+```{r}
+options(knitr.kable.NA = 'NA')
+
+# Función para generar tabla de frecuencias a partir de nombre de variable:
+tabla_frecuencia <- function(x) {
+  
+  x <- x
+  
+  # Tabla de frecuencias
+  frecuencias0 <- elsoc_long_2016_2021 %>%
+  group_by(!!rlang::ensym(x), ola, muestra) %>% 
+  summarise(freq = n()) %>% 
+  pivot_wider(names_from = ola, 
+              values_from = freq) %>%
+  ungroup()
+
+  # Tabla de frecuencias expandida y corregida:
+  frecuencias <- frecuencias0 %>% 
+  expand(!!rlang::ensym(x), muestra) %>% 
+  arrange(muestra, !!rlang::ensym(x)) %>%
+  left_join(frecuencias0, 
+            by = c(x, 'muestra'), 
+            na_matches = 'na') %>% 
+  select(!!rlang::ensym(x), `1`, `2`, `3`, `4`, `5`) %>% 
+    mutate(`1` = ifelse(is.na(`1`), 0, `1`),
+           `2` = ifelse(is.na(`2`), 0, `2`),
+           `3` = ifelse(is.na(`3`), 0, `3`),
+           `4` = ifelse(is.na(`4`), 0, `4`),
+           `5` = ifelse(is.na(`5`), 0, `5`)
+           )
+
+  n <- dim(frecuencias)[1]
+
+  frecuencias %>%
+    kbl(align = c('l', rep('c', 9)),
+        col.name = c(x, '2016', '2017', '2018', '2019', '2021'),
+         booktabs = TRUE) %>%
+    kable_paper('hover') %>% 
+    kable_styling(full_width = FALSE, position = 'left',
+                  latex_options = c('HOLD_position')) %>% 
+    pack_rows('Muestra Original', 1, trunc(n/2)) %>% 
+    pack_rows('Muestra Refresco', trunc(n/2) + 1, n)
+
+
+}
+
+fun_libro_codigos <- function(libro_codigo) {
+  variables <- libro_codigo %>% pull(codigo_longitudinal)
+  
+  for (i in variables) {
+  
+    if (!i %in% c('ola', 'muestra')) {
+    print(libro_codigo$texto_pregunta[libro_codigo$codigo_longitudinal == i])
+    cat('\n\n<!-- -->\n\n')
+    
+    if (!libro_codigo$tipo_variable[libro_codigo$codigo_longitudinal == i] %in% c('Numerica', 'Cadena')) {
+            print(tabla_frecuencia(i))
+            cat('\n\n<!-- -->\n\n')
+      }
+    }
+  }
+}
+
+
+
+```
+
+
+## Módulo de Ciudadanía y democracia
+
+```{r libro-codigo-ciudadania, echo=FALSE, results = 'asis'}
+
+fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Ciudadanía', ])
+
+```
+
+## Módulo de Conflicto Social
+
+```{r libro-codigo-conflictosocial, echo=FALSE, results = 'asis'}
+
+fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Conflicto Social', ])
+
+```
+
+
+## Módulo de Desigualdad y legitimidad
+
+```{r libro-codigo-desigualdadlegitimidad, echo=FALSE, results = 'asis'}
+
+fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Desigualdad y legitimidad', ])
+
+```
+
+## Módulo de Género
+
+
+```{r libro-codigo-genero, echo=FALSE, results = 'asis'}
+
+fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Género', ])
+
+```
+
+## Módulo de Redes y Actitudes
+
+```{r libro-codigo-redesactitudes, echo=FALSE, results = 'asis'}
+
+fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Redes y Actitudes', ])
+
+```
+
+## Módulo de Salud y Bienestar
+
+```{r libro-codigo-saludbienestar, echo=FALSE, results = 'asis'}
+
+fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Salud y Bienestar', ])
+
+```
+
+## Módulo de Territorio
+
+```{r libro-codigo-territorio, echo=FALSE, results = 'asis'}
+
+fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Territorio', ])
+
+```
+
+## Módulo Sociodemográfico
+
+```{r libro-codigo-sociodemografico, echo=FALSE, results = 'asis'}
+
+fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Sociodemográfica', ])
+
+```
+
+## Variables de identificacion y otras variables
+
+```{r libro-codigo-otrasvariables, echo=FALSE, results = 'asis'}
+
+fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Otras Variables', ])
+
+```
+
+

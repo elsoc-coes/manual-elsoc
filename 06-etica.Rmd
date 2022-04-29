@@ -1,0 +1,49 @@
+\newpage
+
+# Ética
+
+## Aprobación Comité de Ética 
+
+El Estudio Longitudinal sobre Conflicto y Cohesión Social en Chile (ELSOC) cuenta con aprobación ética en todas sus olas del [Comité Ético Científico de Ciencias Sociales, Artes y Humanidades de la Pontifícia Universidad Católica de Chile](http://eticayseguridad.uc.cl/comite-etico-cientifico-en-ciencias-sociales-artes-y-humanidades.html) con fecha 08 de junio de 2016 e **ID Protocolo 160129004**.
+
+La aprobación del Comité de Ética fue renovada con fecha 06 de enero de 2021.
+
+## Consentimiento informado
+
+Los participantes del estudio firmaron un Consentimiento Informado por Escrito en que se detallan los objetivos del estudio, en qué consiste su participación y qué se hará y cómo se resguardará la información y datos entregados. 
+
+Los participantes del estudio de la Muestra Original firmaron el Consentimiento Informado el 2016, mientras que los participantes de la Muestra Refresco en 2018. Adicionalmente, debido al cambio de modalidad realizado durante el levantamento de la ola 2021 (ver [Cuestionario 2021: levantamiento durante la pandemia de COVID-19](#instrumento-covid)), se solicitó a los participantes de ambas muestras firmar un Apéndice al Consentimiento Informado, en que se detalló los cambios realizados durante dicha ola.
+
+```{r, results = 'asis'}
+  if (is_html_output()) {
+    
+    cat('A continuación se encuentran disponibles los Consentimientos Informados firmados por los participantes en 2016 (Muestra Original), 2018 (Muestra Refresco) y 2021 (Apéndice):')
+  }
+```
+
+
+```{r}
+
+if (is_html_output()) {
+  xfun::embed_file(file.path('inputs', 'consentimiento_informado_panel_coes_original.pdf'), text = 'Consentimiento Informado 2016 (Muestra Original)')
+}
+
+```
+
+
+```{r}
+
+if (is_html_output()) {
+  xfun::embed_file(file.path('inputs', 'consentimiento_informado_panel_coes_refresco.pdf'), text = 'Consentimiento Informado 2018 (Muestra Refrsco)')
+}
+
+```
+
+
+```{r}
+
+if (is_html_output()) {
+  xfun::embed_file(file.path('inputs', 'consentimiento_informado_panel_coes_apendice.pdf'), text = 'Consentimiento Informado 2021 (Apéndice)')
+}
+
+```

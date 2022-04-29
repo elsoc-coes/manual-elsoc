@@ -1,0 +1,166 @@
+\newpage
+
+# Diseño del Instrumento {#dis_ins}
+
+El instrumento de recolección de información consiste en un cuestionario estructurado (tipo encuesta) aplicado cara a cara a todos los participantes. Dicha aplicación se hace utilizando el sistema **CAPI** (Encuestas personales asistidas por computadores). Excepcionalmente, se cambió a aplicación bajo el sistema **CATI** (Encuesta telefónica asistica por computadores) durante el levantamiento de la ola 2021, debido a la contingencia COVID-19 (más detalle en la sección [Cuestionario 2021: levantamiento durante pandemia de COVID-19](#instrumento-covid).)
+
+El cuestionario fue diseñado para medir una serie de aspectos conceptualmente relevantes que permiten caracterizar los niveles de conflicto y cohesión social en Chile, enfatizando su evolución a lo largo del tiempo. Los principales temas de interés analítico abordados por la encuesta corresponden a los módulos en los cuales se estructura:
+
+- Ciudadanía y Democracia
+- Redes sociales e Interacciones inter-grupales
+- Legitimidad y desigualdad social
+- Conflicto social
+- Dimensión barrial
+- Salud y bienestar
+- Caracterización Socio demográfica
+- Género (agregado a la encuesta a partir de 2019)
+
+## Diseño del cuestionario {#dis-cuestionario}
+
+El diseño del cuestionario Original de ELSOC se desarrolló durante el año 2015 y abarcó la planificación de las olas 2016 y 2017. Las diferencias entre cuestionarios subsecuentes son descritas en el apartado [cambios en el Cuestionario entre olas](#dif-cuest-olas).
+
+La mayoría de las preguntas, escalas y/o items incluidos en los módulos de ELSOC provienen de otros estudios de opinión pública, investigaciones -en psicología, sociología, economía, ciencia política- realizadas por académicos nacionales e internacionales y encuestas sociales conducidas en Chile y otros países. En forma complementaria, algunas escalas fueron desarrolladas por los miembros del equipo COES y/o han sido adaptadas de estudios anteriores de éstos. El cuestionario fue diseñado aprovechando las principales recomendaciones técnicas y el estado del arte en las distintas áreas de estudio incluidas.
+
+Con el objetivo de satisfacer los criterios y estándares de calidad para cuestionarios y compatibilizar la multiplicidad de agendas de investigación desarrolladas por COES, se optó por elaborar un procedimiento de trabajo para la construcción de éste. Este proceso se desarrolló durante el año 2015 en distintas fases:
+
+1. Se solicitó a los investigadores vinculados a COES proponer proyectos de investigación que contemplen un planteamiento teórico e hipótesis que fundamenten las escalas propuestas para ser incluidas en el cuestionario. Las propuestas podían ser presentadas de manera individual o colectiva y no existían restricciones en el número de ítems a proponer. Sólo se exigía una fundamentación teórica explícita que involucre hipótesis longitudinales y una operacionalización de los constructos a medir en los distintos items propuestos.
+
+2. El procedimiento anterior implicó la recepción y organización de un elevado número de agendas de investigación, los que se materializan en más 750 items (preguntas únicas o parte de una escala). El equipo ELSOC sistematizó las propuestas recibidas, clasificando los items en áreas temáticas. A la vez, se diseñaron mecanismos para reducir el número de items y coordinaron reuniones entre los investigadores COES para decidir sobre éstos. Los criterios de selección fueron principalmente teóricos, priorizando las preguntas fundamentales para el análisis longitudinal de los proyectos de investigación como su concordancia con la agenda sustantiva de COES. También se incluyeron criterios prácticos, relativos a la eliminación de items idénticos o muy semejantes; evidencia previa sobre la calidad de los items (encuestas anteriores, especialmente la encuesta de corte transversal desarrollada por COES el año 2014) y el diseño general del estudio (diseño muestral, unidad de análisis, tipo de informante, etc.)..
+
+3. Luego de una selección de las escalas más relevantes para cada tema propuesto, se realizó un estudio piloto del cuestionario desarrollado. Esto implicó pilotear 430 items, donde el Centro MicroDatos de la Universidad de Chile se encargó de su ejecución. En base a los resultados de dicho piloto, el equipo panel realizó ajustes a algunos items y elaboró una propuesta de reducción de ítems que fue evaluada con los investigadores del Centro. 
+
+4. La última etapa de ajuste del cuestionario se centró en identificar los aspectos conceptualmente más relevantes para COES y ponderar los requerimientos metodológicos para su evaluación empírica. De este modo, se clasificaron los items según el número de mediciones requeridas, distinguiendo entre items permanentes (que serán medidos en todas las olas, ya que constituyen el núcleo analítico del estudio) e intercalados (que serán medidos una única vez o una ola por medio). 
+
+La versión final del instrumento de recolección de información consiste en un cuestionario estructurado (tipo encuesta) que se aplica cara a cara a todos los participantes con una periodicidad anual, con un total de 326 ítems o preguntas.
+
+### Cambios en el Cuestionario entre olas {-#dif-cuest-olas}
+
+Como se describió en la sección anterior, las preguntas de ELSOC se encuentran clasificadas entre items permanentes e intercalados, dado que algunos de éstos no se miden en todas las olas. Por lo mismo, los cuestionarios implementados presentan diferencias entre las distintas olas de la encuesta.
+
+Adicionalmente, los cuestionarios implementados han sufrido modificaciones que no se encontraban originalmente planificadas, debido a un proceso constante de evaluación de la calidad del instrumento aplicado, que puede resultar en la modificación o eliminación de preguntas; por la existencia de coyunturas que, dada la naturaleza del estudio, motivan la inclusión de nuevos ítems; o por la emergencia de nuevas agendas de investigación relevantes para ELSOC.
+
+Un tema adicional que impactó en el cuestionario implementado es la duración promedio de la entrevista. Durante 2016 la duración promedio por encuestado fue de 55 minutos. CMD recomendó al equipo ELSOC reducir el tiempo de entrevista a 45 minutos promedio, dado que un tiempo superior implica una mayor fatiga en los encuestadores y entrevistados, afectando negativamente la calidad del levantamiento. Por este motivo, se decidió acortar la extensión del estudio. El Equipo ELSOC, en conjunto con investigadores COES, definió distintos ajustes que permitieron reducir la extensión del cuestionario. Mientras el cuestionario de la ola 2016 contenía 326 items, en el año 2017 el instrumento contemplaba 309. En las olas siguientes se han hechos esfuerzos por acortar el cuestionario.
+
+En la Tabla \@ref(tab:tabla-items-olas) se muestra el detalle del número de items medidos en cada ola del estudio en la muestra Original y Refresco:
+
+```{r tabla-items-olas}
+
+items_olas <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'), 
+                         sheet = 'n_ola_muestra') %>% 
+  janitor::clean_names()
+
+items_olas %>% 
+  kbl(caption = 'Número de ítems por muestra, según ola',
+      align = c('l', 'c', 'c'),
+      format = table_format,
+      booktabs = TRUE,
+      col.name = c('Ola', 'Items en muestra original', 'Items en muestra refresco')) %>% 
+  kable_styling(full_width = FALSE,
+                latex_options = 'HOLD_position') %>% 
+  kable_classic_2()
+
+```
+
+En la Tabla \@ref(tab:tabla-items-olas-modulos) se muestra la distribución según módulo del cuestionario:
+
+
+```{r tabla-items-olas-modulos}
+
+items_olas_modulos <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'), 
+                         sheet = 'n_ola_muestra_modulo') %>% 
+  janitor::clean_names()
+
+items_olas_modulos %>% 
+  dplyr::select(-muestra) %>% 
+  kbl(caption = 'Número de ítems por  módulo, según muestra y ola',
+      align = c('l', 'c', 'c', 'c', 'c', 'c'),
+      format = table_format,
+      booktabs = TRUE,
+      col.name = c('Módulo', '2016', '2017', '2018', '2019', '2021')) %>% 
+  kable_styling(full_width = FALSE,
+                latex_options = 'HOLD_position') %>% 
+  kable_classic_2() %>% 
+  pack_rows('Muestra Original', 1, 8) %>%
+  pack_rows('Muestra Refresco', 9, 16)
+
+```
+
+### Diferencias en Cuestionarios entre Muestras {-#dif-cuest-muestras}
+
+A partir de 2018, se comienza a implementar la Muestra Refresco, la que busca complementar y compensar la atrición acumulada de la Muestra Original. El cuestionario de la muestra refresco es, en gran medida, similar al que presenta la muestra Original. Sin embargo, dada la amplia cantidad de agendas de investigación y temas relevantes para ELSOC, se ha permitido la inclusión de preguntas presentes solo en una de las 2 muestras, de forma de aumentar la cantidad de temas cubiertos, pero manteniendo un número más acotado de preguntas realizada a cada encuestado. 
+
+En la Tabla \@ref(tab:tabla-items-compartidos) se muestra el detalle del número de items compartidos entre ambas muestras por Ola, así como aquellos items presentes exclusivamente en la muestra original o refresco.
+
+```{r tabla-items-compartidos}
+
+items_compartidos <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'), 
+                         sheet = 'n_ola_muestra_traslape') %>% 
+  janitor::clean_names() %>% 
+  filter(items_compartidos < 2022)
+
+items_compartidos %>% 
+  kbl(caption = 'Número de ítems por muestra, según presencia en muestras Original y Refresco',
+      align = c('l', 'c', 'c', 'c', 'c'),
+      format = table_format,
+      booktabs = TRUE,
+      col.name = c('Ola', 'Solo en muestra original', 'Solo en muestra refresco', 
+                   'Ambas muestras', 'Total')) %>% 
+  kable_styling(full_width = FALSE,
+                latex_options = 'HOLD_position') %>% 
+  kable_classic_2() %>% 
+  column_spec(2:5, width = "7em")
+
+  
+```
+### Cuestionario 2021: levantamiento durante la pandemia de COVID-19 {-#instrumento-covid}
+
+La crisis sanitaria ocurrida a partir de 2020, a raíz del COVID-19, ha planteado una serie de desafíos importantes a los sistemas estadísticos a nivel general, y a las encuestas de opinión pública en particular. La Organización Internacional del Trabajo (OIT, 2020) reporta que la mayoría de las oficinas nacionales de estadística ha informado un impacto significativo en sus operaciones, particularmente en aquellas que se llevan a cabo de manera presencial. Para sobrellevar estos problemas, varias organizaciones han tenido que transformar sus operaciones presenciales a levantamientos por teléfono o encuestas web.
+
+En esta línea, con el objetivo de asegurar la factibilidad del proceso de producción de datos de la encuesta ELSOC 2021 y la seguridad tanto de entrevistados como encuestadores, el equipo ejecutivo de ELSOC, en conjunto con los profesionales del Centro de Microdatos de la Universidad de Chile, decidió adoptar una serie de medidas que implicaron transitar temporalmente a una aplicación del cuestionario en formato telefónico (modo CATI).
+
+Dado que se esperaba un aumento en los tiempos de aplicación al pasar a formato telefónico, la aplicación del cuestionario se dividió en dos llamados, denominados Llamados A y B, respectívamente, con el objetivo de que cada uno tenga una duración máxima de 30 minutos, para así reducir el tiempo de aplicación de la entrevista y evitar la fatiga de los encuestados y los encuestadores.
+
+Para evaluar los desafíos y el cambio metodológico de la aplicación, durante el 2 y 21 de diciembre de 2020 se realizó una encuesta piloto, actividad que resultó relevante para evaluar tanto los aspectos técnicos como metodológicos asociados al cambio de aplicación. En este proceso se encontró que el tiempo de levantamiento excedía los 30 minutos en promedio de aplicación por llamado, por lo que se decidió:
+
+1. Reducir el número de ítems de los cuestionarios
+2. Ajustar preguntas que generaron complicaciones, en base a lo encontrado durante la prueba piloto
+
+Se definieron los siguientes criterios para reducir el tamaño del cuestionario: 1) reducir dimensiones que se han visto muy constreñidas por las cuarentenas, tales como participación política e interacción social; 2) priorizar ítems en función de la consistencia técnica y/o alineación con los objetivos de COES; 3) priorizar ítems que tienen menos de tres mediciones a lo largo del estudio; y 4) mantener ítems críticos a nivel socioeconómico y de salud, que permitan realizar una buena pesquisa del impacto de la pandemia y las cuarentenas. 
+
+En cuanto a la asignación de las preguntas entre llamados A y B, los principales criterios utilizados fueron: 1) conservar la calidad del flujo de la encuesta, manteniendo preguntas de temáticas similares en un mismo llamado y asegurándose que las baterías de variables que compartieran un mismo encabezado inicial se mantuvieran juntas; y 2) que los ítems imprescindibles asociados a pandemia, cuarentenas y estallido social fueran preguntados de manera inmediata para poder monitorear y caracterizar a los encuestados durante este periodo.
+
+En la Tabla \@ref(tab:tabla-llamados) se presenta la distribución de ítems por módulos para llamados A y B distribuido por el tipo de muestra.
+
+```{r tabla-llamados}
+
+items_llamado_2021 <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'), 
+                         sheet = 'n_llamados_2021') %>% 
+  janitor::clean_names()
+
+items_llamado_2021 %>% 
+  kbl(caption = 'Distribución de ítems por llamado y muestra, Ola 2021',
+      align = c('l', 'c', 'c', 'c', 'c'),
+      format = table_format,
+      booktabs = TRUE,
+      col.name = c('Ola', rep(c('Llamado A', 'Llamado B'), 2))) %>% 
+  kable_styling(full_width = FALSE,
+                latex_options = 'HOLD_position') %>% 
+  kable_classic_2() %>% 
+  add_header_above(c(" "= 1, "Muestra Original" = 2, "Muestra Refresco" = 2))
+
+  
+```
+
+En segundo lugar, y encadenado con lo anterior, se ajustaron las variables que teniendo más de 5 categorías de respuesta generaban mayores complicaciones para preguntar en las pruebas pilotos de esta encuesta. A continuación, se presentan los ítems que fueron reducidos en sus alternativas de respuesta y el criterio que se adoptó para cada caso:
+ 
+ - Batería de Redes Lejanas [r01, r02 y r04]: Esta batería consulta por la cantidad de personas en distintas ocupaciones y grupos sociales que el entrevistado conoce. Originalmente esta batería de preguntas tiene 7 valores (1. Ninguno; 2. Uno; 3. Entre 2 y 4; 4. Entre 5 y 7; 5. Entre 8 y 10; 6. Entre 11 y 15; 7. 16 o más). Debido a que los rangos de respuesta no son obedecen a un patrón claro, se tomo la decisión de preguntarles a los encuestados por el número puntual de conocidos.
+ 
+  - Peso del entrevistado [s07]: Esta variable presenta 9 tramos de respuesta, los cuales fueron establecidos en 5 tramos, tomando como referencia los quintiles de peso reportados por ELSOC en la ola 2018 en la variable s06
+  
+ - Variables de Ingreso en tramos [m14 y m30]: La variable m14 tiene 16 tramos de respuesta, mientras que la variable m30 tiene 30 tramos de respuesta. Ambas variables fueron establecidas en 5 tramos, tomando como referencia los quintiles de ingreso presentados por la encuesta Casen 2017.
+
+
+## Listado de variables
+
+Dada la gran cantidad de ítems medidos en el tiempo, para examinar de manera detallada las diferencias entre los instrumentos aplicados, se sugiere a los interesados revisar los **Cuestionarios** de cada medición. De igual forma, se sugiere revisar el [**Libro de Códigos**](#libro-codigos), donde se incluyen todos los ítems medidos en ELSOC, con información detallada sobre las olas en que fueron medidas cada pregunta, así como las modificaciones y otras informaciones relevantes para el uso de los datos ELSOC.
+

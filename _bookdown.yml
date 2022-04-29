@@ -1,0 +1,20 @@
+book_filename: "manual-metodologico-elsoc"
+delete_merged_file: false
+language:
+  ui:
+    chapter_name: "Sección "
+  label:
+    fig: 'Figura '
+    tab: 'Tabla '
+    eq: 'Ecuacion '
+    thm: 'Teorema '
+    lem: 'Lema '
+    cor: 'Corolario '
+    prp: 'Proposicion '
+    cnj: 'Conjectura '
+    def: 'Definicion '
+    exm: 'Ejemplo '
+    exr: 'Ejercicio '
+    proof: 'Demostracion. '
+    remark: 'Remark. '
+    solution: 'Solution. '  

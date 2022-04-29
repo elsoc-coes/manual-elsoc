@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Sección 4 Bases de Datos | Manual Metodológico ELSOC 2016-2021</title>
+  <meta name="description" content="Sección 4 Bases de Datos | Manual Metodológico ELSOC 2016-2021" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Sección 4 Bases de Datos | Manual Metodológico ELSOC 2016-2021" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Sección 4 Bases de Datos | Manual Metodológico ELSOC 2016-2021" />
+  <meta name="github-repo" content="edgardo-cerda/manual-elsoc" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Sección 4 Bases de Datos | Manual Metodológico ELSOC 2016-2021" />
+  
+  <meta name="twitter:description" content="Sección 4 Bases de Datos | Manual Metodológico ELSOC 2016-2021" />
+  
+
+<meta name="author" content="Equipo ELSOC" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="implem_encuest.html"/>
+<link rel="next" href="libro-codigos.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Manual Metodológico ELSOC 2016-2021 </a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a></li>
+<li class="chapter" data-level="1" data-path="dis_muest.html"><a href="dis_muest.html"><i class="fa fa-check"></i><b>1</b> Diseño Muestral del Estudio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="dis_muest.html"><a href="dis_muest.html#dis_muest_original"><i class="fa fa-check"></i><b>1.1</b> Diseño muestral Muestra original</a>
+<ul>
+<li class="chapter" data-level="" data-path="dis_muest.html"><a href="dis_muest.html#preparación-del-marco-muestral"><i class="fa fa-check"></i>Preparación del Marco Muestral</a></li>
+<li class="chapter" data-level="" data-path="dis_muest.html"><a href="dis_muest.html#etapa1m1"><i class="fa fa-check"></i>Etapa 1: Selección de Ciudades</a></li>
+<li class="chapter" data-level="" data-path="dis_muest.html"><a href="dis_muest.html#etapa2m1"><i class="fa fa-check"></i>Etapa 2: Selección de Bloques (Manzanas)</a></li>
+<li class="chapter" data-level="" data-path="dis_muest.html"><a href="dis_muest.html#etapa3m1"><i class="fa fa-check"></i>Etapa 3: Selección de viviendas</a></li>
+<li class="chapter" data-level="" data-path="dis_muest.html"><a href="dis_muest.html#etapa4m1"><i class="fa fa-check"></i>Etapa 4: Selección de personas</a></li>
+<li class="chapter" data-level="" data-path="dis_muest.html"><a href="dis_muest.html#etapa5m1"><i class="fa fa-check"></i>Etapa 5: Aumento del tamaño muestral</a></li>
+<li class="chapter" data-level="" data-path="dis_muest.html"><a href="dis_muest.html#diseño-muestral-de-olas-sucesivas-en-muestra-original"><i class="fa fa-check"></i>Diseño muestral de olas sucesivas en Muestra Original</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="dis_muest.html"><a href="dis_muest.html#dis_muest_refresco"><i class="fa fa-check"></i><b>1.2</b> Diseño muestral Muestra Refresco</a>
+<ul>
+<li class="chapter" data-level="" data-path="dis_muest.html"><a href="dis_muest.html#preparación-del-marco-muestral-para-la-muestra-refresco"><i class="fa fa-check"></i>Preparación del marco muestral para la muestra refresco</a></li>
+<li class="chapter" data-level="" data-path="dis_muest.html"><a href="dis_muest.html#etapa1m2"><i class="fa fa-check"></i>Etapa 1: Selección de Ciudades</a></li>
+<li class="chapter" data-level="" data-path="dis_muest.html"><a href="dis_muest.html#etapa2m2"><i class="fa fa-check"></i>Etapa 2: Selección de Bloques (Manzanas)</a></li>
+<li class="chapter" data-level="" data-path="dis_muest.html"><a href="dis_muest.html#etapa3refresco"><i class="fa fa-check"></i>Etapa 3: Selección de viviendas</a></li>
+<li class="chapter" data-level="" data-path="dis_muest.html"><a href="dis_muest.html#etapa4refresco"><i class="fa fa-check"></i>Etapa 4: Selección de personas</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="dis_muest.html"><a href="dis_muest.html#dis_ponderadores"><i class="fa fa-check"></i><b>1.3</b> Diseño de Ponderadores</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="dis_ins.html"><a href="dis_ins.html"><i class="fa fa-check"></i><b>2</b> Diseño del Instrumento</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="dis_ins.html"><a href="dis_ins.html#dis-cuestionario"><i class="fa fa-check"></i><b>2.1</b> Diseño del cuestionario</a>
+<ul>
+<li class="chapter" data-level="" data-path="dis_ins.html"><a href="dis_ins.html#dif-cuest-olas"><i class="fa fa-check"></i>Cambios en el Cuestionario entre olas</a></li>
+<li class="chapter" data-level="" data-path="dis_ins.html"><a href="dis_ins.html#dif-cuest-muestras"><i class="fa fa-check"></i>Diferencias en Cuestionarios entre Muestras</a></li>
+<li class="chapter" data-level="" data-path="dis_ins.html"><a href="dis_ins.html#instrumento-covid"><i class="fa fa-check"></i>Cuestionario 2021: levantamiento durante la pandemia de COVID-19</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="dis_ins.html"><a href="dis_ins.html#listado-de-variables"><i class="fa fa-check"></i><b>2.2</b> Listado de variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="implem_encuest.html"><a href="implem_encuest.html"><i class="fa fa-check"></i><b>3</b> Implementación de la Encuesta</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="implem_encuest.html"><a href="implem_encuest.html#características-generales-del-levantamiento"><i class="fa fa-check"></i><b>3.1</b> Características generales del levantamiento</a>
+<ul>
+<li class="chapter" data-level="" data-path="implem_encuest.html"><a href="implem_encuest.html#ente-ejecutor"><i class="fa fa-check"></i>Ente ejecutor</a></li>
+<li class="chapter" data-level="" data-path="implem_encuest.html"><a href="implem_encuest.html#pilotaje-del-cuestionario"><i class="fa fa-check"></i>Pilotaje del Cuestionario</a></li>
+<li class="chapter" data-level="" data-path="implem_encuest.html"><a href="implem_encuest.html#planificación-y-ejecución-del-campo"><i class="fa fa-check"></i>Planificación y Ejecución del Campo</a></li>
+<li class="chapter" data-level="" data-path="implem_encuest.html"><a href="implem_encuest.html#control-y-aseguramiento-de-calidad-del-trabajo-de-campo"><i class="fa fa-check"></i>Control y aseguramiento de calidad del trabajo de campo</a></li>
+<li class="chapter" data-level="" data-path="implem_encuest.html"><a href="implem_encuest.html#estrategia-de-seguimiento"><i class="fa fa-check"></i>Estrategia de Seguimiento</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="implem_encuest.html"><a href="implem_encuest.html#incidencias-en-la-aplicación-de-las-encuestas"><i class="fa fa-check"></i><b>3.2</b> Incidencias en la aplicación de las encuestas</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="implem_encuest.html"><a href="implem_encuest.html#implementación-ola-2016"><i class="fa fa-check"></i><b>3.2.1</b> Implementación Ola 2016</a></li>
+<li class="chapter" data-level="3.2.2" data-path="implem_encuest.html"><a href="implem_encuest.html#implementación-ola-2017"><i class="fa fa-check"></i><b>3.2.2</b> Implementación Ola 2017</a></li>
+<li class="chapter" data-level="3.2.3" data-path="implem_encuest.html"><a href="implem_encuest.html#implementación-ola-2018"><i class="fa fa-check"></i><b>3.2.3</b> Implementación Ola 2018</a></li>
+<li class="chapter" data-level="3.2.4" data-path="implem_encuest.html"><a href="implem_encuest.html#implementación-ola-2019"><i class="fa fa-check"></i><b>3.2.4</b> Implementación Ola 2019</a></li>
+<li class="chapter" data-level="3.2.5" data-path="implem_encuest.html"><a href="implem_encuest.html#implementación-ola-2021"><i class="fa fa-check"></i><b>3.2.5</b> Implementación Ola 2021</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="implem_encuest.html"><a href="implem_encuest.html#atricion"><i class="fa fa-check"></i><b>3.3</b> Atrición de la encuesta</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="bases-datos.html"><a href="bases-datos.html"><i class="fa fa-check"></i><b>4</b> Bases de Datos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="bases-datos.html"><a href="bases-datos.html#descarga-de-bases-de-datos"><i class="fa fa-check"></i><b>4.1</b> Descarga de Bases de datos</a></li>
+<li class="chapter" data-level="4.2" data-path="bases-datos.html"><a href="bases-datos.html#fichas-técnicas"><i class="fa fa-check"></i><b>4.2</b> Fichas Técnicas</a></li>
+<li class="chapter" data-level="4.3" data-path="bases-datos.html"><a href="bases-datos.html#protocolo-de-uso-de-base-de-datos"><i class="fa fa-check"></i><b>4.3</b> Protocolo de Uso de Base de Datos</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="libro-codigos.html"><a href="libro-codigos.html"><i class="fa fa-check"></i><b>5</b> Libro de Códigos</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="libro-codigos.html"><a href="libro-codigos.html#módulo-de-ciudadanía-y-democracia"><i class="fa fa-check"></i><b>5.1</b> Módulo de Ciudadanía y democracia</a></li>
+<li class="chapter" data-level="5.2" data-path="libro-codigos.html"><a href="libro-codigos.html#módulo-de-conflicto-social"><i class="fa fa-check"></i><b>5.2</b> Módulo de Conflicto Social</a></li>
+<li class="chapter" data-level="5.3" data-path="libro-codigos.html"><a href="libro-codigos.html#módulo-de-desigualdad-y-legitimidad"><i class="fa fa-check"></i><b>5.3</b> Módulo de Desigualdad y legitimidad</a></li>
+<li class="chapter" data-level="5.4" data-path="libro-codigos.html"><a href="libro-codigos.html#módulo-de-género"><i class="fa fa-check"></i><b>5.4</b> Módulo de Género</a></li>
+<li class="chapter" data-level="5.5" data-path="libro-codigos.html"><a href="libro-codigos.html#módulo-de-redes-y-actitudes"><i class="fa fa-check"></i><b>5.5</b> Módulo de Redes y Actitudes</a></li>
+<li class="chapter" data-level="5.6" data-path="libro-codigos.html"><a href="libro-codigos.html#módulo-de-salud-y-bienestar"><i class="fa fa-check"></i><b>5.6</b> Módulo de Salud y Bienestar</a></li>
+<li class="chapter" data-level="5.7" data-path="libro-codigos.html"><a href="libro-codigos.html#módulo-de-territorio"><i class="fa fa-check"></i><b>5.7</b> Módulo de Territorio</a></li>
+<li class="chapter" data-level="5.8" data-path="libro-codigos.html"><a href="libro-codigos.html#módulo-sociodemográfico"><i class="fa fa-check"></i><b>5.8</b> Módulo Sociodemográfico</a></li>
+<li class="chapter" data-level="5.9" data-path="libro-codigos.html"><a href="libro-codigos.html#variables-de-identificacion-y-otras-variables"><i class="fa fa-check"></i><b>5.9</b> Variables de identificacion y otras variables</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ética.html"><a href="ética.html"><i class="fa fa-check"></i><b>6</b> Ética</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ética.html"><a href="ética.html#aprobación-comité-de-ética"><i class="fa fa-check"></i><b>6.1</b> Aprobación Comité de Ética</a></li>
+<li class="chapter" data-level="6.2" data-path="ética.html"><a href="ética.html#consentimiento-informado"><i class="fa fa-check"></i><b>6.2</b> Consentimiento informado</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="dudas-y-consultas.html"><a href="dudas-y-consultas.html"><i class="fa fa-check"></i><b>7</b> Dudas y Consultas</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/edgardo-cerda/manual-elsoc" target="blank"> Ver fuente <i class="fa fa-github"></i></a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Manual Metodológico ELSOC 2016-2021</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="bases-datos" class="section level1" number="4">
+<h1><span class="header-section-number">Sección 4</span> Bases de Datos</h1>
+<div id="descarga-de-bases-de-datos" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Descarga de Bases de datos</h2>
+<p>Las bases de datos ELSOC son puestas a disposición al público general en el momento en que se ha completado su proceso de revisión y validación. Las bases de datos son publicadas y archivadas en el repositorio de <strong>Harvard Dataverse</strong>, en la <a href="https://dataverse.harvard.edu/dataverse/coes_data_repository">carpeta de datos de COES</a>. Este repositorio permite un acceso gratuito y seguro a las bases de datos.</p>
+<p>ELSOC se pone a disposición como bases de datos transversales según ola: olas 2016, 2017, 2018, 2019 y 2021, en formato de datos de R (.RData), SPSS (.sav), Stata 13 (.dta) y Stata 14 (.dta).</p>
+<p>Adicionalmente, a partir de 2019, se publican las bases de datos en formato longitudinal, para facilitar su uso como encuesta panel. A la fecha se encuentran publicadas la base longitudinal de olas 2016-2019 en formato wide, y bases longitudinal de olas 2016-2021 en formato wide y long. Las variables que han presentado cambios en el tiempo se encuentran armonizadas para permitir su uso longitudinal.</p>
+<p>Como parte de un proceso continuo de mejora, es posible que las bases de datos publicadas sean actualizadas durante el desarrollo de ELSOC, debido a la corrección de potenciales errores, mejoras en el formato de los datos, actualización de códigos de no respuesta, etc. Dado esto, en el repositorio de Harvard Dataverse se encuentra publicada la última versión disponible, así como todas las versiones anteriores en caso de ser necesarias.</p>
+</div>
+<div id="fichas-técnicas" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Fichas Técnicas</h2>
+<p>En este apartado se presenta la Ficha Técnica (Ver Cuadro <a href="bases-datos.html#tab:ficha">4.1</a>, dónde se sintetizan las principales características del Estudio Longitudinal Social de Chile (ELSOC COES):</p>
+<table class="table lightable-classic-2" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:ficha">Tabla 4.1: </span>Ficha Técnica ELSOC COES
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Características
+</th>
+<th style="text-align:left;">
+ELSOC
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Objetivo
+</td>
+<td style="text-align:left;width: 35em; ">
+Analizar longitudinalmente la evolución del conflicto y cohesión
+en la sociedad chilena
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Diseño
+</td>
+<td style="text-align:left;width: 35em; ">
+Estudio cuantitativo por medio de un cuestionario estructurado
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Instrumento
+</td>
+<td style="text-align:left;width: 35em; ">
+Cuestionario compuesto por preguntas cerradas de carácter simple y múltiple junto a algunas preguntas abiertas
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Unidad de análisis
+</td>
+<td style="text-align:left;width: 35em; ">
+Individuos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Población objetivo
+</td>
+<td style="text-align:left;width: 35em; ">
+Hombres y mujeres de 18 a 75 años, residentes habituales de viviendas particulares
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Marco muestral
+</td>
+<td style="text-align:left;width: 35em; ">
+Marco de muestreo de manzanas del pre-censo 2011, trabajo elaborado por el Centro de Inteligencia Territorial (CIT) de la Universidad Adolfo Ibáñez
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Diseño muestral
+</td>
+<td style="text-align:left;width: 35em; ">
+Probabilístico, estratificado, por conglomerados y multietápico
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Unidades de muestreo
+</td>
+<td style="text-align:left;width: 35em; ">
+Primero se eligen ciudades (UPM), luego manzanas (USM), y sub-bloques y viviendas (UTM). La unidad final de selección es la persona
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Periodicidad
+</td>
+<td style="text-align:left;width: 35em; ">
+Anual. Muestra de refresco a oartir del 3er año
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Modo de aplicación
+</td>
+<td style="text-align:left;width: 35em; ">
+Formato CAPI en vivienda del entrevistado. Formato CATI durante 2021
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Informante
+</td>
+<td style="text-align:left;width: 35em; ">
+Hombre o mujer residente en la vivienda, con edad entre 18 y 75 años.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Duración promedio
+</td>
+<td style="text-align:left;width: 35em; ">
+51 minutos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Representatividad
+</td>
+<td style="text-align:left;width: 35em; ">
+Aproximadamente el 77% de la población total del país y 93% de la
+población urbana con la muestra de Ola 2016
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Organismo responsable
+</td>
+<td style="text-align:left;width: 35em; ">
+Centro de Estudios del Conflicto y Cohesión Social (COES)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Organismo ejecutor
+</td>
+<td style="text-align:left;width: 35em; ">
+CentroMicroDatos (CMD) de la Universidad de Chile
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="protocolo-de-uso-de-base-de-datos" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Protocolo de Uso de Base de Datos</h2>
+<p>Cualquier publicación que utilize las bases de datos ELSOC, en cualquiera de sus versiones, debe citar la fuente de las siguientes formas (dependiendo de la base utilizada):</p>
+<ul>
+<li>ELSOC 2016:</li>
+</ul>
+<p><strong>Centro de Estudios de Conflicto y Cohesión Social (2016). Estudio Longitudinal Social de Chile, Primera Ola (ELSOC_W01_v1.00). [Archivo de datos]. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl</strong></p>
+<ul>
+<li>ELSOC 2017:</li>
+</ul>
+<p><strong>Centro de Estudios de Conflicto y Cohesión Social (2017). Estudio Longitudinal Social de Chile, Segunda Ola (ELSOC_W02_v1.00). [Archivo de datos]. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl</strong></p>
+<ul>
+<li>ELSOC 2018:</li>
+</ul>
+<p><strong>Centro de Estudios de Conflicto y Cohesión Social (2018). Estudio Longitudinal Social de Chile, Tercera Ola (ELSOC_W03_v1.00). [Archivo de datos]. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl</strong></p>
+<ul>
+<li>ELSOC 2019:</li>
+</ul>
+<p><strong>Centro de Estudios de Conflicto y Cohesión Social (2019). Estudio Longitudinal Social de Chile, Cuarta Ola (ELSOC_W04_v1.00). [Archivo de datos]. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl</strong></p>
+<ul>
+<li>ELSOC 2021:</li>
+</ul>
+<p><strong>Centro de Estudios de Conflicto y Cohesión Social (2021). Estudio Longitudinal Social de Chile, Quinta Ola (ELSOC_W05_v1.00). [Archivo de datos]. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl</strong></p>
+<p>O en su formato longitudinal:</p>
+<p><strong>Centro de Estudios de Conflicto y Cohesión Social (2021). Estudio Longitudinal Social de Chile, Versión Panel Combinada 2016-2019 (ELSOC_Wide_2016_2019_v1.00). [Archivo de datos]. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl</strong></p>
+<p>Por último, en caso de que se desee citar el presente Manual de Usuario:</p>
+**Centro de Estudios de Conflicto y Cohesión Social (2021). Manual de Usuario de Estudio Longitudinal Social de Chile. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES).*<br>
+</th>
+</tr>
+</thead>
+</table>
+<p>**</p>
+<table style="border-collapse:collapse;border-spacing:0" class="tg">
+<thead>
+<tr>
+<th style="border-color:#000000;border-style:solid;border-width:1px;font-family:Arial, Helvetica, sans-serif !important;;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;text-align:center;vertical-align:top;word-break:normal">
+Centro de Estudios de Conflicto y Cohesión Social (2021). Estudio Longitudinal Social de Chile, Quinta Ola (ELSOC_W05_v1.00). [Archivo de datos]. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl <br>
+</th>
+</tr>
+</thead>
+</table>
+
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="implem_encuest.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="libro-codigos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["manual-metodologico-elsoc.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
