@@ -1115,7 +1115,7 @@ Medición & Muestra Original & Muestra Refresco & Muestra Original & Muestra Ref
 
 \begin{table}[H]
 
-\caption{\label{tab:unnamed-chunk-2}Atrición de las muestras de ELSOC entre olas, según sexo}
+\caption{\label{tab:tabla-atricion-sexo}Atrición de las muestras de ELSOC entre olas, según sexo}
 \centering
 \begin{tabular}[t]{ccccc}
 \toprule
@@ -1147,7 +1147,7 @@ Medición & Hombres & Mujeres & Hombres & Mujeres\\
 
 \begin{table}[H]
 
-\caption{\label{tab:unnamed-chunk-3}Atrición de las muestras de ELSOC entre olas, según tramo etáreo}
+\caption{\label{tab:tabla-atricion-edad}Atrición de las muestras de ELSOC entre olas, según tramo etáreo}
 \centering
 \begin{tabular}[t]{ccccccccc}
 \toprule
@@ -1179,7 +1179,7 @@ Medición & 19-29 & 30-49 & 50-64 & 65 o más & 19-29 & 30-49 & 50-64 & 65 o má
 
 \begin{table}[H]
 
-\caption{\label{tab:unnamed-chunk-4}Atrición de las muestras de ELSOC entre olas, según nivel educacional}
+\caption{\label{tab:tabla-atricion-educ}Atrición de las muestras de ELSOC entre olas, según nivel educacional}
 \centering
 \begin{tabular}[t]{ccccccccc}
 \toprule
@@ -1224,15 +1224,21 @@ Como parte de un proceso continuo de mejora, es posible que las bases de datos p
 
 En este apartado se presenta la Ficha Técnica (Ver Cuadro \ref{tab:ficha}, dónde se sintetizan las principales características del Estudio Longitudinal Social de Chile (ELSOC COES):
 
-\begin{table}[H]
-
-\caption{\label{tab:ficha}Ficha Técnica ELSOC COES}
-\centering
-\resizebox{\linewidth}{!}{
-\begin{tabular}[t]{>{\raggedright\arraybackslash}p{7em}>{\raggedright\arraybackslash}p{35em}}
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{8em}>{\raggedright\arraybackslash}p{35em}}
+\caption{\label{tab:ficha}Ficha Técnica ELSOC COES}\\
 \toprule
 Características & ELSOC\\
 \midrule
+\endfirsthead
+\caption[]{\label{tab:ficha}Ficha Técnica ELSOC COES \textit{(continued)}}\\
+\toprule
+Características & ELSOC\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
 Objetivo & Analizar longitudinalmente la evolución del conflicto y cohesión
                               en la sociedad chilena\\
 Diseño & Estudio cuantitativo por medio de un cuestionario estructurado\\
@@ -1251,10 +1257,8 @@ Duración promedio & 51 minutos\\
 Representatividad & Aproximadamente el 77\% de la población total del país y 93\% de la
               población urbana con la muestra de Ola 2016\\
 Organismo responsable & Centro de Estudios del Conflicto y Cohesión Social (COES)\\
-Organismo ejecutor & CentroMicroDatos (CMD) de la Universidad de Chile\\
-\bottomrule
-\end{tabular}}
-\end{table}
+Organismo ejecutor & CentroMicroDatos (CMD) de la Universidad de Chile\\*
+\end{longtable}
 
 \hypertarget{protocolo-de-uso-de-base-de-datos}{%
 \subsection{Protocolo de Uso de Base de Datos}\label{protocolo-de-uso-de-base-de-datos}}
@@ -1312,6 +1316,32 @@ Por último, en caso de que se desee citar el presente Manual de Usuario:
 **
 
 Centro de Estudios de Conflicto y Cohesión Social (2021). Estudio Longitudinal Social de Chile, Quinta Ola (ELSOC\_W05\_v1.00). {[}Archivo de datos{]}. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl
+
+\newpage
+
+\hypertarget{uxe9tica}{%
+\section{Ética}\label{uxe9tica}}
+
+\hypertarget{aprobaciuxf3n-comituxe9-de-uxe9tica}{%
+\subsection{Aprobación Comité de Ética}\label{aprobaciuxf3n-comituxe9-de-uxe9tica}}
+
+El Estudio Longitudinal sobre Conflicto y Cohesión Social en Chile (ELSOC) cuenta con aprobación ética en todas sus olas del \href{http://eticayseguridad.uc.cl/comite-etico-cientifico-en-ciencias-sociales-artes-y-humanidades.html}{Comité Ético Científico de Ciencias Sociales, Artes y Humanidades de la Pontifícia Universidad Católica de Chile} con fecha 08 de junio de 2016 e \textbf{ID Protocolo 160129004}.
+
+La aprobación del Comité de Ética fue renovada con fecha 06 de enero de 2021.
+
+\hypertarget{consentimiento-informado}{%
+\subsection{Consentimiento informado}\label{consentimiento-informado}}
+
+Los participantes del estudio firmaron un Consentimiento Informado por Escrito en que se detallan los objetivos del estudio, en qué consiste su participación y qué se hará y cómo se resguardará la información y datos entregados.
+
+Los participantes del estudio de la Muestra Original firmaron el Consentimiento Informado el 2016, mientras que los participantes de la Muestra Refresco en 2018. Adicionalmente, debido al cambio de modalidad realizado durante el levantamento de la ola 2021 (ver \protect\hyperlink{instrumento-covid}{Cuestionario 2021: levantamiento durante la pandemia de COVID-19}), se solicitó a los participantes de ambas muestras firmar un Apéndice al Consentimiento Informado, en que se detalló los cambios realizados durante dicha ola.
+
+\newpage
+
+\hypertarget{dudas-y-consultas}{%
+\section{Dudas y Consultas}\label{dudas-y-consultas}}
+
+En caso de que detecte problemas con la base de datos, desee plantear solicitudes y/o tenga dudas sobre aspectos no cubiertos por el presente Manual de Usuario, las cuales no puedan ser resueltas por otros medios, puede comunicarse con el Equipo de Encuestas COES al correo electrónico \url{encuestacoes@gmail.com}. El equipo procesará su solicitud y tratará de contestar en el más breve plazo.
 
 \newpage
 
@@ -31824,31 +31854,5 @@ Observaciones: Información relacionada al levantamiento
 \end{quote}
 
 Observaciones: Información relacionada al levantamiento
-
-\newpage
-
-\hypertarget{uxe9tica}{%
-\section{Ética}\label{uxe9tica}}
-
-\hypertarget{aprobaciuxf3n-comituxe9-de-uxe9tica}{%
-\subsection{Aprobación Comité de Ética}\label{aprobaciuxf3n-comituxe9-de-uxe9tica}}
-
-El Estudio Longitudinal sobre Conflicto y Cohesión Social en Chile (ELSOC) cuenta con aprobación ética en todas sus olas del \href{http://eticayseguridad.uc.cl/comite-etico-cientifico-en-ciencias-sociales-artes-y-humanidades.html}{Comité Ético Científico de Ciencias Sociales, Artes y Humanidades de la Pontifícia Universidad Católica de Chile} con fecha 08 de junio de 2016 e \textbf{ID Protocolo 160129004}.
-
-La aprobación del Comité de Ética fue renovada con fecha 06 de enero de 2021.
-
-\hypertarget{consentimiento-informado}{%
-\subsection{Consentimiento informado}\label{consentimiento-informado}}
-
-Los participantes del estudio firmaron un Consentimiento Informado por Escrito en que se detallan los objetivos del estudio, en qué consiste su participación y qué se hará y cómo se resguardará la información y datos entregados.
-
-Los participantes del estudio de la Muestra Original firmaron el Consentimiento Informado el 2016, mientras que los participantes de la Muestra Refresco en 2018. Adicionalmente, debido al cambio de modalidad realizado durante el levantamento de la ola 2021 (ver \protect\hyperlink{instrumento-covid}{Cuestionario 2021: levantamiento durante la pandemia de COVID-19}), se solicitó a los participantes de ambas muestras firmar un Apéndice al Consentimiento Informado, en que se detalló los cambios realizados durante dicha ola.
-
-\newpage
-
-\hypertarget{dudas-y-consultas}{%
-\section{Dudas y Consultas}\label{dudas-y-consultas}}
-
-En caso de que detecte problemas con la base de datos, desee plantear solicitudes y/o tenga dudas sobre aspectos no cubiertos por el presente Manual de Usuario, las cuales no puedan ser resueltas por otros medios, puede comunicarse con el Equipo de Encuestas COES al correo electrónico \url{encuestacoes@gmail.com}. El equipo procesará su solicitud y tratará de contestar en el más breve plazo.
 
 \end{document}

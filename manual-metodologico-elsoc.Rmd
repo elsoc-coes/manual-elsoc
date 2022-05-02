@@ -187,7 +187,7 @@ ciudades %>%
       col.name = c('Estrato', 'Definición (N° habitantes)', 'Tamaño muestra ciudades', 'Número de bloques por ciudad', 'Número de bloques')) %>% 
   kable_styling(full_width = FALSE,
                 latex_options = c('HOLD_position')) %>% 
-    column_spec(2:4, width = "6em") %>% 
+  column_spec(2:4, width = "6em") %>% 
   kable_classic_2()
   
 
@@ -280,7 +280,7 @@ tabla_aumento_muestra %>%
   kable_styling(full_width = FALSE,
                 latex_options = c('repeat_header')) %>% 
   kable_classic_2() %>% 
-    pack_rows('Coquimbo', 1, 3) %>%
+  pack_rows('Coquimbo', 1, 3) %>%
   pack_rows('O’Higgins', 4, 6) %>%
   pack_rows('Biobío', 7, 12) %>%
   pack_rows('Metropolitana', 13, 46)
@@ -1061,7 +1061,7 @@ atricion %>%
 
 - Según sexo:
 
-```{r}
+```{r tabla-atricion-sexo}
 
 atricion_sexo <- elsoc_long_2016_2021 %>%
   left_join(elsoc_long_2016_2021 %>% filter(ola == 1 & muestra == 1 | ola == 3 & muestra == 2) %>% 
@@ -1100,7 +1100,7 @@ atricion_sexo %>%
 
 - Según tramo etareo:
 
-```{r}
+```{r tabla-atricion-edad}
 
 atricion_edad <- elsoc_long_2016_2021 %>%
   left_join(elsoc_long_2016_2021 %>% filter(ola == 1 & muestra == 1 | ola == 3 & muestra == 2) %>% 
@@ -1141,7 +1141,7 @@ atricion_edad %>%
 
 - Según nivel educacional:
 
-```{r}
+```{r tabla-atricion-educ}
 
 atricion_educ <- elsoc_long_2016_2021 %>%
   left_join(elsoc_long_2016_2021 %>% filter(ola == 1 & muestra == 1 | ola == 3 & muestra == 2) %>% 
@@ -1231,11 +1231,12 @@ ficha %>%
   kbl(align = rep('l', 2),
       format = table_format,
       booktabs = TRUE,
+      longtable = TRUE,
       col.name = c('Características', 'ELSOC'),
       caption = 'Ficha Técnica ELSOC COES') %>% 
   kable_styling(full_width = FALSE,
-                latex_options = c('HOLD_position', 'scale_down')) %>%
-  column_spec(1, width = "7em") %>% 
+                latex_options = c('HOLD_position', 'scale_down', 'repeat_header')) %>%
+  column_spec(1, width = "8em") %>% 
   column_spec(2, width = "35em") %>% 
   kable_classic_2() 
 
@@ -1281,6 +1282,66 @@ Por último, en caso de que se desee citar el presente Manual de Usuario:
 
 
 <!--chapter:end:04-bases_de_datos.Rmd-->
+
+\newpage
+
+# Ética
+
+## Aprobación Comité de Ética 
+
+El Estudio Longitudinal sobre Conflicto y Cohesión Social en Chile (ELSOC) cuenta con aprobación ética en todas sus olas del [Comité Ético Científico de Ciencias Sociales, Artes y Humanidades de la Pontifícia Universidad Católica de Chile](http://eticayseguridad.uc.cl/comite-etico-cientifico-en-ciencias-sociales-artes-y-humanidades.html) con fecha 08 de junio de 2016 e **ID Protocolo 160129004**.
+
+La aprobación del Comité de Ética fue renovada con fecha 06 de enero de 2021.
+
+## Consentimiento informado
+
+Los participantes del estudio firmaron un Consentimiento Informado por Escrito en que se detallan los objetivos del estudio, en qué consiste su participación y qué se hará y cómo se resguardará la información y datos entregados. 
+
+Los participantes del estudio de la Muestra Original firmaron el Consentimiento Informado el 2016, mientras que los participantes de la Muestra Refresco en 2018. Adicionalmente, debido al cambio de modalidad realizado durante el levantamento de la ola 2021 (ver [Cuestionario 2021: levantamiento durante la pandemia de COVID-19](#instrumento-covid)), se solicitó a los participantes de ambas muestras firmar un Apéndice al Consentimiento Informado, en que se detalló los cambios realizados durante dicha ola.
+
+```{r, results = 'asis'}
+  if (is_html_output()) {
+    
+    cat('A continuación se encuentran disponibles los Consentimientos Informados firmados por los participantes en 2016 (Muestra Original), 2018 (Muestra Refresco) y 2021 (Apéndice):')
+  }
+```
+
+
+```{r}
+
+if (is_html_output()) {
+  xfun::embed_file(file.path('inputs', 'consentimiento_informado_panel_coes_original.pdf'), text = 'Consentimiento Informado 2016 (Muestra Original)')
+}
+
+```
+
+
+```{r}
+
+if (is_html_output()) {
+  xfun::embed_file(file.path('inputs', 'consentimiento_informado_panel_coes_refresco.pdf'), text = 'Consentimiento Informado 2018 (Muestra Refrsco)')
+}
+
+```
+
+
+```{r}
+
+if (is_html_output()) {
+  xfun::embed_file(file.path('inputs', 'consentimiento_informado_panel_coes_apendice.pdf'), text = 'Consentimiento Informado 2021 (Apéndice)')
+}
+
+```
+
+<!--chapter:end:05-etica.Rmd-->
+
+\newpage
+
+# Dudas y Consultas
+
+En caso de que detecte problemas con la base de datos, desee plantear solicitudes y/o tenga dudas sobre aspectos no cubiertos por el presente Manual de Usuario, las cuales no puedan ser resueltas por otros medios, puede comunicarse con el Equipo de Encuestas COES al correo electrónico [encuestacoes@gmail.com](encuestacoes@gmail.com). El equipo procesará su solicitud y tratará de contestar en el más breve plazo.
+
+<!--chapter:end:06-dudas-consultas.Rmd-->
 
 \newpage
 
@@ -1539,61 +1600,5 @@ fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Otras Variables', ])
 
 
 
-<!--chapter:end:05-libro-codigos.Rmd-->
-
-\newpage
-
-# Ética
-
-## Aprobación Comité de Ética 
-
-El Estudio Longitudinal sobre Conflicto y Cohesión Social en Chile (ELSOC) cuenta con aprobación ética en todas sus olas del [Comité Ético Científico de Ciencias Sociales, Artes y Humanidades de la Pontifícia Universidad Católica de Chile](http://eticayseguridad.uc.cl/comite-etico-cientifico-en-ciencias-sociales-artes-y-humanidades.html) con fecha 08 de junio de 2016 e **ID Protocolo 160129004**.
-
-La aprobación del Comité de Ética fue renovada con fecha 06 de enero de 2021.
-
-## Consentimiento informado
-
-Los participantes del estudio firmaron un Consentimiento Informado por Escrito en que se detallan los objetivos del estudio, en qué consiste su participación y qué se hará y cómo se resguardará la información y datos entregados. 
-
-Los participantes del estudio de la Muestra Original firmaron el Consentimiento Informado el 2016, mientras que los participantes de la Muestra Refresco en 2018. Adicionalmente, debido al cambio de modalidad realizado durante el levantamento de la ola 2021 (ver [Cuestionario 2021: levantamiento durante la pandemia de COVID-19](#instrumento-covid)), se solicitó a los participantes de ambas muestras firmar un Apéndice al Consentimiento Informado, en que se detalló los cambios realizados durante dicha ola.
-
-  ```{r, results = 'asis'}
-  if (is_html_output()) {
-    
-    cat('A continuación se encuentran disponibles los Consentimientos Informados firmados por los participantes en 2016 (Muestra Original), 2018 (Muestra Refresco) y 2021 (Apéndice):')
-  }
-  ```
-
-```{r}
-if (is_html_output()) {
-  xfun::embed_file(file.path('inputs', 'consentimiento_informado_panel_coes_original.pdf'), text = 'Consentimiento Informado 2016 (Muestra Original)')
-}
-
-```
-
-
-```{r}
-if (is_html_output()) {
-  xfun::embed_file(file.path('inputs', 'consentimiento_informado_panel_coes_refresco.pdf'), text = 'Consentimiento Informado 2018 (Muestra Refrsco)')
-}
-
-```
-
-
-```{r}
-if (is_html_output()) {
-  xfun::embed_file(file.path('inputs', 'consentimiento_informado_panel_coes_apendice.pdf'), text = 'Consentimiento Informado 2021 (Apéndice)')
-}
-
-```
-
-<!--chapter:end:06-etica.Rmd-->
-
-\newpage
-
-# Dudas y Consultas
-
-En caso de que detecte problemas con la base de datos, desee plantear solicitudes y/o tenga dudas sobre aspectos no cubiertos por el presente Manual de Usuario, las cuales no puedan ser resueltas por otros medios, puede comunicarse con el Equipo de Encuestas COES al correo electrónico [encuestacoes@gmail.com](encuestacoes@gmail.com). El equipo procesará su solicitud y tratará de contestar en el más breve plazo.
-
-<!--chapter:end:07-dudas-consultas.Rmd-->
+<!--chapter:end:07-libro-codigos.Rmd-->
 
