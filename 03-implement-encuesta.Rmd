@@ -608,7 +608,7 @@ atricion_educ %>%
   kbl(align = rep('c', 9),
       format = table_format,
       booktabs = TRUE,
-      col.name = c('Medición', rep(c('Básica', 'Media', 'Técnica', 'Universitaria'), 2)),
+      col.name = c('Medición', rep(c('Básica', 'Media', 'Técnica', 'Univ'), 2)),
       caption = 'Atrición de las muestras de ELSOC entre olas, según nivel educacional') %>% 
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
