@@ -200,7 +200,7 @@ fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Conflicto Social', ])
 
 ```{r libro-codigo-desigualdadlegitimidad, echo=FALSE, results = 'asis'}
 
-fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Desigualdad y legitimidad', ])
+fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Desigualdad y Legitimidad', ])
 
 ```
 
