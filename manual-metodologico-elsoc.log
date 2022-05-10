@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.27)  9 MAY 2022 13:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.27)  10 MAY 2022 19:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -888,17 +888,17 @@ Overfull \vbox (24.47609pt too high) has occurred while \output is active []
 Overfull \vbox (24.47609pt too high) has occurred while \output is active []
 
 [360] [361] [362] [363] [364] [365] [366] [367] [368] [369] [370] [371] [372] [373] [374] [375] [376] [377] [378] [379] [380] [381] [382] [383] [384] [385] [386] [387] [388] [389] [390] [391] [392] [393] [394] [395] [396] [397] [398] [399] [400] [401] [402] [403] [404] [405] [406] [407] [408] [409] [410] [411] [412] [413] [414] [415] [416] [417] [418] [419] [420] [421] [422] [423] [424] [425] [426] [427] [428] [429] [430] [431] [432] [433] [434] [435] [436] [437] [438] [439] [440] [441] [442] [443] [444] [445] [446] [447] [448] [449] [450] [451] [452] [453] [454] [455] [456]
-Underfull \hbox (badness 2435) in paragraph at lines 16342--16343
+Underfull \hbox (badness 2435) in paragraph at lines 16344--16345
 []\T1/ptm/m/it/12 En los úl-ti-mos 12 meses, ¾con qué fre-cuen-cia con-ver-sa o in-ter-ac-túa con [pe-ru-
  []
 
 [457] [458] [459] [460] [461] [462] [463] [464] [465] [466] [467] [468] [469] [470] [471] [472] [473] [474] [475] [476] [477] [478] [479] [480] [481] [482] [483] [484] [485] [486] [487] [488] [489] [490] [491] [492] [493] [494] [495] [496] [497] [498] [499] [500] [501] [502] [503] [504] [505] [506] [507] [508] [509] [510] [511] [512] [513] [514] [515] [516] [517] [518] [519] [520] [521] [522] [523] [524] [525] [526] [527] [528] [529] [530] [531]
-Overfull \hbox (40.98628pt too wide) in paragraph at lines 19411--19412
+Overfull \hbox (40.98628pt too wide) in paragraph at lines 19413--19414
 []\T1/ptm/m/it/12 ¾Podría de-cirme, en tér-mi-nos gen-erales, cuán-to con-fía ust-ed en los [pe-ru-anos/haitianos/venezolanos]
  []
 
 [532] [533]
-Underfull \hbox (badness 7133) in paragraph at lines 19466--19467
+Underfull \hbox (badness 7133) in paragraph at lines 19468--19469
 []\T1/ptm/m/it/12 Actualmente, ¾cuán-tos de sus ami-gos(as) chilenos(as) tienen ami-gos(as) [pe-ru-
  []
 
@@ -975,7 +975,7 @@ Package rerunfilecheck Info: File `manual-metodologico-elsoc.out' has not change
 Here is how much of TeX's memory you used:
  18850 strings out of 480193
  305009 string characters out of 5891069
- 960896 words of memory out of 5000000
+ 961896 words of memory out of 5000000
  34880 multiletter control sequences out of 15000+600000
  534466 words of font info for 93 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -987,10 +987,10 @@ pdfTeX warning (dest): name{etapa2} has been referenced but does not exist, repl
 pdfTeX warning (dest): name{etapa5} has been referenced but does not exist, replaced by a fixed one
 
 {c:/Users/edgar/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/edgar/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc} <c:/Users/edgar/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk>{c:/Users/edgar/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/Users/edgar/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/edgar/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}<c:/Users/edgar/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/edgar/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/edgar/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/edgar/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/edgar/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/edgar/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/edgar/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/Users/edgar/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/edgar/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on manual-metodologico-elsoc.pdf (853 pages, 925798 bytes).
+Output written on manual-metodologico-elsoc.pdf (853 pages, 926154 bytes).
 PDF statistics:
- 4914 PDF objects out of 5155 (max. 8388607)
- 3990 compressed objects within 40 object streams
+ 4915 PDF objects out of 5155 (max. 8388607)
+ 3991 compressed objects within 40 object streams
  1616 named destinations out of 1728 (max. 500000)
  90 words of extra memory for PDF output out of 10000 (max. 10000000)
 

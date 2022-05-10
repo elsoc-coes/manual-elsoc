@@ -2,7 +2,9 @@
 
 # Libro de Códigos {#libro-codigos}
 
-Para un uso adecuado de la base de datos de ELSOC COES se recomienda a los investigadores trabajar con el libro de códigos, el cual se presenta a continuación. Este apartado detalla el codigo longitudinal de cada variable; la etiqueta de variable asociada; fraseo de cada preambulo, pregunta e item; las distintas categorías de respuestas y codigos asociados; y observaciones en las variables que han tenido modificaciones a lo largo de las distintas mediciones del estudio. Adicionalmente, se incluyen tablas de frecuencia de cada pregunta según ola y muestra (se omiten variables numéricas continuas y de texto). 
+Para un uso adecuado de la base de datos de ELSOC COES se recomienda a los investigadores trabajar con el libro de códigos (presentado en esta sección) y el Listado de Variables (descargable en formato excel en el siguiente [link](https://coes.cl/wp-content/uploads/Listado-de-Variables-ELSOC-2.xlsx), o en la página de COES).
+
+El Libro de Códigos y el Listado de Variables detallan el codigo longitudinal de cada variable; la etiqueta de variable asociada; fraseo de cada preambulo, pregunta e item; las distintas categorías de respuestas y codigos asociados; y observaciones en las variables que han tenido modificaciones a lo largo de las distintas mediciones del estudio. Adicionalmente, en el libro de códigos se incluyen tablas de frecuencia de cada pregunta según ola y muestra (se omiten variables numéricas continuas y de texto). 
 
 El libro de códigos fue diseñado de modo de que sintetice toda la información relevante sobre las variables de la base de datos en un formato común para facilitar su uso. De manera genérica, las variables incluidas en la base de datos tienen el siguiente formato:
 
