@@ -20,7 +20,6 @@ editor_options:
     wrap: 72
 ---
 
-\newpage
 
 # Presentación {-}
 
@@ -75,12 +74,12 @@ elsoc::load_elsoc()
 
 ```
 
+\newpage
 
 
 <!--chapter:end:index.Rmd-->
 
 
-\newpage
 # Diseño Muestral del Estudio {#dis_muest}
 
 En el siguiente apartado se presenta la descripción del diseño muestral de ELSOC, correspondiente a la muestra original y a la muestra refresco del estudio. Al final de la sección se describen la construcción de los ponderadores de ELSOC.
@@ -387,9 +386,10 @@ población objetivo que vive en la vivienda $j$ de la manzana $l$ del estrato $k
 En base a lo anterior se diseñaron ponderadores que ajustan en base a las probabilidades base, con ajuste de no respuesta, con ajuste al número de casos ^[Corresponde a considerar la población total objetivo entre 18 y 75 años en base a las proyecciones de población
 regional.] y con ajuste al número de casos y la variable sexo ^[Los cuatro ponderadores diseñados son acumulativos. A modo de ejemplo, el segundo ponderador ajusta en base las probabilidades de selección e incorpora también el ajuste por no respuesta.].
 
+\newpage
+
 <!--chapter:end:01-dis-muestral.Rmd-->
 
-\newpage
 
 # Diseño del Instrumento {#dis_ins}
 
@@ -555,10 +555,10 @@ En segundo lugar, y encadenado con lo anterior, se ajustaron las variables que t
 
 Dada la gran cantidad de ítems medidos en el tiempo, para examinar de manera detallada las diferencias entre los instrumentos aplicados, se sugiere a los interesados revisar los **Cuestionarios** de cada medición. De igual forma, se sugiere revisar el [**Libro de Códigos**](#libro-codigos), donde se incluyen todos los ítems medidos en ELSOC, con información detallada sobre las olas en que fueron medidas cada pregunta, así como las modificaciones y otras informaciones relevantes para el uso de los datos ELSOC.
 
+\newpage
+
 
 <!--chapter:end:02-dis-instrumento.Rmd-->
-
-\newpage
 
 # Implementación de la Encuesta {#implem_encuest}
 
@@ -1183,11 +1183,10 @@ atricion_educ %>%
 
 
 
+\newpage
 
 
 <!--chapter:end:03-implement-encuesta.Rmd-->
-
-\newpage
 
 # Bases de Datos {#bases-datos}
 
@@ -1275,10 +1274,10 @@ Por último, en caso de que se desee citar el presente Manual de Usuario:
 
 **Centro de Estudios de Conflicto y Cohesión Social (2021). Manual de Usuario de Estudio Longitudinal Social de Chile. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES).**
 
+\newpage
+
 
 <!--chapter:end:04-bases_de_datos.Rmd-->
-
-\newpage
 
 # Ética
 
@@ -1328,17 +1327,18 @@ if (is_html_output()) {
 
 ```
 
-<!--chapter:end:05-etica.Rmd-->
-
 \newpage
+
+<!--chapter:end:05-etica.Rmd-->
 
 # Dudas y Consultas
 
-En caso de que detecte problemas con la base de datos, desee plantear solicitudes y/o tenga dudas sobre aspectos no cubiertos por el presente Manual de Usuario, las cuales no puedan ser resueltas por otros medios, puede comunicarse con el Equipo de Encuestas COES al correo electrónico [encuestacoes@gmail.com](encuestacoes@gmail.com). El equipo procesará su solicitud y tratará de contestar en el más breve plazo.
+En caso de que detecte problemas con la base de datos, desee plantear solicitudes y/o tenga dudas sobre aspectos no cubiertos por el presente Manual de Usuario, las cuales no puedan ser resueltas por otros medios, puede comunicarse con el Equipo de Encuestas COES al correo electrónico [elsoc@uc.cl](elsoc@uc.cl). El equipo procesará su solicitud y tratará de contestar en el más breve plazo.
+
+\newpage
 
 <!--chapter:end:06-dudas-consultas.Rmd-->
 
-\newpage
 
 # Libro de Códigos {#libro-codigos}
 
@@ -1420,10 +1420,11 @@ listado_cuestionario2$respuestas0 <- unlist(with(listado_cuestionario2,
 
 # Código de respuestas cuando hay valores numéricos, texto abierto o no hay respuestas (variable creada)
 listado_cuestionario2$respuestas <- with(listado_cuestionario2, 
-                                      case_when(tipo_pregunta == 'Pregunta de Alternativas (respuesta cerrada)' & niveles != '-' ~ respuestas0,
-                                                tipo_pregunta == 'Pregunta de Alternativas (respuesta cerrada)' & niveles == '-' ~ '',
+                                      case_when(tipo_variable %in% c('Nominal', 'Ordinal') & niveles != '-' ~ respuestas0,
+                                                tipo_variable %in% c('Nominal', 'Ordinal') & niveles == '-' ~ '',
+                                                tipo_variable %in% c('Cadena', 'Numerica') ~ '',
                                                 respuestas0 == '-' ~ '',
-                                                TRUE ~ tipo_pregunta))
+                                                TRUE ~ respuestas0))
 
 # Filtrar solo variables presentes en olas 2016-2021:
 listado_cuestionario <- listado_cuestionario2 %>% 
@@ -1594,6 +1595,8 @@ fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Sociodemográfica', ])
 fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Otras Variables', ])
 
 ```
+
+\newpage
 
 
 

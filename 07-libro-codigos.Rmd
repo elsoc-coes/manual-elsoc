@@ -1,4 +1,3 @@
-\newpage
 
 # Libro de Códigos {#libro-codigos}
 
@@ -80,10 +79,11 @@ listado_cuestionario2$respuestas0 <- unlist(with(listado_cuestionario2,
 
 # Código de respuestas cuando hay valores numéricos, texto abierto o no hay respuestas (variable creada)
 listado_cuestionario2$respuestas <- with(listado_cuestionario2, 
-                                      case_when(tipo_pregunta == 'Pregunta de Alternativas (respuesta cerrada)' & niveles != '-' ~ respuestas0,
-                                                tipo_pregunta == 'Pregunta de Alternativas (respuesta cerrada)' & niveles == '-' ~ '',
+                                      case_when(tipo_variable %in% c('Nominal', 'Ordinal') & niveles != '-' ~ respuestas0,
+                                                tipo_variable %in% c('Nominal', 'Ordinal') & niveles == '-' ~ '',
+                                                tipo_variable %in% c('Cadena', 'Numerica') ~ '',
                                                 respuestas0 == '-' ~ '',
-                                                TRUE ~ tipo_pregunta))
+                                                TRUE ~ respuestas0))
 
 # Filtrar solo variables presentes en olas 2016-2021:
 listado_cuestionario <- listado_cuestionario2 %>% 
@@ -254,5 +254,7 @@ fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Sociodemográfica', ])
 fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Otras Variables', ])
 
 ```
+
+\newpage
 
 

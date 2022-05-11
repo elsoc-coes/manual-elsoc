@@ -1,4 +1,3 @@
-\newpage
 
 # Diseño del Instrumento {#dis_ins}
 
@@ -163,4 +162,6 @@ En segundo lugar, y encadenado con lo anterior, se ajustaron las variables que t
 ## Listado de variables
 
 Dada la gran cantidad de ítems medidos en el tiempo, para examinar de manera detallada las diferencias entre los instrumentos aplicados, se sugiere a los interesados revisar los **Cuestionarios** de cada medición. De igual forma, se sugiere revisar el [**Libro de Códigos**](#libro-codigos), donde se incluyen todos los ítems medidos en ELSOC, con información detallada sobre las olas en que fueron medidas cada pregunta, así como las modificaciones y otras informaciones relevantes para el uso de los datos ELSOC.
+
+\newpage
 

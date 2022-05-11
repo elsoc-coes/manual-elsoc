@@ -20,7 +20,6 @@ editor_options:
     wrap: 72
 ---
 
-\newpage
 
 # Presentación {-}
 
@@ -75,4 +74,5 @@ elsoc::load_elsoc()
 
 ```
 
+\newpage
 

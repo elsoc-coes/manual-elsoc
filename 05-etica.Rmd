@@ -1,5 +1,3 @@
-\newpage
-
 # Ética
 
 ## Aprobación Comité de Ética 
@@ -47,3 +45,5 @@ if (is_html_output()) {
 }
 
 ```
+
+\newpage

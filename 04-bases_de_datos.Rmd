@@ -1,5 +1,3 @@
-\newpage
-
 # Bases de Datos {#bases-datos}
 
 ## Descarga de Bases de datos
@@ -85,4 +83,6 @@ O en su formato longitudinal:
 Por último, en caso de que se desee citar el presente Manual de Usuario:
 
 **Centro de Estudios de Conflicto y Cohesión Social (2021). Manual de Usuario de Estudio Longitudinal Social de Chile. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES).**
+
+\newpage
 

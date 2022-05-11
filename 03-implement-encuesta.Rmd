@@ -1,5 +1,3 @@
-\newpage
-
 # Implementación de la Encuesta {#implem_encuest}
 
 ## Características generales del levantamiento
@@ -623,4 +621,5 @@ atricion_educ %>%
 
 
 
+\newpage
 

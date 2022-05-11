@@ -1,5 +1,4 @@
 
-\newpage
 # Diseño Muestral del Estudio {#dis_muest}
 
 En el siguiente apartado se presenta la descripción del diseño muestral de ELSOC, correspondiente a la muestra original y a la muestra refresco del estudio. Al final de la sección se describen la construcción de los ponderadores de ELSOC.
@@ -305,3 +304,5 @@ población objetivo que vive en la vivienda $j$ de la manzana $l$ del estrato $k
 
 En base a lo anterior se diseñaron ponderadores que ajustan en base a las probabilidades base, con ajuste de no respuesta, con ajuste al número de casos ^[Corresponde a considerar la población total objetivo entre 18 y 75 años en base a las proyecciones de población
 regional.] y con ajuste al número de casos y la variable sexo ^[Los cuatro ponderadores diseñados son acumulativos. A modo de ejemplo, el segundo ponderador ajusta en base las probabilidades de selección e incorpora también el ajuste por no respuesta.].
+
+\newpage
