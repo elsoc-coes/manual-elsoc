@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1.3 Diseño de Ponderadores | Manual Metodológico ELSOC 2016-2021</title>
   <meta name="description" content="1.3 Diseño de Ponderadores | Manual Metodológico ELSOC 2016-2021" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1.3 Diseño de Ponderadores | Manual Metodológico ELSOC 2016-2021" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="1.3 Diseño de Ponderadores | Manual Metodológico ELSOC 2016-2021" />
   <meta name="github-repo" content="edgardo-cerda/manual-elsoc" />
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="dis_muest_refresco.html"/>
 <link rel="next" href="dis_ins.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -171,24 +170,24 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="dis_ponderadores" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Diseño de Ponderadores</h2>
+<div id="dis_ponderadores" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Diseño de Ponderadores<a href="dis_ponderadores.html#dis_ponderadores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Considerando que a partir de las entrevistas efectivamente realizadas se desea extrapolar a la población objetivo respectiva, es necesario ponderar adecuadamente a cada encuestado según su representación en la población objetivo. Para esto, en cada ola del estudio se proveen ponderadores que permiten ajustar por las diferencias en atributos demográficos de la muestra de ELSOC en relación a la población objetivo.</p>
 <p>A continuación se describe el proceso de elaboración de dichos ponderadores<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> para lograr una correspondencia entre la muestra y la población objetivo. Dicha ponderación corresponde al inverso de su probabilidad de selección o inclusión en la muestra. En este caso la probabilidad de selección del individuo <span class="math inline">\(i\)</span> de la vivienda <span class="math inline">\(j\)</span> que pertenece a la manzana <span class="math inline">\(l\)</span> del estrato <span class="math inline">\(k\)</span>, <span class="math inline">\(P_{ijlk}\)</span> viene dado por:</p>
-<p><span class="math display">\[P_{iklk} = \pi_i|_{jlk}\pi_j|_{lk}\pi_{lk}\]</span></p>
+<p><span class="math display">\[P_{ijlk} = \pi_{i|jlk}\pi_{j|lk}\pi_{lk}\]</span></p>
 <p>Dónde:</p>
 <ul>
-<li><span class="math inline">\(\pi_i|_{jkl}\)</span> es la probabilidad de que el individuo <span class="math inline">\(i\)</span> sea seleccionado en lamuestra dado que la vivienda dónde vive y la manzana dónde se localiza fueron seleccionados.</li>
-<li><span class="math inline">\(\pi_j|_{lk}\)</span> es la probabilidad de que la vivienda <span class="math inline">\(j\)</span> sea seleccionada en la muestra dado que la manzana <span class="math inline">\(l\)</span> (que contiene a la vivienda <span class="math inline">\(j\)</span>) fue seleccionada.</li>
-<li><span class="math inline">\(\pi_lk\)</span> es la probabilidad de que lamanzana <span class="math inline">\(l\)</span> del estrato <span class="math inline">\(k\)</span> sea seleccionada en la muestra.</li>
+<li><span class="math inline">\(\pi_{i|jlk}\)</span> es la probabilidad de que el individuo <span class="math inline">\(i\)</span> sea seleccionado en la muestra dado que la vivienda dónde vive y la manzana dónde se localiza fueron seleccionadas,dentro del estrato <span class="math inline">\(k\)</span>.</li>
+<li><span class="math inline">\(\pi_{_j|lk}\)</span> es la probabilidad de que la vivienda <span class="math inline">\(j\)</span> sea seleccionada en la muestra dado que la manzana <span class="math inline">\(l\)</span> (que contiene a la vivienda <span class="math inline">\(j\)</span>) fue seleccionada.</li>
+<li><span class="math inline">\(\pi_{lk}\)</span> es la probabilidad de que lamanzana <span class="math inline">\(l\)</span> del estrato <span class="math inline">\(k\)</span> sea seleccionada en la muestra.</li>
 </ul>
-<p>Se define el ponderador de diseño o teórico <span class="math inline">\(w_{ijlk}\)</span> al inverso de la probabilidad de selección:</p>
-<p><span class="math display">\[P_{ijlk}=\frac{1}{w_{ijlk}}\]</span></p>
+<p>Se define el ponderador de diseño <span class="math inline">\(w_{ijlk}\)</span> como el inverso de la probabilidad de selección de cada individuo en la muestra:</p>
+<p><span class="math display">\[w_{ijlk}=\frac{1}{ P_{ijlk}}\]</span></p>
 <p>El valor de las antes mencionadas probabilidades es:</p>
-<p><span class="math display">\[\pi_{lk} = n_k\frac{M_{kl}}{M_k}\]</span></p>
+<p><span class="math display">\[\pi_{lk} = n_k\frac{M_{lk}}{M_k}\]</span></p>
 <p><span class="math display">\[\pi_{j|lk} = \frac{m_{lk}}{M&#39;_k}\]</span></p>
 <p><span class="math display">\[\pi_{i|jlk} = \frac{1}{N_{jlk}}\]</span></p>
-<p>Donde se tiene que <span class="math inline">\(n_k\)</span> es el número de manzanas a seleccionar del estrato <span class="math inline">\(k\)</span>, <span class="math inline">\(_lk\)</span> es el número de viviendas de la manzana <span class="math inline">\(l\)</span> del estrato <span class="math inline">\(k\)</span>, <span class="math inline">\(M_k\)</span> es el número total de viviendas del estrato <span class="math inline">\(k\)</span>, <span class="math inline">\(m_{lk}\)</span> es el número de viviendas a encuestar dentro de la manzana <span class="math inline">\(l\)</span>, <span class="math inline">\(M&#39;_k\)</span> es el número actualizado de viviendas de la manzana <span class="math inline">\(l\)</span> post-empadronamiento, <span class="math inline">\(N_{jlk}\)</span> es el número de personas de la
+<p>Donde se tiene que <span class="math inline">\(n_k\)</span> es el número de manzanas a seleccionar del estrato <span class="math inline">\(k\)</span>, <span class="math inline">\(M_{lk}\)</span> es el número de viviendas de la manzana <span class="math inline">\(l\)</span> del estrato <span class="math inline">\(k\)</span>, <span class="math inline">\(M_k\)</span> es el número total de viviendas del estrato <span class="math inline">\(k\)</span>, <span class="math inline">\(m_{lk}\)</span> es el número de viviendas a encuestar dentro de la manzana <span class="math inline">\(l\)</span>, <span class="math inline">\(M&#39;_k\)</span> es el número actualizado de viviendas de la manzana <span class="math inline">\(l\)</span> post-empadronamiento, y <span class="math inline">\(N_{jlk}\)</span> es el número de personas de la
 población objetivo que vive en la vivienda <span class="math inline">\(j\)</span> de la manzana <span class="math inline">\(l\)</span> del estrato <span class="math inline">\(k\)</span>.</p>
 <p>En base a lo anterior se diseñaron ponderadores que ajustan en base a las probabilidades base, con ajuste de no respuesta, con ajuste al número de casos <a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> y con ajuste al número de casos y la variable sexo <a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>.</p>
 <div style="page-break-after: always;"></div>
