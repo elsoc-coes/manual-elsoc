@@ -36,7 +36,7 @@ El Manual se estructura en torno a secciones temáticas: la primera sección des
 
 
 
-```{r preamble, include=FALSE}
+```{r preamble1, include=FALSE}
 
 knitr::opts_chunk$set(cache = FALSE, warning = FALSE, message = FALSE, echo = FALSE, fig.topcaption = TRUE, fig.align = 'center')
 

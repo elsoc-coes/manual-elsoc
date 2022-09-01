@@ -165,14 +165,12 @@ fun_libro_codigos <- function(libro_codigo) {
     cat('\n\n<!-- -->\n\n')
     
     if (!libro_codigo$tipo_variable[libro_codigo$codigo_longitudinal == i] %in% c('Numerica', 'Cadena')) {
-            print(tabla_frecuencia(i))
+            tabla_frecuencia(i) # %>% save_kable(file="inputs/tabla.pdf")
             cat('\n\n<!-- -->\n\n')
       }
     }
   }
 }
-
-
 
 ```
 
