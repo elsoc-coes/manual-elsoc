@@ -468,6 +468,49 @@ tasas_ola5 %>%
 
 ```
 
+```{r tabla de tasas varias olas}
+tasas_olas <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'),
+                                sheet = 'tasa_respuesta') %>% 
+  mutate(original_2016 = scales::percent(original_2016, .1),
+         original_2017 = scales::percent(original_2017, .1),
+         original_2018 = scales::percent(original_2018, .1),
+         refresco_2018 = scales::percent(refresco_2018, .1),
+         original_2019 = scales::percent(original_2019, .1),
+         refresco_2019 = scales::percent(refresco_2019, .1),
+         original_2021 = scales::percent(original_2021, .1),
+         refresco_2021 = scales::percent(refresco_2021, .1))
+
+tasas_olas = as.data.frame(t(tasas_olas))
+names(tasas_olas) = tasas_olas[1,]
+tasas_olas = tasas_olas[-1,]
+tasas_olas = as.data.frame(cbind(as.data.frame(c( 
+                   'M. Original 2016', 
+                   'M. Original 2017',
+                   'M. Original 2018',
+                   'M. Refresco 2018',
+                   'M. Original 2019',
+                   'M. Refresco 2019',
+                   'M. Original 2021',
+                   'M. Refresco 2021'
+                   )),tasas_olas))
+names(tasas_olas)[1] = "Muestra"
+rownames(tasas_olas) = NULL
+
+tasas_olas %>%
+  kbl(caption = 'Tasas de Respuesta, Cooperación, de Rechazo y de Contacto, todas las olas',
+      align = c('l', 'c', 'c', 'c', 'c'),
+      format = table_format,
+      booktabs = TRUE) %>% 
+  kable_styling(full_width = FALSE,
+                latex_options = 'HOLD_position') %>% 
+  kable_classic_2()
+
+
+```
+
+
+
+
 ## Atrición de la encuesta {#atricion}
 
 A continuación, se presenta la atrición obtenida según Muestra: 

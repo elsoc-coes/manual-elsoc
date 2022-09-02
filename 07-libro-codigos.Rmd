@@ -172,8 +172,6 @@ fun_libro_codigos <- function(libro_codigo) {
   }
 }
 
-
-
 ```
 
 
