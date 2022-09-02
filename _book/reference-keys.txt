@@ -57,3 +57,7 @@ módulo-de-salud-y-bienestar
 módulo-de-territorio
 módulo-sociodemográfico
 variables-de-identificacion-y-otras-variables
+author-gonzález-roberto-bargsted-matías-figuereido-ana-miranda-daniel-cerda-edgardo-plaza-alejandro-salas-lewin-rocío
+pesos-de-diseño
+ajustes-por-no-respuesta
+post-estratificación
