@@ -955,7 +955,7 @@ atricion_sexo %>%
 ```{r tabla-atricion-edad}
 
 atricion_edad <- elsoc_long_2016_2021 %>%
-  left_join(elsoc_long_2016_2021 %>% filter(ola == 1 & muestra == 1 | ola == 3 & muestra == 2) %>% 
+  left_join(elsoc_long_2016_2021 %>% filter((ola == 1 & muestra == 1) | (ola == 3 & muestra == 2)) %>% 
               select(idencuesta, m0_edad) %>% 
               rename(m0_edad0 = m0_edad), by = 'idencuesta') %>% 
     mutate(edadt = factor(car::recode(m0_edad0, "18:29 = 1; 30:49 = 2; 50:64 = 3; 65:150 = 4"),
