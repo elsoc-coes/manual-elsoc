@@ -257,26 +257,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[w_{ijlk}=\frac{1}{ P_{ijlk}}\]</span></p>
 <p>Las probabilidades que componen la probabilidad de selección son calculadas mediante:</p>
 <p><span class="math display">\[\pi_{lk} = n_k\frac{M_{lk}}{M_k}\]</span></p>
-<p><span class="math display">\[\pi_{j|lk} = \frac{m_{lk}}{M&#39;_k}\]</span></p>
+<p><span class="math display">\[\pi_{j|lk} = \frac{m_{lk}}{M&#39;_{lk}}\]</span></p>
 <p><span class="math display">\[\pi_{i|jlk} = \frac{1}{N_{jlk}}\]</span></p>
 <p>Donde se tiene que <span class="math inline">\(n_k\)</span> es el número de manzanas a seleccionar del estrato <span class="math inline">\(k\)</span>, <span class="math inline">\(M_{lk}\)</span> es el número de viviendas de la manzana <span class="math inline">\(l\)</span> del estrato <span class="math inline">\(k\)</span>, <span class="math inline">\(M_k\)</span> es el número total de viviendas del estrato <span class="math inline">\(k\)</span>. <span class="math inline">\(m_{lk}\)</span> es el número de viviendas a encuestar dentro de la manzana <span class="math inline">\(l\)</span>, <span class="math inline">\(M&#39;_k\)</span> es el número actualizado de viviendas de la manzana <span class="math inline">\(l\)</span> post-empadronamiento, y <span class="math inline">\(N_{jlk}\)</span> es el número de personas de la
 población objetivo que vive en la vivienda <span class="math inline">\(j\)</span> de la manzana <span class="math inline">\(l\)</span> del estrato <span class="math inline">\(k\)</span>.</p>
 </div>
 <div id="ajustes-por-no-respuesta" class="section level3 hasAnchor" number="2.3.2">
 <h3><span class="header-section-number">2.3.2</span> Ajustes por no respuesta<a href="dis_ponderadores.html#ajustes-por-no-respuesta" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>El ponderador anterior luego es ajustado en base a la no respuesta inicial de la manzana en la que se encuentra cada observación. De este modo, damos más peso a las observaciones que están en manzanas donde pocas personas responden.</p>
+<p>El ponderador anterior luego es ajustado en base a la no respuesta inicial de la manzana en la que se encuentra cada individuo. De este modo, damos más peso a las observaciones que están en manzanas donde pocas personas responden.</p>
 <p>Este ajuste se realiza en base a un factor de no respuesta para la manzana <span class="math inline">\(f_l\)</span>, y se estima como el inverso de la proporción de viviendas dentro de la manzana <span class="math inline">\(l\)</span> que responden la encuesta.</p>
 <p><span class="math display">\[f_l=\frac{m_l}{resp_l}\]</span></p>
+<p>Donde <span class="math inline">\(m_l\)</span> es el número de viviendas seleccionadas para estar en la muestra, y <span class="math inline">\(resp_l\)</span> es el número de viviendas seleccionadas que participan en ELSOC.</p>
 </div>
 <div id="post-estratificación" class="section level3 hasAnchor" number="2.3.3">
 <h3><span class="header-section-number">2.3.3</span> Post-Estratificación<a href="dis_ponderadores.html#post-estratificación" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>La post-estratificación es un ajuste que suele hacerse en las encuestas para incorporar información conocida sobre la población en la estimación.</p>
-<p>En otras, palabras, es una manera de asegurar que la distribución poblacional en variables claves como totales regionales y por sexo coincidan en base a los totales poblacionales.</p>
+<p>La post-estratificación es un ajuste que suele hacerse en las encuestas para incorporar información conocida sobre la población en el análisis de datos de encuestas. Su objetivo principal es que la distribución de los estimadores ponderados sean capaces de reproducir la distribución poblacional en variables claves como totales regionales y por sexo.</p>
 <p>El ajuste de no respuesta puede pensarse como un factor que ajusta:</p>
-<p><span class="math display">\[ps=N_j/\hat{N_j}\]</span></p>
-<p>Los ponderadores de ELSOC tienen la forma:
-<span class="math display">\[w=w^{dis}*f_l*ps\]</span></p>
-<p>Este ponderador luego es ajustado en base a la tasa de no respuesta inicial, y un ajuste de post-estratificación que busca luego con ajuste al número de casos <a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> y con ajuste al número de casos y la variable sexo <a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>.</p>
+<p><span class="math display">\[ps=N_j/\hat{N_j}\]</span>
+Donde <span class="math inline">\(N_j\)</span> es el número total de personas en la población dentro del estrato j (Por ejemplo, número total de mujeres en la población), y <span class="math inline">\(\hat N_j\)</span> es el total estimado de dicho total a partir de los datos de la muestra.</p>
+<p>Finalmente, los ponderadores de corte transversal de ELSOC tienen la forma:</p>
+<p><span class="math display">\[w=w^{dis}*f_l*ps\]</span>
+Es decir, son una combinación de la probabilidad de inclusión de los individuos, un ajuste por no respuesta en la manzana en la que residen y un ajuste de post-estratificación.</p>
 <div style="page-break-after: always;"></div>
 
 </div>
@@ -286,9 +287,6 @@ población objetivo que vive en la vivienda <span class="math inline">\(j\)</spa
 <hr />
 <ol start="2">
 <li id="fn2"><p>Dichos ponderadores pueden entenderse como “ponderadores de corte transversal”, ya que se ignoran los problemas derivados de su naturaleza longitudinal.<a href="dis_ponderadores.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>Corresponde a considerar la población total objetivo entre 18 y 75 años en base a las proyecciones de población
-regional.<a href="dis_ponderadores.html#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>Los cuatro ponderadores diseñados son acumulativos. A modo de ejemplo, el segundo ponderador ajusta en base las probabilidades de selección e incorpora también el ajuste por no respuesta.<a href="dis_ponderadores.html#fnref4" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
