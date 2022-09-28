@@ -20,61 +20,10 @@ editor_options:
     wrap: 72
 ---
 
+# author: "González, Roberto; Bargsted, Matías; Figuereido, Ana; Miranda, Daniel; Cerda, Edgardo; Plaza, Alejandro; Salas-Lewin, Rocío"
 
-# Presentación {-}
+Placeholder
 
-```{js, echo = FALSE}
-title = document.getElementById('header');
-title.innerHTML = '<img src="inputs/ELSOC.png" alt="ELSOC">' + title.innerHTML
-```
-
-El Estudio Longitudinal  Social de Chile (ELSOC) es una encuesta desarrollada para analizar intertemporalmente la evolución del conflicto y cohesión en la sociedad chilena, basándose en modelos conceptuales descritos en la literatura nacional e internacional que abordan dichas materias. Se orienta a examinar los principales antecedentes, factores moderadores y mediadores, así como las principales consecuencias asociadas al desarrollo de distintas formas de conflicto y cohesión social en Chile. Su objetivo fundamental es constituirse en un insumo empírico para la comprensión de las creencias, actitudes y percepciones de los chilenos hacia las distintas dimensiones de la convivencia y el conflicto, y como éstas cambian a lo largo del tiempo.
-
-Esta encuesta fue diseñada por investigadores pertenecientes al Centro de Estudios de Conflicto y Cohesión Social (COES). COES está patrocinado por la Universidad de Chile y la Pontificia Universidad Católica de Chile, y cuenta con la Universidad Diego Portales y la Universidad Adolfo Ibáñez como instituciones asociadas. Si desea obtener más información sobre COES, visite la página web de COES ([www.coes.cl/](www.coes.cl/)). COES es una iniciativa que desde 2013 cuenta con el financiamiento del [Fondo de Financiamiento de Centros de Investigación en Áreas Prioritarias (FONDAP)](https://www.conicyt.cl/fondap/centros-fondap/) de la [Comisión Nacional de Investigación Científica y Tecnológica (CONICYT)](https://www.conicyt.cl/)^[[Proyecto CONICYT/FONDAP/15130009](https://www.conicyt.cl/fondap/centros-fondap/centros-en-ejecucion/coes/)], organismo dependiente del Ministerio de Educación de Chile. El levantamiento de datos de ELSOC se licita públicamente cada 2 años, y ha sido adjudicado en todas sus mediciones al [Centro MicroDatos de la Universidad de Chile (CMD)](https://www.microdatos.cl/).
-
-El Manual se estructura en torno a secciones temáticas: la primera sección describe el diseño muestral del estudio panel, dividido en sus muestras original y refresco, y las actualizaciones que se han aplicado en el tiempo. La segunda sección describe el proceso de diseño del instrumento, lo cual es complementado con la ficha técnica del estudio. En el siguiente apartado se resumen los principales aspectos del trabajo de campo, enfatizando las particularidades del proceso de reentrevista a los participantes. El cuarto apartado corresponde al registro de versiones de la base de datos y detalla el protocolo de uso de éstas.  Por último, se incluye un apartado con orientaciones básicas para el análisis y el libro de códigos de las variables incluidas en la base de datos de ELSOC 2017.
-
-
-
-```{r preamble, include=FALSE}
-
-knitr::opts_chunk$set(cache = FALSE, warning = FALSE, message = FALSE, echo = FALSE, fig.topcaption = TRUE, fig.align = 'center')
-
-Sys.setlocale("LC_ALL","ES_ES.UTF-8")
-
-# Principalmente para crear tablas
-library(tidyverse)
-library(kableExtra)
-library(glue)
-library(rlang)
-library(purrr)
-library(elsoc)
-library(htmltools)
-library(mime)
-library(tinytex)
-
-options(dplyr.summarise.inform = FALSE)
-
-# Formato tablas según tipo de output
-library(knitr)
-
-options(knitr.kable.NA = ' ')
-table_format <- if (is_html_output()) {
-  "html"
-} else if (is_latex_output()) {
-  "latex" 
-}
-
-fullw <- if (is_html_output()) TRUE else if (is_latex_output()) FALSE
-fsize <- if (is_html_output()) 14 else if(is_latex_output()) 8
-
-elsoc::load_elsoc()
-
-# load(file.path('inputs', 'ELSOC_Long_2016_2021_v1.00_R.RData'))
-
-```
-
-\newpage
 
 
 <!--chapter:end:index.Rmd-->
@@ -355,36 +304,62 @@ Al igual que en la Muestra Original, los encuestadores visitan cada vivienda sel
 
 ## Diseño de Ponderadores {#dis_ponderadores}
 
-Considerando que a partir de las entrevistas efectivamente realizadas se desea extrapolar a la población objetivo respectiva, es necesario ponderar adecuadamente a cada encuestado según su representación en la población objetivo. Para esto, en cada ola del estudio se proveen ponderadores que permiten ajustar por las diferencias en atributos demográficos de la muestra de ELSOC en relación a la población objetivo. 
+Considerando que a partir de las entrevistas efectivamente realizadas se desea extrapolar a la población objetivo respectiva, es necesario ponderar adecuadamente a cada encuestado según su representación en la población objetivo. Para esto, en cada ola del estudio se proveen ponderadores que permiten ajustar por las diferencias en atributos demográficos de la muestra de ELSOC en relación a la población objetivo. Los ponderadores que incluye la base de datos de ELSOC son el producto de tres factores: Un peso de diseño, un ajuste por no respuesta, y un ajuste mediante post-estratificación.
 
-A continuación se describe el proceso de elaboración de dichos ponderadores^[Dichos ponderadores pueden entenderse como "ponderadores  de corte transversal", ya que se ignoran los problemas derivados de su naturaleza longitudinal.] para lograr una correspondencia entre la muestra y la población objetivo. Dicha ponderación corresponde al inverso de su probabilidad de selección o inclusión en la muestra. En este caso la probabilidad de selección del individuo $i$ de la vivienda $j$ que pertenece a la manzana $l$ del estrato $k$, $P_{ijlk}$ viene dado por:
+A continuación se describe el proceso de elaboración de dichos ponderadores^[Dichos ponderadores pueden entenderse como "ponderadores  de corte transversal", ya que se ignoran los problemas derivados de su naturaleza longitudinal.] para lograr una correspondencia entre la muestra y la población objetivo.
 
-$$P_{iklk} = \pi_i|_{jlk}\pi_j|_{lk}\pi_{lk}$$
+### Pesos de diseño
 
-Dónde:
+El primer paso en la construcción de los ponderadores de ELSOC corresponde a considerar el  inverso de la probabilidad de selección de un individuo a la muestra. En este caso la probabilidad de selección del individuo $i$ de la vivienda $j$ que pertenece a la manzana $l$ dentro del estrato $k$, $P_{ijlk}$ viene dada por:
 
-* $\pi_i|_{jkl}$ es la probabilidad de que el individuo $i$ sea seleccionado en lamuestra dado que la vivienda dónde vive y la manzana dónde se localiza fueron seleccionados.
-* $\pi_j|_{lk}$ es la probabilidad de que la vivienda $j$ sea seleccionada en la muestra dado que la manzana $l$ (que contiene a la vivienda $j$) fue seleccionada.
-* $\pi_lk$ es la probabilidad de que lamanzana $l$ del estrato $k$ sea seleccionada en la muestra.
+$$P_{ijlk} = \pi_{i|jlk}\pi_{j|lk}\pi_{lk}$$
 
-Se define el ponderador de diseño o teórico $w_{ijlk}$ al inverso de la probabilidad de selección:
+Donde:
 
-$$P_{ijlk}=\frac{1}{w_{ijlk}}$$
+* $\pi_{i|jlk}$ es la probabilidad de que el individuo $i$ sea seleccionado en la muestra dado que la vivienda dónde vive y la manzana dónde se localiza fueron seleccionadas,dentro del estrato $k$.
+* $\pi_{_j|lk}$ es la probabilidad de que la vivienda $j$ sea seleccionada en la muestra dado que la manzana $l$ (que contiene a la vivienda $j$) fue seleccionada.
+* $\pi_{lk}$ es la probabilidad de que lamanzana $l$ del estrato $k$ sea seleccionada en la muestra.
 
-El valor de las antes mencionadas probabilidades es:
+Se define el ponderador de diseño $w_{ijlk}$ como el inverso de la probabilidad de selección de cada individuo en la muestra:
 
+$$w_{ijlk}=\frac{1}{ P_{ijlk}}$$
 
-$$\pi_{lk} = n_k\frac{M_{kl}}{M_k}$$
+Las probabilidades que componen la probabilidad de selección son calculadas mediante:
 
-$$\pi_{j|lk} = \frac{m_{lk}}{M'_k}$$
+$$\pi_{lk} = n_k\frac{M_{lk}}{M_k}$$
+
+$$\pi_{j|lk} = \frac{m_{lk}}{M'_{lk}}$$
 
 $$\pi_{i|jlk} = \frac{1}{N_{jlk}}$$
 
-Donde se tiene que $n_k$ es el número de manzanas a seleccionar del estrato $k$, $_lk$ es el número de viviendas de la manzana $l$ del estrato $k$, $M_k$ es el número total de viviendas del estrato $k$, $m_{lk}$ es el número de viviendas a encuestar dentro de la manzana $l$, $M'_k$ es el número actualizado de viviendas de la manzana $l$ post-empadronamiento, $N_{jlk}$ es el número de personas de la
+Donde se tiene que $n_k$ es el número de manzanas a seleccionar del estrato $k$, $M_{lk}$ es el número de viviendas de la manzana $l$ del estrato $k$, $M_k$ es el número total de viviendas del estrato $k$. $m_{lk}$ es el número de viviendas a encuestar dentro de la manzana $l$, $M'_k$ es el número actualizado de viviendas de la manzana $l$ post-empadronamiento, y $N_{jlk}$ es el número de personas de la
 población objetivo que vive en la vivienda $j$ de la manzana $l$ del estrato $k$.
 
-En base a lo anterior se diseñaron ponderadores que ajustan en base a las probabilidades base, con ajuste de no respuesta, con ajuste al número de casos ^[Corresponde a considerar la población total objetivo entre 18 y 75 años en base a las proyecciones de población
-regional.] y con ajuste al número de casos y la variable sexo ^[Los cuatro ponderadores diseñados son acumulativos. A modo de ejemplo, el segundo ponderador ajusta en base las probabilidades de selección e incorpora también el ajuste por no respuesta.].
+
+### Ajustes por no respuesta
+
+El ponderador anterior luego es ajustado en base a la no respuesta inicial de la manzana en la que se encuentra cada individuo. De este modo, damos más peso a las observaciones que están en manzanas donde pocas personas responden. 
+
+Este ajuste se realiza en base a un factor de no respuesta para la manzana $f_l$, y se estima como el inverso de la proporción de viviendas dentro de la manzana $l$ que responden la encuesta.
+
+$$f_l=\frac{m_l}{resp_l}$$
+
+Donde $m_l$ es el número de viviendas seleccionadas para estar en la muestra, y $resp_l$ es el número de viviendas seleccionadas que participan en ELSOC.
+
+### Post-Estratificación
+
+La post-estratificación es un ajuste que suele hacerse en las encuestas para incorporar información conocida sobre la población en el análisis de datos de encuestas. Su objetivo principal es que la distribución de los estimadores ponderados sean capaces de reproducir la distribución poblacional en variables claves como totales regionales y por sexo.
+
+El ajuste de no respuesta puede pensarse como un factor que ajusta:
+
+$$ps=N_j/\hat{N_j}$$
+Donde $N_j$ es el número total de personas en la población dentro del estrato j (Por ejemplo, número total de mujeres en la población), y $\hat N_j$ es el total estimado de dicho total a partir de los datos de la muestra.
+
+Finalmente, los ponderadores de corte transversal de ELSOC tienen la forma:
+
+$$w=w^{dis}*f_l*ps$$
+Es decir, son una combinación de la probabilidad de inclusión de los individuos, un ajuste por no respuesta en la manzana en la que residen y un ajuste de post-estratificación.
+
 
 \newpage
 
@@ -393,941 +368,66 @@ regional.] y con ajuste al número de casos y la variable sexo ^[Los cuatro pond
 
 # Diseño del Instrumento {#dis_ins}
 
-El instrumento de recolección de información consiste en un cuestionario estructurado (tipo encuesta) aplicado cara a cara a todos los participantes. Dicha aplicación se hace utilizando el sistema **CAPI** (Encuestas personales asistidas por computadores). Excepcionalmente, se cambió a aplicación bajo el sistema **CATI** (Encuesta telefónica asistica por computadores) durante el levantamiento de la ola 2021, debido a la contingencia COVID-19 (más detalle en la sección [Cuestionario 2021: levantamiento durante pandemia de COVID-19](#instrumento-covid).)
+Placeholder
 
-El cuestionario fue diseñado para medir una serie de aspectos conceptualmente relevantes que permiten caracterizar los niveles de conflicto y cohesión social en Chile, enfatizando su evolución a lo largo del tiempo. Los principales temas de interés analítico abordados por la encuesta corresponden a los módulos en los cuales se estructura:
-
-- Ciudadanía y Democracia
-- Redes sociales e Interacciones inter-grupales
-- Legitimidad y desigualdad social
-- Conflicto social
-- Dimensión barrial
-- Salud y bienestar
-- Caracterización Socio demográfica
-- Género (agregado a la encuesta a partir de 2019)
 
 ## Diseño del cuestionario {#dis-cuestionario}
-
-El diseño del cuestionario Original de ELSOC se desarrolló durante el año 2015 y abarcó la planificación de las olas 2016 y 2017. Las diferencias entre cuestionarios subsecuentes son descritas en el apartado [cambios en el Cuestionario entre olas](#dif-cuest-olas).
-
-La mayoría de las preguntas, escalas y/o items incluidos en los módulos de ELSOC provienen de otros estudios de opinión pública, investigaciones -en psicología, sociología, economía, ciencia política- realizadas por académicos nacionales e internacionales y encuestas sociales conducidas en Chile y otros países. En forma complementaria, algunas escalas fueron desarrolladas por los miembros del equipo COES y/o han sido adaptadas de estudios anteriores de éstos. El cuestionario fue diseñado aprovechando las principales recomendaciones técnicas y el estado del arte en las distintas áreas de estudio incluidas.
-
-Con el objetivo de satisfacer los criterios y estándares de calidad para cuestionarios y compatibilizar la multiplicidad de agendas de investigación desarrolladas por COES, se optó por elaborar un procedimiento de trabajo para la construcción de éste. Este proceso se desarrolló durante el año 2015 en distintas fases:
-
-1. Se solicitó a los investigadores vinculados a COES proponer proyectos de investigación que contemplen un planteamiento teórico e hipótesis que fundamenten las escalas propuestas para ser incluidas en el cuestionario. Las propuestas podían ser presentadas de manera individual o colectiva y no existían restricciones en el número de ítems a proponer. Sólo se exigía una fundamentación teórica explícita que involucre hipótesis longitudinales y una operacionalización de los constructos a medir en los distintos items propuestos.
-
-2. El procedimiento anterior implicó la recepción y organización de un elevado número de agendas de investigación, los que se materializan en más 750 items (preguntas únicas o parte de una escala). El equipo ELSOC sistematizó las propuestas recibidas, clasificando los items en áreas temáticas. A la vez, se diseñaron mecanismos para reducir el número de items y coordinaron reuniones entre los investigadores COES para decidir sobre éstos. Los criterios de selección fueron principalmente teóricos, priorizando las preguntas fundamentales para el análisis longitudinal de los proyectos de investigación como su concordancia con la agenda sustantiva de COES. También se incluyeron criterios prácticos, relativos a la eliminación de items idénticos o muy semejantes; evidencia previa sobre la calidad de los items (encuestas anteriores, especialmente la encuesta de corte transversal desarrollada por COES el año 2014) y el diseño general del estudio (diseño muestral, unidad de análisis, tipo de informante, etc.)..
-
-3. Luego de una selección de las escalas más relevantes para cada tema propuesto, se realizó un estudio piloto del cuestionario desarrollado. Esto implicó pilotear 430 items, donde el Centro MicroDatos de la Universidad de Chile se encargó de su ejecución. En base a los resultados de dicho piloto, el equipo panel realizó ajustes a algunos items y elaboró una propuesta de reducción de ítems que fue evaluada con los investigadores del Centro. 
-
-4. La última etapa de ajuste del cuestionario se centró en identificar los aspectos conceptualmente más relevantes para COES y ponderar los requerimientos metodológicos para su evaluación empírica. De este modo, se clasificaron los items según el número de mediciones requeridas, distinguiendo entre items permanentes (que serán medidos en todas las olas, ya que constituyen el núcleo analítico del estudio) e intercalados (que serán medidos una única vez o una ola por medio). 
-
-La versión final del instrumento de recolección de información consiste en un cuestionario estructurado (tipo encuesta) que se aplica cara a cara a todos los participantes con una periodicidad anual, con un total de 326 ítems o preguntas.
-
 ### Cambios en el Cuestionario entre olas {-#dif-cuest-olas}
-
-Como se describió en la sección anterior, las preguntas de ELSOC se encuentran clasificadas entre items permanentes e intercalados, dado que algunos de éstos no se miden en todas las olas. Por lo mismo, los cuestionarios implementados presentan diferencias entre las distintas olas de la encuesta.
-
-Adicionalmente, los cuestionarios implementados han sufrido modificaciones que no se encontraban originalmente planificadas, debido a un proceso constante de evaluación de la calidad del instrumento aplicado, que puede resultar en la modificación o eliminación de preguntas; por la existencia de coyunturas que, dada la naturaleza del estudio, motivan la inclusión de nuevos ítems; o por la emergencia de nuevas agendas de investigación relevantes para ELSOC.
-
-Un tema adicional que impactó en el cuestionario implementado es la duración promedio de la entrevista. Durante 2016 la duración promedio por encuestado fue de 55 minutos. CMD recomendó al equipo ELSOC reducir el tiempo de entrevista a 45 minutos promedio, dado que un tiempo superior implica una mayor fatiga en los encuestadores y entrevistados, afectando negativamente la calidad del levantamiento. Por este motivo, se decidió acortar la extensión del estudio. El Equipo ELSOC, en conjunto con investigadores COES, definió distintos ajustes que permitieron reducir la extensión del cuestionario. Mientras el cuestionario de la ola 2016 contenía 326 items, en el año 2017 el instrumento contemplaba 309. En las olas siguientes se han hechos esfuerzos por acortar el cuestionario.
-
-En la Tabla \@ref(tab:tabla-items-olas) se muestra el detalle del número de items medidos en cada ola del estudio en la muestra Original y Refresco:
-
-```{r tabla-items-olas}
-
-items_olas <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'), 
-                         sheet = 'n_ola_muestra') %>% 
-  janitor::clean_names()
-
-items_olas %>% 
-  kbl(caption = 'Número de ítems por muestra, según ola',
-      align = c('l', 'c', 'c'),
-      format = table_format,
-      booktabs = TRUE,
-      col.name = c('Ola', 'Items en muestra original', 'Items en muestra refresco')) %>% 
-  kable_styling(full_width = FALSE,
-                latex_options = 'HOLD_position') %>% 
-  kable_classic_2()
-
-```
-
-En la Tabla \@ref(tab:tabla-items-olas-modulos) se muestra la distribución según módulo del cuestionario:
-
-
-```{r tabla-items-olas-modulos}
-
-items_olas_modulos <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'), 
-                         sheet = 'n_ola_muestra_modulo') %>% 
-  janitor::clean_names()
-
-items_olas_modulos %>% 
-  dplyr::select(-muestra) %>% 
-  kbl(caption = 'Número de ítems por  módulo, según muestra y ola',
-      align = c('l', 'c', 'c', 'c', 'c', 'c'),
-      format = table_format,
-      booktabs = TRUE,
-      col.name = c('Módulo', '2016', '2017', '2018', '2019', '2021')) %>% 
-  kable_styling(full_width = FALSE,
-                latex_options = 'HOLD_position') %>% 
-  kable_classic_2() %>% 
-  pack_rows('Muestra Original', 1, 8) %>%
-  pack_rows('Muestra Refresco', 9, 16)
-
-```
-
 ### Diferencias en Cuestionarios entre Muestras {-#dif-cuest-muestras}
-
-A partir de 2018, se comienza a implementar la Muestra Refresco, la que busca complementar y compensar la atrición acumulada de la Muestra Original. El cuestionario de la muestra refresco es, en gran medida, similar al que presenta la muestra Original. Sin embargo, dada la amplia cantidad de agendas de investigación y temas relevantes para ELSOC, se ha permitido la inclusión de preguntas presentes solo en una de las 2 muestras, de forma de aumentar la cantidad de temas cubiertos, pero manteniendo un número más acotado de preguntas realizada a cada encuestado. 
-
-En la Tabla \@ref(tab:tabla-items-compartidos) se muestra el detalle del número de items compartidos entre ambas muestras por Ola, así como aquellos items presentes exclusivamente en la muestra original o refresco.
-
-```{r tabla-items-compartidos}
-
-items_compartidos <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'), 
-                         sheet = 'n_ola_muestra_traslape') %>% 
-  janitor::clean_names() %>% 
-  filter(items_compartidos < 2022)
-
-items_compartidos %>% 
-  kbl(caption = 'Número de ítems por muestra, según presencia en muestras Original y Refresco',
-      align = c('l', 'c', 'c', 'c', 'c'),
-      format = table_format,
-      booktabs = TRUE,
-      col.name = c('Ola', 'Solo en muestra original', 'Solo en muestra refresco', 
-                   'Ambas muestras', 'Total')) %>% 
-  kable_styling(full_width = FALSE,
-                latex_options = 'HOLD_position') %>% 
-  kable_classic_2() %>% 
-  column_spec(2:5, width = "7em")
-
-  
-```
 ### Cuestionario 2021: levantamiento durante la pandemia de COVID-19 {-#instrumento-covid}
-
-La crisis sanitaria ocurrida a partir de 2020, a raíz del COVID-19, ha planteado una serie de desafíos importantes a los sistemas estadísticos a nivel general, y a las encuestas de opinión pública en particular. La Organización Internacional del Trabajo (OIT, 2020) reporta que la mayoría de las oficinas nacionales de estadística ha informado un impacto significativo en sus operaciones, particularmente en aquellas que se llevan a cabo de manera presencial. Para sobrellevar estos problemas, varias organizaciones han tenido que transformar sus operaciones presenciales a levantamientos por teléfono o encuestas web.
-
-En esta línea, con el objetivo de asegurar la factibilidad del proceso de producción de datos de la encuesta ELSOC 2021 y la seguridad tanto de entrevistados como encuestadores, el equipo ejecutivo de ELSOC, en conjunto con los profesionales del Centro de Microdatos de la Universidad de Chile, decidió adoptar una serie de medidas que implicaron transitar temporalmente a una aplicación del cuestionario en formato telefónico (modo CATI).
-
-Dado que se esperaba un aumento en los tiempos de aplicación al pasar a formato telefónico, la aplicación del cuestionario se dividió en dos llamados, denominados Llamados A y B, respectívamente, con el objetivo de que cada uno tenga una duración máxima de 30 minutos, para así reducir el tiempo de aplicación de la entrevista y evitar la fatiga de los encuestados y los encuestadores.
-
-Para evaluar los desafíos y el cambio metodológico de la aplicación, durante el 2 y 21 de diciembre de 2020 se realizó una encuesta piloto, actividad que resultó relevante para evaluar tanto los aspectos técnicos como metodológicos asociados al cambio de aplicación. En este proceso se encontró que el tiempo de levantamiento excedía los 30 minutos en promedio de aplicación por llamado, por lo que se decidió:
-
-1. Reducir el número de ítems de los cuestionarios
-2. Ajustar preguntas que generaron complicaciones, en base a lo encontrado durante la prueba piloto
-
-Se definieron los siguientes criterios para reducir el tamaño del cuestionario: 1) reducir dimensiones que se han visto muy constreñidas por las cuarentenas, tales como participación política e interacción social; 2) priorizar ítems en función de la consistencia técnica y/o alineación con los objetivos de COES; 3) priorizar ítems que tienen menos de tres mediciones a lo largo del estudio; y 4) mantener ítems críticos a nivel socioeconómico y de salud, que permitan realizar una buena pesquisa del impacto de la pandemia y las cuarentenas. 
-
-En cuanto a la asignación de las preguntas entre llamados A y B, los principales criterios utilizados fueron: 1) conservar la calidad del flujo de la encuesta, manteniendo preguntas de temáticas similares en un mismo llamado y asegurándose que las baterías de variables que compartieran un mismo encabezado inicial se mantuvieran juntas; y 2) que los ítems imprescindibles asociados a pandemia, cuarentenas y estallido social fueran preguntados de manera inmediata para poder monitorear y caracterizar a los encuestados durante este periodo.
-
-En la Tabla \@ref(tab:tabla-llamados) se presenta la distribución de ítems por módulos para llamados A y B distribuido por el tipo de muestra.
-
-```{r tabla-llamados}
-
-items_llamado_2021 <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'), 
-                         sheet = 'n_llamados_2021') %>% 
-  janitor::clean_names()
-
-items_llamado_2021 %>% 
-  kbl(caption = 'Distribución de ítems por llamado y muestra, Ola 2021',
-      align = c('l', 'c', 'c', 'c', 'c'),
-      format = table_format,
-      booktabs = TRUE,
-      col.name = c('Ola', rep(c('Llamado A', 'Llamado B'), 2))) %>% 
-  kable_styling(full_width = FALSE,
-                latex_options = 'HOLD_position') %>% 
-  kable_classic_2() %>% 
-  add_header_above(c(" "= 1, "Muestra Original" = 2, "Muestra Refresco" = 2))
-
-  
-```
-
-En segundo lugar, y encadenado con lo anterior, se ajustaron las variables que teniendo más de 5 categorías de respuesta generaban mayores complicaciones para preguntar en las pruebas pilotos de esta encuesta. A continuación, se presentan los ítems que fueron reducidos en sus alternativas de respuesta y el criterio que se adoptó para cada caso:
- 
- - Batería de Redes Lejanas [r01, r02 y r04]: Esta batería consulta por la cantidad de personas en distintas ocupaciones y grupos sociales que el entrevistado conoce. Originalmente esta batería de preguntas tiene 7 valores (1. Ninguno; 2. Uno; 3. Entre 2 y 4; 4. Entre 5 y 7; 5. Entre 8 y 10; 6. Entre 11 y 15; 7. 16 o más). Debido a que los rangos de respuesta no son obedecen a un patrón claro, se tomo la decisión de preguntarles a los encuestados por el número puntual de conocidos.
- 
-  - Peso del entrevistado [s07]: Esta variable presenta 9 tramos de respuesta, los cuales fueron establecidos en 5 tramos, tomando como referencia los quintiles de peso reportados por ELSOC en la ola 2018 en la variable s06
-  
- - Variables de Ingreso en tramos [m14 y m30]: La variable m14 tiene 16 tramos de respuesta, mientras que la variable m30 tiene 30 tramos de respuesta. Ambas variables fueron establecidas en 5 tramos, tomando como referencia los quintiles de ingreso presentados por la encuesta Casen 2017.
-
-
 ## Listado de variables
-
-Dada la gran cantidad de ítems medidos en el tiempo, para examinar de manera detallada las diferencias entre los instrumentos aplicados, se sugiere a los interesados revisar los **Cuestionarios** de cada medición. De igual forma, se sugiere revisar el [**Libro de Códigos**](#libro-codigos), donde se incluyen todos los ítems medidos en ELSOC, con información detallada sobre las olas en que fueron medidas cada pregunta, así como las modificaciones y otras informaciones relevantes para el uso de los datos ELSOC.
-
-\newpage
-
 
 <!--chapter:end:02-dis-instrumento.Rmd-->
 
+
 # Implementación de la Encuesta {#implem_encuest}
 
+Placeholder
+
+
 ## Características generales del levantamiento
-
 ### Ente ejecutor {-}
-
-Dados los estándares de calidad y transparencia de ELSOC, la implementación de ELSOC se realiza por medio de una institución independiente, adjudicada mediante licitación pública. A la fecha se han realizado 3 licitaciones públicas: en 2016, 2018 y 2020, cada una cubriendo 2 mediciones del estudio. Esto es, las olas 2016 y 2017 (Muestra Original), olas 2018 y 2019 (Muestras Original y Refresco), y olas 2021 y 2022 (Muestras Original y Refresco), respectivamente.
-
-El [Centro Micro Datos (CMD)](https://www.microdatos.cl) de la Facultad de Economía y Negocios de la Universidad de Chile se ha adjudicado los 3 concursos, por lo que ha estado a cargo del desarrollo de la encuesta desde sus inicios. Las bases de licitación y, por lo tanto, el acuerdo con Micro Datos, contempla los más altos estándares de calidad y asegura un adecuado resguardo de los datos personales de contacto de los participantes del estudio panel.
-
-A continuación se describen algunos de los criterios y prácticas aplicadas para asegurar la calidad del levantamiento y procesamiento de datos:
-
 ### Pilotaje del Cuestionario {-}
-
-Cada cuestionario de ELSOC es piloteado siguiendo la modalidad de levantamiento de ELSOC, con el objetivo de testear el instrumento y evaluar el funcionamiento operativo del levantamiento
-
-El pilotaje se realiza los meses previos al levantamiento oficial, seguido por una ronda de focus group a los encuestadores con el objetivo de obtener recomendaciones relevantes para el levantamiento final de la encuesta. La información obtenida es utilizada para introducir cambios a los cuestionarios y para definir  ajustes al programa de capacitación de los encuestadores.
-
-Para el proceso de pilotaje se utiliza una muestra aleatoria en la Región Metropolitana, obtenida a partir del empadronamietno realizado por el CMD para la muestra original.
-
 ### Planificación y Ejecución del Campo {-}
-
-La selección y capacitación de los Coordinadores de sede, encuestadores y supervisores constituye un pilar fundamental del levantamiento. Por ello, es indispensable que tanto los Coordinadores como los encuestadores entiendan a cabalidad la encuesta y su objetivo, de modo que sean capaces de argumentar la importancia y funcionalidad de la información que están recogiendo.
-
-Para esto, un primer paso es la selección de Coordinadores/as de Sede, los que se encuentran encargados de liderar al equipo de encuestadores de cada zona administrativa (sedes). Se seleccionan personas con experiencia en este cargo en encuestas en olas anteriores del proyecto y/o con experiencia en encuestas complejas.
-
-Para el caso de los encuestadores y encuestadoras, se convoca a encuestadores/as participantes de olas anteriores del proyecto y donda la evaluación de su trabajo fue satisfactoria. También se invitó a encuestadores que hubiesen participado en los últimos proyectos de encuestas realizados por el CMD.
-
-Para cada proceso de levantamiento se realizan capacitaciones a encuestadores y supervisores, en aspectos del estudio (objetivos, cobertura, tipos de entrevistados, etc.), aspectos metodológicos en el formato de acplicación, y en el cuestionario.
-
-Adicionalmente, se elaboró y utilizó un Manual del Encuestador para la implementación de ELSOC y documentos orientadores y protocolos para la aplicación del cuestionario. Esto incluye:
-
-- Protocolo de Visita: primer contacto con la vivienda, primer contacto con el hogar y concertación de entrevistas en casos en que no se puede realizar entrevista al momento de visita. 
-
-- Protocolo ante Casos Difíciles: escenario de negaciones, escenario de más de 4 intentos presenciales sin contacto, barreras de acceso a la vivienda, no contacto con la vivienda. También contempla estrategias de recuperación.
-
-- Protocolo de Aplicación del Cuestionario: descripción del estudio, consentimiento informado, aplicación de preguntas, manejo de interrupciones, entrega de gift cards.
-
-- Protocolo de Campo: respaldo de información, control de avances, registro de contactos.
-
-Los documentos fueron adaptados de modo tal de ajustarse a los requerimientos del seguimiento de una muestra previamente entrevistada. 
-
 ### Control y aseguramiento de calidad del trabajo de campo {-}
-
-Desde el inicio del levantamiento y durante toda su ejecución, se realizan estrategias de supervisión y control de calidad de manera constante, orientadas no solo a monitorear el estado de avance sino también a detectar de manera temprana y en tiempo real errores ocurridos durante el levantamiento, problemas de comportamiento entre los encuestadores, entre otros aspectos.
-
-Se han implementado las siguientes estrategias de alerta temprana y medidas correctivas durante el proceso de levantamiento:
-
-- Revisión del 100% de las encuestas recopiladas, en término de las observaciones registradas por el encuestador, por parte del Coordinador/a de Sede. En esta etapa se verifica que efectivamente se haya encuestado a la persona elegida en el proceso de muestreo y se verifica el correcto llenado de la hoja de ruta, y horario y duración de la ejecución de la entrevista.
-
-- Supervisión de encuestas recopiladas por parte de personas distintas al equipo de encuestadores que realizaron el levantamiento. Para esto se recontacta a un porcentaje de la muestra (entre 10 y 25% de la muestra completa, dependiendo de la ola), seleccionado aleatoriamente, y se verifican las respuestas en preguntas claves, para detectar y corregir a tiempo eventuales sesgos de equiop encuestador, errores de aplicación, y posibles faltas graves como la falsificación de la encuestas.
-
-- Retroalimentación semanal a encuestadores por parte de los jefes de zona, en base a los resultados de la revisión y supervisión de encuestas. 
-
-- Validación constante de la información recopilada por parte del equipo central a la base de datos y fichas de validación.
-
-- Reporte semanal a equipo COES informando respecto al estado de avance del levantamiento.
-
 ### Estrategia de Seguimiento {-}
-
-Un aspecto esencial para el funcionamiento continuo de ELSOC es lograr el seguimiento en el tiempo de los encuestados seleccionados en la muestra. Para esto, se definen estrategias de fidelización y seguimiento que permitan reducir el fenómeno de atrición.
-
-Algunas de las medidas implementadas son:
-
-- Obtención, almacenamiento y actualización de información relevante para garantizar un adecuado contacto: nombre del entrevistado, información de contacto (número de teléfono y correo electrónico), y aspectos básicos para su identificación. Dicha información es almacenada y utilizada siguiendo estrictos estándares de confidencialidad.
-
-- Realizar pre-contacto para concertar entrevistas y planificar el campo previo a la fecha de levantamietno. Cada encuestador recibe del coordinador de sede los datos sobre las citas concertadas con participantes ELSOC y utiliza un protocolo de entrevista específico para reentrevistas.  
-
-- Conformación de equipos de encuestadores de perfil variado, privilegiando a aquellos/as con experiencia en olas anteriores de ELSOC o en otras encuestas complejas. Los encuestadores y coordinadores son capacitados en aspectos propios del cargo y en aspectos técnicos del cuestionario y del estudio, poniéndo énfasis en el protocolo de entrevista.
-
-- Uso de cartas de presentación para cada entrevistado, firmada por la Dirección del Centro de Microdatos, donde se explican los objetivos del estudio, las institucionales a cargo, la garantía de confidencialidad de los datos y la entrega del incentivo.
-
-- Entrega de un incentivo monetario a los encuestados luego de obtener la encuesta completa. El incentivo corresponde a una Giftcard para ser canjeada en supermercados o negocios afines. El incentivo fue de \$6.000 durante las olas 2016, 2017, 2018 y 2019. Durante el levantamiento de la ola 2021 el incentivo monetario se incrementó a \$9.000.
-
-- Re-contacto ante rechazos o problemas de contactabilidad por parte de encuestadores distintos al original, el que debe contar con un perfil adecuado a las características observadas de la muestra no lograda y con mayor experiencia en la aplicación de encuestas similares. Dichos encuestadores cuentan con un incentivo económico adicional para aplicar este tipo de encuestas definidas como “recuperadas”.
-
-- En los casos que el entrevistado se cambió de domicilio, se solicita a los encuestadores que averigüen sobre el nuevo domicilio y realicen los esfuerzos para lograr entrevistarlo en el nuevo domicilio. Esto se realiza tanto para cambios de domicilio a nivel comunas en la misma región o en otra comuna en una región distinta. En este segundo caso se deriva el folio al coordinador que tuvo a cargo la nueva comuna de residencia del entrevistado.
-
-- Se envian saludos navideños y similares a los participantes de ELSOC por correo electrónico en fechas relevantes. Adicionalmente, se entregaron folletos con los principales resultados de rondas anteriores, de manera que los entrevistados conocieran acerca del uso de los datos recopilados y su relevancia para el país
-
-
 ## Incidencias en la aplicación de las encuestas
-
-A continuación se detallan los hitos específicos asociados a la implementación de las olas 2016, 2017, 2018, 2019 y 2021:    
-
 ### Implementación Ola 2016
-
-El levantamiento de la encuesta se llevó a cabo en un periodo de alrededor de 20 semanas, durante los meses de agosto a diciembre de 2016 (ver Figura \@ref(fig:graf-fechas-ola1)). Para la ejecución del terreno se contó con 132 encuestadores distribuidos en 4 sedes de trabajo, cada una liderada por un coordinador/a de grupo debidamente capacitado/a.
-
-El plazo fue mayor al pronosticado inicialmente (se estimó que duraría entre 8 y 12 semanas, extendiéndose finalmente a 20). Las principales dificultades encontradas y las medidas adoptadas para solucionar las eventualidades acontecidas fueron:
-
- - El CMD en su propuesta técnica comprometió un período de trabajo de campo de 8 semanas. Esta estimación de tiempo se basó en estudios recientes, pero no fue adecuada dadas las dificultades de acceso a la muestra y la dispersión de la misma.
-
- - El mayor problema se presentó en la Región Metropolitana que, a diferencia de las otras regiones, no consideró una sobredimensión de la muestra de acuerdo a tasas de respuesta históricas en encuestas de hogares con selección aleatoria del entrevistado. Para solucionar este problema se efectuó un aumento de la muestra (ver [Etapa 5: Aumento del tamaño muestral](#etapa5) para más detalles), lo que se tradujo en tiempo adicional de levantamiento.
- 
- - Se tuvo dificultad en la convocatoria y permanencia de los encuestadores en el proyecto, debido a la dificultad de acceso a la muestra y su dispersión, los que hicieron que el pago propuesto a los encuestadores, en comparación a otros proyectos paralelos (dentro y fuera del Centro), fuera relativamente menos atractivo. El pago realizado y las facilidades entregadas a los encuestadores se fue incrementando gradualmente para solucionar este problema.
-
-El cierre definitivo del trabajo de campo del levantamiento de la encuesta se desarrolló de común acuerdo con COES, una vez cubierta la totalidad de la muestra sobredimensionada^[Si bien lo requerido es lograr la mayor cantidad de entrevistas exitosas, es necesario establecer un punto de corte debido a la imposibilidad de establecer contacto o lograr respuesta por parte del hogar/entrevistado.]. El terreno se cerró finalmente con 2.984 encuestas realizadas.
-
-
-```{r graf-fechas-ola1, fig.cap = 'Número de entrevistas por semana, ola 2016'}
-
-elsoc_long_2016_2021 %>%
-  filter(ola == 1) %>% 
-  mutate(fecha = lubridate::make_date(year = annio_entr, month = mes_entr, day = dia_entr),
-         dia = lubridate::yday(fecha),
-         año = lubridate::year(fecha),
-         inicio = min(fecha),
-         termino = max(fecha),
-         año_inicio = min(año),
-         dia_inicio = lubridate::yday(inicio),
-         semana = trunc((365*(año - año_inicio) + dia - dia_inicio) / 7 )) %>% 
-  group_by(semana, inicio, termino) %>% 
-  summarise(n = n()) %>% 
-  ungroup() %>% 
-  mutate(fecha = inicio + 7 * semana) %>% 
-  ggplot(aes(x = fecha, y = n, label = n)) + 
-  theme_bw() +
-  geom_col(position = 'dodge2') +
-  geom_text(vjust = -0.5,
-            position = position_dodge2(width = .9),
-            size = 3) +
-  geom_col(fill = viridis::viridis(1, begin = .33)) +
-  scale_x_date(date_labels = "%d-%m-%y",
-               date_breaks = '1 week') +
-  scale_y_continuous(labels = scales::number,
-                     limits = c(0, 1000)) +
-  ylab(label = 'Número de entrevistas semanales') +
-  xlab(label = NULL) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
-```
-
 #### Indicadores levantamiento {-}
-
-A continuación se presentan las Tasas de Respuesta 1 (TRR1, definida por la AAPOR), Tasa de Cooperación 1 (TCC1), Tasa de Rechazo 1 (TR1) y Tasa de Contacto 1 (TC1)^[Para mayor información sobre la determinación de los códigos de disposición final de casos y el cálculo de las tasas de resultados, ver 
-[AAPOR (2016). Standard Definitions. Final Dispositions of Case Codes and Outcome Rates for Surveys](http://www.aapor.org/AAPOR_Main/media/publications/Standard-Definitions20169theditionfinal.pdf)]
-
-
-```{r tabla-tasas-ola1}
-
-tasas_ola1 <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'),
-                                sheet = 'tasa_respuesta') %>% 
-  select(ola, original_2016) %>% 
-  mutate(original_2016 = scales::percent(original_2016, .1))
-
-tasas_ola1 %>% 
-  kbl(caption = 'Tasas de Respuesta, Cooperación, de Rechazo y de Contacto, ola 2016',
-      align = c('l', 'c'),
-      format = table_format,
-      booktabs = TRUE,
-      col.name = c('Indicador', 'Muestra Original')) %>% 
-  kable_styling(full_width = FALSE,
-                latex_options = 'HOLD_position') %>% 
-  kable_classic_2()
-
-```
-
 #### Corrección de datos por casos anómalos: Olas 2016 y 2017 {-#casos-falsificados}
-
-En el contexto de la ejecución de la tercera ola del estudio ELSOC (año 2018) se diagnosticó la falsificación de un número acotado de casos a lo largo del estudio en las olas 2016 y 2017. 
-
-Durante la etapa de supervisión del trabajo de encuestadores durante el 2018, tercera ola de ELSOC, el Centro de Microdatos (CMD) detectó e informó que un conjunto de casos incluidos en la muestra panel son falsos. 
-
-Debido al lento avance de las metas de campo de ELSOC en 2018 en Tarapacá y Valparaíso, se enviaron nuevos encuestadores, los cuales detectaron estos problemas. En específico, las encuestas fueron sistemáticamente falsificadas: se realizaron a otras personas no incluídas en la muestra, o los encuestadores solicitaron información a terceros.
-
-Esto llevó a un proceso exhaustivo de revisión, en la cual se detectaron 56 casos falsificados en el campo de 2016 y 47 en el campo de 2017, concentrados en las regiones de Tarapacá (11 casos en 2016 y 11 en 2017) y Valparaíso (45 casos en 2016 y 37 en 2017). 
-
-La estrategia de campo de CMD se centra en encuestadores experimentados, asignando los mismos casos a los encuestadores en el tiempo, acorde a la recomendación de la literatura especializada. El problema se concentró en algunos encuestadores específicos en dichas zonas, el cual no fue detectado durante la supervisión de campo de las dos primeras olas.
-
-Los casos falsificados representan el 1,9% del tamaño muestral efectivo de ELSOC 2016 (N = 2.984) y 1,9% de 2017 (N = 2.522), por lo que se considera que éstos tienen un impacto marginal a nivel general. A pesar de esto, se tomó la decisión de excluir de las bases de datos los casos falsificados, y se generó y puso a disposición una versión corregida de las bases de datos 2016 y 2017. Los ponderadores fueron corregidos considerando la eliminación de estos casos.
-
-Para evitar estos problemas en el futuro, se modificaron los protocolos de supervisión, aumentando la supervisión presencial y el porcentaje de casos supervisados por encuestador. Adicionalmente, se implementó un sistema de rotación de encuestadores de tal manera que la muestra no sea levantada por los mismos encuestadores en más de una ronda.
-
-
 ### Implementación Ola 2017
-
-El levantamiento definitivo de la encuesta se llevó a cabo en un período de doce semanas, durante los meses de julio y octubre de 2017 (ver Figura \@ref(fig:graf-fechas-ola2)). Para la ejecución del terreno se contó con 120 encuestadores distribuidos en las 17 sedes de trabajo. 
-
-El terreno se llevó a cabo en un período mayor al pronosticado, pues se estimó que duraría nueve semanas, extendiéndose finalmente a doce. Sin embargo, el levantamiento de datos tuvo una duración menor al de la primera ola, que se extendió por 20 semanas. Esta mayor rapidez fue propiciada por la disponibilidad de datos de contacto de los encuestados obtenido en la ola anterior.
-
-La extensión del terreno por sobre la estimación original se debió principalmente a que en las regiones Metropolitana y de Valparaíso existió una mayor dificultad para contactar a los encuestados.
-
-El cierre definitivo del trabajo de campo del levantamiento de la encuesta se desarrolló una vez cubierta la totalidad de la muestra. El terreno se cerró finalmente con 2.521 encuestas realizadas.
-
-
-```{r graf-fechas-ola2, fig.cap = 'Número de entrevistas por semana, ola 2017'}
-
-elsoc_long_2016_2021 %>%
-  filter(ola == 2) %>% 
-  mutate(fecha = lubridate::make_date(year = annio_entr, month = mes_entr, day = dia_entr),
-         dia = lubridate::yday(fecha),
-         año = lubridate::year(fecha),
-         inicio = min(fecha),
-         termino = max(fecha),
-         año_inicio = min(año),
-         dia_inicio = lubridate::yday(inicio),
-         semana = trunc((365*(año - año_inicio) + dia - dia_inicio) / 7 )) %>% 
-  group_by(semana, inicio, termino) %>% 
-  summarise(n = n()) %>% 
-  ungroup() %>% 
-  mutate(fecha = inicio + 7 * semana) %>% 
-  ggplot(aes(x = fecha, y = n, label = n)) + 
-  theme_bw() +
-  geom_col(position = 'dodge2') +
-  geom_text(vjust = -0.5,
-            position = position_dodge2(width = .9),
-            size = 3) +
-  geom_col(fill = viridis::viridis(1, begin = .33)) +
-  scale_x_date(date_labels = "%d-%m-%y",
-               date_breaks = '1 week') +
-  scale_y_continuous(labels = scales::number,
-                     limits = c(0, 1000)) +
-  ylab(label = 'Número de entrevistas semanales') +
-  xlab(label = NULL) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
-
-```
-
-
 #### Indicadores levantamiento {-}
-
-A continuación se presentan las Tasas de Respuesta 1 (TRR1, definida por la AAPOR), Tasa de Cooperación 1 (TCC1), Tasa de Rechazo 1 (TR1) y Tasa de Contacto 1 (TC1):
-
-
-```{r tabla-tasas-ola2}
-
-tasas_ola2 <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'),
-                                sheet = 'tasa_respuesta') %>% 
-  select(ola, original_2017) %>% 
-  mutate(original_2017 = scales::percent(original_2017, .1))
-
-tasas_ola2 %>% 
-  kbl(caption = 'Tasas de Respuesta, Cooperación, de Rechazo y de Contacto, ola 2017',
-      align = c('l', 'c'),
-      format = table_format,
-      booktabs = TRUE,
-      col.name = c('Indicador', 'Muestra Original')) %>% 
-  kable_styling(full_width = FALSE,
-                latex_options = 'HOLD_position') %>% 
-  kable_classic_2()
-
-```
-
 #### Casos falsificados en ola 2017
-
-Luego de los registros y procedimientos aplicados por el CMD el año 2018 se encontraron y corrigieron anomalías en encuestas realizadas en 2016 y 2017. Para más detalle del problema encontrado y su corrección revisar [Corrección de datos por casos falsificados: Olas 2016 y 2017 ](#casos-falsificados).
-
-
 ### Implementación Ola 2018
-
-El trabajo de terreno se desarrolló durante los meses de agosto a diciembre de 2018, dentro del tiempo estimado (15 semanas, aproximadamente) (ver Figura \@ref(fig:graf-fechas-ola3)). Para la ejecución del terreno se contó con 189 encuestadores distribuidos en 18 sedes de trabajo. 
-
-Durante este levantamiento se incluyó la muestra de Refresco, lo que generó una dificultad para los encuestadores, ya que éstos deben explicar y motivar la participación en el estudio, tanto al grupo familiar como a los propios entrevistados.
-
-Por otra parte, la muestra de seguimiento (muestra Original) de los entrevistados 2016-2017 tuvo dificultades de contactabilidad, debido a una mayor presencia de cambios de domicilios registrados que en las versiones anteriores de la encuesta. El 6,9% se había cambiado a un domicilio diferente.
-
-Otra de las dificultades enfrentadas en ola tiene relación con los casos de falsificación detectados (ver [Corrección de datos por casos falsificados: Olas 2016 y 2017](#casos-falsificados)). Este problema implicó una revisión exhaustiva en terreno de estos casos, y un fortalecimiento al sistema de control, contemplando lo siguiente: 
-
-1. Aumentar el porcentaje de encuestas a controlar, de 10% a un 15% el 2018. Asegurando controlar al menos el 20% del trabajo realizado por cada encuestador.
-
-2. Estipular para futuras olas del proyecto rotación de los encuestadores sobre el mismo entrevistado.
-
-3. Registro de las encuestadoras involucradas de manera de no ser consideradas en futuras
-aplicaciones del estudio. Respecto a la dinámica general del trabajo, se crearon incentivos económicos para que los encuestadores lograran la muestra esperada. Así mismo, se dispuso la movilización necesaria para que los encuestadores cubrieran toda la muestra en los distintos horarios.
-
-El cierre definitivo del trabajo de campo del levantamiento de la encuesta se desarrolló de común acuerdo con COES, una vez cubierta la totalidad de la muestra. El terreno se cerró con 2.274 encuestas en la muestra de seguimiento y 1.523 encuestas en la muestra de refresco.
-
-```{r graf-fechas-ola3, fig.cap = 'Número de entrevistas por semana, ola 2018'}
-
-elsoc_long_2016_2021 %>%
-  filter(ola == 3) %>% 
-  mutate(fecha = lubridate::make_date(year = annio_entr, month = mes_entr, day = dia_entr),
-         dia = lubridate::yday(fecha),
-         año = lubridate::year(fecha),
-         inicio = min(fecha),
-         termino = max(fecha),
-         año_inicio = min(año),
-         dia_inicio = lubridate::yday(inicio),
-         semana = trunc((365*(año - año_inicio) + dia - dia_inicio) / 7 )) %>% 
-  group_by(semana, inicio, termino) %>% 
-  summarise(n = n()) %>% 
-  ungroup() %>% 
-  mutate(fecha = inicio + 7 * semana) %>% 
-  ggplot(aes(x = fecha, y = n, label = n)) + 
-  theme_bw() +
-  geom_col(position = 'dodge2') +
-  geom_text(vjust = -0.5,
-            position = position_dodge2(width = .9),
-            size = 3) +
-  geom_col(fill = viridis::viridis(1, begin = .33)) +
-  scale_x_date(date_labels = "%d-%m-%y",
-               date_breaks = '1 week') +
-  scale_y_continuous(labels = scales::number,
-                     limits = c(0, 1000)) +
-  ylab(label = 'Número de entrevistas semanales') +
-  xlab(label = NULL) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
-
-```
-
-
-
 #### Indicadores levantamiento {-}
-
-A continuación se presentan las Tasas de Respuesta 1 (TRR1, definida por la AAPOR), Tasa de Cooperación 1 (TCC1), Tasa de Rechazo 1 (TR1) y Tasa de Contacto 1 (TC1):
-
-
-```{r tabla-tasas-ola3}
-
-tasas_ola3 <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'),
-                                sheet = 'tasa_respuesta') %>% 
-  select(ola, original_2018, refresco_2018) %>% 
-  mutate(original_2018 = scales::percent(original_2018, .1),
-         refresco_2018 = scales::percent(refresco_2018, .1))
-
-tasas_ola3 %>% 
-  kbl(caption = 'Tasas de Respuesta, Cooperación, de Rechazo y de Contacto, ola 2018',
-      align = c('l', 'c', 'c'),
-      format = table_format,
-      booktabs = TRUE,
-      col.name = c('Indicador', 'Muestra Original', 'Muestra Refresco')) %>% 
-  kable_styling(full_width = FALSE,
-                latex_options = 'HOLD_position') %>% 
-  kable_classic_2()
-
-```
-
-
 ### Implementación Ola 2019
-
-El levantamiento de datos de ELSOC 2019 estaba programado para comenzar el sábado 19 de octubre de 2019, sin embargo debido al Estallido Social ocurrido en Chile a partir del 18 de octubre de 2019, el trabajo de terreno debió ser suspendido hasta el jueves 21 de noviembre, fecha en que se inició finalmente la recolección de la información. Por lo tanto, el levantamiento se realizó durante el período de Estallido Social, lo que dificultó su ejecución.
-
-Esta labor se extendió por un periodo de 13 semanas (Dado el desgaste propio de la muestra y del equipo de terreno, se decidió hacer una pausa en el levantamiento de datos durante las últimas 3 semanas de febrero de 2020) (ver Figura \@ref(fig:graf-fechas-ola4)). Para la ejecución del terreno se contó con 143 encuestadores distribuidos en 16 sedes de trabajo, administradas por coordinadores de zona debidamente capacitados. 
-
-
-```{r graf-fechas-ola4, fig.cap = 'Número de entrevistas por semana, ola 2019'}
-
-elsoc_long_2016_2021 %>%
-  filter(ola == 4) %>% 
-  mutate(fecha = lubridate::make_date(year = annio_entr, month = mes_entr, day = dia_entr),
-         dia = lubridate::yday(fecha),
-         año = lubridate::year(fecha),
-         inicio = min(fecha),
-         termino = max(fecha),
-         año_inicio = min(año),
-         dia_inicio = lubridate::yday(inicio),
-         semana = trunc((365*(año - año_inicio) + dia - dia_inicio) / 7 )) %>% 
-  group_by(semana, inicio, termino) %>% 
-  summarise(n = n()) %>% 
-  ungroup() %>% 
-  mutate(fecha = inicio + 7 * semana) %>% 
-  ggplot(aes(x = fecha, y = n, label = n)) + 
-  theme_bw() +
-  geom_col(position = 'dodge2') +
-  geom_text(vjust = -0.5,
-            position = position_dodge2(width = .9),
-            size = 3) +
-  geom_col(fill = viridis::viridis(1, begin = .33)) +
-  scale_x_date(date_labels = "%d-%m-%y",
-               date_breaks = '1 week') +
-  scale_y_continuous(labels = scales::number,
-                     limits = c(0, 1000)) +
-  ylab(label = 'Número de entrevistas semanales') +
-  xlab(label = NULL) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
-
-
-```
-
-
-
 #### Indicadores levantamiento {-}
-
-A continuación se presentan las Tasas de Respuesta 1 (TRR1, definida por la AAPOR), Tasa de Cooperación 1 (TCC1), Tasa de Rechazo 1 (TR1) y Tasa de Contacto 1 (TC1):
-
-
-```{r tabla-tasas-ola4}
-
-tasas_ola4 <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'),
-                                sheet = 'tasa_respuesta') %>% 
-  select(ola, original_2019, refresco_2019) %>% 
-  mutate(original_2019 = scales::percent(original_2019, .1),
-         refresco_2019 = scales::percent(refresco_2019, .1))
-
-tasas_ola4 %>% 
-  kbl(caption = 'Tasas de Respuesta, Cooperación, de Rechazo y de Contacto, ola 2019',
-      align = c('l', 'c', 'c'),
-      format = table_format,
-      booktabs = TRUE,
-      col.name = c('Indicador', 'Muestra Original', 'Muestra Refresco')) %>% 
-  kable_styling(full_width = FALSE,
-                latex_options = 'HOLD_position') %>% 
-  kable_classic_2()
-
-```
-
 ### Implementación Ola 2021
-
-La crisis sanitaria producida por la pandemia de COVID-19 y las restricciones asociadas, implicaron cambiar la metodología de aplicación de la Encuesta Longitudinal Social de Chile de forma presencial a remota a través de una encuesta telefónica (Para más detalle ver [Cuestionario 2021: levantamiento durante la pandemia de COVID-19](#instrumento-covid)). Este cambio en la forma de levantar los datos, presentó un gran desafío logístico y operativo, ya que desde sus orígenes ELSOC se había levantado de manera presencial.
-
-La pandemia de COVID-19 también afectó la fecha tradicional de levantamiento de ELSOC, la cual estaba programada para comenzar durante octubre de 2020, sin embargo, el levantamiento de la quinta ola se inició el sábado 30 de enero de 2021 con la asignación de la muestra a los encuestadores capacitados. Las razones para postergar el período de levantamiento fueron principalmente por la espera de condiciones sanitarias y de cuarentenas más favorables que permitieran un levantamiento presencial (sin embargo, prontamente se volvió clara la  imposibilidad de mantener la modalidad presencial); y por el tiempo adicional que tomó la preparación del terreno, producto del cambio de modalidad de levantamiento. El trabajo de campo se extendió hasta mediados de junio de 2021. Sin embargo, la aplicación se realizó mayoritariamente entre febrero y abril de 2021 (ver Figura \@ref(fig:graf-fechas-ola5)).
-
-Debido al degaste de la muestra y al desgaste del equipo de encuestadores por intentos infructuosos de contacto, es que a contar del mes de mayo se decidió cambiar la metodología de aplicación de producción por unidad muestral a conformar un grupo de encuestadores dedicado exclusivamente a repasar la muestra en una jornada laboral determinada.
-
-
-```{r graf-fechas-ola5, fig.cap = 'Número de entrevistas por semana, ola 2021'}
-
-elsoc_long_2016_2021 %>%
-  filter(ola == 5) %>% 
-  mutate(fecha = lubridate::make_date(year = annio_entr, month = mes_entr, day = dia_entr),
-         dia = lubridate::yday(fecha),
-         año = lubridate::year(fecha),
-         inicio = min(fecha),
-         termino = max(fecha),
-         año_inicio = min(año),
-         dia_inicio = lubridate::yday(inicio),
-         semana = trunc((365*(año - año_inicio) + dia - dia_inicio) / 7 )) %>% 
-  group_by(semana, inicio, termino) %>% 
-  summarise(n = n()) %>% 
-  ungroup() %>% 
-  mutate(fecha = inicio + 7 * semana) %>% 
-  ggplot(aes(x = fecha, y = n, label = n)) + 
-  theme_bw() +
-  geom_col(position = 'dodge2') +
-  geom_text(vjust = -0.5,
-            position = position_dodge2(width = .9),
-            size = 3) +
-  geom_col(fill = viridis::viridis(1, begin = .33)) +
-  scale_x_date(date_labels = "%d-%m-%y",
-               date_breaks = '1 week') +
-  scale_y_continuous(labels = scales::number,
-                     limits = c(0, 1000)) +
-  ylab(label = 'Número de entrevistas semanales') +
-  xlab(label = NULL) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
-
-```
-
-
-
 #### Indicadores levantamiento {-}
-
-A continuación se presentan las Tasas de Respuesta 1 (TRR1, definida por la AAPOR), Tasa de Cooperación 1 (TCC1), Tasa de Rechazo 1 (TR1) y Tasa de Contacto 1 (TC1):
-
-
-```{r tabla-tasas-ola5}
-
-tasas_ola5 <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'),
-                                sheet = 'tasa_respuesta') %>% 
-  select(ola, original_2021, refresco_2021) %>% 
-  mutate(original_2021 = scales::percent(original_2021, .1),
-         refresco_2021 = scales::percent(refresco_2021, .1))
-
-tasas_ola5 %>% 
-  kbl(caption = 'Tasas de Respuesta, Cooperación, de Rechazo y de Contacto, ola 2021',
-      align = c('l', 'c', 'c'),
-      format = table_format,
-      booktabs = TRUE,
-      col.name = c('Indicador', 'Muestra Original', 'Muestra Refresco')) %>% 
-  kable_styling(full_width = FALSE,
-                latex_options = 'HOLD_position') %>% 
-  kable_classic_2()
-
-```
-
 ## Atrición de la encuesta {#atricion}
-
-A continuación, se presenta la atrición obtenida según Muestra: 
-
-```{r tabla-atricion}
-atricion <- elsoc_long_2016_2021 %>% 
-  sjlabelled::as_label(ola, muestra) %>% 
-  group_by(ola, muestra) %>% 
-  summarise(n = n()) %>% 
-  pivot_wider(names_from = muestra, values_from = n) %>% 
-  janitor::clean_names() %>% 
-  ungroup() %>% 
-  mutate(atricion_original = scales::percent(1 - muestra_original/lag(muestra_original), .1),
-         atricion_refresco = scales::percent(1 - muestra_refresco/lag(muestra_refresco), .1))
-  
-atricion %>% 
-  kbl(align = c('c', 'c', 'c', 'c', 'c'),
-      format = table_format,
-      booktabs = TRUE,
-      col.name = c('Medición', rep(c('Muestra Original', 'Muestra Refresco'), 2)),
-      caption = 'Atrición de las muestras de ELSOC entre olas') %>% 
-  kable_styling(full_width = FALSE,
-                latex_options = 'HOLD_position') %>% 
-  kable_classic_2() %>% 
-  add_header_above(c(" " = 1, "Muestra Lograda" = 2, "Tasa de Atrición" = 2))
-
-
-```
-
-- Según sexo:
-
-```{r tabla-atricion-sexo}
-
-atricion_sexo <- elsoc_long_2016_2021 %>%
-  left_join(elsoc_long_2016_2021 %>% filter(ola == 1 & muestra == 1 | ola == 3 & muestra == 2) %>% 
-              select(idencuesta, m0_sexo) %>% 
-              rename(m0_sexo0 = m0_sexo), by = 'idencuesta') %>% 
-  sjlabelled::as_label(ola, muestra, m0_sexo0) %>% 
-  group_by(ola, muestra, m0_sexo0) %>% 
-  summarise(n = n()) %>% 
-  group_by(muestra, m0_sexo0) %>% 
-  mutate(atricion = 1 - n/lag(n),
-         atricion = scales::percent(atricion, .1)) %>% 
-  filter(!is.na(m0_sexo0)) %>% 
-  pivot_wider(id_cols = c(ola, muestra), 
-              names_from = m0_sexo0, values_from = c(n, atricion)) %>%  
-  janitor::clean_names() %>% 
-  ungroup() %>% 
-  arrange(muestra, ola) %>% 
-  select(-muestra)
-
-atricion_sexo %>% 
-  kbl(align = rep('c', 5),
-      format = table_format,
-      booktabs = TRUE,
-      col.name = c('Medición', 'Hombres', 'Mujeres', 'Hombres', 'Mujeres'),
-      caption = 'Atrición de las muestras de ELSOC entre olas, según sexo') %>% 
-  kable_styling(full_width = FALSE,
-                latex_options = 'HOLD_position') %>% 
-  kable_classic_2() %>% 
-  pack_rows('Muestra Original', 1, 5) %>%
-  pack_rows('Muestra Refresco', 6, 8) %>% 
-  add_header_above(c(" " = 1, "Muestra Lograda" = 2, "Tasa de Atrición" = 2))
-
-
-```
-
-
-- Según tramo etareo:
-
-```{r tabla-atricion-edad}
-
-atricion_edad <- elsoc_long_2016_2021 %>%
-  left_join(elsoc_long_2016_2021 %>% filter(ola == 1 & muestra == 1 | ola == 3 & muestra == 2) %>% 
-              select(idencuesta, m0_edad) %>% 
-              rename(m0_edad0 = m0_edad), by = 'idencuesta') %>% 
-    mutate(edadt = factor(car::recode(m0_edad0, "18:29 = 1; 30:49 = 2; 50:64 = 3; 65:150 = 4"),
-                    levels = 1:4,
-                    labels = c('18-29', '30-49', '50-64', '65 o más'))) %>% 
-  sjlabelled::as_label(ola, muestra, edadt) %>% 
-  group_by(ola, muestra, edadt) %>% 
-  summarise(n = n()) %>% 
-  group_by(muestra, edadt) %>% 
-  mutate(atricion = 1 - n/lag(n),
-         atricion = scales::percent(atricion, .1)) %>% 
-  filter(!is.na(edadt)) %>% 
-  pivot_wider(names_from = edadt, values_from = c(n, atricion)) %>% 
-  janitor::clean_names() %>% 
-  ungroup() %>% 
-  arrange(muestra, ola) %>% 
-  select(-muestra)
-
-atricion_edad %>% 
-  kbl(align = rep('c', 9),
-      format = table_format,
-      booktabs = TRUE,
-      col.name = c('Medición', rep(c('19-29', '30-49', '50-64', '65 o más'), 2)),
-      caption = 'Atrición de las muestras de ELSOC entre olas, según tramo etáreo') %>% 
-  kable_styling(full_width = FALSE,
-                latex_options = 'HOLD_position') %>% 
-  kable_classic_2() %>% 
-  pack_rows('Muestra Original', 1, 5) %>%
-  pack_rows('Muestra Refresco', 6, 8) %>% 
-  add_header_above(c(" " = 1, "Muestra Lograda" = 4, "Tasa de Atrición" = 4))
-
-
-```
-
-
-- Según nivel educacional:
-
-```{r tabla-atricion-educ}
-
-atricion_educ <- elsoc_long_2016_2021 %>%
-  left_join(elsoc_long_2016_2021 %>% filter(ola == 1 & muestra == 1 | ola == 3 & muestra == 2) %>% 
-              select(idencuesta, m01) %>% 
-              rename(m010 = m01), by = 'idencuesta') %>%
-  mutate(educ = factor(car::recode(m010, "1:3 = 1; 4:5 = 2; 6:7 = 3; 8:10 = 4; -999:-666 = 5"),
-                       levels = 1:5,
-                       labels = c("Basica", "Media", "Tecnica", "Universitaria", "NS/NR"))) %>% 
-  sjlabelled::as_label(ola, muestra, educ) %>% 
-  group_by(ola, muestra, educ) %>% 
-  summarise(n = n()) %>% 
-  filter(!educ == 'NS/NR') %>% 
-  group_by(muestra, educ) %>% 
-  mutate(atricion = 1 - n/lag(n),
-         atricion = scales::percent(atricion, .1)) %>% 
-  filter(!is.na(educ)) %>% 
-  pivot_wider(names_from = educ, values_from = c(n, atricion)) %>% 
-  janitor::clean_names() %>% 
-  ungroup() %>% 
-  arrange(muestra, ola) %>% 
-  select(-muestra)
-
-atricion_educ %>% 
-  kbl(align = rep('c', 9),
-      format = table_format,
-      booktabs = TRUE,
-      col.name = c('Medición', rep(c('Básica', 'Media', 'Técnica', 'Univ'), 2)),
-      caption = 'Atrición de las muestras de ELSOC entre olas, según nivel educacional') %>% 
-  kable_styling(full_width = FALSE,
-                latex_options = 'HOLD_position') %>% 
-  kable_classic_2() %>% 
-  pack_rows('Muestra Original', 1, 5) %>%
-  pack_rows('Muestra Refresco', 6, 8) %>% 
-  add_header_above(c(" " = 1, "Muestra Lograda" = 4, "Tasa de Atrición" = 4))
-
-```
-
-
-
-
-
-\newpage
-
 
 <!--chapter:end:03-implement-encuesta.Rmd-->
 
+
 # Bases de Datos {#bases-datos}
 
+Placeholder
+
+
 ## Descarga de Bases de datos
-
-Las bases de datos ELSOC son puestas a disposición al público general en el momento en que se ha completado su proceso de revisión y validación. Las bases de datos son publicadas y archivadas en el repositorio de **Harvard Dataverse**, en la [carpeta de datos de COES](https://dataverse.harvard.edu/dataverse/coes_data_repository). Este repositorio permite un acceso gratuito y seguro a las bases de datos.
-
-ELSOC se pone a disposición como bases de datos transversales según ola: olas 2016, 2017, 2018, 2019 y 2021, en formato de datos de R (.RData), SPSS (.sav), Stata 13 (.dta) y Stata 14 (.dta).
-
-Adicionalmente, a partir de 2019, se publican las bases de datos en formato longitudinal, para facilitar su uso como encuesta panel. A la fecha se encuentran publicadas la  base longitudinal de olas 2016-2019 en formato wide, y bases longitudinal de olas 2016-2021 en formato wide y long. Las variables que han presentado cambios en el tiempo se encuentran armonizadas para permitir su uso longitudinal.
-
-Como parte de un proceso continuo de mejora, es posible que las bases de datos publicadas sean actualizadas durante el desarrollo de ELSOC, debido a la corrección de potenciales errores, mejoras en el formato de los datos, actualización de códigos de no respuesta, etc. Dado esto, en el repositorio de Harvard Dataverse se encuentra publicada la última versión disponible, así como todas las versiones anteriores en caso de ser necesarias. 
-
 ## Fichas Técnicas
-
-En este apartado se presenta la Ficha Técnica (Ver Cuadro \@ref(tab:ficha), dónde se sintetizan las principales características del Estudio Longitudinal Social de Chile (ELSOC COES):
-
-```{r ficha, echo=FALSE, message=FALSE, warning=FALSE}
-
-ficha <- data.frame(caracteristicas = c('Objetivo', 'Diseño', 'Instrumento', 'Unidad de análisis', 'Población objetivo', 'Marco muestral', 'Diseño muestral', 'Unidades de muestreo', 'Periodicidad', 'Modo de aplicación', 'Informante', 'Duración promedio', 'Representatividad', 'Organismo responsable', 'Organismo ejecutor'),
-                    ELSOC = c('Analizar longitudinalmente la evolución del conflicto y cohesión
-                              en la sociedad chilena',
-                              'Estudio cuantitativo por medio de un cuestionario estructurado',
-                              'Cuestionario compuesto por preguntas cerradas de carácter simple y múltiple junto a algunas preguntas abiertas', 
-                              'Individuos',
-                              'Hombres y mujeres de 18 a 75 años, residentes habituales de viviendas particulares',
-                              'Marco de muestreo de manzanas del pre-censo 2011, trabajo elaborado por el Centro de Inteligencia Territorial (CIT) de la Universidad Adolfo Ibáñez', 
-                              'Probabilístico, estratificado, por conglomerados y multietápico',
-                              'Primero se eligen ciudades (UPM), luego manzanas (USM), y sub-bloques y viviendas (UTM). La unidad final de selección es la persona',
-                              'Anual. Muestra de refresco a oartir del 3er año',
-                              'Formato CAPI en vivienda del entrevistado. Formato CATI durante 2021',
-                              'Hombre o mujer residente en la vivienda, con edad entre 18 y 75 años.',
-                              '51 minutos',
-                              'Aproximadamente el 77% de la población total del país y 93% de la
-              población urbana con la muestra de Ola 2016',
-              'Centro de Estudios del Conflicto y Cohesión Social (COES)',
-              'CentroMicroDatos (CMD) de la Universidad de Chile'))
-          
-
-ficha %>% 
-  kbl(align = rep('l', 2),
-      format = table_format,
-      booktabs = TRUE,
-      longtable = TRUE,
-      col.name = c('Características', 'ELSOC'),
-      caption = 'Ficha Técnica ELSOC COES') %>% 
-  kable_styling(full_width = FALSE,
-                latex_options = c('HOLD_position', 'scale_down', 'repeat_header')) %>%
-  column_spec(1, width = "8em") %>% 
-  column_spec(2, width = "35em") %>% 
-  kable_classic_2() 
-
-```
-
-
 ## Protocolo de Uso de Base de Datos
-
-Cualquier publicación que utilize las bases de datos ELSOC, en cualquiera de sus versiones, debe citar la fuente de las siguientes formas (dependiendo de la base utilizada):
-
-- ELSOC 2016:
-
-**Centro de Estudios de Conflicto y Cohesión Social (2016). Estudio Longitudinal Social de Chile, Primera Ola (ELSOC_W01_v1.00). [Archivo de datos]. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl**
-
-- ELSOC 2017:
-
-**Centro de Estudios de Conflicto y Cohesión Social (2017). Estudio Longitudinal Social de Chile, Segunda Ola (ELSOC_W02_v1.00). [Archivo de datos]. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl**
-
-- ELSOC 2018:
-
-**Centro de Estudios de Conflicto y Cohesión Social (2018). Estudio Longitudinal Social de Chile, Tercera Ola (ELSOC_W03_v1.00). [Archivo de datos]. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl**
-
-- ELSOC 2019:
-
-**Centro de Estudios de Conflicto y Cohesión Social (2019). Estudio Longitudinal Social de Chile, Cuarta Ola (ELSOC_W04_v1.00). [Archivo de datos]. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl**
-
-- ELSOC 2021:
-
-**Centro de Estudios de Conflicto y Cohesión Social (2021). Estudio Longitudinal Social de Chile, Quinta Ola (ELSOC_W05_v1.00). [Archivo de datos]. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl**
-
-O en su formato longitudinal:
-
-**Centro de Estudios de Conflicto y Cohesión Social (2021). Estudio Longitudinal Social de Chile, Versión Panel Combinada 2016-2019 (ELSOC_Wide_2016_2019_v1.00). [Archivo de datos]. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl**
-
-Por último, en caso de que se desee citar el presente Manual de Usuario:
-
-**Centro de Estudios de Conflicto y Cohesión Social (2021). Manual de Usuario de Estudio Longitudinal Social de Chile. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES).**
-
-\newpage
-
 
 <!--chapter:end:04-bases_de_datos.Rmd-->
 
+
 # Ética
 
+Placeholder
+
+
 ## Aprobación Comité de Ética 
-
-El Estudio Longitudinal sobre Conflicto y Cohesión Social en Chile (ELSOC) cuenta con aprobación ética en todas sus olas del [Comité Ético Científico de Ciencias Sociales, Artes y Humanidades de la Pontifícia Universidad Católica de Chile](http://eticayseguridad.uc.cl/comite-etico-cientifico-en-ciencias-sociales-artes-y-humanidades.html) con fecha 08 de junio de 2016 e **ID Protocolo 160129004**.
-
-La aprobación del Comité de Ética fue renovada con fecha 06 de enero de 2021.
-
 ## Consentimiento informado
-
-Los participantes del estudio firmaron un Consentimiento Informado por Escrito en que se detallan los objetivos del estudio, en qué consiste su participación y qué se hará y cómo se resguardará la información y datos entregados. 
-
-Los participantes del estudio de la Muestra Original firmaron el Consentimiento Informado el 2016, mientras que los participantes de la Muestra Refresco en 2018. Adicionalmente, debido al cambio de modalidad realizado durante el levantamento de la ola 2021 (ver [Cuestionario 2021: levantamiento durante la pandemia de COVID-19](#instrumento-covid)), se solicitó a los participantes de ambas muestras firmar un Apéndice al Consentimiento Informado, en que se detalló los cambios realizados durante dicha ola.
-
-```{r, results = 'asis'}
-  if (is_html_output()) {
-    
-    cat('A continuación se encuentran disponibles los Consentimientos Informados firmados por los participantes en 2016 (Muestra Original), 2018 (Muestra Refresco) y 2021 (Apéndice):')
-  }
-```
-
-
-```{r}
-
-if (is_html_output()) {
-  xfun::embed_file(file.path('inputs', 'consentimiento_informado_panel_coes_original.pdf'), text = 'Consentimiento Informado 2016 (Muestra Original)')
-}
-
-```
-
-
-```{r}
-
-if (is_html_output()) {
-  xfun::embed_file(file.path('inputs', 'consentimiento_informado_panel_coes_refresco.pdf'), text = 'Consentimiento Informado 2018 (Muestra Refrsco)')
-}
-
-```
-
-
-```{r}
-
-if (is_html_output()) {
-  xfun::embed_file(file.path('inputs', 'consentimiento_informado_panel_coes_apendice.pdf'), text = 'Consentimiento Informado 2021 (Apéndice)')
-}
-
-```
-
-\newpage
 
 <!--chapter:end:05-etica.Rmd-->
 
@@ -1342,263 +442,18 @@ En caso de que detecte problemas con la base de datos, desee plantear solicitude
 
 # Libro de Códigos {#libro-codigos}
 
-Para un uso adecuado de la base de datos de ELSOC COES se recomienda a los investigadores trabajar con el libro de códigos (presentado en esta sección) y el Listado de Variables (descargable en formato excel en el siguiente [link](https://coes.cl/wp-content/uploads/Listado-de-Variables-ELSOC-2.xlsx), o en la página de COES).
-
-El Libro de Códigos y el Listado de Variables detallan el codigo longitudinal de cada variable; la etiqueta de variable asociada; fraseo de cada preambulo, pregunta e item; las distintas categorías de respuestas y codigos asociados; y observaciones en las variables que han tenido modificaciones a lo largo de las distintas mediciones del estudio. Adicionalmente, en el libro de códigos se incluyen tablas de frecuencia de cada pregunta según ola y muestra (se omiten variables numéricas continuas y de texto). 
-
-El libro de códigos fue diseñado de modo de que sintetice toda la información relevante sobre las variables de la base de datos en un formato común para facilitar su uso. De manera genérica, las variables incluidas en la base de datos tienen el siguiente formato:
-
-> **Código longitudinal**. Etiqueta de variable
->
-> *Fraseo pregunta*
-> 
-> *Códigos de respuestas Categorías de respuesta*
-> 
-> Observaciones
->
-> Tabla de frecuencias
-
-Las preguntas se presentan por módulo del cuestionario, para facilitar su lectura.
-
-El Código Longitudinal corresponde al código asociado a cada item del cuestionario en la base de datos y libros de códigos. Por medio de estos códigos se pueden identificar los distintos ítemes incluidos. En el caso de la base de datos longitudinal en formato Wide, el código incluye *_w01*, *_w02*, *_w03*, *_w04* o *_w05* al final del código para indicar si la respuesta corresponde a las olas 2016, 2017, 2018, 2019 o 221, respectivamente.
-
-Las etiquetas de variables se incluyen en el Libro de Códigos y en las bases de datos, y fueron diseñadas por el equipo ELSOC con el objetivo de describir de modo sucinto el fenómeno o dimensión a medir^[Se eliminan tildes y otros símbolos no incluidos en todos los softwares estadísticos (por ejemplo, tildes y la ñ)]. A continuación se presenta el fraseo de la pregunta, incluyendo los preámbulos, y los distintos códigos y categorías de respuesta. En la construcción de la base de datos, los códigos de respuesta fueron ingresados como valores numéricos y las categorías de respuesta como etiquetas de valores.
-
-Finalmente, se incorporan observaciones asociadas a posibles cambios en el tiempo, o aspectos a tomar en consideración al momento de utilizar las variables.
-
-Las variables de cadena (texto) no presentan códigos, ya que presentan los verbatim literales de las menciones por parte de los encuestados. En el caso de los ítems dónde se pide una respuesta numérica tampoco existen categorías de respuesta, registrándose el valor indicado por el entrevistado. 
-
-
-```{r}
-
-# Importar listado de variables
-listado_cuestionario0 <- readxl::read_excel(path = file.path('..', '..', '..', '..',
-                                                             '1_Cuestionario_y_Listado_Variables',
-                                                             '2_Listado_de_variables_definitivo',
-                                                             '0A_Listado_Variables_Global_ELSOC_v2022.xlsx'),
-                                        sheet = '2_Items_Total') %>% 
-  janitor::clean_names()
-
-listado_complementario0 <- readxl::read_excel(path = file.path('..', '..', '..', '..',
-                                                             '1_Cuestionario_y_Listado_Variables',
-                                                             '2_Listado_de_variables_definitivo',
-                                                             '0A_Listado_Variables_Global_ELSOC_v2022.xlsx'),
-                                        sheet = '3_items_cuestionario') %>% 
-  janitor::clean_names()
-
-listado_cuestionario1 <- listado_cuestionario0 %>% 
-  left_join(listado_complementario0, by = 'codigo_longitudinal')
-
-```
-
-```{r}
-# Correcciones de fraseos para armar cuestionario:
-listado_cuestionario2 <- listado_cuestionario1 %>% 
-  mutate(preambulo = str_trim(preambulo_pregunta),
-         preambulo = str_remove_all(preambulo, '-$|\\.\\.\\.$'), 
-         preambulo = ifelse(preambulo == '', '', glue('*{preambulo}...*')),
-         fraseo_pregunta = str_trim(fraseo_pregunta),
-         fraseo_pregunta = str_remove_all(fraseo_pregunta, '-$|\\.\\.\\.$|:$|\\.$'),
-         fraseo_pregunta = ifelse(fraseo_pregunta == '', '', glue('*{fraseo_pregunta}*')),
-         fraseo_item = str_trim(fraseo_item),
-         fraseo_item = str_remove(fraseo_item, '-$'),
-         fraseo_item = ifelse(fraseo_item == '', '.', glue(': *{fraseo_item}*.')),
-         fraseo_item = ifelse(fraseo_pregunta == '', '', fraseo_item),
-         opciones_respuesta = str_remove_all(opciones_respuesta, 'Valor numerico$|\\|Valor numerico$'),
-         codigos_respuesta = str_remove_all(codigos_respuesta, 'Valor numerico$|\\|Valor numerico$'),
-         observaciones = ifelse(observaciones == '-', '', glue('Observaciones: {observaciones}'))
-         ) %>% 
-  arrange(n)
-
-# Agregar códigos de respuestas:
-listado_cuestionario2$respuestas0 <- unlist(with(listado_cuestionario2, 
-                                                 purrr::map(.x = purrr::map2(.x = strsplit(codigos_respuesta, '\\|'), 
-                                      .y = strsplit(opciones_respuesta, '\\|'),  
-                                      .f = str_c, sep = ' '),
-                     .f = str_flatten,
-                     collapse = '  \n')))
-
-# Código de respuestas cuando hay valores numéricos, texto abierto o no hay respuestas (variable creada)
-listado_cuestionario2$respuestas <- with(listado_cuestionario2, 
-                                      case_when(tipo_variable %in% c('Nominal', 'Ordinal') & niveles != '-' ~ respuestas0,
-                                                tipo_variable %in% c('Nominal', 'Ordinal') & niveles == '-' ~ '',
-                                                tipo_variable %in% c('Cadena', 'Numerica') ~ '',
-                                                respuestas0 == '-' ~ '',
-                                                TRUE ~ respuestas0))
-
-# Filtrar solo variables presentes en olas 2016-2021:
-listado_cuestionario <- listado_cuestionario2 %>% 
-  filter(ola_2016_m1 == 'Si' | ola_2017_m1 == 'Si' |
-           ola_2018_m1 == 'Si' | ola_2019_m1 == 'Si' | ola_2021_m1 == 'Si' |
-           ola_2018_m2 == 'Si' | ola_2019_m2 == 'Si' | ola_2021_m2 == 'Si' | 
-           var_longitudinal == 'Si',
-           !codigo_longitudinal %in% c('r13_npila_01', 'r13_npila_02', 'r13_npila_03', 'r13_npila_04', 'r13_npila_05'))
-
-
-
-```
-
-
-```{r}
-# Formato final para que aparezca en el libro de codigos
-libro_codigo <- listado_cuestionario %>% 
-  mutate(texto_pregunta = glue::glue('  \n', 
-                                     '  -  **{codigo_longitudinal}**: {etiqueta}',
-                                     '  \n  \n',
-                                     '  > {preambulo} {fraseo_pregunta}{fraseo_item}  \n  \n',
-                                     '  > {respuestas}',
-                                     '  \n  \n',
-                                     '  {observaciones}',
-                                     '  \n  \n'))
-
-```
-
-
-```{r}
-options(knitr.kable.NA = 'NA')
-
-# Función para generar tabla de frecuencias a partir de nombre de variable:
-tabla_frecuencia <- function(x) {
-  
-  x <- x
-  
-  # Tabla de frecuencias
-  frecuencias0 <- elsoc_long_2016_2021 %>%
-  group_by(!!rlang::ensym(x), ola, muestra) %>% 
-  summarise(freq = n()) %>% 
-  pivot_wider(names_from = ola, 
-              values_from = freq) %>%
-  ungroup()
-
-  # Tabla de frecuencias expandida y corregida:
-  frecuencias <- frecuencias0 %>% 
-  expand(!!rlang::ensym(x), muestra) %>% 
-  arrange(muestra, !!rlang::ensym(x)) %>%
-  left_join(frecuencias0, 
-            by = c(x, 'muestra'), 
-            na_matches = 'na') %>% 
-  select(!!rlang::ensym(x), `1`, `2`, `3`, `4`, `5`) %>% 
-    mutate(`1` = ifelse(is.na(`1`), 0, `1`),
-           `2` = ifelse(is.na(`2`), 0, `2`),
-           `3` = ifelse(is.na(`3`), 0, `3`),
-           `4` = ifelse(is.na(`4`), 0, `4`),
-           `5` = ifelse(is.na(`5`), 0, `5`)
-           )
-
-  n <- dim(frecuencias)[1]
-
-  frecuencias %>%
-    kbl(align = c('l', rep('c', 9)),
-        col.name = c(x, '2016', '2017', '2018', '2019', '2021'),
-         booktabs = TRUE) %>%
-    kable_paper('hover') %>% 
-    kable_styling(full_width = FALSE, position = 'left',
-                  latex_options = c('HOLD_position')) %>% 
-    pack_rows('Muestra Original', 1, trunc(n/2)) %>% 
-    pack_rows('Muestra Refresco', trunc(n/2) + 1, n)
-
-
-}
-
-fun_libro_codigos <- function(libro_codigo) {
-  variables <- libro_codigo %>% pull(codigo_longitudinal)
-  
-  for (i in variables) {
-  
-    if (!i %in% c('ola', 'muestra')) {
-    print(libro_codigo$texto_pregunta[libro_codigo$codigo_longitudinal == i])
-    cat('\n\n<!-- -->\n\n')
-    
-    if (!libro_codigo$tipo_variable[libro_codigo$codigo_longitudinal == i] %in% c('Numerica', 'Cadena')) {
-            print(tabla_frecuencia(i))
-            cat('\n\n<!-- -->\n\n')
-      }
-    }
-  }
-}
-
-
-
-```
+Placeholder
 
 
 ## Módulo de Ciudadanía y democracia
-
-```{r libro-codigo-ciudadania, echo=FALSE, results = 'asis'}
-
-fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Ciudadanía', ])
-
-```
-
 ## Módulo de Conflicto Social
-
-```{r libro-codigo-conflictosocial, echo=FALSE, results = 'asis'}
-
-fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Conflicto Social', ])
-
-```
-
-
 ## Módulo de Desigualdad y legitimidad
-
-```{r libro-codigo-desigualdadlegitimidad, echo=FALSE, results = 'asis'}
-
-fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Desigualdad y Legitimidad', ])
-
-```
-
 ## Módulo de Género
-
-
-```{r libro-codigo-genero, echo=FALSE, results = 'asis'}
-
-fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Género', ])
-
-```
-
 ## Módulo de Redes y Actitudes
-
-```{r libro-codigo-redesactitudes, echo=FALSE, results = 'asis'}
-
-fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Redes y Actitudes', ])
-
-```
-
 ## Módulo de Salud y Bienestar
-
-```{r libro-codigo-saludbienestar, echo=FALSE, results = 'asis'}
-
-fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Salud y Bienestar', ])
-
-```
-
 ## Módulo de Territorio
-
-```{r libro-codigo-territorio, echo=FALSE, results = 'asis'}
-
-fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Territorio', ])
-
-```
-
 ## Módulo Sociodemográfico
-
-```{r libro-codigo-sociodemografico, echo=FALSE, results = 'asis'}
-
-fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Sociodemográfica', ])
-
-```
-
 ## Variables de identificacion y otras variables
-
-```{r libro-codigo-otrasvariables, echo=FALSE, results = 'asis'}
-
-fun_libro_codigos(libro_codigo[libro_codigo$modulo == 'Otras Variables', ])
-
-```
-
-\newpage
-
-
 
 <!--chapter:end:07-libro-codigos.Rmd-->
 

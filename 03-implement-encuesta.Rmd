@@ -468,6 +468,420 @@ tasas_ola5 %>%
 
 ```
 
+A continuación, se muestran las tasas de contacto, cooperación, rechazo y respuesta
+para todas las muestras y olas. 
+
+```{r tabla de tasas varias olas}
+tasas_olas <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'),
+                                sheet = 'tasa_respuesta') %>% 
+  mutate(original_2016 = scales::percent(original_2016, .1),
+         original_2017 = scales::percent(original_2017, .1),
+         original_2018 = scales::percent(original_2018, .1),
+         refresco_2018 = scales::percent(refresco_2018, .1),
+         original_2019 = scales::percent(original_2019, .1),
+         refresco_2019 = scales::percent(refresco_2019, .1),
+         original_2021 = scales::percent(original_2021, .1),
+         refresco_2021 = scales::percent(refresco_2021, .1))
+
+tasas_olas = as.data.frame(t(tasas_olas))
+names(tasas_olas) = tasas_olas[1,]
+tasas_olas = tasas_olas[-1,]
+tasas_olas = as.data.frame(cbind(as.data.frame(c( 
+                   'M. Original 2016', 
+                   'M. Original 2017',
+                   'M. Original 2018',
+                   'M. Refresco 2018',
+                   'M. Original 2019',
+                   'M. Refresco 2019',
+                   'M. Original 2021',
+                   'M. Refresco 2021'
+                   )),tasas_olas))
+names(tasas_olas)[1] = "Muestra"
+rownames(tasas_olas) = NULL
+
+tasas_olas %>%
+  kbl(caption = 'Tasas de Respuesta, Cooperación, de Rechazo y de Contacto, todas las olas',
+      align = c('l', 'c', 'c', 'c', 'c'),
+      format = table_format,
+      booktabs = TRUE) %>% 
+  kable_styling(full_width = FALSE,
+                latex_options = 'HOLD_position') %>% 
+  kable_classic_2()
+
+
+```
+
+## Comparación entre Muestras Originales y Refresco {#comparacionrefresco}
+
+
+A continuación, se muestra una tabla que indica porcentaje de distintos segmentos sociodemográficos para las muestras originales y refresco de la tercera ola. 
+
+```{r tabla-comparaciondemografica}
+library(stargazer)
+library(glmmML)
+library(panelView)
+library(panelr)
+library(tidyverse)
+library(sjmisc)
+library(sjlabelled)
+library(ggplot2)
+library(elsoc)
+library(ggthemes)
+library(expss)
+library(gtsummary)
+
+load_elsoc()
+
+elsoc = elsoc_long_2016_2021 %>%
+  select(version,tipo_atricion,ponderador02,muestra,ola,
+         m0_sexo,m0_edad,m01,m02,m03,m12,m13,estrato) %>% 
+  mutate(tipo_ola = ifelse(ola==1,"M. Original 2016",
+                    ifelse(ola==2,"M. Original 2017",
+                    ifelse(ola==3 & muestra==1, "M. Original 2018",
+                    ifelse(ola==3 & muestra==2, "M. Refresco 2018",
+                    ifelse(ola==4 & muestra==1, "M. Original 2019",
+                    ifelse(ola==4 & muestra==2, "M. Refresco 2019",
+                    ifelse(ola==5 & muestra==1, "M. Original 2021",
+                    ifelse(ola==5 & muestra==2, "M. Refresco 2021","no")))))))),
+        ola_total = ifelse(ola==1,"M. Original 2016",
+                    ifelse(ola==2,"M. Original 2017",
+                    ifelse(ola==3, "M. Total  2018",
+                    ifelse(ola==4, "M. Total 2019",
+                    ifelse(ola==5, "M. Total 2021","no"))))),
+             sexo = ifelse(m0_sexo==1,0,1),
+           etario = ifelse(m0_edad>=18 & m0_edad<=29,1,
+                    ifelse(m0_edad>=30 & m0_edad<=49,2,
+                    ifelse(m0_edad>=50 & m0_edad<=59,3,
+                    ifelse(m0_edad>=60,4,NA))))) %>%
+  fastDummies::dummy_cols(select_columns = c('estrato','m0_sexo','etario','m01'))
+
+
+
+
+
+
+fun_tipo_ola = function(wave,estratos){
+if (estratos==0){
+  list(
+    (elsoc %>% 
+       filter(!is_nsnr(m0_sexo),ola==wave) %>% 
+       group_by(tipo_ola) %>% 
+       summarise("Hombre"=weighted.mean(m0_sexo_1,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m0_sexo),ola==wave) %>% 
+       group_by(tipo_ola) %>% 
+       summarise("Mujer"=weighted.mean(m0_sexo_2,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m0_edad),ola==wave) %>% 
+       group_by(tipo_ola) %>% 
+       summarise("18-29"=weighted.mean(etario_1,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m0_edad),ola==wave) %>% 
+       group_by(tipo_ola) %>% 
+       summarise("30-49"=weighted.mean(etario_2,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m0_edad),ola==wave) %>% 
+       group_by(tipo_ola) %>% 
+       summarise("50-64"=weighted.mean(etario_3,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m0_edad),ola==wave) %>% 
+       group_by(tipo_ola) %>% 
+       summarise("65 o más"=weighted.mean(etario_4,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m01),ola==wave) %>% 
+       group_by(tipo_ola) %>% 
+       summarise("Sin estudios"=weighted.mean(m01_1,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m01),ola==wave) %>% 
+       group_by(tipo_ola) %>% 
+       summarise("Educación Básica incompleta"=weighted.mean(m01_2,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m01),ola==wave) %>% 
+       group_by(tipo_ola) %>% 
+       summarise("Educación Básica completa"=weighted.mean(m01_3,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m01),ola==wave) %>% 
+       group_by(tipo_ola) %>% 
+       summarise("Educación Media incompleta"=weighted.mean(m01_4,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m01),ola==wave) %>% 
+       group_by(tipo_ola) %>% 
+       summarise("Educación Media completa"=weighted.mean(m01_5,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m01),ola==wave) %>% 
+       group_by(tipo_ola) %>% 
+       summarise("Técnica Superior incompleta"=weighted.mean(m01_6,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m01),ola==wave) %>% 
+       group_by(tipo_ola) %>% 
+       summarise("Técnica Superior completa"=weighted.mean(m01_7,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m01),ola==wave) %>% 
+       group_by(tipo_ola) %>% 
+       summarise("Universitaria incompleta"=weighted.mean(m01_8,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m01),ola==wave) %>% 
+       group_by(tipo_ola) %>% 
+       summarise("Universitaria completa"=weighted.mean(m01_9,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m01),ola==wave) %>% 
+       group_by(tipo_ola) %>% 
+       summarise("Estudios de posgrado"=weighted.mean(m01_10,ponderador02)))
+      ) %>% 
+    reduce(merge,by="tipo_ola") %>% 
+    t() %>% 
+    as.data.frame() %>%
+    janitor::row_to_names(row_number = 1)
+}
+  else {
+    
+    list(
+       (elsoc %>% 
+           filter(!is_nsnr(estrato),ola==wave) %>% 
+           group_by(tipo_ola) %>% 
+           summarise("Gran Santiago"=  weighted.mean(estrato_1,ponderador02))),
+        (elsoc %>% 
+           filter(!is_nsnr(estrato),ola==wave) %>% 
+           group_by(tipo_ola) %>% 
+           summarise("Gran Valparaíso"=  weighted.mean(estrato_2,ponderador02))),
+        (elsoc %>% 
+           filter(!is_nsnr(estrato),ola==wave) %>% 
+           group_by(tipo_ola) %>% 
+           summarise("Gran Concepción"=  weighted.mean(estrato_3,ponderador02))),
+        (elsoc %>% 
+           filter(!is_nsnr(estrato),ola==wave) %>% 
+           group_by(tipo_ola) %>% 
+           summarise("Ciudades Grandes"=  weighted.mean(estrato_4,ponderador02))),
+        (elsoc %>% 
+           filter(!is_nsnr(estrato),ola==wave) %>% 
+           group_by(tipo_ola) %>% 
+           summarise("Ciudades Medianas"=  weighted.mean(estrato_5,ponderador02))),
+        (elsoc %>% 
+           filter(!is_nsnr(estrato),ola==wave) %>% 
+           group_by(tipo_ola) %>% 
+           summarise("Ciudades Pequeñas"=  weighted.mean(estrato_6,ponderador02)))
+      
+      
+    ) %>% 
+      reduce(merge,by="tipo_ola") %>% 
+      t() %>% 
+      as.data.frame() %>%
+      janitor::row_to_names(row_number = 1)    
+    
+    }
+}
+
+fun_ola = function(wave,estratos){
+if (estratos == 0) { 
+  list(
+    (elsoc %>% 
+       filter(!is_nsnr(m0_sexo),ola==wave) %>% 
+       group_by(ola_total) %>% 
+       summarise("Hombre"=weighted.mean(m0_sexo_1,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m0_sexo),ola==wave) %>% 
+       group_by(ola_total) %>% 
+       summarise("Mujer"=weighted.mean(m0_sexo_2,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m0_edad),ola==wave) %>% 
+       group_by(ola_total) %>% 
+       summarise("18-29"=weighted.mean(etario_1,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m0_edad),ola==wave) %>% 
+       group_by(ola_total) %>% 
+       summarise("30-49"=weighted.mean(etario_2,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m0_edad),ola==wave) %>% 
+       group_by(ola_total) %>% 
+       summarise("50-64"=weighted.mean(etario_3,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m0_edad),ola==wave) %>% 
+       group_by(ola_total) %>% 
+       summarise("65 o más"=weighted.mean(etario_4,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m01),ola==wave) %>% 
+       group_by(ola_total) %>% 
+       summarise("Sin estudios"=weighted.mean(m01_1,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m01),ola==wave) %>% 
+       group_by(ola_total) %>% 
+       summarise("Educación Básica incompleta"=weighted.mean(m01_2,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m01),ola==wave) %>% 
+       group_by(ola_total) %>% 
+       summarise("Educación Básica completa"=weighted.mean(m01_3,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m01),ola==wave) %>% 
+       group_by(ola_total) %>% 
+       summarise("Educación Media incompleta"=weighted.mean(m01_4,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m01),ola==wave) %>% 
+       group_by(ola_total) %>% 
+       summarise("Educación Media completa"=weighted.mean(m01_5,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m01),ola==wave) %>% 
+       group_by(ola_total) %>% 
+       summarise("Técnica Superior incompleta"=weighted.mean(m01_6,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m01),ola==wave) %>% 
+       group_by(ola_total) %>% 
+       summarise("Técnica Superior completa"=weighted.mean(m01_7,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m01),ola==wave) %>% 
+       group_by(ola_total) %>% 
+       summarise("Universitaria incompleta"=weighted.mean(m01_8,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m01),ola==wave) %>% 
+       group_by(ola_total) %>% 
+       summarise("Universitaria completa"=weighted.mean(m01_9,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(m01),ola==wave) %>% 
+       group_by(ola_total) %>% 
+       summarise("Estudios de posgrado"=weighted.mean(m01_10,ponderador02)))
+    
+  ) %>% 
+    reduce(merge,by="ola_total") %>% 
+    t() %>% 
+    as.data.frame() %>%
+    janitor::row_to_names(row_number = 1)
+}
+else {
+  
+  list(
+    (elsoc %>% 
+       filter(!is_nsnr(estrato),ola==wave) %>% 
+       group_by(ola_total) %>% 
+       summarise("Gran Santiago"=  weighted.mean(estrato_1,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(estrato),ola==wave) %>% 
+       group_by(ola_total) %>% 
+       summarise("Gran Valparaíso"=  weighted.mean(estrato_2,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(estrato),ola==wave) %>% 
+       group_by(ola_total) %>% 
+       summarise("Gran Concepción"=  weighted.mean(estrato_3,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(estrato),ola==wave) %>% 
+       group_by(ola_total) %>% 
+       summarise("Ciudades Grandes"=  weighted.mean(estrato_4,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(estrato),ola==wave) %>% 
+       group_by(ola_total) %>% 
+       summarise("Ciudades Medianas"=  weighted.mean(estrato_5,ponderador02))),
+    (elsoc %>% 
+       filter(!is_nsnr(estrato),ola==wave) %>% 
+       group_by(ola_total) %>% 
+       summarise("Ciudades Pequeñas"=  weighted.mean(estrato_6,ponderador02)))
+    
+  ) %>% 
+    reduce(merge,by="ola_total") %>% 
+    t() %>% 
+    as.data.frame() %>%
+    janitor::row_to_names(row_number = 1)
+  
+  
+  
+}
+}
+
+
+fun_tabla_olas = function(wave=5,estratos=0){
+if (wave>=3){
+tabla = cbind(fun_tipo_ola(wave,estratos),fun_ola(wave,estratos)) %>% as.data.frame()
+tabla[,1] = paste0(round(as.double(tabla[,1])*100,2),"%")
+tabla[,2] = paste0(round(as.double(tabla[,2])*100,2),"%")
+tabla[,3] = paste0(round(as.double(tabla[,3])*100,2),"%")
+tabla
+# tabla %>% knitr::kable(align='c')
+}
+  else {
+tabla = fun_ola(wave,estratostabla
+) %>% as.data.frame()
+tabla[,1] = paste0(round(as.double(tabla[,1])*100,2),"%")
+# tabla %>% knitr::kable(align='c')    
+  }
+}
+
+fun_tabla_olas(3,0)  %>%
+  kbl(align = c('l', 'c', 'c', 'c', 'c'),
+      format = table_format,
+      booktabs = TRUE) %>% 
+  kable_styling(full_width = FALSE,
+                latex_options = 'HOLD_position') %>% 
+  kable_classic_2()
+```
+
+A continuación, se muestra una tabla que indica porcentaje de distintos segmentos sociodemográficos para las muestras originales y refresco de la cuarta ola. 
+
+
+```{r tabla-comparaciondemografica2019}
+fun_tabla_olas(4,0)  %>%
+  kbl(align = c('l', 'c', 'c', 'c', 'c'),
+      format = table_format,
+      booktabs = TRUE) %>% 
+  kable_styling(full_width = FALSE,
+                latex_options = 'HOLD_position') %>% 
+  kable_classic_2()
+```
+
+A continuación, se muestra una tabla que indica porcentaje de distintos segmentos sociodemográficos para las muestras originales y refresco de la quinta ola. 
+
+```{r tabla-comparaciondemografica2021}
+fun_tabla_olas(5,0)  %>%
+  kbl(align = c('l', 'c', 'c', 'c', 'c'),
+      format = table_format,
+      booktabs = TRUE) %>% 
+  kable_styling(full_width = FALSE,
+                latex_options = 'HOLD_position') %>% 
+  kable_classic_2()
+
+```
+
+A continuación, se muestra una tabla que indica porcentaje de población de los distintos estratos para las muestras originales y refresco de la tercera ola. 
+
+
+```{r tabla-comparaciondemografica2021}
+fun_tabla_olas(3,1)  %>%
+  kbl(align = c('l', 'c', 'c', 'c', 'c'),
+      format = table_format,
+      booktabs = TRUE) %>% 
+  kable_styling(full_width = FALSE,
+                latex_options = 'HOLD_position') %>% 
+  kable_classic_2()
+
+```
+A continuación, se muestra una tabla que indica porcentaje de población de los distintos estratos para las muestras originales y refresco de la cuarta ola. 
+
+
+```{r tabla-comparaciondemografica2021}
+fun_tabla_olas(4,1)  %>%
+  kbl(align = c('l', 'c', 'c', 'c', 'c'),
+      format = table_format,
+      booktabs = TRUE) %>% 
+  kable_styling(full_width = FALSE,
+                latex_options = 'HOLD_position') %>% 
+  kable_classic_2()
+
+```
+
+A continuación, se muestra una tabla que indica porcentaje de población de los distintos estratos para las muestras originales y refresco de la quinta ola. 
+
+
+```{r tabla-comparaciondemografica2021}
+fun_tabla_olas(5,1)  %>%
+  kbl(align = c('l', 'c', 'c', 'c', 'c'),
+      format = table_format,
+      booktabs = TRUE) %>% 
+  kable_styling(full_width = FALSE,
+                latex_options = 'HOLD_position') %>% 
+  kable_classic_2()
+
+```
+
+
+
+
+
 ## Atrición de la encuesta {#atricion}
 
 A continuación, se presenta la atrición obtenida según Muestra: 
@@ -617,8 +1031,48 @@ atricion_educ %>%
 
 ```
 
+### Atrición respecto a otras encuestas
 
+A continuación, se presenta la muestra alcanzada por encuestas longitudinales para investigación social bastante similares a ELSOC que también son realizadas en otras partes del mundo. Para el caso de Understanding Society, The UK Household Longitudinal Study, se encuentra la siguiente muestra alcanzada y atrición por medición:
+```{r atricion-usociety}
 
+usociety = readxl::read_xlsx("inputs/atriciones_encuestas.xlsx") %>% as.data.frame()
+usociety[,6]= paste0(round(as.double(usociety[,6])*100,2),"%")
+usociety[,7]= paste0(round(as.double(usociety[,7])*100,2),"%")
+usociety[,8]= paste0(round(as.double(usociety[,8])*100,2),"%")
+usociety[,9]= paste0(round(as.double(usociety[,9])*100,2),"%")
+usociety[usociety=="NA%"] = "-"
+usociety %>%
+    kbl(align = c('l', 'c', 'c', 'c', 'c','c','c','c','c','c'),
+      format = table_format,
+      booktabs = TRUE,
+      col.name = c('Medición', rep(c('General \n Population \n Sample', 'British \n Household \n Panel \n Survey', 'Immigrant and \n Ethnic Minority \n Boost Sample', 'Ethnic Minority Boost Sample'), 2)),
+) %>% 
+  kable_styling(full_width = FALSE,
+                latex_options = 'HOLD_position') %>% 
+  kable_classic_2() %>%
+  add_header_above(c(" " = 1, "Muestra Lograda" = 4, "Tasa de Atrición" = 4))
+
+```
+Para el caso de Understanding Society, The UK Household Longitudinal Study, se encuentra la siguiente muestra alcanzada y atrición por medición:
+```{r atricion-usociety}
+
+nzav = readxl::read_xlsx("inputs/atriciones_encuestas.xlsx",sheet = "NZ AV") %>% as.data.frame()
+nzav[,6]= paste0(round(as.double(nzav[,6])*100,2),"%")
+nzav[,5]= paste0(round(as.double(nzav[,5])*100,2),"%")
+
+nzav[nzav=="NA%"] = "-"
+nzav %>%
+    kbl(align = c('l', 'c', 'c', 'c', 'c','c','c','c'),
+      format = table_format,
+      booktabs = TRUE,
+      col.name = c('Medición','Prov. de 1ra Medición','Prov. de Medición Anterior','M. Total Acumulada','Relativa a 1ra Medición','Relativa a Medición Anterior')) %>% 
+  kable_styling(full_width = FALSE,
+                latex_options = 'HOLD_position') %>% 
+  kable_classic_2() %>%
+  add_header_above(c(" " = 1, "Muestra Lograda" = 2, "Tasa de Atrición" = 3))
+
+```
 
 
 \newpage

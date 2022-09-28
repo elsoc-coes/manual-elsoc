@@ -4,21 +4,20 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.2 Diseño muestral Muestra Refresco | Manual Metodológico ELSOC 2016-2021</title>
-  <meta name="description" content="1.2 Diseño muestral Muestra Refresco | Manual Metodológico ELSOC 2016-2021" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <title>2.2 Diseño muestral Muestra Refresco | Manual Metodológico ELSOC 2016-2021</title>
+  <meta name="description" content="2.2 Diseño muestral Muestra Refresco | Manual Metodológico ELSOC 2016-2021" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.2 Diseño muestral Muestra Refresco | Manual Metodológico ELSOC 2016-2021" />
+  <meta property="og:title" content="2.2 Diseño muestral Muestra Refresco | Manual Metodológico ELSOC 2016-2021" />
   <meta property="og:type" content="book" />
   
-  
-  <meta property="og:description" content="1.2 Diseño muestral Muestra Refresco | Manual Metodológico ELSOC 2016-2021" />
+  <meta property="og:description" content="2.2 Diseño muestral Muestra Refresco | Manual Metodológico ELSOC 2016-2021" />
   <meta name="github-repo" content="edgardo-cerda/manual-elsoc" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.2 Diseño muestral Muestra Refresco | Manual Metodológico ELSOC 2016-2021" />
+  <meta name="twitter:title" content="2.2 Diseño muestral Muestra Refresco | Manual Metodológico ELSOC 2016-2021" />
   
-  <meta name="twitter:description" content="1.2 Diseño muestral Muestra Refresco | Manual Metodológico ELSOC 2016-2021" />
+  <meta name="twitter:description" content="2.2 Diseño muestral Muestra Refresco | Manual Metodológico ELSOC 2016-2021" />
   
 
 <meta name="author" content="Equipo ELSOC" />
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="dis_muest_original.html"/>
 <link rel="next" href="dis_ponderadores.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,12 +48,77 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -74,10 +137,10 @@
 <li><a href="./">Manual Metodológico ELSOC 2016-2021 </a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a></li>
-<li class="chapter" data-level="1" data-path="dis_muest.html"><a href="dis_muest.html"><i class="fa fa-check"></i><b>1</b> Diseño Muestral del Estudio</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> author: “González, Roberto; Bargsted, Matías; Figuereido, Ana; Miranda, Daniel; Cerda, Edgardo; Plaza, Alejandro; Salas-Lewin, Rocío”</a></li>
+<li class="chapter" data-level="2" data-path="dis_muest.html"><a href="dis_muest.html"><i class="fa fa-check"></i><b>2</b> Diseño Muestral del Estudio</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="dis_muest_original.html"><a href="dis_muest_original.html"><i class="fa fa-check"></i><b>1.1</b> Diseño muestral Muestra original</a>
+<li class="chapter" data-level="2.1" data-path="dis_muest_original.html"><a href="dis_muest_original.html"><i class="fa fa-check"></i><b>2.1</b> Diseño muestral Muestra original</a>
 <ul>
 <li class="chapter" data-level="" data-path="dis_muest_original.html"><a href="dis_muest_original.html#preparación-del-marco-muestral"><i class="fa fa-check"></i>Preparación del Marco Muestral</a></li>
 <li class="chapter" data-level="" data-path="dis_muest_original.html"><a href="dis_muest_original.html#etapa1m1"><i class="fa fa-check"></i>Etapa 1: Selección de Ciudades</a></li>
@@ -87,7 +150,7 @@
 <li class="chapter" data-level="" data-path="dis_muest_original.html"><a href="dis_muest_original.html#etapa5m1"><i class="fa fa-check"></i>Etapa 5: Aumento del tamaño muestral</a></li>
 <li class="chapter" data-level="" data-path="dis_muest_original.html"><a href="dis_muest_original.html#diseño-muestral-de-olas-sucesivas-en-muestra-original"><i class="fa fa-check"></i>Diseño muestral de olas sucesivas en Muestra Original</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="dis_muest_refresco.html"><a href="dis_muest_refresco.html"><i class="fa fa-check"></i><b>1.2</b> Diseño muestral Muestra Refresco</a>
+<li class="chapter" data-level="2.2" data-path="dis_muest_refresco.html"><a href="dis_muest_refresco.html"><i class="fa fa-check"></i><b>2.2</b> Diseño muestral Muestra Refresco</a>
 <ul>
 <li class="chapter" data-level="" data-path="dis_muest_refresco.html"><a href="dis_muest_refresco.html#preparación-del-marco-muestral-para-la-muestra-refresco"><i class="fa fa-check"></i>Preparación del marco muestral para la muestra refresco</a></li>
 <li class="chapter" data-level="" data-path="dis_muest_refresco.html"><a href="dis_muest_refresco.html#etapa1m2"><i class="fa fa-check"></i>Etapa 1: Selección de Ciudades</a></li>
@@ -95,21 +158,26 @@
 <li class="chapter" data-level="" data-path="dis_muest_refresco.html"><a href="dis_muest_refresco.html#etapa3refresco"><i class="fa fa-check"></i>Etapa 3: Selección de viviendas</a></li>
 <li class="chapter" data-level="" data-path="dis_muest_refresco.html"><a href="dis_muest_refresco.html#etapa4refresco"><i class="fa fa-check"></i>Etapa 4: Selección de personas</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="dis_ponderadores.html"><a href="dis_ponderadores.html"><i class="fa fa-check"></i><b>1.3</b> Diseño de Ponderadores</a></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="dis_ins.html"><a href="dis_ins.html"><i class="fa fa-check"></i><b>2</b> Diseño del Instrumento</a>
+<li class="chapter" data-level="2.3" data-path="dis_ponderadores.html"><a href="dis_ponderadores.html"><i class="fa fa-check"></i><b>2.3</b> Diseño de Ponderadores</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="dis-cuestionario.html"><a href="dis-cuestionario.html"><i class="fa fa-check"></i><b>2.1</b> Diseño del cuestionario</a>
+<li class="chapter" data-level="2.3.1" data-path="dis_ponderadores.html"><a href="dis_ponderadores.html#pesos-de-diseño"><i class="fa fa-check"></i><b>2.3.1</b> Pesos de diseño</a></li>
+<li class="chapter" data-level="2.3.2" data-path="dis_ponderadores.html"><a href="dis_ponderadores.html#ajustes-por-no-respuesta"><i class="fa fa-check"></i><b>2.3.2</b> Ajustes por no respuesta</a></li>
+<li class="chapter" data-level="2.3.3" data-path="dis_ponderadores.html"><a href="dis_ponderadores.html#post-estratificación"><i class="fa fa-check"></i><b>2.3.3</b> Post-Estratificación</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="dis_ins.html"><a href="dis_ins.html"><i class="fa fa-check"></i><b>3</b> Diseño del Instrumento</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="dis-cuestionario.html"><a href="dis-cuestionario.html"><i class="fa fa-check"></i><b>3.1</b> Diseño del cuestionario</a>
 <ul>
 <li class="chapter" data-level="" data-path="dis-cuestionario.html"><a href="dis-cuestionario.html#dif-cuest-olas"><i class="fa fa-check"></i>Cambios en el Cuestionario entre olas</a></li>
 <li class="chapter" data-level="" data-path="dis-cuestionario.html"><a href="dis-cuestionario.html#dif-cuest-muestras"><i class="fa fa-check"></i>Diferencias en Cuestionarios entre Muestras</a></li>
 <li class="chapter" data-level="" data-path="dis-cuestionario.html"><a href="dis-cuestionario.html#instrumento-covid"><i class="fa fa-check"></i>Cuestionario 2021: levantamiento durante la pandemia de COVID-19</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="listado-de-variables.html"><a href="listado-de-variables.html"><i class="fa fa-check"></i><b>2.2</b> Listado de variables</a></li>
+<li class="chapter" data-level="3.2" data-path="listado-de-variables.html"><a href="listado-de-variables.html"><i class="fa fa-check"></i><b>3.2</b> Listado de variables</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="implem_encuest.html"><a href="implem_encuest.html"><i class="fa fa-check"></i><b>3</b> Implementación de la Encuesta</a>
+<li class="chapter" data-level="4" data-path="implem_encuest.html"><a href="implem_encuest.html"><i class="fa fa-check"></i><b>4</b> Implementación de la Encuesta</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="características-generales-del-levantamiento.html"><a href="características-generales-del-levantamiento.html"><i class="fa fa-check"></i><b>3.1</b> Características generales del levantamiento</a>
+<li class="chapter" data-level="4.1" data-path="características-generales-del-levantamiento.html"><a href="características-generales-del-levantamiento.html"><i class="fa fa-check"></i><b>4.1</b> Características generales del levantamiento</a>
 <ul>
 <li class="chapter" data-level="" data-path="características-generales-del-levantamiento.html"><a href="características-generales-del-levantamiento.html#ente-ejecutor"><i class="fa fa-check"></i>Ente ejecutor</a></li>
 <li class="chapter" data-level="" data-path="características-generales-del-levantamiento.html"><a href="características-generales-del-levantamiento.html#pilotaje-del-cuestionario"><i class="fa fa-check"></i>Pilotaje del Cuestionario</a></li>
@@ -117,39 +185,39 @@
 <li class="chapter" data-level="" data-path="características-generales-del-levantamiento.html"><a href="características-generales-del-levantamiento.html#control-y-aseguramiento-de-calidad-del-trabajo-de-campo"><i class="fa fa-check"></i>Control y aseguramiento de calidad del trabajo de campo</a></li>
 <li class="chapter" data-level="" data-path="características-generales-del-levantamiento.html"><a href="características-generales-del-levantamiento.html#estrategia-de-seguimiento"><i class="fa fa-check"></i>Estrategia de Seguimiento</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="incidencias-en-la-aplicación-de-las-encuestas.html"><a href="incidencias-en-la-aplicación-de-las-encuestas.html"><i class="fa fa-check"></i><b>3.2</b> Incidencias en la aplicación de las encuestas</a>
+<li class="chapter" data-level="4.2" data-path="incidencias-en-la-aplicación-de-las-encuestas.html"><a href="incidencias-en-la-aplicación-de-las-encuestas.html"><i class="fa fa-check"></i><b>4.2</b> Incidencias en la aplicación de las encuestas</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="incidencias-en-la-aplicación-de-las-encuestas.html"><a href="incidencias-en-la-aplicación-de-las-encuestas.html#implementación-ola-2016"><i class="fa fa-check"></i><b>3.2.1</b> Implementación Ola 2016</a></li>
-<li class="chapter" data-level="3.2.2" data-path="incidencias-en-la-aplicación-de-las-encuestas.html"><a href="incidencias-en-la-aplicación-de-las-encuestas.html#implementación-ola-2017"><i class="fa fa-check"></i><b>3.2.2</b> Implementación Ola 2017</a></li>
-<li class="chapter" data-level="3.2.3" data-path="incidencias-en-la-aplicación-de-las-encuestas.html"><a href="incidencias-en-la-aplicación-de-las-encuestas.html#implementación-ola-2018"><i class="fa fa-check"></i><b>3.2.3</b> Implementación Ola 2018</a></li>
-<li class="chapter" data-level="3.2.4" data-path="incidencias-en-la-aplicación-de-las-encuestas.html"><a href="incidencias-en-la-aplicación-de-las-encuestas.html#implementación-ola-2019"><i class="fa fa-check"></i><b>3.2.4</b> Implementación Ola 2019</a></li>
-<li class="chapter" data-level="3.2.5" data-path="incidencias-en-la-aplicación-de-las-encuestas.html"><a href="incidencias-en-la-aplicación-de-las-encuestas.html#implementación-ola-2021"><i class="fa fa-check"></i><b>3.2.5</b> Implementación Ola 2021</a></li>
+<li class="chapter" data-level="4.2.1" data-path="incidencias-en-la-aplicación-de-las-encuestas.html"><a href="incidencias-en-la-aplicación-de-las-encuestas.html#implementación-ola-2016"><i class="fa fa-check"></i><b>4.2.1</b> Implementación Ola 2016</a></li>
+<li class="chapter" data-level="4.2.2" data-path="incidencias-en-la-aplicación-de-las-encuestas.html"><a href="incidencias-en-la-aplicación-de-las-encuestas.html#implementación-ola-2017"><i class="fa fa-check"></i><b>4.2.2</b> Implementación Ola 2017</a></li>
+<li class="chapter" data-level="4.2.3" data-path="incidencias-en-la-aplicación-de-las-encuestas.html"><a href="incidencias-en-la-aplicación-de-las-encuestas.html#implementación-ola-2018"><i class="fa fa-check"></i><b>4.2.3</b> Implementación Ola 2018</a></li>
+<li class="chapter" data-level="4.2.4" data-path="incidencias-en-la-aplicación-de-las-encuestas.html"><a href="incidencias-en-la-aplicación-de-las-encuestas.html#implementación-ola-2019"><i class="fa fa-check"></i><b>4.2.4</b> Implementación Ola 2019</a></li>
+<li class="chapter" data-level="4.2.5" data-path="incidencias-en-la-aplicación-de-las-encuestas.html"><a href="incidencias-en-la-aplicación-de-las-encuestas.html#implementación-ola-2021"><i class="fa fa-check"></i><b>4.2.5</b> Implementación Ola 2021</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="atricion.html"><a href="atricion.html"><i class="fa fa-check"></i><b>3.3</b> Atrición de la encuesta</a></li>
+<li class="chapter" data-level="4.3" data-path="atricion.html"><a href="atricion.html"><i class="fa fa-check"></i><b>4.3</b> Atrición de la encuesta</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="bases-datos.html"><a href="bases-datos.html"><i class="fa fa-check"></i><b>4</b> Bases de Datos</a>
+<li class="chapter" data-level="5" data-path="bases-datos.html"><a href="bases-datos.html"><i class="fa fa-check"></i><b>5</b> Bases de Datos</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="descarga-de-bases-de-datos.html"><a href="descarga-de-bases-de-datos.html"><i class="fa fa-check"></i><b>4.1</b> Descarga de Bases de datos</a></li>
-<li class="chapter" data-level="4.2" data-path="fichas-técnicas.html"><a href="fichas-técnicas.html"><i class="fa fa-check"></i><b>4.2</b> Fichas Técnicas</a></li>
-<li class="chapter" data-level="4.3" data-path="protocolo-de-uso-de-base-de-datos.html"><a href="protocolo-de-uso-de-base-de-datos.html"><i class="fa fa-check"></i><b>4.3</b> Protocolo de Uso de Base de Datos</a></li>
+<li class="chapter" data-level="5.1" data-path="descarga-de-bases-de-datos.html"><a href="descarga-de-bases-de-datos.html"><i class="fa fa-check"></i><b>5.1</b> Descarga de Bases de datos</a></li>
+<li class="chapter" data-level="5.2" data-path="fichas-técnicas.html"><a href="fichas-técnicas.html"><i class="fa fa-check"></i><b>5.2</b> Fichas Técnicas</a></li>
+<li class="chapter" data-level="5.3" data-path="protocolo-de-uso-de-base-de-datos.html"><a href="protocolo-de-uso-de-base-de-datos.html"><i class="fa fa-check"></i><b>5.3</b> Protocolo de Uso de Base de Datos</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ética.html"><a href="ética.html"><i class="fa fa-check"></i><b>5</b> Ética</a>
+<li class="chapter" data-level="6" data-path="ética.html"><a href="ética.html"><i class="fa fa-check"></i><b>6</b> Ética</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="aprobación-comité-de-ética.html"><a href="aprobación-comité-de-ética.html"><i class="fa fa-check"></i><b>5.1</b> Aprobación Comité de Ética</a></li>
-<li class="chapter" data-level="5.2" data-path="consentimiento-informado.html"><a href="consentimiento-informado.html"><i class="fa fa-check"></i><b>5.2</b> Consentimiento informado</a></li>
+<li class="chapter" data-level="6.1" data-path="aprobación-comité-de-ética.html"><a href="aprobación-comité-de-ética.html"><i class="fa fa-check"></i><b>6.1</b> Aprobación Comité de Ética</a></li>
+<li class="chapter" data-level="6.2" data-path="consentimiento-informado.html"><a href="consentimiento-informado.html"><i class="fa fa-check"></i><b>6.2</b> Consentimiento informado</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="dudas-y-consultas.html"><a href="dudas-y-consultas.html"><i class="fa fa-check"></i><b>6</b> Dudas y Consultas</a></li>
-<li class="chapter" data-level="7" data-path="libro-codigos.html"><a href="libro-codigos.html"><i class="fa fa-check"></i><b>7</b> Libro de Códigos</a>
+<li class="chapter" data-level="7" data-path="dudas-y-consultas.html"><a href="dudas-y-consultas.html"><i class="fa fa-check"></i><b>7</b> Dudas y Consultas</a></li>
+<li class="chapter" data-level="8" data-path="libro-codigos.html"><a href="libro-codigos.html"><i class="fa fa-check"></i><b>8</b> Libro de Códigos</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="módulo-de-ciudadanía-y-democracia.html"><a href="módulo-de-ciudadanía-y-democracia.html"><i class="fa fa-check"></i><b>7.1</b> Módulo de Ciudadanía y democracia</a></li>
-<li class="chapter" data-level="7.2" data-path="módulo-de-conflicto-social.html"><a href="módulo-de-conflicto-social.html"><i class="fa fa-check"></i><b>7.2</b> Módulo de Conflicto Social</a></li>
-<li class="chapter" data-level="7.3" data-path="módulo-de-desigualdad-y-legitimidad.html"><a href="módulo-de-desigualdad-y-legitimidad.html"><i class="fa fa-check"></i><b>7.3</b> Módulo de Desigualdad y legitimidad</a></li>
-<li class="chapter" data-level="7.4" data-path="módulo-de-género.html"><a href="módulo-de-género.html"><i class="fa fa-check"></i><b>7.4</b> Módulo de Género</a></li>
-<li class="chapter" data-level="7.5" data-path="módulo-de-redes-y-actitudes.html"><a href="módulo-de-redes-y-actitudes.html"><i class="fa fa-check"></i><b>7.5</b> Módulo de Redes y Actitudes</a></li>
-<li class="chapter" data-level="7.6" data-path="módulo-de-salud-y-bienestar.html"><a href="módulo-de-salud-y-bienestar.html"><i class="fa fa-check"></i><b>7.6</b> Módulo de Salud y Bienestar</a></li>
-<li class="chapter" data-level="7.7" data-path="módulo-de-territorio.html"><a href="módulo-de-territorio.html"><i class="fa fa-check"></i><b>7.7</b> Módulo de Territorio</a></li>
-<li class="chapter" data-level="7.8" data-path="módulo-sociodemográfico.html"><a href="módulo-sociodemográfico.html"><i class="fa fa-check"></i><b>7.8</b> Módulo Sociodemográfico</a></li>
-<li class="chapter" data-level="7.9" data-path="variables-de-identificacion-y-otras-variables.html"><a href="variables-de-identificacion-y-otras-variables.html"><i class="fa fa-check"></i><b>7.9</b> Variables de identificacion y otras variables</a></li>
+<li class="chapter" data-level="8.1" data-path="módulo-de-ciudadanía-y-democracia.html"><a href="módulo-de-ciudadanía-y-democracia.html"><i class="fa fa-check"></i><b>8.1</b> Módulo de Ciudadanía y democracia</a></li>
+<li class="chapter" data-level="8.2" data-path="módulo-de-conflicto-social.html"><a href="módulo-de-conflicto-social.html"><i class="fa fa-check"></i><b>8.2</b> Módulo de Conflicto Social</a></li>
+<li class="chapter" data-level="8.3" data-path="módulo-de-desigualdad-y-legitimidad.html"><a href="módulo-de-desigualdad-y-legitimidad.html"><i class="fa fa-check"></i><b>8.3</b> Módulo de Desigualdad y legitimidad</a></li>
+<li class="chapter" data-level="8.4" data-path="módulo-de-género.html"><a href="módulo-de-género.html"><i class="fa fa-check"></i><b>8.4</b> Módulo de Género</a></li>
+<li class="chapter" data-level="8.5" data-path="módulo-de-redes-y-actitudes.html"><a href="módulo-de-redes-y-actitudes.html"><i class="fa fa-check"></i><b>8.5</b> Módulo de Redes y Actitudes</a></li>
+<li class="chapter" data-level="8.6" data-path="módulo-de-salud-y-bienestar.html"><a href="módulo-de-salud-y-bienestar.html"><i class="fa fa-check"></i><b>8.6</b> Módulo de Salud y Bienestar</a></li>
+<li class="chapter" data-level="8.7" data-path="módulo-de-territorio.html"><a href="módulo-de-territorio.html"><i class="fa fa-check"></i><b>8.7</b> Módulo de Territorio</a></li>
+<li class="chapter" data-level="8.8" data-path="módulo-sociodemográfico.html"><a href="módulo-sociodemográfico.html"><i class="fa fa-check"></i><b>8.8</b> Módulo Sociodemográfico</a></li>
+<li class="chapter" data-level="8.9" data-path="variables-de-identificacion-y-otras-variables.html"><a href="variables-de-identificacion-y-otras-variables.html"><i class="fa fa-check"></i><b>8.9</b> Variables de identificacion y otras variables</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/edgardo-cerda/manual-elsoc" target="blank"> Ver fuente <i class="fa fa-github"></i></a></li>
@@ -171,28 +239,45 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="dis_muest_refresco" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Diseño muestral Muestra Refresco</h2>
+<div id="dis_muest_refresco" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Diseño muestral Muestra Refresco<a href="dis_muest_refresco.html#dis_muest_refresco" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A partir de 2018 se decide la inclusión de una muestra de refresco, con el objetivo de contraarrestar los efectos de la atrición (ver <a href="atricion.html#atricion">Atrición de la encuesta</a>. A continuación se explica su diseño.</p>
-<div id="preparación-del-marco-muestral-para-la-muestra-refresco" class="section level3 unnumbered">
-<h3>Preparación del marco muestral para la muestra refresco</h3>
+<div id="preparación-del-marco-muestral-para-la-muestra-refresco" class="section level3 unnumbered hasAnchor">
+<h3>Preparación del marco muestral para la muestra refresco<a href="dis_muest_refresco.html#preparación-del-marco-muestral-para-la-muestra-refresco" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Dado que a la fecha de preparación del marco muestral para la definición de la muestra Refresco, aún no se encontraban disponibles las bases de datos del Censo 2017 para ser utilizado como marco muestral de viviendas, se decide utilizar el empadronamiento de viviendas realizado por el CMD durante 2016 como marco muestral.</p>
 <p>El empadronamiento corresponde a un listado de viviendas catastradas presencialmente en la primera ronda de la encuesta ELSOC (muestra Original), por lo que consiste en los bloques (manzanas) seleccionados para el levantamiento de la muestra Original. Esto incluye alrededor de 40.000 viviendas en 1.067 manzanas (ver <a href="#etapa2">Etapa 2: Selección de Bloques (Manzanas)</a>).</p>
 <p>Dado que al momento de generar el diseño muestral de la muestra refresco, el empadronamiento tiene dos años de antigüedad, pueden presentarse problemas de no cobertura en las manzanas empadronadas. Adicionalmente, existen 179 segmentos que tienen menos de 20 viviendas empadronadas, estos segmentos no se consideraron para la selección de la muestra nueva. Si un segmento seleccionado no fuera residencial, se considerará un reemplazo en la selección de la muestra.</p>
 <p>Nuevamente, el proceso de selección de viviendas y entrevistados se entrevistados se desarrolló en 4 etapas:</p>
 </div>
-<div id="etapa1m2" class="section level3 unnumbered">
-<h3>Etapa 1: Selección de Ciudades</h3>
+<div id="etapa1m2" class="section level3 unnumbered hasAnchor">
+<h3>Etapa 1: Selección de Ciudades<a href="dis_muest_refresco.html#etapa1m2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para la selección de Ciudades se decidió utilizar las mismas ciudades de la muestra Original, presentes en el empadronamiento realizado por el CMD. Por lo tanto, el diseño muestral de la Muestra Refresco es equivalente al diseño muestral de la Muestra Original hasta la Etapa 1 de selección de Ciudades.</p>
 </div>
-<div id="etapa2m2" class="section level3 unnumbered">
-<h3>Etapa 2: Selección de Bloques (Manzanas)</h3>
+<div id="etapa2m2" class="section level3 unnumbered hasAnchor">
+<h3>Etapa 2: Selección de Bloques (Manzanas)<a href="dis_muest_refresco.html#etapa2m2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Los bloques fueron seleccionados siguiendo un muestreo aleatorio simple entre aquellos presentes en el empadronamiento de CMD y que fueron seleccionados en la Muestra Original. Esta decisión se tomó considerando que permite simplificar el proceso de levantamiento de información, al no alterar los bloques que se deben visitar (aumentando así la productividad del levantamiento), y permite mantener una representatividad similar con respecto a la muestra Original.</p>
 <p>Previo a la selección, sin embargo, se descartan los bloques con menos de 20 viviendas o que hayan sido parte de la encuesta piloto para la muestra refresco de 2018. Esto significa que el universo de bloques disponibles se reduce de 1047 a 822. Finalmente, dado que la Muestra Refresco tiene una tamaño objetivo de 1.400 individuos, se seleccionan 402 bloques.</p>
-<p>En la Tabla <a href="dis_muest_refresco.html#tab:seleccion-bloques-m2">1.5</a> se presentan los bloques empadronados, los disponibles, y los seleccionados, según región:</p>
+<p>En la Tabla <a href="dis_muest_refresco.html#tab:seleccion-bloques-m2">2.5</a> se presentan los bloques empadronados, los disponibles, y los seleccionados, según región:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="dis_muest_refresco.html#cb3-1" aria-hidden="true" tabindex="-1"></a>bloques_refresco <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">region =</span> <span class="fu">c</span>(<span class="st">&#39;Tarapacá&#39;</span>, <span class="st">&#39;Antofagasta&#39;</span>, <span class="st">&#39;Atacama&#39;</span>, <span class="st">&#39;Coquimbo&#39;</span>, <span class="st">&#39;Valparaíso&#39;</span>, <span class="st">&#39;Metropolitana&#39;</span>, <span class="st">&#39;O</span><span class="sc">\&#39;</span><span class="st">Higgins&#39;</span>, <span class="st">&#39;Del Maule&#39;</span>, <span class="st">&#39;Biobío&#39;</span>, <span class="st">&#39;La Araucanía&#39;</span>, <span class="st">&#39;Los Ríos&#39;</span>, <span class="st">&#39;Los Lagos&#39;</span>, <span class="st">&#39;Aysén&#39;</span>, <span class="st">&#39;Total&#39;</span>),</span>
+<span id="cb3-2"><a href="dis_muest_refresco.html#cb3-2" aria-hidden="true" tabindex="-1"></a>                               <span class="at">segmentos_empadronamiento =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">24</span>, <span class="dv">51</span>, <span class="dv">73</span>, <span class="dv">159</span>, <span class="dv">283</span>, <span class="dv">47</span>, <span class="dv">92</span>, <span class="dv">143</span>, <span class="dv">94</span>, <span class="dv">22</span>, <span class="dv">25</span>, <span class="dv">11</span>, <span class="dv">1047</span>),</span>
+<span id="cb3-3"><a href="dis_muest_refresco.html#cb3-3" aria-hidden="true" tabindex="-1"></a>                               <span class="at">segmentos_no_considerados =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">18</span>, <span class="dv">22</span>, <span class="dv">28</span>, <span class="dv">32</span>,<span class="dv">7</span>, <span class="dv">24</span>, <span class="dv">34</span>, <span class="dv">24</span>, <span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">205</span>),</span>
+<span id="cb3-4"><a href="dis_muest_refresco.html#cb3-4" aria-hidden="true" tabindex="-1"></a>                               <span class="at">segmentos_piloto =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">20</span>),</span>
+<span id="cb3-5"><a href="dis_muest_refresco.html#cb3-5" aria-hidden="true" tabindex="-1"></a>                               <span class="at">segmentos_disponibles =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">33</span>, <span class="dv">51</span>, <span class="dv">131</span>, <span class="dv">231</span>, <span class="dv">40</span>, <span class="dv">68</span>, <span class="dv">109</span>, <span class="dv">70</span>, <span class="dv">16</span>, <span class="dv">22</span>, <span class="dv">10</span>, <span class="dv">822</span>),</span>
+<span id="cb3-6"><a href="dis_muest_refresco.html#cb3-6" aria-hidden="true" tabindex="-1"></a>                               <span class="at">segmentos_seleccionados =</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">18</span>, <span class="dv">23</span>, <span class="dv">70</span>, <span class="dv">100</span>, <span class="dv">16</span>, <span class="dv">32</span>, <span class="dv">64</span>, <span class="dv">38</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">402</span>))</span>
+<span id="cb3-7"><a href="dis_muest_refresco.html#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="dis_muest_refresco.html#cb3-8" aria-hidden="true" tabindex="-1"></a>bloques_refresco <span class="sc">%&gt;%</span> </span>
+<span id="cb3-9"><a href="dis_muest_refresco.html#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">&#39;Bloques disponbibles y seleccionado, según región&#39;</span>,</span>
+<span id="cb3-10"><a href="dis_muest_refresco.html#cb3-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">align =</span> <span class="fu">c</span>(<span class="st">&#39;l&#39;</span>, <span class="fu">rep</span>(<span class="st">&#39;c&#39;</span>, <span class="dv">5</span>)),</span>
+<span id="cb3-11"><a href="dis_muest_refresco.html#cb3-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">format =</span> table_format,</span>
+<span id="cb3-12"><a href="dis_muest_refresco.html#cb3-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">booktabs =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-13"><a href="dis_muest_refresco.html#cb3-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">col.name =</span> <span class="fu">c</span>(<span class="st">&#39;Región&#39;</span>, <span class="st">&#39;Bloques empadronados&#39;</span>, <span class="st">&#39;Bloques &lt; 20 viviendas&#39;</span>, <span class="st">&#39;Bloques Piloto 2018&#39;</span>, <span class="st">&#39;Bloques disponibles&#39;</span>, <span class="st">&#39;Bloques seleccionados&#39;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-14"><a href="dis_muest_refresco.html#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb3-15"><a href="dis_muest_refresco.html#cb3-15" aria-hidden="true" tabindex="-1"></a>                <span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">&#39;HOLD_position&#39;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-16"><a href="dis_muest_refresco.html#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">width =</span> <span class="st">&quot;5em&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-17"><a href="dis_muest_refresco.html#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic_2</span>()</span></code></pre></div>
 <table class="table lightable-classic-2" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:seleccion-bloques-m2">Tabla 1.5: </span>Bloques disponbibles y seleccionado, según región
+<span id="tab:seleccion-bloques-m2">Tabla 2.5: </span>Bloques disponbibles y seleccionado, según región
 </caption>
 <thead>
 <tr>
@@ -500,13 +585,13 @@ Total
 </tbody>
 </table>
 </div>
-<div id="etapa3refresco" class="section level3 unnumbered">
-<h3>Etapa 3: Selección de viviendas</h3>
+<div id="etapa3refresco" class="section level3 unnumbered hasAnchor">
+<h3>Etapa 3: Selección de viviendas<a href="dis_muest_refresco.html#etapa3refresco" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Las viviendas se seleccionan con un muestreo simple entre las viviendas de los bloques seleccionados. Dado que se define obtener 1.400 encuestas, se requieren seleccionar en promedio de 3,5 viviendas por bloque para cumplir con la muestra objetivo. Para esto, en aquellas manzanas que tienen más de 20 viviendas se seleccionan entre 4 y 6 viviendas por conglomerado, dependiendo del tamaño de los estratos y manzanas; y en aquellas manzanas de más de 50 viviendas se utiliza otra de las sub-manzanas generadas en el proceso de empadronamiento, cuidando que esta submanzana no sea en un mismo edificio ya seleccionado.</p>
 <p>La probabilidad de que se seleccione la misma vivienda en la manzana es distinta de cero, por lo que se generará un reemplazo para aquella unidad con el mismo método de selección aleatorio, para lo que se debe verificar la muestra seleccionada con la muestra del panel ya definida en 2016.</p>
 </div>
-<div id="etapa4refresco" class="section level3 unnumbered">
-<h3>Etapa 4: Selección de personas</h3>
+<div id="etapa4refresco" class="section level3 unnumbered hasAnchor">
+<h3>Etapa 4: Selección de personas<a href="dis_muest_refresco.html#etapa4refresco" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Al igual que en la Muestra Original, los encuestadores visitan cada vivienda seleccionada e intentan llevar a cabo la entrevista. El primer paso en el proceso de la entrevista es identificar al entrevistado objetivo, el que es seleccionado usando una muestra aleatoria simple entre los adultos entre 18 y 75 años que habitan la vivienda.</p>
 </div>
 </div>

@@ -31,16 +31,12 @@ Las variables de cadena (texto) no presentan códigos, ya que presentan los verb
 ```{r}
 
 # Importar listado de variables
-listado_cuestionario0 <- readxl::read_excel(path = file.path('..', '..', '..', '..',
-                                                             '1_Cuestionario_y_Listado_Variables',
-                                                             '2_Listado_de_variables_definitivo',
+listado_cuestionario0 <- readxl::read_excel(path = file.path('inputs',
                                                              '0A_Listado_Variables_Global_ELSOC_v2022.xlsx'),
                                         sheet = '2_Items_Total') %>% 
   janitor::clean_names()
 
-listado_complementario0 <- readxl::read_excel(path = file.path('..', '..', '..', '..',
-                                                             '1_Cuestionario_y_Listado_Variables',
-                                                             '2_Listado_de_variables_definitivo',
+listado_complementario0 <- readxl::read_excel(path = file.path('inputs',
                                                              '0A_Listado_Variables_Global_ELSOC_v2022.xlsx'),
                                         sheet = '3_items_cuestionario') %>% 
   janitor::clean_names()
@@ -169,14 +165,12 @@ fun_libro_codigos <- function(libro_codigo) {
     cat('\n\n<!-- -->\n\n')
     
     if (!libro_codigo$tipo_variable[libro_codigo$codigo_longitudinal == i] %in% c('Numerica', 'Cadena')) {
-            print(tabla_frecuencia(i))
+            tabla_frecuencia(i)
             cat('\n\n<!-- -->\n\n')
       }
     }
   }
 }
-
-
 
 ```
 
