@@ -38,15 +38,15 @@ listado_cuestionario0 <- readxl::read_excel(path = file.path('..', '..', '..', '
                                         sheet = '2_Items_Total') %>% 
   janitor::clean_names()
 
-# listado_complementario0 <- readxl::read_excel(path = file.path('..', '..', '..', '..',
-#                                                              '1_Cuestionario_y_Listado_Variables',
-#                                                              '2_Listado_de_variables_definitivo',
-#                                                              '0A_Listado_Variables_Global_ELSOC_v2022.xlsx'),
-#                                         sheet = '3_items_cuestionario') %>% 
-#   janitor::clean_names()
-# 
-# listado_cuestionario1 <- listado_cuestionario0 %>% 
-#   left_join(listado_complementario0, by = 'codigo_longitudinal')
+listado_complementario0 <- readxl::read_excel(path = file.path('..', '..', '..', '..',
+                                                             '1_Cuestionario_y_Listado_Variables',
+                                                             '2_Listado_de_variables_definitivo',
+                                                             '0A_Listado_Variables_Global_ELSOC_v2022.xlsx'),
+                                        sheet = '3_items_cuestionario') %>% 
+  janitor::clean_names()
+
+listado_cuestionario1 <- listado_cuestionario0 %>% 
+  left_join(listado_complementario0, by = 'codigo_longitudinal')
 
 ```
 
