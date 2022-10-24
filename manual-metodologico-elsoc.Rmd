@@ -29,6 +29,27 @@ Placeholder
 <!--chapter:end:index.Rmd-->
 
 
+```{r, incluede=FALSE}
+knitr::opts_chunk$set(cache = FALSE, warning = FALSE, message = FALSE, echo = FALSE, fig.topcaption = TRUE, fig.align = 'center')
+options(knitr.kable.NA = ' ')
+```
+
+```{r, incluede=FALSE}
+library(tidyverse)
+library(kableExtra)
+library(knitr)
+table_format <- if (is_html_output()) {
+  "html"
+} else if (is_latex_output()) {
+  "latex" 
+}
+
+fullw <- if (is_html_output()) TRUE else if (is_latex_output()) FALSE
+fsize <- if (is_html_output()) 14 else if(is_latex_output()) 8
+
+
+```
+
 # Diseño Muestral del Estudio {#dis_muest}
 
 En el siguiente apartado se presenta la descripción del diseño muestral de ELSOC, correspondiente a la muestra original y a la muestra refresco del estudio. Al final de la sección se describen la construcción de los ponderadores de ELSOC.
@@ -65,7 +86,7 @@ De esta forma, el marco muestral final contiene 120.857 bloques. La muestra de C
 
 El universo de bloques (los 120.857 bloques mencionados) fue agregado al nivel de la ciudad, resultando en 122 ciudades. Las tres ciudades más grandes (Gran Santiago, Viña del Mar - Valparaiso y Concepción - Talcahuano) fueron seleccionadas con certeza. Las ciudades restantes son estratificadas por la población. La tabla \@ref(tab:tabla-estratos) muestra las definiciones de los estratos y los tamaños de población y de muestra en cada uno.
 
-```{r tabla-estratos}
+```{r tabla-estratos, echo=FALSE}
 
 estratos <- data.frame(estrato = c('Gran Santiago', 'Gran Valparaíso', 'Gran Concepción', 
                                'Ciudades grandes', 'Ciudades medianas', 'Ciudades pequeñas'),
@@ -117,7 +138,7 @@ $$\pi_{j|i}=\frac{(nb_i)(hu_j)}{\sum_i hu}$$
 
 donde $nb_i$ es el número de bloques seleccionadas en la ciudad $i$ y $hu_j$ es la población de la ciudad $i$.
 
-```{r tabla-ciudades}
+```{r tabla-ciudades, echo=FALSE}
 
 ciudades <- data.frame(estrato = c('Gran Santiago', 'Gran Valparaíso', 'Gran Concepción', 
                                'Ciudades grandes', 'Ciudades medianas', 'Ciudades pequeñas',
@@ -268,7 +289,7 @@ Previo a la selección, sin embargo, se descartan los bloques con menos de 20 vi
 
 En la Tabla \@ref(tab:seleccion-bloques-m2) se presentan los bloques empadronados, los disponibles, y los seleccionados, según región:
 
-```{r seleccion-bloques-m2}
+```{r seleccion-bloques-m2, echo=FALSE}
 
 bloques_refresco <- data.frame(region = c('Tarapacá', 'Antofagasta', 'Atacama', 'Coquimbo', 'Valparaíso', 'Metropolitana', 'O\'Higgins', 'Del Maule', 'Biobío', 'La Araucanía', 'Los Ríos', 'Los Lagos', 'Aysén', 'Total'),
                                segmentos_empadronamiento = c(23, 24, 51, 73, 159, 283, 47, 92, 143, 94, 22, 25, 11, 1047),
@@ -404,7 +425,9 @@ Placeholder
 #### Indicadores levantamiento {-}
 ### Implementación Ola 2021
 #### Indicadores levantamiento {-}
+## Comparación entre Muestras Originales y Refresco {#comparacionrefresco}
 ## Atrición de la encuesta {#atricion}
+### Atrición respecto a otras encuestas
 
 <!--chapter:end:03-implement-encuesta.Rmd-->
 

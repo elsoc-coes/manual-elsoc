@@ -193,7 +193,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.4" data-path="incidencias-en-la-aplicación-de-las-encuestas.html"><a href="incidencias-en-la-aplicación-de-las-encuestas.html#implementación-ola-2019"><i class="fa fa-check"></i><b>4.2.4</b> Implementación Ola 2019</a></li>
 <li class="chapter" data-level="4.2.5" data-path="incidencias-en-la-aplicación-de-las-encuestas.html"><a href="incidencias-en-la-aplicación-de-las-encuestas.html#implementación-ola-2021"><i class="fa fa-check"></i><b>4.2.5</b> Implementación Ola 2021</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="atricion.html"><a href="atricion.html"><i class="fa fa-check"></i><b>4.3</b> Atrición de la encuesta</a></li>
+<li class="chapter" data-level="4.3" data-path="comparacionrefresco.html"><a href="comparacionrefresco.html"><i class="fa fa-check"></i><b>4.3</b> Comparación entre Muestras Originales y Refresco</a></li>
+<li class="chapter" data-level="4.4" data-path="atricion.html"><a href="atricion.html"><i class="fa fa-check"></i><b>4.4</b> Atrición de la encuesta</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="atricion.html"><a href="atricion.html#atrición-respecto-a-otras-encuestas"><i class="fa fa-check"></i><b>4.4.1</b> Atrición respecto a otras encuestas</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="bases-datos.html"><a href="bases-datos.html"><i class="fa fa-check"></i><b>5</b> Bases de Datos</a>
 <ul>
@@ -263,29 +267,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="etapa1m1" class="section level3 unnumbered hasAnchor">
 <h3>Etapa 1: Selección de Ciudades<a href="dis_muest_original.html#etapa1m1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>El universo de bloques (los 120.857 bloques mencionados) fue agregado al nivel de la ciudad, resultando en 122 ciudades. Las tres ciudades más grandes (Gran Santiago, Viña del Mar - Valparaiso y Concepción - Talcahuano) fueron seleccionadas con certeza. Las ciudades restantes son estratificadas por la población. La tabla <a href="dis_muest_original.html#tab:tabla-estratos">2.1</a> muestra las definiciones de los estratos y los tamaños de población y de muestra en cada uno.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="dis_muest_original.html#cb1-1" aria-hidden="true" tabindex="-1"></a>estratos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">estrato =</span> <span class="fu">c</span>(<span class="st">&#39;Gran Santiago&#39;</span>, <span class="st">&#39;Gran Valparaíso&#39;</span>, <span class="st">&#39;Gran Concepción&#39;</span>, </span>
-<span id="cb1-2"><a href="dis_muest_original.html#cb1-2" aria-hidden="true" tabindex="-1"></a>                               <span class="st">&#39;Ciudades grandes&#39;</span>, <span class="st">&#39;Ciudades medianas&#39;</span>, <span class="st">&#39;Ciudades pequeñas&#39;</span>),</span>
-<span id="cb1-3"><a href="dis_muest_original.html#cb1-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">def_N =</span> <span class="fu">c</span>(<span class="st">&#39; &#39;</span>, <span class="st">&#39; &#39;</span>, <span class="st">&#39; &#39;</span>, <span class="st">&#39;&gt; 100 mil&#39;</span>, <span class="st">&#39;&gt; 30 mil&#39;</span>, <span class="st">&#39;&gt; 10 mil&#39;</span>),</span>
-<span id="cb1-4"><a href="dis_muest_original.html#cb1-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">N_ciudades =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">18</span>, <span class="dv">28</span>, <span class="dv">73</span>),</span>
-<span id="cb1-5"><a href="dis_muest_original.html#cb1-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">n_ciudades =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">19</span>),</span>
-<span id="cb1-6"><a href="dis_muest_original.html#cb1-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">N_norte =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="dv">8</span>, <span class="dv">15</span>, <span class="dv">24</span>),</span>
-<span id="cb1-7"><a href="dis_muest_original.html#cb1-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">n_norte =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">6</span>),</span>
-<span id="cb1-8"><a href="dis_muest_original.html#cb1-8" aria-hidden="true" tabindex="-1"></a>                   <span class="at">N_sur =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="dv">10</span>, <span class="dv">13</span>, <span class="dv">49</span>),</span>
-<span id="cb1-9"><a href="dis_muest_original.html#cb1-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">n_sur =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">13</span>)</span>
-<span id="cb1-10"><a href="dis_muest_original.html#cb1-10" aria-hidden="true" tabindex="-1"></a>                   )</span>
-<span id="cb1-11"><a href="dis_muest_original.html#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="dis_muest_original.html#cb1-12" aria-hidden="true" tabindex="-1"></a>estratos <span class="sc">%&gt;%</span> </span>
-<span id="cb1-13"><a href="dis_muest_original.html#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">&#39;Población por ciudad y tamaños de muestra, por estrato&#39;</span>,</span>
-<span id="cb1-14"><a href="dis_muest_original.html#cb1-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">align =</span> <span class="fu">c</span>(<span class="st">&#39;l&#39;</span>, <span class="fu">rep</span>(<span class="st">&#39;c&#39;</span>, <span class="dv">7</span>)),</span>
-<span id="cb1-15"><a href="dis_muest_original.html#cb1-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">format =</span> table_format,</span>
-<span id="cb1-16"><a href="dis_muest_original.html#cb1-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">booktabs =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb1-17"><a href="dis_muest_original.html#cb1-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">col.name =</span> <span class="fu">c</span>(<span class="st">&#39;Estrato&#39;</span>, <span class="st">&#39;Definición (N° habitantes)&#39;</span>, <span class="st">&#39;Tamaño población ciudades&#39;</span>, <span class="st">&#39;Tamaño muestra ciudades&#39;</span>,</span>
-<span id="cb1-18"><a href="dis_muest_original.html#cb1-18" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&#39;Tamaño población estrato&#39;</span>, <span class="st">&#39;Tamaño muestra estrato&#39;</span>), <span class="dv">2</span>))) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-19"><a href="dis_muest_original.html#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb1-20"><a href="dis_muest_original.html#cb1-20" aria-hidden="true" tabindex="-1"></a>                <span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">&#39;HOLD_position&#39;</span>, <span class="st">&#39;scale_down&#39;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb1-21"><a href="dis_muest_original.html#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">8</span>, <span class="at">width =</span> <span class="st">&quot;4em&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-22"><a href="dis_muest_original.html#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic_2</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb1-23"><a href="dis_muest_original.html#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">&quot; &quot;</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">&quot; &quot;</span> <span class="ot">=</span> <span class="dv">3</span>, <span class="st">&quot;Estrato Norte&quot;</span> <span class="ot">=</span> <span class="dv">2</span>, <span class="st">&quot;Estrato Sur&quot;</span> <span class="ot">=</span> <span class="dv">2</span>))</span></code></pre></div>
 <table class="table lightable-classic-2" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:tabla-estratos">Tabla 2.1: </span>Población por ciudad y tamaños de muestra, por estrato
@@ -348,16 +329,12 @@ Gran Santiago
 1
 </td>
 <td style="text-align:center;width: 4em; ">
-NA
 </td>
 <td style="text-align:center;width: 4em; ">
-NA
 </td>
 <td style="text-align:center;width: 4em; ">
-NA
 </td>
 <td style="text-align:center;width: 4em; ">
-NA
 </td>
 </tr>
 <tr>
@@ -373,16 +350,12 @@ Gran Valparaíso
 1
 </td>
 <td style="text-align:center;width: 4em; ">
-NA
 </td>
 <td style="text-align:center;width: 4em; ">
-NA
 </td>
 <td style="text-align:center;width: 4em; ">
-NA
 </td>
 <td style="text-align:center;width: 4em; ">
-NA
 </td>
 </tr>
 <tr>
@@ -398,16 +371,12 @@ Gran Concepción
 1
 </td>
 <td style="text-align:center;width: 4em; ">
-NA
 </td>
 <td style="text-align:center;width: 4em; ">
-NA
 </td>
 <td style="text-align:center;width: 4em; ">
-NA
 </td>
 <td style="text-align:center;width: 4em; ">
-NA
 </td>
 </tr>
 <tr>
@@ -503,24 +472,6 @@ Ciudades pequeñas
 <p>La probabilidad de selección de un bloque <span class="math inline">\(j\)</span> en la ciudad <span class="math inline">\(i\)</span>, condicionada a la selección de la ciudad, fue:</p>
 <p><span class="math display">\[\pi_{j|i}=\frac{(nb_i)(hu_j)}{\sum_i hu}\]</span></p>
 <p>donde <span class="math inline">\(nb_i\)</span> es el número de bloques seleccionadas en la ciudad <span class="math inline">\(i\)</span> y <span class="math inline">\(hu_j\)</span> es la población de la ciudad <span class="math inline">\(i\)</span>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="dis_muest_original.html#cb2-1" aria-hidden="true" tabindex="-1"></a>ciudades <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">estrato =</span> <span class="fu">c</span>(<span class="st">&#39;Gran Santiago&#39;</span>, <span class="st">&#39;Gran Valparaíso&#39;</span>, <span class="st">&#39;Gran Concepción&#39;</span>, </span>
-<span id="cb2-2"><a href="dis_muest_original.html#cb2-2" aria-hidden="true" tabindex="-1"></a>                               <span class="st">&#39;Ciudades grandes&#39;</span>, <span class="st">&#39;Ciudades medianas&#39;</span>, <span class="st">&#39;Ciudades pequeñas&#39;</span>,</span>
-<span id="cb2-3"><a href="dis_muest_original.html#cb2-3" aria-hidden="true" tabindex="-1"></a>                               <span class="st">&#39;Total&#39;</span>),</span>
-<span id="cb2-4"><a href="dis_muest_original.html#cb2-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">def_N =</span> <span class="fu">c</span>(<span class="st">&#39; &#39;</span>, <span class="st">&#39; &#39;</span>, <span class="st">&#39; &#39;</span>, <span class="st">&#39;&gt; 100 mil&#39;</span>, <span class="st">&#39;&gt; 30 mil&#39;</span>, <span class="st">&#39;&gt; 10 mil&#39;</span>, <span class="st">&#39; &#39;</span>),</span>
-<span id="cb2-5"><a href="dis_muest_original.html#cb2-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">N_ciudades =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">19</span>, <span class="dv">40</span>),</span>
-<span id="cb2-6"><a href="dis_muest_original.html#cb2-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">n_ciudades =</span> <span class="fu">c</span>(<span class="dv">200</span>, <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">26</span>, <span class="dv">25</span>, <span class="dv">11</span>, <span class="dv">27</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-7"><a href="dis_muest_original.html#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">N_bloques =</span> N_ciudades <span class="sc">*</span> n_ciudades)</span>
-<span id="cb2-8"><a href="dis_muest_original.html#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="dis_muest_original.html#cb2-9" aria-hidden="true" tabindex="-1"></a>ciudades <span class="sc">%&gt;%</span> </span>
-<span id="cb2-10"><a href="dis_muest_original.html#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">&#39;Distribución de ciudades y bloques por estrato&#39;</span>,</span>
-<span id="cb2-11"><a href="dis_muest_original.html#cb2-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">align =</span> <span class="fu">c</span>(<span class="st">&#39;l&#39;</span>, <span class="fu">rep</span>(<span class="st">&#39;c&#39;</span>, <span class="dv">4</span>)),</span>
-<span id="cb2-12"><a href="dis_muest_original.html#cb2-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">format =</span> table_format,</span>
-<span id="cb2-13"><a href="dis_muest_original.html#cb2-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">booktabs =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2-14"><a href="dis_muest_original.html#cb2-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">col.name =</span> <span class="fu">c</span>(<span class="st">&#39;Estrato&#39;</span>, <span class="st">&#39;Definición (N° habitantes)&#39;</span>, <span class="st">&#39;Tamaño muestra ciudades&#39;</span>, <span class="st">&#39;Número de bloques por ciudad&#39;</span>, <span class="st">&#39;Número de bloques&#39;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-15"><a href="dis_muest_original.html#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb2-16"><a href="dis_muest_original.html#cb2-16" aria-hidden="true" tabindex="-1"></a>                <span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">&#39;HOLD_position&#39;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-17"><a href="dis_muest_original.html#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">width =</span> <span class="st">&quot;6em&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-18"><a href="dis_muest_original.html#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic_2</span>()</span></code></pre></div>
 <table class="table lightable-classic-2" style="width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:tabla-ciudades">Tabla 2.2: </span>Distribución de ciudades y bloques por estrato

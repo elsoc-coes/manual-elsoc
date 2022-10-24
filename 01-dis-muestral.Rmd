@@ -1,4 +1,25 @@
 
+```{r, incluede=FALSE}
+knitr::opts_chunk$set(cache = FALSE, warning = FALSE, message = FALSE, echo = FALSE, fig.topcaption = TRUE, fig.align = 'center')
+options(knitr.kable.NA = ' ')
+```
+
+```{r, incluede=FALSE}
+library(tidyverse)
+library(kableExtra)
+library(knitr)
+table_format <- if (is_html_output()) {
+  "html"
+} else if (is_latex_output()) {
+  "latex" 
+}
+
+fullw <- if (is_html_output()) TRUE else if (is_latex_output()) FALSE
+fsize <- if (is_html_output()) 14 else if(is_latex_output()) 8
+
+
+```
+
 # Diseño Muestral del Estudio {#dis_muest}
 
 En el siguiente apartado se presenta la descripción del diseño muestral de ELSOC, correspondiente a la muestra original y a la muestra refresco del estudio. Al final de la sección se describen la construcción de los ponderadores de ELSOC.

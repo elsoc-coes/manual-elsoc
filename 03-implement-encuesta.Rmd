@@ -826,7 +826,7 @@ fun_tabla_olas(4,0)  %>%
 
 A continuación, se muestra una tabla que indica porcentaje de distintos segmentos sociodemográficos para las muestras originales y refresco de la quinta ola. 
 
-```{r tabla-comparaciondemografica2021}
+```{r tabla-comparaciondemografica2021a}
 fun_tabla_olas(5,0)  %>%
   kbl(align = c('l', 'c', 'c', 'c', 'c'),
       format = table_format,
@@ -840,7 +840,7 @@ fun_tabla_olas(5,0)  %>%
 A continuación, se muestra una tabla que indica porcentaje de población de los distintos estratos para las muestras originales y refresco de la tercera ola. 
 
 
-```{r tabla-comparaciondemografica2021}
+```{r tabla-comparaciondemografica2021b}
 fun_tabla_olas(3,1)  %>%
   kbl(align = c('l', 'c', 'c', 'c', 'c'),
       format = table_format,
@@ -853,7 +853,7 @@ fun_tabla_olas(3,1)  %>%
 A continuación, se muestra una tabla que indica porcentaje de población de los distintos estratos para las muestras originales y refresco de la cuarta ola. 
 
 
-```{r tabla-comparaciondemografica2021}
+```{r tabla-comparaciondemografica2021c}
 fun_tabla_olas(4,1)  %>%
   kbl(align = c('l', 'c', 'c', 'c', 'c'),
       format = table_format,
@@ -867,7 +867,7 @@ fun_tabla_olas(4,1)  %>%
 A continuación, se muestra una tabla que indica porcentaje de población de los distintos estratos para las muestras originales y refresco de la quinta ola. 
 
 
-```{r tabla-comparaciondemografica2021}
+```{r tabla-comparaciondemografica2021d}
 fun_tabla_olas(5,1)  %>%
   kbl(align = c('l', 'c', 'c', 'c', 'c'),
       format = table_format,
@@ -1034,7 +1034,7 @@ atricion_educ %>%
 ### Atrición respecto a otras encuestas
 
 A continuación, se presenta la muestra alcanzada por encuestas longitudinales para investigación social bastante similares a ELSOC que también son realizadas en otras partes del mundo. Para el caso de Understanding Society, The UK Household Longitudinal Study, se encuentra la siguiente muestra alcanzada y atrición por medición:
-```{r atricion-usociety}
+```{r atricion-usocietya}
 
 usociety = readxl::read_xlsx("inputs/atriciones_encuestas.xlsx") %>% as.data.frame()
 usociety[,6]= paste0(round(as.double(usociety[,6])*100,2),"%")
@@ -1054,8 +1054,10 @@ usociety %>%
   add_header_above(c(" " = 1, "Muestra Lograda" = 4, "Tasa de Atrición" = 4))
 
 ```
+
 Para el caso de Understanding Society, The UK Household Longitudinal Study, se encuentra la siguiente muestra alcanzada y atrición por medición:
-```{r atricion-usociety}
+
+```{r atricion-usocietyb}
 
 nzav = readxl::read_xlsx("inputs/atriciones_encuestas.xlsx",sheet = "NZ AV") %>% as.data.frame()
 nzav[,6]= paste0(round(as.double(nzav[,6])*100,2),"%")
