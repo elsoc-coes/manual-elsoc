@@ -68,9 +68,7 @@ table_format <- if (is_html_output()) {
 fullw <- if (is_html_output()) TRUE else if (is_latex_output()) FALSE
 fsize <- if (is_html_output()) 14 else if(is_latex_output()) 8
 
-elsoc::load_elsoc()
-
-# load(file.path('inputs', 'ELSOC_Long_2016_2021_v1.00_R.RData'))
+load(file.path('inputs', 'ELSOC_Long_2016_2022_v1.00_R.RData'))
 
 ```
 

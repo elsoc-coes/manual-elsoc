@@ -442,6 +442,49 @@ elsoc_long_2016_2021 %>%
 ```
 
 
+### Implementación Ola 2022
+
+La crisis sanitaria producida por la pandemia de COVID-19 y las restricciones asociadas, implicaron cambiar la metodología de aplicación de la Encuesta Longitudinal Social de Chile de forma presencial a remota a través de una encuesta telefónica (Para más detalle ver [Cuestionario 2021: levantamiento durante la pandemia de COVID-19](#instrumento-covid)). Este cambio en la forma de levantar los datos, presentó un gran desafío logístico y operativo, ya que desde sus orígenes ELSOC se había levantado de manera presencial.
+
+La pandemia de COVID-19 también afectó la fecha tradicional de levantamiento de ELSOC, la cual estaba programada para comenzar durante octubre de 2020, sin embargo, el levantamiento de la quinta ola se inició el sábado 30 de enero de 2021 con la asignación de la muestra a los encuestadores capacitados. Las razones para postergar el período de levantamiento fueron principalmente por la espera de condiciones sanitarias y de cuarentenas más favorables que permitieran un levantamiento presencial (sin embargo, prontamente se volvió clara la  imposibilidad de mantener la modalidad presencial); y por el tiempo adicional que tomó la preparación del terreno, producto del cambio de modalidad de levantamiento. El trabajo de campo se extendió hasta mediados de junio de 2021. Sin embargo, la aplicación se realizó mayoritariamente entre febrero y abril de 2021 (ver Figura \@ref(fig:graf-fechas-ola5)).
+
+Debido al degaste de la muestra y al desgaste del equipo de encuestadores por intentos infructuosos de contacto, es que a contar del mes de mayo se decidió cambiar la metodología de aplicación de producción por unidad muestral a conformar un grupo de encuestadores dedicado exclusivamente a repasar la muestra en una jornada laboral determinada.
+
+
+```{r graf-fechas-ola6, fig.cap = 'Número de entrevistas por semana, ola 2022'}
+
+elsoc_long_2016_2022 %>%
+  filter(ola == 6) %>% 
+  mutate(fecha = lubridate::make_date(year = annio_entr, month = mes_entr, day = dia_entr),
+         dia = lubridate::yday(fecha),
+         año = lubridate::year(fecha),
+         inicio = min(fecha),
+         termino = max(fecha),
+         año_inicio = min(año),
+         dia_inicio = lubridate::yday(inicio),
+         semana = trunc((365*(año - año_inicio) + dia - dia_inicio) / 7 )) %>% 
+  group_by(semana, inicio, termino) %>% 
+  summarise(n = n()) %>% 
+  ungroup() %>% 
+  mutate(fecha = inicio + 7 * semana) %>% 
+  ggplot(aes(x = fecha, y = n, label = n)) + 
+  theme_bw() +
+  geom_col(position = 'dodge2') +
+  geom_text(vjust = -0.5,
+            position = position_dodge2(width = .9),
+            size = 3) +
+  geom_col(fill = viridis::viridis(1, begin = .33)) +
+  scale_x_date(date_labels = "%d-%m-%y",
+               date_breaks = '1 week') +
+  scale_y_continuous(labels = scales::number,
+                     limits = c(0, 1000)) +
+  ylab(label = 'Número de entrevistas semanales') +
+  xlab(label = NULL) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+```
+
 
 #### Indicadores levantamiento {-}
 
@@ -523,7 +566,7 @@ library(expss)
 library(gtsummary)
 
 
-elsoc = elsoc_long_2016_2021 %>%
+elsoc <- elsoc_long_2016_2022 %>%
   select(version,tipo_atricion,ponderador02,muestra,ola,
          m0_sexo,m0_edad,m01,m02,m03,m12,m13,estrato) %>% 
   mutate(tipo_ola = ifelse(ola==1,"M. Original 2016",
@@ -886,7 +929,7 @@ fun_tabla_olas(5,1)  %>%
 A continuación, se presenta la atrición obtenida según Muestra: 
 
 ```{r tabla-atricion}
-atricion <- elsoc_long_2016_2021 %>% 
+atricion <- elsoc_long_2016_2022 %>% 
   sjlabelled::as_label(ola, muestra) %>% 
   group_by(ola, muestra) %>% 
   summarise(n = n()) %>% 
@@ -914,8 +957,8 @@ atricion %>%
 
 ```{r tabla-atricion-sexo}
 
-atricion_sexo <- elsoc_long_2016_2021 %>%
-  left_join(elsoc_long_2016_2021 %>% filter(ola == 1 & muestra == 1 | ola == 3 & muestra == 2) %>% 
+atricion_sexo <- elsoc_long_2016_2022 %>%
+  left_join(elsoc_long_2016_2022 %>% filter(ola == 1 & muestra == 1 | ola == 3 & muestra == 2) %>% 
               select(idencuesta, m0_sexo) %>% 
               rename(m0_sexo0 = m0_sexo), by = 'idencuesta') %>% 
   sjlabelled::as_label(ola, muestra, m0_sexo0) %>% 
@@ -941,8 +984,8 @@ atricion_sexo %>%
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
   kable_classic_2() %>% 
-  pack_rows('Muestra Original', 1, 5) %>%
-  pack_rows('Muestra Refresco', 6, 8) %>% 
+  pack_rows('Muestra Original', 1, 6) %>%
+  pack_rows('Muestra Refresco', 7, 10) %>% 
   add_header_above(c(" " = 1, "Muestra Lograda" = 2, "Tasa de Atrición" = 2))
 
 
@@ -953,8 +996,8 @@ atricion_sexo %>%
 
 ```{r tabla-atricion-edad}
 
-atricion_edad <- elsoc_long_2016_2021 %>%
-  left_join(elsoc_long_2016_2021 %>% filter((ola == 1 & muestra == 1) | (ola == 3 & muestra == 2)) %>% 
+atricion_edad <- elsoc_long_2016_2022 %>%
+  left_join(elsoc_long_2016_2022 %>% filter((ola == 1 & muestra == 1) | (ola == 3 & muestra == 2)) %>% 
               select(idencuesta, m0_edad) %>% 
               rename(m0_edad0 = m0_edad), by = 'idencuesta') %>% 
     mutate(edadt = factor(car::recode(m0_edad0, "18:29 = 1; 30:49 = 2; 50:64 = 3; 65:150 = 4"),
@@ -982,8 +1025,8 @@ atricion_edad %>%
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
   kable_classic_2() %>% 
-  pack_rows('Muestra Original', 1, 5) %>%
-  pack_rows('Muestra Refresco', 6, 8) %>% 
+  pack_rows('Muestra Original', 1, 6) %>%
+  pack_rows('Muestra Refresco', 7, 10) %>% 
   add_header_above(c(" " = 1, "Muestra Lograda" = 4, "Tasa de Atrición" = 4))
 
 
@@ -994,8 +1037,8 @@ atricion_edad %>%
 
 ```{r tabla-atricion-educ}
 
-atricion_educ <- elsoc_long_2016_2021 %>%
-  left_join(elsoc_long_2016_2021 %>% filter(ola == 1 & muestra == 1 | ola == 3 & muestra == 2) %>% 
+atricion_educ <- elsoc_long_2016_2022 %>%
+  left_join(elsoc_long_2016_2022 %>% filter(ola == 1 & muestra == 1 | ola == 3 & muestra == 2) %>% 
               select(idencuesta, m01) %>% 
               rename(m010 = m01), by = 'idencuesta') %>%
   mutate(educ = factor(car::recode(m010, "1:3 = 1; 4:5 = 2; 6:7 = 3; 8:10 = 4; -999:-666 = 5"),
@@ -1024,8 +1067,8 @@ atricion_educ %>%
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
   kable_classic_2() %>% 
-  pack_rows('Muestra Original', 1, 5) %>%
-  pack_rows('Muestra Refresco', 6, 8) %>% 
+  pack_rows('Muestra Original', 1, 6) %>%
+  pack_rows('Muestra Refresco', 7, 10) %>% 
   add_header_above(c(" " = 1, "Muestra Lograda" = 4, "Tasa de Atrición" = 4))
 
 ```

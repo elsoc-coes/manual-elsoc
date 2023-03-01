@@ -1,7 +1,7 @@
 
 # Diseño del Instrumento {#dis_ins}
 
-El instrumento de recolección de información consiste en un cuestionario estructurado (tipo encuesta) aplicado cara a cara a todos los participantes. Dicha aplicación se hace utilizando el sistema **CAPI** (Encuestas personales asistidas por computadores). Excepcionalmente, se cambió a aplicación bajo el sistema **CATI** (Encuesta telefónica asistica por computadores) durante el levantamiento de la ola 2021, debido a la contingencia COVID-19 (más detalle en la sección [Cuestionario 2021: levantamiento durante pandemia de COVID-19](#instrumento-covid).)
+El instrumento de recolección de información consiste en un cuestionario estructurado (tipo encuesta) aplicado cara a cara a todos los participantes. Dicha aplicación se hace utilizando el sistema **CAPI** (Encuestas personales asistidas por computadores). Excepcionalmente, se cambió a aplicación bajo el sistema **CATI** (Encuesta telefónica asistica por computadores) durante el levantamiento de la ola 2021, debido a la contingencia COVID-19 (más detalle en la sección [Cuestionario 2021: levantamiento durante pandemia de COVID-19](#instrumento-covid)). Durante la ola 2022, se pasó a formato Mixto (o Mixmode), en el cual se combinan los formatos presenciales (CAPI) y telefónicos (CATI).
 
 El cuestionario fue diseñado para medir una serie de aspectos conceptualmente relevantes que permiten caracterizar los niveles de conflicto y cohesión social en Chile, enfatizando su evolución a lo largo del tiempo. Los principales temas de interés analítico abordados por la encuesta corresponden a los módulos en los cuales se estructura:
 
@@ -46,7 +46,8 @@ En la Tabla \@ref(tab:tabla-items-olas) se muestra el detalle del número de ite
 
 items_olas <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'), 
                          sheet = 'n_ola_muestra') %>% 
-  janitor::clean_names()
+  janitor::clean_names() %>% 
+  select(ola, muestra_original, muestra_refresco)
 
 items_olas %>% 
   kbl(caption = 'Número de ítems por muestra, según ola',
@@ -72,10 +73,10 @@ items_olas_modulos <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual
 items_olas_modulos %>% 
   dplyr::select(-muestra) %>% 
   kbl(caption = 'Número de ítems por  módulo, según muestra y ola',
-      align = c('l', 'c', 'c', 'c', 'c', 'c'),
+      align = c('l', 'c', 'c', 'c', 'c', 'c', 'c'),
       format = table_format,
       booktabs = TRUE,
-      col.name = c('Módulo', '2016', '2017', '2018', '2019', '2021')) %>% 
+      col.name = c('Módulo', '2016', '2017', '2018', '2019', '2021', '2022')) %>% 
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
   kable_classic_2() %>% 
@@ -94,8 +95,7 @@ En la Tabla \@ref(tab:tabla-items-compartidos) se muestra el detalle del número
 
 items_compartidos <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'), 
                          sheet = 'n_ola_muestra_traslape') %>% 
-  janitor::clean_names() %>% 
-  filter(items_compartidos < 2022)
+  janitor::clean_names() 
 
 items_compartidos %>% 
   kbl(caption = 'Número de ítems por muestra, según presencia en muestras Original y Refresco',
@@ -158,10 +158,20 @@ En segundo lugar, y encadenado con lo anterior, se ajustaron las variables que t
   
  - Variables de Ingreso en tramos [m14 y m30]: La variable m14 tiene 16 tramos de respuesta, mientras que la variable m30 tiene 30 tramos de respuesta. Ambas variables fueron establecidas en 5 tramos, tomando como referencia los quintiles de ingreso presentados por la encuesta Casen 2017.
 
+ ### Cuestionario 2022: Método Mix-mode {-#mixmode}
+ 
+A diferencia de olas anteriores, en la sexta ola se utiliza el método **mix-mode** o metodología **mixta** combinando los formatos CAPI y CATI para realizar las encuestas, optimizando así el proceso de levantamiento.
+
+La evidencia en general indica que este formato aumenta la cobertura, y reduce los errores de medición (Dillman et al., 2014), así como menores sesgos de representación de personas de menores ingresos y con mayores privaciones materiales (Lipps, 2016), razones por las cuales múltiples encuestadoras están optando por esta nueva modalidad.
+
+Otros estudios muestran que no hay diferencias significativas en el grado de confianza y en la estabilidad de las estimaciones al comparar los métodos de recolección CAPI con Mixtos (Cernat, 2015). En cuanto a las tasas de no respuesta, Lynn et al. (2010), tras realizar un experimento aleatorizado, encuentra que los diseños de modo mixto no fueron capaces de igualar la tasa de respuesta lograda por el diseño unimodal cara a cara. A esta investigación se suma una posterior realizada por Bianchi, Biffignandi y Lynn (2016) donde concluyen que la elección del método no hace una diferencia en cuanto a la proporción de personas que participan o las características de las personas que participan.
+
+Dado la evidencia previa, se puede considerar que no hay diferencias en confianza ni estabilidad entre los modelos mixtos, además que no se debería esperar una diferencia en la proporción de participantes o las características de quienes deciden participar. Por el contrario, este nuevo diseño podría permitir disminuir el sesgo de representación y ser un aporte para las próximas olas de ELSOC.
+
 
 ## Listado de variables
 
-Dada la gran cantidad de ítems medidos en el tiempo, para examinar de manera detallada las diferencias entre los instrumentos aplicados, se sugiere a los interesados revisar los **Cuestionarios** de cada medición. De igual forma, se sugiere revisar el [**Libro de Códigos**](#libro-codigos), donde se incluyen todos los ítems medidos en ELSOC, con información detallada sobre las olas en que fueron medidas cada pregunta, así como las modificaciones y otras informaciones relevantes para el uso de los datos ELSOC.
+Dada la gran cantidad de ítems medidos en el tiempo, para examinar de manera detallada las diferencias entre los instrumentos aplicados, se sugiere a los interesados revisar los **Cuestionarios** de cada medición. De igual forma, se sugiere revisar el [**Listado de variables**](https://coes.cl/wp-content/uploads/Listado-de-Variables-ELSOC-2.xlsx) y el [**Libro de Códigos**](#libro-codigos), donde se incluyen todos los ítems medidos en ELSOC, con información detallada sobre las olas en que fueron medidas cada pregunta, así como las modificaciones y otras informaciones relevantes para el uso de los datos ELSOC.
 
 \newpage
 
