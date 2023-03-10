@@ -1,5 +1,5 @@
 --- 
-title: "Manual Metodológico ELSOC 2016-2021"
+title: "Manual Metodológico ELSOC 2016-2022"
 author: "Equipo ELSOC"
 site: bookdown::bookdown_site
 link-citations: yes
@@ -32,7 +32,7 @@ El Estudio Longitudinal  Social de Chile (ELSOC) es una encuesta desarrollada pa
 
 Esta encuesta fue diseñada por investigadores pertenecientes al Centro de Estudios de Conflicto y Cohesión Social (COES). COES está patrocinado por la Universidad de Chile y la Pontificia Universidad Católica de Chile, y cuenta con la Universidad Diego Portales y la Universidad Adolfo Ibáñez como instituciones asociadas. Si desea obtener más información sobre COES, visite la página web de COES ([www.coes.cl/](www.coes.cl/)). COES es una iniciativa que desde 2013 cuenta con el financiamiento del [Fondo de Financiamiento de Centros de Investigación en Áreas Prioritarias (FONDAP)](https://www.conicyt.cl/fondap/centros-fondap/) de la [Comisión Nacional de Investigación Científica y Tecnológica (CONICYT)](https://www.conicyt.cl/)^[[Proyecto CONICYT/FONDAP/15130009](https://www.conicyt.cl/fondap/centros-fondap/centros-en-ejecucion/coes/)], organismo dependiente del Ministerio de Educación de Chile. El levantamiento de datos de ELSOC se licita públicamente cada 2 años, y ha sido adjudicado en todas sus mediciones al [Centro MicroDatos de la Universidad de Chile (CMD)](https://www.microdatos.cl/).
 
-El Manual se estructura en torno a secciones temáticas: la primera sección describe el diseño muestral del estudio panel, dividido en sus muestras original y refresco, y las actualizaciones que se han aplicado en el tiempo. La segunda sección describe el proceso de diseño del instrumento, lo cual es complementado con la ficha técnica del estudio. En el siguiente apartado se resumen los principales aspectos del trabajo de campo, enfatizando las particularidades del proceso de reentrevista a los participantes. El cuarto apartado corresponde al registro de versiones de la base de datos y detalla el protocolo de uso de éstas.  Por último, se incluye un apartado con orientaciones básicas para el análisis y el libro de códigos de las variables incluidas en la base de datos de ELSOC 2017.
+El Manual se estructura en torno a secciones temáticas: la primera sección describe el diseño muestral del estudio panel, dividido en sus muestras original y refresco, y las actualizaciones que se han aplicado en el tiempo. La segunda sección describe el proceso de diseño del instrumento, lo cual es complementado con la ficha técnica del estudio. En el siguiente apartado se resumen los principales aspectos del trabajo de campo, enfatizando las particularidades del proceso de reentrevista a los participantes. El cuarto apartado corresponde al registro de versiones de la base de datos y detalla el protocolo de uso de éstas.  Por último, se incluye un apartado con orientaciones básicas para el análisis y el libro de códigos de las variables incluidas en la base de datos.
 
 
 

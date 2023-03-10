@@ -1,7 +1,12 @@
 
+```{r}
+library(tidyverse)
+library(kableExtra)
+```
+
 # Diseño del Instrumento {#dis_ins}
 
-El instrumento de recolección de información consiste en un cuestionario estructurado (tipo encuesta) aplicado cara a cara a todos los participantes. Dicha aplicación se hace utilizando el sistema **CAPI** (Encuestas personales asistidas por computadores). Excepcionalmente, se cambió a aplicación bajo el sistema **CATI** (Encuesta telefónica asistica por computadores) durante el levantamiento de la ola 2021, debido a la contingencia COVID-19 (más detalle en la sección [Cuestionario 2021: levantamiento durante pandemia de COVID-19](#instrumento-covid)). Durante la ola 2022, se pasó a formato Mixto (o Mixmode), en el cual se combinan los formatos presenciales (CAPI) y telefónicos (CATI).
+El instrumento de recolección de información consiste en un cuestionario estructurado (tipo encuesta) aplicado a todos los participantes. Los cuestionarios de cada medición pueden encontrarse en [**coes.cl/cuestionarios**](https://coes.cl/cuestionarios/).
 
 El cuestionario fue diseñado para medir una serie de aspectos conceptualmente relevantes que permiten caracterizar los niveles de conflicto y cohesión social en Chile, enfatizando su evolución a lo largo del tiempo. Los principales temas de interés analítico abordados por la encuesta corresponden a los módulos en los cuales se estructura:
 
@@ -13,6 +18,8 @@ El cuestionario fue diseñado para medir una serie de aspectos conceptualmente r
 - Salud y bienestar
 - Caracterización Socio demográfica
 - Género (agregado a la encuesta a partir de 2019)
+
+La aplicación del cuestinoario se realizó originalmente utilizando el sistema **CAPI** (Encuestas personales asistidas por computadores). Durante el levantamiento de la ola 2021 se cambió a aplicación bajo el sistema **CATI** (Encuesta telefónica asistica por computadores), debido a la contingencia COVID-19 (más detalle en la sección [Cuestionario 2021: levantamiento durante pandemia de COVID-19](#instrumento-covid)). Durante la ola 2022, se pasó a formato Mixto (o Mix-mode), en el cual se combinan los formatos presenciales (CAPI) y telefónicos (CATI) (más detalles en la sección [Cambio a levantamiento con modalidad mixta](#instrumento-mixmode)).
 
 ## Diseño del cuestionario {#dis-cuestionario}
 
@@ -52,7 +59,6 @@ items_olas <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'),
 items_olas %>% 
   kbl(caption = 'Número de ítems por muestra, según ola',
       align = c('l', 'c', 'c'),
-      format = table_format,
       booktabs = TRUE,
       col.name = c('Ola', 'Items en muestra original', 'Items en muestra refresco')) %>% 
   kable_styling(full_width = FALSE,
@@ -74,7 +80,6 @@ items_olas_modulos %>%
   dplyr::select(-muestra) %>% 
   kbl(caption = 'Número de ítems por  módulo, según muestra y ola',
       align = c('l', 'c', 'c', 'c', 'c', 'c', 'c'),
-      format = table_format,
       booktabs = TRUE,
       col.name = c('Módulo', '2016', '2017', '2018', '2019', '2021', '2022')) %>% 
   kable_styling(full_width = FALSE,
@@ -87,7 +92,7 @@ items_olas_modulos %>%
 
 ### Diferencias en Cuestionarios entre Muestras {-#dif-cuest-muestras}
 
-A partir de 2018, se comienza a implementar la Muestra Refresco, la que busca complementar y compensar la atrición acumulada de la Muestra Original. El cuestionario de la muestra refresco es, en gran medida, similar al que presenta la muestra Original. Sin embargo, dada la amplia cantidad de agendas de investigación y temas relevantes para ELSOC, se ha permitido la inclusión de preguntas presentes solo en una de las 2 muestras, de forma de aumentar la cantidad de temas cubiertos, pero manteniendo un número más acotado de preguntas realizada a cada encuestado. 
+A partir de 2018, se comienza a implementar la Muestra Refresco, la que busca complementar y compensar la atrición acumulada de la Muestra Original. El cuestionario de la muestra refresco es, en gran medida, similar al que presenta la muestra Original. Sin embargo, dada la amplia cantidad de agendas de investigación y temas relevantes para ELSOC, se ha permitido la inclusión de preguntas presentes solo en una de las dos muestras, de forma de aumentar la cantidad de temas cubiertos, pero manteniendo un número más acotado de preguntas realizada a cada encuestado. 
 
 En la Tabla \@ref(tab:tabla-items-compartidos) se muestra el detalle del número de items compartidos entre ambas muestras por Ola, así como aquellos items presentes exclusivamente en la muestra original o refresco.
 
@@ -100,7 +105,6 @@ items_compartidos <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.
 items_compartidos %>% 
   kbl(caption = 'Número de ítems por muestra, según presencia en muestras Original y Refresco',
       align = c('l', 'c', 'c', 'c', 'c'),
-      format = table_format,
       booktabs = TRUE,
       col.name = c('Ola', 'Solo en muestra original', 'Solo en muestra refresco', 
                    'Ambas muestras', 'Total')) %>% 
@@ -139,7 +143,6 @@ items_llamado_2021 <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual
 items_llamado_2021 %>% 
   kbl(caption = 'Distribución de ítems por llamado y muestra, Ola 2021',
       align = c('l', 'c', 'c', 'c', 'c'),
-      format = table_format,
       booktabs = TRUE,
       col.name = c('Ola', rep(c('Llamado A', 'Llamado B'), 2))) %>% 
   kable_styling(full_width = FALSE,
@@ -158,20 +161,43 @@ En segundo lugar, y encadenado con lo anterior, se ajustaron las variables que t
   
  - Variables de Ingreso en tramos [m14 y m30]: La variable m14 tiene 16 tramos de respuesta, mientras que la variable m30 tiene 30 tramos de respuesta. Ambas variables fueron establecidas en 5 tramos, tomando como referencia los quintiles de ingreso presentados por la encuesta Casen 2017.
 
- ### Cuestionario 2022: Método Mix-mode {-#mixmode}
- 
-A diferencia de olas anteriores, en la sexta ola se utiliza el método **mix-mode** o metodología **mixta** combinando los formatos CAPI y CATI para realizar las encuestas, optimizando así el proceso de levantamiento.
+### Cuestionario 2022: cambio a levantamiento con modalidad mixta {-#instrumento-mixmode}
 
-La evidencia en general indica que este formato aumenta la cobertura, y reduce los errores de medición (Dillman et al., 2014), así como menores sesgos de representación de personas de menores ingresos y con mayores privaciones materiales (Lipps, 2016), razones por las cuales múltiples encuestadoras están optando por esta nueva modalidad.
+A partir de la sexta ola de ELSOC se utilizó el método **mix-mode** o metodología **mixta** combinando los formatos CAPI y CATI para realizar las encuestas, optimizando así el proceso de levantamiento. 
 
-Otros estudios muestran que no hay diferencias significativas en el grado de confianza y en la estabilidad de las estimaciones al comparar los métodos de recolección CAPI con Mixtos (Cernat, 2015). En cuanto a las tasas de no respuesta, Lynn et al. (2010), tras realizar un experimento aleatorizado, encuentra que los diseños de modo mixto no fueron capaces de igualar la tasa de respuesta lograda por el diseño unimodal cara a cara. A esta investigación se suma una posterior realizada por Bianchi, Biffignandi y Lynn (2016) donde concluyen que la elección del método no hace una diferencia en cuanto a la proporción de personas que participan o las características de las personas que participan.
+La metodología principal de recolección de datos, sin embargo, continúa siendo la modalidad CAPI: se realizó la encuesta en modalidad CATI solo en los casos en que el informante declare que no pueda o no quiera contestar la encuesta de forma presencial. Como resultado, durante 2022, un 13,3% de la muestra original y un 15,8% de la muestra refresco fue realizada mediante formato telefónico (ver \@ref(tab:tabla-freq-mixmode)).
 
-Dado la evidencia previa, se puede considerar que no hay diferencias en confianza ni estabilidad entre los modelos mixtos, además que no se debería esperar una diferencia en la proporción de participantes o las características de quienes deciden participar. Por el contrario, este nuevo diseño podría permitir disminuir el sesgo de representación y ser un aporte para las próximas olas de ELSOC.
+```{r tabla-freq-mixmode}
+
+freq_mixmode <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'),
+                                sheet = 'n_mixmode') %>% 
+  mutate(porc_cati_m1 = scales::percent(m1_cati / (m1_cati + m1_capi), .1),
+         porc_cati_m2 = scales::percent(m2_cati / (m2_cati + m2_capi), .1)) %>% 
+  select(ola, m1_capi, m1_cati, porc_cati_m1, m2_capi, m2_cati, porc_cati_m2)
+
+freq_mixmode %>% 
+  kbl(align = rep('c', 7),
+      booktabs = TRUE,
+      col.name = c('Medición', rep(c('CAPI', 'CATI', '% CATI'), 2)),
+      caption = 'Número de encuestas según formato de entrevista, por ola y muestra') %>% 
+  kable_styling(full_width = FALSE,
+                latex_options = 'HOLD_position') %>% 
+  kable_classic_2() %>% 
+  add_header_above(c(" " = 1, "Muestra Original" = 3, "Muestra Refresco" = 3))
+
+```
+
+
+Al igual que en el levantamiento de la ola 5, la modalidad telefónica consideró realizar la entrevista en 2 llamados para no agotar al informante, y así evitar pérdida en la calidad de la información de los datos recolectados.
+
+La evidencia comparada revela que la modalidad de entrevista mixta o *mix mode* aumenta la cobertura; y reduce los errores de medición (Dillman et al., 2014^[Dillman, D. A., Smyth, J. D., & Christian, L. M. (2014). Internet, phone, mail, and mixed-mode surveys: The tailored design method. John Wiley & Sons.]), y los sesgos de representación de personas de menores ingresos y con mayores privaciones materiales (Lipps, 2016^[Lipps, O. (2016). Non-observation bias in an address-register-based CATI/CAPI mixed mode survey. methods, data, analyses, 10(1), 20.]), asociados al proceso de levantamiento. Otros estudios muestran que no hay diferencias significativas en el grado de confianza y en la estabilidad de las estimaciones al comparar los métodos de recolección CAPI con Mixtos (Cernat, 2015^[Cernat, A. (2015). The impact of mixing modes on reliability in longitudinal studies. Sociological Methods & Research, 44(3), 427-457.]), ni en las tasas de respuesta(Bianchi, Biffignandi y Lynn (2016)^[Bianchi, A., Biffignandi, S., & Lynn, P. (2016). Web-CAPI sequential mixed-mode design in a longitudinal survey: effects on participation rates, sample composition and costs (No. 2016-08). Understanding Society at the Institute for Social and Economic Research.]).
+
+Dado la evidencia internacional, se puede considerar que no hay diferencias en el grado de confianza y estabilidad asociado a los distintos métodos de recolección, a la vez que no se debería esperar una diferencia en las características de quienes deciden participar. Por el contrario, este nuevo diseño podría permitir disminuir el sesgo de representación, reducir la atrición y aumentar la cobertura geográfica de ELSOC.
 
 
 ## Listado de variables
 
-Dada la gran cantidad de ítems medidos en el tiempo, para examinar de manera detallada las diferencias entre los instrumentos aplicados, se sugiere a los interesados revisar los **Cuestionarios** de cada medición. De igual forma, se sugiere revisar el [**Listado de variables**](https://coes.cl/wp-content/uploads/Listado-de-Variables-ELSOC-2.xlsx) y el [**Libro de Códigos**](#libro-codigos), donde se incluyen todos los ítems medidos en ELSOC, con información detallada sobre las olas en que fueron medidas cada pregunta, así como las modificaciones y otras informaciones relevantes para el uso de los datos ELSOC.
+Dada la gran cantidad de ítems medidos en el tiempo, para examinar de manera detallada las diferencias entre los instrumentos aplicados, se sugiere a los interesados revisar los **Cuestionarios** de cada medición (disponibles en [**coes.cl/cuestionarios**](https://coes.cl/cuestionarios/)). De igual forma, se sugiere revisar el [**Listado de variables**](https://coes.cl/wp-content/uploads/Listado-de-Variables-ELSOC-2.xlsx) y el [**Libro de Códigos**](#libro-codigos), donde se incluyen todos los ítems medidos en ELSOC, con información detallada sobre las olas en que fueron medidas cada pregunta, así como las modificaciones y otras informaciones relevantes para el uso de los datos ELSOC.
 
 \newpage
 

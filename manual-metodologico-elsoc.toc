@@ -16,48 +16,46 @@
 \contentsline {subsubsection}{Etapa 3: Selección de viviendas}{15}{section*.19}%
 \contentsline {subsubsection}{Etapa 4: Selección de personas}{16}{section*.20}%
 \contentsline {subsection}{\numberline {1.3}Diseño de Ponderadores}{16}{subsection.1.3}%
-\contentsline {section}{\numberline {2}Diseño del Instrumento}{18}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Diseño del cuestionario}{18}{subsection.2.1}%
-\contentsline {subsubsection}{Cambios en el Cuestionario entre olas}{20}{section*.21}%
-\contentsline {subsubsection}{Diferencias en Cuestionarios entre Muestras}{22}{section*.24}%
-\contentsline {subsubsection}{Cuestionario 2021: levantamiento durante la pandemia de COVID-19}{23}{section*.26}%
-\contentsline {subsection}{\numberline {2.2}Listado de variables}{26}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Implementación de la Encuesta}{27}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Características generales del levantamiento}{27}{subsection.3.1}%
-\contentsline {subsubsection}{Ente ejecutor}{27}{section*.28}%
-\contentsline {subsubsection}{Pilotaje del Cuestionario}{27}{section*.29}%
-\contentsline {subsubsection}{Planificación y Ejecución del Campo}{28}{section*.30}%
-\contentsline {subsubsection}{Control y aseguramiento de calidad del trabajo de campo}{29}{section*.31}%
-\contentsline {subsubsection}{Estrategia de Seguimiento}{29}{section*.32}%
-\contentsline {subsection}{\numberline {3.2}Incidencias en la aplicación de las encuestas}{31}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Implementación Ola 2016}{31}{subsubsection.3.2.1}%
-\contentsline {paragraph}{Indicadores levantamiento}{32}{section*.34}%
-\contentsline {paragraph}{Corrección de datos por casos anómalos: Olas 2016 y 2017}{33}{section*.36}%
-\contentsline {subsubsection}{\numberline {3.2.2}Implementación Ola 2017}{34}{subsubsection.3.2.2}%
-\contentsline {paragraph}{Indicadores levantamiento}{34}{section*.38}%
-\contentsline {paragraph}{\numberline {3.2.2.1}Casos falsificados en ola 2017}{36}{paragraph.3.2.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.3}Implementación Ola 2018}{36}{subsubsection.3.2.3}%
-\contentsline {paragraph}{Indicadores levantamiento}{38}{section*.41}%
-\contentsline {subsubsection}{\numberline {3.2.4}Implementación Ola 2019}{38}{subsubsection.3.2.4}%
-\contentsline {paragraph}{Indicadores levantamiento}{38}{section*.44}%
-\contentsline {subsubsection}{\numberline {3.2.5}Implementación Ola 2021}{40}{subsubsection.3.2.5}%
-\contentsline {paragraph}{Indicadores levantamiento}{40}{section*.47}%
-\contentsline {subsection}{\numberline {3.3}Atrición de la encuesta}{42}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Bases de Datos}{46}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Descarga de Bases de datos}{46}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Fichas Técnicas}{46}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Protocolo de Uso de Base de Datos}{47}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Ética}{49}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Aprobación Comité de Ética}{49}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Consentimiento informado}{49}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Dudas y Consultas}{50}{section.6}%
-\contentsline {section}{\numberline {7}Libro de Códigos}{51}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Módulo de Ciudadanía y democracia}{52}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Módulo de Conflicto Social}{241}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Módulo de Desigualdad y legitimidad}{289}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Módulo de Género}{374}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Módulo de Redes y Actitudes}{390}{subsection.7.5}%
-\contentsline {subsection}{\numberline {7.6}Módulo de Salud y Bienestar}{538}{subsection.7.6}%
-\contentsline {subsection}{\numberline {7.7}Módulo de Territorio}{630}{subsection.7.7}%
-\contentsline {subsection}{\numberline {7.8}Módulo Sociodemográfico}{690}{subsection.7.8}%
-\contentsline {subsection}{\numberline {7.9}Variables de identificacion y otras variables}{815}{subsection.7.9}%
+\contentsline {subsubsection}{\numberline {1.3.1}Pesos de diseño}{16}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Ajustes por no respuesta}{17}{subsubsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.3}Post-Estratificación}{18}{subsubsection.1.3.3}%
+\contentsline {section}{\numberline {2}Diseño del Instrumento}{19}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Diseño del cuestionario}{19}{subsection.2.1}%
+\contentsline {subsubsection}{Cambios en el Cuestionario entre olas}{21}{section*.21}%
+\contentsline {subsubsection}{Diferencias en Cuestionarios entre Muestras}{23}{section*.24}%
+\contentsline {subsubsection}{Cuestionario 2021: levantamiento durante la pandemia de COVID-19}{24}{section*.26}%
+\contentsline {subsubsection}{Cuestionario 2022: cambio a levantamiento con modalidad mixta}{27}{section*.28}%
+\contentsline {subsection}{\numberline {2.2}Listado de variables}{28}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Implementación de la Encuesta}{29}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Características generales del levantamiento}{29}{subsection.3.1}%
+\contentsline {subsubsection}{Ente ejecutor}{29}{section*.30}%
+\contentsline {subsubsection}{Pilotaje del Cuestionario}{29}{section*.31}%
+\contentsline {subsubsection}{Planificación y Ejecución del Campo}{30}{section*.32}%
+\contentsline {subsubsection}{Control y aseguramiento de calidad del trabajo de campo}{31}{section*.33}%
+\contentsline {subsubsection}{Estrategia de Seguimiento}{31}{section*.34}%
+\contentsline {subsection}{\numberline {3.2}Incidencias en la aplicación de las encuestas}{33}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Implementación Ola 2016}{33}{subsubsection.3.2.1}%
+\contentsline {paragraph}{Indicadores levantamiento}{34}{section*.36}%
+\contentsline {paragraph}{Corrección de datos por casos anómalos: Olas 2016 y 2017}{35}{section*.38}%
+\contentsline {subsubsection}{\numberline {3.2.2}Implementación Ola 2017}{36}{subsubsection.3.2.2}%
+\contentsline {paragraph}{Indicadores levantamiento}{36}{section*.40}%
+\contentsline {paragraph}{\numberline {3.2.2.1}Casos falsificados en ola 2017}{38}{paragraph.3.2.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.3}Implementación Ola 2018}{38}{subsubsection.3.2.3}%
+\contentsline {paragraph}{Indicadores levantamiento}{40}{section*.43}%
+\contentsline {subsubsection}{\numberline {3.2.4}Implementación Ola 2019}{40}{subsubsection.3.2.4}%
+\contentsline {paragraph}{Indicadores levantamiento}{40}{section*.46}%
+\contentsline {subsubsection}{\numberline {3.2.5}Implementación Ola 2021}{42}{subsubsection.3.2.5}%
+\contentsline {paragraph}{Indicadores levantamiento}{42}{section*.49}%
+\contentsline {subsubsection}{\numberline {3.2.6}Implementación Ola 2022}{44}{subsubsection.3.2.6}%
+\contentsline {paragraph}{Indicadores levantamiento}{44}{section*.52}%
+\contentsline {subsection}{\numberline {3.3}Indicadores levantamiento}{46}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Atrición de la encuesta}{47}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Atrición respecto a otras encuestas}{50}{subsubsection.3.4.1}%
+\contentsline {section}{\numberline {4}Bases de Datos}{53}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Descarga de Bases de datos}{53}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Fichas Técnicas}{53}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Protocolo de Uso de Base de Datos}{54}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Ética}{56}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Aprobación Comité de Ética}{56}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Consentimiento informado}{56}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Dudas y Consultas}{57}{section.6}%

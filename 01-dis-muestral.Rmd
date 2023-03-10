@@ -235,7 +235,7 @@ El diseño muestral para las olas sucesivas es equivalente al diseño muestral o
 
 ## Diseño muestral Muestra Refresco {#dis_muest_refresco}
 
-A partir de 2018 se decide la inclusión de una muestra de refresco, con el objetivo de contraarrestar los efectos de la atrición (ver [Atrición de la encuesta](#atricion). A continuación se explica su diseño.
+A partir de 2018 se decide la inclusión de una muestra de refresco, con el objetivo de contraarrestar los efectos de la atrición (ver [Atrición de la encuesta](#atricion)). A continuación se explica su diseño.
 
 ### Preparación del marco muestral para la muestra refresco {-}
 
