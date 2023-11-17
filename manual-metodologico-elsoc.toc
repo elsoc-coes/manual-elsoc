@@ -55,7 +55,12 @@
 \contentsline {subsection}{\numberline {4.1}Descarga de Bases de datos}{53}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Fichas Técnicas}{53}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Protocolo de Uso de Base de Datos}{54}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Ética}{56}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Aprobación Comité de Ética}{56}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Consentimiento informado}{56}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Dudas y Consultas}{57}{section.6}%
+\contentsline {section}{\numberline {5}Ética}{57}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Aprobación Comité de Ética}{57}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Consentimiento informado}{57}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Dudas y Consultas}{58}{section.6}%
+\contentsline {section}{\numberline {7}Publicaciones}{59}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Artículos y capítulos de libro}{59}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Documentos de trabajo}{62}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Tesis de Magister y Doctorado}{63}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Informes}{65}{subsection.7.4}%

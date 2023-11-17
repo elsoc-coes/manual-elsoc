@@ -12,8 +12,8 @@ lof: True
 lot: True
 # author: "González, Roberto; Bargsted, Matías; Figuereido, Ana; Miranda, Daniel; Cerda, Edgardo; Plaza, Alejandro; Salas-Lewin, Rocío"
 description: "Manual Metodológico ELSOC 2016-2021"
-github-repo: "edgardo-cerda/manual-elsoc"
-# url: 'https://radiografia-cambio-social-2016-2021.netlify.app/'
+github-repo: "elsoc-coes/manual-elsoc"
+# url: 'https://manual-metodologico-elsoc.netlify.app/'
 always_allow_html: true
 editor_options: 
   markdown: 

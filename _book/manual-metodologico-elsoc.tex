@@ -7,7 +7,6 @@
   12pt,
 ]{article}
 \usepackage{amsmath,amssymb}
-\usepackage{lmodern}
 \usepackage{setspace}
 \usepackage{iftex}
 \ifPDFTeX
@@ -15,9 +14,13 @@
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -109,7 +112,7 @@
 \fi
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
+\urlstyle{same}
 \hypersetup{
   pdftitle={Manual Metodológico ELSOC 2016-2022},
   pdfauthor={Equipo ELSOC},
@@ -1428,9 +1431,9 @@ Medición & Prov. de 1ra Medición & Prov. de Medición Anterior & M. Total Acum
 
 Las bases de datos ELSOC son puestas a disposición al público general en el momento en que se ha completado su proceso de revisión y validación. Las bases de datos son publicadas y archivadas en el repositorio de \textbf{Harvard Dataverse}, en la \href{https://dataverse.harvard.edu/dataverse/coes_data_repository}{carpeta de datos de COES}. Este repositorio permite un acceso gratuito y seguro a las bases de datos.
 
-ELSOC se pone a disposición como bases de datos transversales según ola: olas 2016, 2017, 2018, 2019 y 2021, en formato de datos de R (.RData), SPSS (.sav), Stata 13 (.dta) y Stata 14 (.dta).
+ELSOC se pone a disposición como bases de datos transversales según ola: olas 2016, 2017, 2018, 2019, 2021 y 2022, en formato de datos de R (.RData), SPSS (.sav), y Stata 14 (.dta).
 
-Adicionalmente, a partir de 2019, se publican las bases de datos en formato longitudinal, para facilitar su uso como encuesta panel. A la fecha se encuentran publicadas la base longitudinal de olas 2016-2019 en formato wide, y bases longitudinal de olas 2016-2021 en formato wide y long. Las variables que han presentado cambios en el tiempo se encuentran armonizadas para permitir su uso longitudinal.
+Adicionalmente, a partir de 2019, se publican las bases de datos en formato longitudinal, para facilitar su uso como encuesta panel. A la fecha se encuentran publicadas la base longitudinal de olas 2016-2019 en formato wide, y bases longitudinal de olas 2016-2021 y 2016-2022 en formato wide y long. Las variables que han presentado cambios en el tiempo se encuentran armonizadas para permitir su uso longitudinal.
 
 Como parte de un proceso continuo de mejora, es posible que las bases de datos publicadas sean actualizadas durante el desarrollo de ELSOC, debido a la corrección de potenciales errores, mejoras en el formato de los datos, actualización de códigos de no respuesta, etc. Dado esto, en el repositorio de Harvard Dataverse se encuentra publicada la última versión disponible, así como todas las versiones anteriores en caso de ser necesarias.
 
@@ -1465,7 +1468,7 @@ Marco muestral & Marco de muestreo de manzanas del pre-censo 2011, trabajo elabo
 Diseño muestral & Probabilístico, estratificado, por conglomerados y multietápico\\
 Unidades de muestreo & Primero se eligen ciudades (UPM), luego manzanas (USM), y sub-bloques y viviendas (UTM). La unidad final de selección es la persona\\
 Periodicidad & Anual. Muestra de refresco a oartir del 3er año\\
-Modo de aplicación & Formato CAPI en vivienda del entrevistado. Formato CATI durante 2021\\
+Modo de aplicación & Formato CAPI en vivienda del entrevistado. Formato CATI durante 2021. Formato Mix-mode en 2022\\
 \addlinespace
 Informante & Hombre o mujer residente en la vivienda, con edad entre 18 y 75 años.\\
 Duración promedio & 51 minutos\\
@@ -1520,13 +1523,35 @@ Cualquier publicación que utilize las bases de datos ELSOC, en cualquiera de su
 
 \textbf{Centro de Estudios de Conflicto y Cohesión Social (2021). Estudio Longitudinal Social de Chile, Quinta Ola (ELSOC\_W05\_v1.00). {[}Archivo de datos{]}. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl}
 
+\begin{itemize}
+\tightlist
+\item
+  ELSOC 2022:
+\end{itemize}
+
+\textbf{Centro de Estudios de Conflicto y Cohesión Social (2022). Estudio Longitudinal Social de Chile, Quinta Ola (ELSOC\_W06\_v1.00). {[}Archivo de datos{]}. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl}
+
 O en su formato longitudinal:
 
-\textbf{Centro de Estudios de Conflicto y Cohesión Social (2021). Estudio Longitudinal Social de Chile, Versión Panel Combinada 2016-2019 (ELSOC\_Wide\_2016\_2019\_v1.00). {[}Archivo de datos{]}. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl}
+\begin{itemize}
+\tightlist
+\item
+  Versión Wide:
+\end{itemize}
+
+\textbf{Centro de Estudios de Conflicto y Cohesión Social (2022). Estudio Longitudinal Social de Chile, Versión Panel Combinada (ELSOC\_Wide). {[}Archivo de datos{]}. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl}
+
+\begin{itemize}
+\tightlist
+\item
+  Versión Long:
+\end{itemize}
+
+\textbf{Centro de Estudios de Conflicto y Cohesión Social (2022). Estudio Longitudinal Social de Chile, Versión Panel Combinada (ELSOC\_Long). {[}Archivo de datos{]}. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl}
 
 Por último, en caso de que se desee citar el presente Manual de Usuario:
 
-\textbf{Centro de Estudios de Conflicto y Cohesión Social (2021). Manual de Usuario de Estudio Longitudinal Social de Chile. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES).}
+\textbf{Centro de Estudios de Conflicto y Cohesión Social (2022). Manual de Usuario de Estudio Longitudinal Social de Chile. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES).}
 
 \newpage
 
@@ -1553,6 +1578,171 @@ Los participantes del estudio de la Muestra Original firmaron el Consentimiento 
 \section{Dudas y Consultas}\label{dudas-y-consultas}}
 
 En caso de que detecte problemas con la base de datos, desee plantear solicitudes y/o tenga dudas sobre aspectos no cubiertos por el presente Manual de Usuario, las cuales no puedan ser resueltas por otros medios, puede comunicarse con el Equipo de Encuestas COES al correo electrónico \url{elsoc@uc.cl}. El equipo procesará su solicitud y tratará de contestar en el más breve plazo.
+
+\newpage
+
+\hypertarget{publicaciones}{%
+\section{Publicaciones}\label{publicaciones}}
+
+A continuación dejamos un listado de todas las publicaciones académicas que tenemos en registro en las que se han ocupado los datos ELSOC.
+
+\hypertarget{artuxedculos-y-capuxedtulos-de-libro}{%
+\subsection{Artículos y capítulos de libro}\label{artuxedculos-y-capuxedtulos-de-libro}}
+
+\begin{itemize}
+\tightlist
+\item
+  Contreras, D., Otero, G., Diaz, J. \& Suarez, N. (2019). Inequality in social capital in Chile: Assessing the importance of network size and contacts' occupational prestige on status attainment. Social Networks, Vol. 58(8), pp 59-77. \url{https://doi.org/10.1016/j.socnet.2019.02.002}
+\item
+  Méndez, M. L., Otero, G., Link, F., López Morales, E., \& Gayo, M. (2020). Neighbourhood cohesion as a form of privilege. Urban Studies, vol.58(8), pp 1691-1711. \url{https://doi.org/10.1177/0042098020914549}
+\item
+  Somma, N. (2021). Power cages and the October 2019 uprising in Chile. Social Identities, vol.27(5), pp 579-592. \url{https://doi.org/10.1080/13504630.2021.1931092}
+\item
+  Smith, E.M., González, R. \& Frigolett, C. (2021). Understanding change in social movement participation: the roles of social norms and group efficacy. Political Psychology, vol.~42(6), pp 1037-1051. \url{https://doi.org/10.1111/pops.12733}
+\item
+  Otero, G., Volker, B. \& Rozer, J. (2021). Open but segregated? Class divisions and network structure of social capital in Chile. Social Forces, vol.~100(2), pp 649-679. \url{https://doi.org/10.1093/sf/soab005}
+\item
+  Otero, G., Volker, B. \& Rozer, J. (2021). Space and Social Capital: Social contacts in a segregated city. Urban Geography, vol.~43(10), pp 1638-1661. \url{https://doi.org/10.1080/02723638.2021.1950982}
+\item
+  Muga Mora, C. L., \& Rodrigo Benito, L. M. (2021). Colegio y logro ocupacional en Chile: una explicación desde la segregación escolar. Acta Sociológica, (82), 135--166. \url{https://doi.org/10.22201/fcpys.24484938e.2020.82.79454}
+\item
+  Jimenez, R. (2021). La perspectiva de la matriz sociopolítica y sus transformaciones previas al estallido social: Una proximidad al norte chileno (2016-2018). Desde el Sur, 13(1), e0002. \url{https://dx.doi.org/10.21142/des-1301-2021-0002}
+\item
+  Jiménez, A., Reyes, P. \& Rojas, G. (2021). Determinantes socioeconómicos y brechas de género de la sintomatología depresiva en Chile. Revista Médica de Chile, 149(4), pp 533-542. \url{https://dx.doi.org/10.4067/s0034-98872021000400533}
+\item
+  Flores, B. (2021). La importancia de las interacciones entre vecinos con lazos sociales débiles para incrementar la participación laboral femenina en Chile. Estudios Públicos, 163, pp 7-47. \url{https://doi.org/10.38178/07183089/1148201210}
+\item
+  Duarte, F., Jiménez-Molina, Á. (2021). Psychological distress during the COVID-19 epidemic in Chile: The role of economic uncertainty. PLoS ONE, 16(11), e0251683. \url{https://doi.org/10.1371/journal.pone.0251683}
+\item
+  Chayinska, M., Miranda, D \& González, R. (2021). A longitudinal study of the bidirectional causal relationships between online political participation and offline collective action. Computers in Human Behavior, vol.~121. \url{https://doi.org/10.1016/j.chb.2021.106810}
+\item
+  Cabib, I., Azar, A., \& Guerra, J. (2021). Simultaneous employment and depressive symptom trajectories around retirement age in Chile. Aging \& Mental Health, vol.~26(6), pp 1143-1152. \url{https://doi.org/10.1080/13607863.2021.1929065}
+\item
+  Vecchio, G., Huerta-Olivares, C., \& Luengo Kanacri, B. P. (2021). Habitar, pertenecer y participar: la relación entre barrio y participación ciudadana en Santiago de Chile. Bitácora Urbano Territorial, 31(1), 83-97. \url{https://doi.org/10.15446/bitacora.v31n1.87765}
+\item
+  Vargas Salfate, S., Khan, S. S., Liu, J. H., \& Gil de Zúñiga, H. (2022). A Longitudinal Test of the Conservative-Liberal Well-Being Gap. Personality and Social Psychology Bulletin, 49(10), pp 1439-1453. \url{https://doi.org/10.1177/01461672221096587}
+\item
+  Vargas Chanes, D., \& Nieto Rivera, P. (2023). The importance of social ties in obtaining employment. AWARI, vol.~3. \url{https://doi.org/10.47909/awari.155}
+\item
+  Otero, G., Volker, B., Rözer, J., \& Mollenhorst, G. (2022). The lives of others: Class divisions, network segregation, and attachment to society in Chile. The British Journal of Sociology, vol 73(22), pp 754-785. \url{https://doi.org/10.1111/1468-4446.12966}
+\item
+  Jiménez-Benítez, V., \& Figueroa-Grenett, C. (2022). El rol mediador de la eficacia grupal y la rabia hacia la desigualdad en la relacion identificacion social y acciones colectivas en el contexto de Octubre -19 en Chile. PSOCIAL, 8(1). \url{https://www.redalyc.org/articulo.oa?id=672371222007}
+\item
+  González, R., Chayinska, M., Plaza, A., Bargsted, M., \& Miranda, D. (2022). A longitudinal examination of the factors that facilitate and hinder support for conservative and progressive social movements. European Journal of Social Psychology, vol.~52(7), pp 1031-1046. \url{https://doi.org/10.1002/ejsp.2893}
+\item
+  Duarte, F., \& Jiménez-Molina, Á. (2022). A Longitudinal Nationwide Study of Psychological Distress During the COVID-19 Pandemic in Chile. Frontiers in Psychiatry, vol 13. \url{https://doi.org/10.3389/fpsyt.2022.744204}
+\item
+  Bargsted, M., Ortiz, C., Cáceres, I., \& Somma, N. (2022). Social and Political Trust in a Low Trust Society. Political Behavior. \url{https://doi.org/10.1007/s11109-021-09762-2}
+\item
+  Aguilera, C., \& Espinoza V. (2022). ``Chile despertó'': los sentidos políticos en la Revuelta de Octubre. Polis, 21(61), pp 10-31. \url{http://dx.doi.org/10.32735/s0718-6568/2022-n61-1707}. \url{https://www.scielo.cl/pdf/polis/v21n61/0718-6568-polis-21-61-13.pdf}
+\item
+  Otero, G., Völker, B., Rözer, J., \& Mollenhorst, G. (2023). Differences in access to social capital across societies. European Sociological Review, jcad035. \url{https://doi.org/10.1093/esr/jcad035}
+\item
+  Otero, G., Ramond, Q., Méndez, M. L., Carranza, R., Link, F., \& Ruiz-Tagle, J. (2023). The damages of stigma, the benefits of prestige: Examining the consequences of perceived residential reputations on neighbourhood attachment. Urban Studies. \url{https://doi.org/10.1177/00420980231186141}
+\item
+  Olivos, F., \& Wang, P. (2023). Cultural omnivorousness and status inconsistency in Chile: the role of objective and subjective social status. Sociological Research Online, 28(3), pp 736-758. \url{https://doi.org/10.1177/13607804221078023}
+\item
+  Madrid-Solorza, S., Marquet, O., Fuentes, L., \& Miralles-Guasch, C. (2023). Urban Vitality Conditions and Neighborhood Satisfaction in a Latin American City: The Case of Santiago de Chile. Journal of Urban Planning and Development, 149(3). \url{https://doi.org/10.1061/JUPDDM.UPENG-4332}
+\item
+  Castillo, J. C., Bonhomme, M., Miranda, D., \& Iturra, J. (2023). Social cohesion and attitudinal changes toward migration: A longitudinal perspective amid the COVID-19 pandemic. Frontiers in Sociology, vol.7. \url{https://doi.org/10.3389/fsoc.2022.1009567}
+\item
+  Garreton, M., Espinoza, V., \& Cantillan, R. (2023). Social capital in the urban context: Diversity and social contacts in Chilean cities. Journal of Urban Affairs, vol.~45(9), pp 1644-1663. \href{https://doi.org/\%2010.1080/07352166.2021.1974302}{https://doi.org/ 10.1080/07352166.2021.1974302}
+\item
+  Castillo, I., Contreras-Guzmán, D., \& Henzi, C. (2023). When do progressive evangelicals mobilize? Intra-denominational competing identities in Chile's constitutional process. Politics and Religion, 16(2), pp 301-323. \url{https://doi.org/10.1017/S1755048323000044}
+\item
+  Jaime-Godoy, J., Jara, F., Lisbona, F., \& Navia, P. (2023). Perception of inequality and justification of violence for social control and social change: the case of Chile in 2018 and 2019. Canadian Journal of Latin American and Caribbean Studies / Revue canadienne des études latino-américaines et caraïbes. \url{https://doi.org/10.1080/08263663.2023.2254986}
+\item
+  Duarte, F., \& Jimenez-Molina, A. (2023). Exploring the impact of social protest on mental health: A study of the 2019 ``Social Uprising'' in Chile. Social Science \& Medicine. \url{https://doi.org/10.1016/j.socscimed.2023.116392}
+\item
+  Carvacho, H. \& Álvarez, B. (2019). Inequality and Class Consciousness. In: Jetten J., Peters K. (Eds). The Social Psychology of Inequality. Springer, Cham. \url{https://doi.org/10.1007/978-3-030-28856-3_19}
+\item
+  Méndez, M. L., \& Gayo, M. (2022). Middle-Class Political and Cultural Subjectivities in the Chilean Social Outburst: Meritocracy, Social Justice, and Malaise. In: Grimson, A., Guizardi, M., Merenson, S. (Eds). Middle Class Identities and Social Crisis. Cultural and Political Perspectives on the `Global Rebellion'. Routledge. ISBN: 9781003318644. \url{https://doi.org/10.4324/b23074}
+\item
+  Flores, B., Reyes-Housholder, C., Jiménez-Moya, G., Carvacho, H., \& Jirón, P. (Eds). (2023). Tejiendo rutas: Perspectivas para un Chile con equidad de género. Fondo de Cultura Económica, ISSN: 9789562893084.
+\end{itemize}
+
+\hypertarget{documentos-de-trabajo}{%
+\subsection{Documentos de trabajo}\label{documentos-de-trabajo}}
+
+\begin{itemize}
+\tightlist
+\item
+  Barozet, E., Contreras, D., Espinoza, V., Gayo, M., \& Méndez, M. L. (2021). Clases medias en tiempos de crisis: vulnerabilidad persistente, desafíos para la cohesión y un nuevo pacto social en Chile. CEPAL. \url{https://hdl.handle.net/11362/47184}
+\item
+  Castillo, J. C., Espinoza, V., \& Barozet, E. (2022). Cohesión social en Chile en tiempos de cambio: indicadores, perfiles y factores asociados. CEPAL. \url{https://hdl.handle.net/11362/47735}
+\item
+  Egaña-delSol, P., Gutiérrez Crocco, F., Contreras, D., Paredes, V., \& Serrudo, L. (2023). Clases sociales y futuro del trabajo en Chile. (No.~68573). Naciones Unidas. Comisión Económica para América Latina y el Caribe (CEPAL). \url{https://hdl.handle.net/11362/68573}
+\item
+  Espinoza, V., Gayo, M., Méndez, M. L., Barozet, E. \& Contreras, D. (2023). Estratificación, desigualdad y pacto social en el Chile actual. Evaluaciones y preferencias de la población para la política pública. CEPAL. \url{https://hdl.handle.net/11362/68553}
+\item
+  Pérez, C. (2018). Factores socioeconómicos que influyen en la legitimación de la desigualdad en educación. \url{https://doi.org/10.13140/RG.2.2.17256.62728}
+\item
+  Maldonado, L., Castillo, J. C., Iturra, J. C., Atria, J., \& Meneses, F. (2019). Meritocracia y redistribución en Chile: señales de la opinión pública. \url{https://doi.org/10.17605/OSF.IO/G4EK8}
+\item
+  González-López, F., \& Gómez-Contreras, M. (2022). Banks or Department Stores? Assessing how Unsecured Credit Affect Subjective Social Status in ´Tier` Markets for Consumer Lending. Society for the Advancement of Socio-Economics (SASE) Congress.
+\end{itemize}
+
+\hypertarget{tesis-de-magister-y-doctorado}{%
+\subsection{Tesis de Magister y Doctorado}\label{tesis-de-magister-y-doctorado}}
+
+\begin{itemize}
+\tightlist
+\item
+  Velásquez, P. (2023). Higher education and the evolution of prejudice (Doctoral dissertation). Umeå Universitet. \url{https://www.diva-portal.org/smash/record.jsf?pid=diva2\%3A1725335\&dswid=-1228}
+\item
+  Beck Villarroel, G. (2019). Explorando la asociación entre redes de contacto ocupacionales y la justificación de la desigualdad social en Chile (Tesis para optar al grado de Magíster en Sociología). Instituto de Sociología, Pontificia Universidad Católica de Chile. \url{https://doi.org/10.13140/RG.2.2.28827.18721}
+\item
+  Iturra, J. C. (2019) Estatus Social Subjetivo y Percepción de Meritocracia: El caso de Chile (Tesis para optar al grado de Magíster en Sociología). Instituto de Sociología, Pontificia Universidad Católica de Chile. \url{https://doi.org/10.7764/tesisUC/SOC/65873}
+\item
+  Nieto, P. (2019). La influencia del capital social sobre el logro de prestigio ocupacional en Chile y México (Tesis para optar al grado de Magíster en Ciencias Sociales, mención Estudios de la Sociadad Civil). Universidad de Santiago de Chile.
+\item
+  Pérez, C. (2020). Desigualdad de género en participación política en Chile (Tesis para optar al título de Magíster en Políticas Públicas). Facultad de Economía y Negocios, Universidad de Chile. \url{https://repositorio.uchile.cl/handle/2250/182157}
+\item
+  Delgado Córdova, J. (2020). Delincuencia y justificación de la violencia: justicia por mano propia en Chile (Tesis para optar al grado de Magister en Análisis Económico). Facultad de Economía y Negocios, Universidad de Chile. \url{https://repositorio.uchile.cl/handle/2250/179393}
+\item
+  Gildemeister Díaz, D. (2020). ¿Cómo quieren en Chile al amigo cuando es forastero?: análisis territorial de la relación entre diversidad por inmigración y cohesión social en la Región Metropolitana de Chile (Tesis para optar al grado de Magíster en Análisis Económico). Facultad de Economía y Negocios, Universidad de Chile. \url{https://repositorio.uchile.cl/handle/2250/179396}
+\item
+  Inostroza, V. (2020). El malestar urbano en una ciudad segregada. Geografía, desigualdad y segregación socioespacial del malestar en el Gran Santiago (Tesis para optar al grado de Magíster en Desarrollo Urbano). Instituto de Estudios Urbanos y Territoriales. Pontificia Universidad Católica de Chile. \url{https://estudiosurbanos.uc.cl/exalumnos/el-malestar-urbano-en-una-ciudad-segregada-geografia-desigualdad-y-segregacion-socioespacial-del-malestar-en-el-gran-santiago/}
+\item
+  Vera, C. (2020). Sociabilidad y bienestar subjetivo en Chile: el malestar relacional y la amenaza a la cohesión social (Tesis para optar al grado de Magíster en Ciencias Sociales, mención Estudios de la Sociadad Civil). Universidad de Santiago de Chile.
+\item
+  Díaz, F. (2022). Depresión y sus determinantes sociales, algunas correlaciones incómodas (Actividad Formativa Equivalente para optar al grado de Magíster en Políticas Públicas). Facultad de Economía y Negocios, Universidad de Chile. \url{https://repositorio.uchile.cl/handle/2250/194645}
+\item
+  Palma Awad, J. (2022). Impacto de los escenarios de crisis en el mercado del trabajo: mujeres y pandemia (Covid-19) (Tesis para optar al grado de Magíster en Economía Aplicadar). Facultad de Ciencias Físicas y Matemáticas, Universidad de Chile. \url{https://repositorio.uchile.cl/handle/2250/187948}
+\item
+  Villagrán, M. (2022). El Efecto de la Confianza Política en la Aceptación de la Violencia, Durante las Movilizaciones del 2019 (Tesis para optar al grado de Magíster en Sociología). Instituto de Sociología, Pontificia Universidad Católica de Chile. \url{https://doi.org/10.7764/tesisUC/SOC/65026}
+\item
+  Selamé, N. (2022). ¿Ni ahí con la crisis? Desafección y participación política en el Chile del estallido social (Tesis para optar al grado de Magíster en Sociología). Instituto de Sociología, Pontificia Universidad Católica de Chile.
+\item
+  Pinto, B. (2023). Efecto político del uso de redes sociales: Evidencia sobre la participación política convencional y no convencional en Chile (Tesis para optar al grado de Magíster en Análisis Económico). Facultad de Economía y Negocios, Universidad de Chile. \url{https://repositorio.uchile.cl/handle/2250/195091}
+\item
+  Díaz Zapata, J. (2023). Composición de género de los colegios y estereotipos de género (Tesis para optar al grado de Magíster en Análisis Económico). Facultad de Economía y Negocios, Universidad de Chile. \url{https://repositorio.uchile.cl/handle/2250/195106}
+\end{itemize}
+
+\hypertarget{informes}{%
+\subsection{Informes}\label{informes}}
+
+\begin{itemize}
+\tightlist
+\item
+  Centro de Estudios de Conflicto y Cohesión Social - COES. (2017). Resultados Primera Ola, Estudio Longitudinal Social de Chile (ELSOC). Módulo 5: Género: Brechas y Actitudes. Notas COES de Política Pública N°12. ISSN: 0719-8795. Santiago, Chile: COES. \url{http://www.elsoc.cl/publicaciones-elsoc/informes}
+\item
+  Centro de Estudios de Conflicto y Cohesión Social - COES. (2017). Resultados Primera Ola, Estudio Longitudinal Social de Chile (ELSOC). Módulo 3: Territorio. Ciudad, conflicto y cohesión social: sobre la desigualdad socio-espacial en el Chile actual. Notas COES de Política Pública N°10. ISSN: 0719-8795. Santiago, Chile: COES. \url{http://www.elsoc.cl/publicaciones-elsoc/informes}
+\item
+  Centro de Estudios de Conflicto y Cohesión Social - COES. (2017). Resultados Primera Ola, Estudio Longitudinal Social de Chile (ELSOC). Módulo 2: Conflicto social. Los motivos de la justificación de la violencia en Chile. Notas COES de Política Pública N°10. ISSN: 0719-8795. Santiago, Chile: COES. \url{http://www.elsoc.cl/publicaciones-elsoc/informes}
+\item
+  Centro de Estudios de Conflicto y Cohesión Social - COES. (2017). Resultados Primera Ola, Estudio Longitudinal Social de Chile (ELSOC). Módulo 1: Cohesión Social y Migración. Notas COES de Política Pública N°1. Santiago, Chile: COES. \url{http://www.elsoc.cl/publicaciones-elsoc/informes}
+\item
+  Centro de Estudios de Conflicto y Cohesión Social - COES. (2017). Resultados Primera Ola, Estudio Longitudinal Social de Chile (ELSOC). Desigualdades de voz política en Chile. Notas COES de política pública, No.~11; pp.~1--17. \url{http://www.elsoc.cl/publicaciones-elsoc/informes}
+\item
+  Centro de Estudios de Conflicto y Cohesión Social - COES. (2018). Desafección política y politización de las redes sociales interpersonales. Notas COES de política pública, No.~16; pp.~1--13. \url{http://www.elsoc.cl/publicaciones-elsoc/informes}
+\item
+  Centro de Estudios de Conflicto y Cohesión Social - COES. (2018). Resultados Primera Ola, Estudio Longitudinal Social de Chile (ELSOC). Módulo 6: Salud y bienestar. Salud Mental en el Chile de hoy. Notas COES de Política Pública N°15. ISSN: 0719-8795. Santiago, Chile: COES. \url{http://www.elsoc.cl/publicaciones-elsoc/informes}
+\item
+  COES. (2022). Radiografía del Cambio Social: Análisis de Resultados Longitudinales ELSOC 2016-2021. Presentación de Resultados COES. Enero, Santiago de Chile. \url{https://radiografia-cambio-social-2016-2021.netlify.app}
+\item
+  COES. (2023). Radiografía del Cambio Social: Análisis de Resultados Longitudinales ELSOC 2016-2022. Presentación de Resultados COES. Marzo, Santiago de Chile. \url{https://radiografia-cambio-social-2016-2022.netlify.app/}
+\end{itemize}
 
 \newpage
 
