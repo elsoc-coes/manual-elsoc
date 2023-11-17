@@ -352,4 +352,12 @@ $$w=w^{dis}*f_l*ps$$
 Es decir, son una combinación de la probabilidad de inclusión de los individuos, un ajuste por no respuesta en la manzana en la que residen y un ajuste de post-estratificación.
 
 
+### Ponderadores Longitudinales
+
+El uso de ponderadores en análisis estadísticos tiene múltiples motivaciones, una de las más importantes radica en el interés por evitar sesgos debido al diseño muestral del estudio. Dada la naturaleza longitudinal de ELSOC interesa particularmente poder controlar por los sesgos de atrición que se derivan de la existencia de patrones sistemáticos en la no participación del estudio posterior a la primera ola. Otra motivación relevante para el uso de estimadores ponderados es su capacidad para incorporar información conocida sobre la población objetivo en la construcción de los ponderadores. Para lograr esto, se ajustan los pesos de manera que puedan reproducir totales o proporciones poblacionales.
+
+Se ha generado un informe completo respecto a la generación y uso de los ponderadores longitudinales para los datos ELSOC, que es posible revisar en el sitio [https://pondedradores-long-elsoc.netlify.app](https://pondedradores-long-elsoc.netlify.app).
+
+
+
 \newpage

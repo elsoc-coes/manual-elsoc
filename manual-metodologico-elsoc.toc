@@ -19,48 +19,49 @@
 \contentsline {subsubsection}{\numberline {1.3.1}Pesos de diseño}{16}{subsubsection.1.3.1}%
 \contentsline {subsubsection}{\numberline {1.3.2}Ajustes por no respuesta}{17}{subsubsection.1.3.2}%
 \contentsline {subsubsection}{\numberline {1.3.3}Post-Estratificación}{18}{subsubsection.1.3.3}%
-\contentsline {section}{\numberline {2}Diseño del Instrumento}{19}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Diseño del cuestionario}{19}{subsection.2.1}%
-\contentsline {subsubsection}{Cambios en el Cuestionario entre olas}{21}{section*.21}%
-\contentsline {subsubsection}{Diferencias en Cuestionarios entre Muestras}{23}{section*.24}%
-\contentsline {subsubsection}{Cuestionario 2021: levantamiento durante la pandemia de COVID-19}{24}{section*.26}%
-\contentsline {subsubsection}{Cuestionario 2022: cambio a levantamiento con modalidad mixta}{27}{section*.28}%
-\contentsline {subsection}{\numberline {2.2}Listado de variables}{28}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Implementación de la Encuesta}{29}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Características generales del levantamiento}{29}{subsection.3.1}%
-\contentsline {subsubsection}{Ente ejecutor}{29}{section*.30}%
-\contentsline {subsubsection}{Pilotaje del Cuestionario}{29}{section*.31}%
-\contentsline {subsubsection}{Planificación y Ejecución del Campo}{30}{section*.32}%
-\contentsline {subsubsection}{Control y aseguramiento de calidad del trabajo de campo}{31}{section*.33}%
-\contentsline {subsubsection}{Estrategia de Seguimiento}{31}{section*.34}%
-\contentsline {subsection}{\numberline {3.2}Incidencias en la aplicación de las encuestas}{33}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Implementación Ola 2016}{33}{subsubsection.3.2.1}%
-\contentsline {paragraph}{Indicadores levantamiento}{34}{section*.36}%
-\contentsline {paragraph}{Corrección de datos por casos anómalos: Olas 2016 y 2017}{35}{section*.38}%
-\contentsline {subsubsection}{\numberline {3.2.2}Implementación Ola 2017}{36}{subsubsection.3.2.2}%
-\contentsline {paragraph}{Indicadores levantamiento}{36}{section*.40}%
-\contentsline {paragraph}{\numberline {3.2.2.1}Casos falsificados en ola 2017}{38}{paragraph.3.2.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.3}Implementación Ola 2018}{38}{subsubsection.3.2.3}%
-\contentsline {paragraph}{Indicadores levantamiento}{40}{section*.43}%
-\contentsline {subsubsection}{\numberline {3.2.4}Implementación Ola 2019}{40}{subsubsection.3.2.4}%
-\contentsline {paragraph}{Indicadores levantamiento}{40}{section*.46}%
-\contentsline {subsubsection}{\numberline {3.2.5}Implementación Ola 2021}{42}{subsubsection.3.2.5}%
-\contentsline {paragraph}{Indicadores levantamiento}{42}{section*.49}%
-\contentsline {subsubsection}{\numberline {3.2.6}Implementación Ola 2022}{44}{subsubsection.3.2.6}%
-\contentsline {paragraph}{Indicadores levantamiento}{44}{section*.52}%
-\contentsline {subsection}{\numberline {3.3}Indicadores levantamiento}{46}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Atrición de la encuesta}{47}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Atrición respecto a otras encuestas}{50}{subsubsection.3.4.1}%
-\contentsline {section}{\numberline {4}Bases de Datos}{53}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Descarga de Bases de datos}{53}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Fichas Técnicas}{53}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Protocolo de Uso de Base de Datos}{54}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Ética}{57}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Aprobación Comité de Ética}{57}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Consentimiento informado}{57}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Dudas y Consultas}{58}{section.6}%
-\contentsline {section}{\numberline {7}Publicaciones}{59}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Artículos y capítulos de libro}{59}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Documentos de trabajo}{62}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Tesis de Magister y Doctorado}{63}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Informes}{65}{subsection.7.4}%
+\contentsline {subsubsection}{\numberline {1.3.4}Ponderadores Longitudinales}{18}{subsubsection.1.3.4}%
+\contentsline {section}{\numberline {2}Diseño del Instrumento}{20}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Diseño del cuestionario}{20}{subsection.2.1}%
+\contentsline {subsubsection}{Cambios en el Cuestionario entre olas}{22}{section*.21}%
+\contentsline {subsubsection}{Diferencias en Cuestionarios entre Muestras}{24}{section*.24}%
+\contentsline {subsubsection}{Cuestionario 2021: levantamiento durante la pandemia de COVID-19}{25}{section*.26}%
+\contentsline {subsubsection}{Cuestionario 2022: cambio a levantamiento con modalidad mixta}{28}{section*.28}%
+\contentsline {subsection}{\numberline {2.2}Listado de variables}{29}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Implementación de la Encuesta}{30}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Características generales del levantamiento}{30}{subsection.3.1}%
+\contentsline {subsubsection}{Ente ejecutor}{30}{section*.30}%
+\contentsline {subsubsection}{Pilotaje del Cuestionario}{30}{section*.31}%
+\contentsline {subsubsection}{Planificación y Ejecución del Campo}{31}{section*.32}%
+\contentsline {subsubsection}{Control y aseguramiento de calidad del trabajo de campo}{32}{section*.33}%
+\contentsline {subsubsection}{Estrategia de Seguimiento}{32}{section*.34}%
+\contentsline {subsection}{\numberline {3.2}Incidencias en la aplicación de las encuestas}{34}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Implementación Ola 2016}{34}{subsubsection.3.2.1}%
+\contentsline {paragraph}{Indicadores levantamiento}{35}{section*.36}%
+\contentsline {paragraph}{Corrección de datos por casos anómalos: Olas 2016 y 2017}{36}{section*.38}%
+\contentsline {subsubsection}{\numberline {3.2.2}Implementación Ola 2017}{37}{subsubsection.3.2.2}%
+\contentsline {paragraph}{Indicadores levantamiento}{37}{section*.40}%
+\contentsline {paragraph}{\numberline {3.2.2.1}Casos falsificados en ola 2017}{39}{paragraph.3.2.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.3}Implementación Ola 2018}{39}{subsubsection.3.2.3}%
+\contentsline {paragraph}{Indicadores levantamiento}{41}{section*.43}%
+\contentsline {subsubsection}{\numberline {3.2.4}Implementación Ola 2019}{41}{subsubsection.3.2.4}%
+\contentsline {paragraph}{Indicadores levantamiento}{41}{section*.46}%
+\contentsline {subsubsection}{\numberline {3.2.5}Implementación Ola 2021}{43}{subsubsection.3.2.5}%
+\contentsline {paragraph}{Indicadores levantamiento}{43}{section*.49}%
+\contentsline {subsubsection}{\numberline {3.2.6}Implementación Ola 2022}{45}{subsubsection.3.2.6}%
+\contentsline {paragraph}{Indicadores levantamiento}{45}{section*.52}%
+\contentsline {subsection}{\numberline {3.3}Indicadores levantamiento}{47}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Atrición de la encuesta}{48}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Atrición respecto a otras encuestas}{51}{subsubsection.3.4.1}%
+\contentsline {section}{\numberline {4}Bases de Datos}{54}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Descarga de Bases de datos}{54}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Fichas Técnicas}{54}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Protocolo de Uso de Base de Datos}{55}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Ética}{58}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Aprobación Comité de Ética}{58}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Consentimiento informado}{58}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Dudas y Consultas}{59}{section.6}%
+\contentsline {section}{\numberline {7}Publicaciones}{60}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Artículos y capítulos de libro}{60}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Documentos de trabajo}{63}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Tesis de Magister y Doctorado}{64}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Informes}{66}{subsection.7.4}%
