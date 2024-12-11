@@ -1,114 +1,113 @@
-
 ```{r}
 library(tidyverse)
 library(kableExtra)
-load(file = file.path('inputs', 'ELSOC_Long_2016_2022_v1.00_R.RData'))
+load(file = file.path('inputs', 'ELSOC_Long.RData'))
 
 ```
 
-# Implementación de la Encuesta {#implem_encuest}
+# Implementation of the Survey {#implem_encuest}
 
-## Características generales del levantamiento
+## General characteristics of the survey
 
-### Ente ejecutor {-}
+### Executing entity {-}
 
-Dados los estándares de calidad y transparencia de ELSOC, la implementación de ELSOC se realiza por medio de una institución independiente, adjudicada mediante licitación pública. A la fecha se han realizado 3 licitaciones públicas: en 2016, 2018 y 2020, cada una cubriendo 2 mediciones del estudio. Esto es, las olas 2016 y 2017 (Muestra Original), olas 2018 y 2019 (Muestras Original y Refresco), y olas 2021 y 2022 (Muestras Original y Refresco), respectivamente.
+Given the quality and transparency standards of ELSOC, the implementation of ELSOC is carried out by an independent institution, awarded through a public tender. To date, 3 public tenders have been held: in 2016, 2018, and 2020, each covering 2 measurements of the study. That is, the 2016 and 2017 waves (Original Sample), 2018 and 2019 waves (Original and Refresh Samples), and 2021 and 2022 waves (Original and Refresh Samples), respectively.
 
-El [Centro Micro Datos (CMD)](https://www.microdatos.cl) de la Facultad de Economía y Negocios de la Universidad de Chile se ha adjudicado los 3 concursos, por lo que ha estado a cargo del desarrollo de la encuesta desde sus inicios. Las bases de licitación y, por lo tanto, el acuerdo con Micro Datos, contempla los más altos estándares de calidad y asegura un adecuado resguardo de los datos personales de contacto de los participantes del estudio panel.
+The [Centro Micro Datos (CMD)](https://www.microdatos.cl) of the Faculty of Economics and Business of the University of Chile has been awarded the 3 tenders, so it has been in charge of the development of the survey since its inception. The tender bases and, therefore, the agreement with Micro Datos, contemplate the highest quality standards and ensure adequate protection of the personal contact data of the panel study participants.
 
-A continuación se describen algunos de los criterios y prácticas aplicadas para asegurar la calidad del levantamiento y procesamiento de datos:
+Below are some of the criteria and practices applied to ensure the quality of data collection and processing:
 
-### Pilotaje del Cuestionario {-}
+### Questionnaire Piloting {-}
 
-Cada cuestionario de ELSOC es piloteado siguiendo la modalidad de levantamiento de ELSOC, con el objetivo de testear el instrumento y evaluar el funcionamiento operativo del levantamiento
+Each ELSOC questionnaire is piloted following the ELSOC survey modality, with the aim of testing the instrument and evaluating the operational functioning of the survey.
 
-El pilotaje se realiza los meses previos al levantamiento oficial, seguido por una ronda de focus group a los encuestadores con el objetivo de obtener recomendaciones relevantes para el levantamiento final de la encuesta. La información obtenida es utilizada para introducir cambios a los cuestionarios y para definir  ajustes al programa de capacitación de los encuestadores.
+The piloting is carried out in the months prior to the official survey, followed by a round of focus groups with the interviewers to obtain relevant recommendations for the final survey. The information obtained is used to introduce changes to the questionnaires and to define adjustments to the interviewer training program.
 
-Para el proceso de pilotaje se utiliza una muestra aleatoria en la Región Metropolitana, obtenida a partir del empadronamietno realizado por el CMD para la muestra original.
+For the piloting process, a random sample is used in the Metropolitan Region, obtained from the census conducted by CMD for the original sample.
 
-### Planificación y Ejecución del Campo {-}
+### Field Planning and Execution {-}
 
-La selección y capacitación de los Coordinadores de sede, encuestadores y supervisores constituye un pilar fundamental del levantamiento. Por ello, es indispensable que tanto los Coordinadores como los encuestadores entiendan a cabalidad la encuesta y su objetivo, de modo que sean capaces de argumentar la importancia y funcionalidad de la información que están recogiendo.
+The selection and training of site coordinators, interviewers, and supervisors is a fundamental pillar of the survey. Therefore, it is essential that both the coordinators and the interviewers fully understand the survey and its objective, so that they are able to argue the importance and functionality of the information they are collecting.
 
-Para esto, un primer paso es la selección de Coordinadores/as de Sede, los que se encuentran encargados de liderar al equipo de encuestadores de cada zona administrativa (sedes). Se seleccionan personas con experiencia en este cargo en encuestas en olas anteriores del proyecto y/o con experiencia en encuestas complejas.
+To this end, the first step is the selection of Site Coordinators, who are responsible for leading the team of interviewers in each administrative area (sites). People with experience in this role in previous waves of the project and/or with experience in complex surveys are selected.
 
-Para el caso de los encuestadores y encuestadoras, se convoca a encuestadores/as participantes de olas anteriores del proyecto y donda la evaluación de su trabajo fue satisfactoria. También se invitó a encuestadores que hubiesen participado en los últimos proyectos de encuestas realizados por el CMD.
+In the case of interviewers, interviewers who participated in previous waves of the project and whose work evaluation was satisfactory are invited. Interviewers who had participated in the latest survey projects conducted by CMD were also invited.
 
-Para cada proceso de levantamiento se realizan capacitaciones a encuestadores y supervisores, en aspectos del estudio (objetivos, cobertura, tipos de entrevistados, etc.), aspectos metodológicos en el formato de acplicación, y en el cuestionario.
+For each survey process, training is provided to interviewers and supervisors on aspects of the study (objectives, coverage, types of respondents, etc.), methodological aspects in the application format, and the questionnaire.
 
-Adicionalmente, se elaboró y utilizó un Manual del Encuestador para la implementación de ELSOC y documentos orientadores y protocolos para la aplicación del cuestionario. Esto incluye:
+Additionally, an Interviewer Manual was developed and used for the implementation of ELSOC, as well as guiding documents and protocols for the application of the questionnaire. This includes:
 
-- Protocolo de Visita: primer contacto con la vivienda, primer contacto con el hogar y concertación de entrevistas en casos en que no se puede realizar entrevista al momento de visita. 
+- Visit Protocol: first contact with the household, first contact with the household, and scheduling of interviews in cases where the interview cannot be conducted at the time of the visit.
 
-- Protocolo ante Casos Difíciles: escenario de negaciones, escenario de más de 4 intentos presenciales sin contacto, barreras de acceso a la vivienda, no contacto con la vivienda. También contempla estrategias de recuperación.
+- Protocol for Difficult Cases: scenarios of refusals, scenarios of more than 4 in-person attempts without contact, access barriers to the household, no contact with the household. It also includes recovery strategies.
 
-- Protocolo de Aplicación del Cuestionario: descripción del estudio, consentimiento informado, aplicación de preguntas, manejo de interrupciones, entrega de gift cards.
+- Questionnaire Application Protocol: study description, informed consent, question application, handling interruptions, delivery of gift cards.
 
-- Protocolo de Campo: respaldo de información, control de avances, registro de contactos.
+- Field Protocol: information backup, progress control, contact registration.
 
-Los documentos fueron adaptados de modo tal de ajustarse a los requerimientos del seguimiento de una muestra previamente entrevistada. 
+The documents were adapted to meet the requirements of tracking a previously interviewed sample.
 
-### Control y aseguramiento de calidad del trabajo de campo {-}
+### Fieldwork Quality Control and Assurance {-}
 
-Desde el inicio del levantamiento y durante toda su ejecución, se realizan estrategias de supervisión y control de calidad de manera constante, orientadas no solo a monitorear el estado de avance sino también a detectar de manera temprana y en tiempo real errores ocurridos durante el levantamiento, problemas de comportamiento entre los encuestadores, entre otros aspectos.
+From the beginning of the survey and throughout its execution, constant supervision and quality control strategies are implemented, aimed not only at monitoring the progress but also at detecting early and in real-time errors that occurred during the survey, behavioral problems among interviewers, among other aspects.
 
-Se han implementado las siguientes estrategias de alerta temprana y medidas correctivas durante el proceso de levantamiento:
+The following early warning strategies and corrective measures have been implemented during the survey process:
 
-- Revisión del 100% de las encuestas recopiladas, en término de las observaciones registradas por el encuestador, por parte del Coordinador/a de Sede. En esta etapa se verifica que efectivamente se haya encuestado a la persona elegida en el proceso de muestreo y se verifica el correcto llenado de la hoja de ruta, y horario y duración de la ejecución de la entrevista.
+- Review of 100% of the collected surveys, in terms of the observations recorded by the interviewer, by the Site Coordinator. At this stage, it is verified that the person chosen in the sampling process was indeed interviewed, and the correct completion of the route sheet, and the time and duration of the interview are verified.
 
-- Supervisión de encuestas recopiladas por parte de personas distintas al equipo de encuestadores que realizaron el levantamiento. Para esto se recontacta a un porcentaje de la muestra (entre 10 y 25% de la muestra completa, dependiendo de la ola), seleccionado aleatoriamente, y se verifican las respuestas en preguntas claves, para detectar y corregir a tiempo eventuales sesgos de equiop encuestador, errores de aplicación, y posibles faltas graves como la falsificación de la encuestas.
+- Supervision of collected surveys by people other than the team of interviewers who conducted the survey. For this, a percentage of the sample (between 10 and 25% of the complete sample, depending on the wave) is randomly selected and re-contacted, and the responses to key questions are verified to detect and correct potential biases of the interviewer team, application errors, and possible serious faults such as survey falsification.
 
-- Retroalimentación semanal a encuestadores por parte de los jefes de zona, en base a los resultados de la revisión y supervisión de encuestas. 
+- Weekly feedback to interviewers by zone managers, based on the results of the survey review and supervision.
 
-- Validación constante de la información recopilada por parte del equipo central a la base de datos y fichas de validación.
+- Constant validation of the collected information by the central team to the database and validation sheets.
 
-- Reporte semanal a equipo COES informando respecto al estado de avance del levantamiento.
+- Weekly report to the COES team informing about the progress of the survey.
 
-### Estrategia de Seguimiento {-}
+### Follow-up Strategy {-}
 
-Un aspecto esencial para el funcionamiento continuo de ELSOC es lograr el seguimiento en el tiempo de los encuestados seleccionados en la muestra. Para esto, se definen estrategias de fidelización y seguimiento que permitan reducir el fenómeno de atrición.
+An essential aspect for the continuous functioning of ELSOC is to achieve the follow-up over time of the respondents selected in the sample. To this end, loyalty and follow-up strategies are defined to reduce the attrition phenomenon.
 
-Algunas de las medidas implementadas son:
+Some of the implemented measures are:
 
-- Obtención, almacenamiento y actualización de información relevante para garantizar un adecuado contacto: nombre del entrevistado, información de contacto (número de teléfono y correo electrónico), y aspectos básicos para su identificación. Dicha información es almacenada y utilizada siguiendo estrictos estándares de confidencialidad.
+- Obtaining, storing, and updating relevant information to ensure adequate contact: interviewee's name, contact information (phone number and email), and basic identification aspects. This information is stored and used following strict confidentiality standards.
 
-- Realizar pre-contacto para concertar entrevistas y planificar el campo previo a la fecha de levantamietno. Cada encuestador recibe del coordinador de sede los datos sobre las citas concertadas con participantes ELSOC y utiliza un protocolo de entrevista específico para reentrevistas.  
+- Pre-contact to schedule interviews and plan the fieldwork before the survey date. Each interviewer receives from the site coordinator the data on the appointments scheduled with ELSOC participants and uses a specific interview protocol for re-interviews.
 
-- Conformación de equipos de encuestadores de perfil variado, privilegiando a aquellos/as con experiencia en olas anteriores de ELSOC o en otras encuestas complejas. Los encuestadores y coordinadores son capacitados en aspectos propios del cargo y en aspectos técnicos del cuestionario y del estudio, poniéndo énfasis en el protocolo de entrevista.
+- Formation of teams of interviewers with varied profiles, prioritizing those with experience in previous waves of ELSOC or other complex surveys. Interviewers and coordinators are trained in the specific aspects of the role and the technical aspects of the questionnaire and the study, with an emphasis on the interview protocol.
 
-- Uso de cartas de presentación para cada entrevistado, firmada por la Dirección del Centro de Microdatos, donde se explican los objetivos del estudio, las institucionales a cargo, la garantía de confidencialidad de los datos y la entrega del incentivo.
+- Use of presentation letters for each interviewee, signed by the Director of the Centro de Microdatos, explaining the objectives of the study, the institutions in charge, the guarantee of data confidentiality, and the delivery of the incentive.
 
-- Entrega de un incentivo monetario a los encuestados luego de obtener la encuesta completa. El incentivo corresponde a una Giftcard para ser canjeada en supermercados o negocios afines. El incentivo fue de \$6.000 durante las olas 2016, 2017, 2018 y 2019. Durante el levantamiento de la ola 2021 el incentivo monetario se incrementó a \$9.000.
+- Delivery of a monetary incentive to the respondents after obtaining the complete survey. The incentive corresponds to a Giftcard to be redeemed in supermarkets or similar businesses. The incentive was \$6,000 during the 2016, 2017, 2018, and 2019 waves. During the 2021 wave, the monetary incentive was increased to \$9,000.
 
-- Re-contacto ante rechazos o problemas de contactabilidad por parte de encuestadores distintos al original, el que debe contar con un perfil adecuado a las características observadas de la muestra no lograda y con mayor experiencia en la aplicación de encuestas similares. Dichos encuestadores cuentan con un incentivo económico adicional para aplicar este tipo de encuestas definidas como “recuperadas”.
+- Re-contact in case of refusals or contactability problems by interviewers other than the original one, who must have a profile suitable for the observed characteristics of the unachieved sample and with more experience in applying similar surveys. These interviewers have an additional economic incentive to apply these types of surveys defined as "recovered."
 
-- En los casos que el entrevistado se cambió de domicilio, se solicita a los encuestadores que averigüen sobre el nuevo domicilio y realicen los esfuerzos para lograr entrevistarlo en el nuevo domicilio. Esto se realiza tanto para cambios de domicilio a nivel comunas en la misma región o en otra comuna en una región distinta. En este segundo caso se deriva el folio al coordinador que tuvo a cargo la nueva comuna de residencia del entrevistado.
+- In cases where the interviewee has moved, interviewers are asked to find out about the new address and make efforts to interview them at the new address. This is done for changes of address within the same region or in another region. In the latter case, the case is referred to the coordinator in charge of the new municipality of residence of the interviewee.
 
-- Se envian saludos navideños y similares a los participantes de ELSOC por correo electrónico en fechas relevantes. Adicionalmente, se entregaron folletos con los principales resultados de rondas anteriores, de manera que los entrevistados conocieran acerca del uso de los datos recopilados y su relevancia para el país
-
-
-## Incidencias en la aplicación de las encuestas
-
-A continuación se detallan los hitos específicos asociados a la implementación de las olas 2016, 2017, 2018, 2019, 2021 y 2022:    
-
-### Implementación Ola 2016
-
-El levantamiento de la encuesta se llevó a cabo en un periodo de alrededor de 20 semanas, durante los meses de agosto a diciembre de 2016 (ver Figura \@ref(fig:graf-fechas-ola1)). Para la ejecución del terreno se contó con 132 encuestadores distribuidos en 4 sedes de trabajo, cada una liderada por un coordinador/a de grupo debidamente capacitado/a.
-
-El plazo fue mayor al pronosticado inicialmente (se estimó que duraría entre 8 y 12 semanas, extendiéndose finalmente a 20). Las principales dificultades encontradas y las medidas adoptadas para solucionar las eventualidades acontecidas fueron:
-
- - El CMD en su propuesta técnica comprometió un período de trabajo de campo de 8 semanas. Esta estimación de tiempo se basó en estudios recientes, pero no fue adecuada dadas las dificultades de acceso a la muestra y la dispersión de la misma.
-
- - El mayor problema se presentó en la Región Metropolitana que, a diferencia de las otras regiones, no consideró una sobredimensión de la muestra de acuerdo a tasas de respuesta históricas en encuestas de hogares con selección aleatoria del entrevistado. Para solucionar este problema se efectuó un aumento de la muestra (ver [Etapa 5: Aumento del tamaño muestral](#etapa5) para más detalles), lo que se tradujo en tiempo adicional de levantamiento.
- 
- - Se tuvo dificultad en la convocatoria y permanencia de los encuestadores en el proyecto, debido a la dificultad de acceso a la muestra y su dispersión, los que hicieron que el pago propuesto a los encuestadores, en comparación a otros proyectos paralelos (dentro y fuera del Centro), fuera relativamente menos atractivo. El pago realizado y las facilidades entregadas a los encuestadores se fue incrementando gradualmente para solucionar este problema.
-
-El cierre definitivo del trabajo de campo del levantamiento de la encuesta se desarrolló de común acuerdo con COES, una vez cubierta la totalidad de la muestra sobredimensionada^[Si bien lo requerido es lograr la mayor cantidad de entrevistas exitosas, es necesario establecer un punto de corte debido a la imposibilidad de establecer contacto o lograr respuesta por parte del hogar/entrevistado.]. El terreno se cerró finalmente con 2.984 encuestas realizadas.
+- Christmas greetings and similar messages are sent to ELSOC participants by email on relevant dates. Additionally, brochures with the main results of previous rounds were delivered so that the interviewees could learn about the use of the collected data and its relevance to the country.
 
 
-```{r graf-fechas-ola1, fig.cap = 'Número de entrevistas por semana, ola 2016'}
+## Incidents in the application of the surveys
 
-elsoc_long_2016_2022 %>%
+Below are the specific milestones associated with the implementation of the 2016, 2017, 2018, 2019, 2021, and 2022 waves:
+
+### Implementation Wave 2016
+
+The survey was conducted over a period of approximately 20 weeks, from August to December 2016 (see Figure \@ref(fig:graf-fechas-ola1)). For the fieldwork, 132 interviewers were distributed in 4 work sites, each led by a duly trained group coordinator.
+
+The period was longer than initially predicted (it was estimated to last between 8 and 12 weeks, finally extending to 20). The main difficulties encountered and the measures taken to address the eventualities were:
+
+- CMD, in its technical proposal, committed to an 8-week fieldwork period. This time estimate was based on recent studies but was not adequate given the difficulties in accessing the sample and its dispersion.
+
+- The main problem occurred in the Metropolitan Region, which, unlike other regions, did not consider an oversampling based on historical response rates in household surveys with random selection of the interviewee. To address this problem, the sample size was increased (see [Stage 5: Increase in sample size](#etapa5) for more details), which resulted in additional survey time.
+
+- There was difficulty in recruiting and retaining interviewers in the project due to the difficulty of accessing the sample and its dispersion, which made the proposed payment to interviewers, compared to other parallel projects (within and outside the Center), relatively less attractive. The payment made and the facilities provided to interviewers were gradually increased to address this problem.
+
+The final closure of the fieldwork was agreed upon with COES once the entire oversampled sample was covered^[While the goal is to achieve the highest number of successful interviews, it is necessary to establish a cutoff point due to the impossibility of establishing contact or obtaining a response from the household/interviewee.]. The fieldwork was finally closed with 2,984 completed surveys.
+
+
+```{r graf-fechas-ola1, fig.cap = 'Number of interviews per week, wave 2016'}
+
+elsoc_long_2016_2023 %>%
   filter(ola == 1) %>% 
   mutate(fecha_entr = lubridate::ymd(fecha_entr),
          dia = lubridate::yday(fecha_entr),
@@ -133,15 +132,15 @@ elsoc_long_2016_2022 %>%
                date_breaks = '1 week') +
   scale_y_continuous(labels = scales::number,
                      limits = c(0, 1000)) +
-  ylab(label = 'Número de entrevistas semanales') +
+  ylab(label = 'Number of weekly interviews') +
   xlab(label = NULL) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 ```
 
-#### Indicadores levantamiento {-}
+#### Survey Indicators {-}
 
-A continuación se presentan las Tasas de Respuesta 1 (TRR1, definida por la AAPOR), Tasa de Cooperación 1 (TCC1), Tasa de Rechazo 1 (TR1) y Tasa de Contacto 1 (TC1)^[Para mayor información sobre la determinación de los códigos de disposición final de casos y el cálculo de las tasas de resultados, ver 
+Below are the Response Rate 1 (TRR1, defined by AAPOR), Cooperation Rate 1 (TCC1), Refusal Rate 1 (TR1), and Contact Rate 1 (TC1)^[For more information on determining final case disposition codes and calculating outcome rates, see 
 [AAPOR (2016). Standard Definitions. Final Dispositions of Case Codes and Outcome Rates for Surveys](http://www.aapor.org/AAPOR_Main/media/publications/Standard-Definitions20169theditionfinal.pdf)]
 
 
@@ -153,48 +152,48 @@ tasas_ola1 <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'),
   mutate(original_2016 = scales::percent(original_2016, .1))
 
 tasas_ola1 %>% 
-  kbl(caption = 'Tasas de Respuesta, Cooperación, de Rechazo y de Contacto, ola 2016',
+  kbl(caption = 'Response, Cooperation, Refusal, and Contact Rates, wave 2016',
       align = c('l', 'c'),
       
       booktabs = TRUE,
-      col.name = c('Indicador', 'Muestra Original')) %>% 
+      col.name = c('Indicator', 'Original Sample')) %>% 
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
   kable_classic_2()
 
 ```
 
-#### Corrección de datos por casos anómalos: Olas 2016 y 2017 {-#casos-falsificados}
+#### Data Correction for Anomalous Cases: Waves 2016 and 2017 {-#casos-falsificados}
 
-En el contexto de la ejecución de la tercera ola del estudio ELSOC (año 2018) se diagnosticó la falsificación de un número acotado de casos a lo largo del estudio en las olas 2016 y 2017. 
+In the context of the execution of the third wave of the ELSOC study (year 2018), the falsification of a limited number of cases throughout the study in the 2016 and 2017 waves was diagnosed.
 
-Durante la etapa de supervisión del trabajo de encuestadores durante el 2018, tercera ola de ELSOC, el Centro de Microdatos (CMD) detectó e informó que un conjunto de casos incluidos en la muestra panel son falsos. 
+During the supervision stage of interviewers' work in 2018, the third wave of ELSOC, the Centro de Microdatos (CMD) detected and reported that a set of cases included in the panel sample were false.
 
-Debido al lento avance de las metas de campo de ELSOC en 2018 en Tarapacá y Valparaíso, se enviaron nuevos encuestadores, los cuales detectaron estos problemas. En específico, las encuestas fueron sistemáticamente falsificadas: se realizaron a otras personas no incluídas en la muestra, o los encuestadores solicitaron información a terceros.
+Due to the slow progress of ELSOC field goals in 2018 in Tarapacá and Valparaíso, new interviewers were sent, who detected these problems. Specifically, the surveys were systematically falsified: they were conducted with people not included in the sample, or the interviewers requested information from third parties.
 
-Esto llevó a un proceso exhaustivo de revisión, en la cual se detectaron 56 casos falsificados en el campo de 2016 y 47 en el campo de 2017, concentrados en las regiones de Tarapacá (11 casos en 2016 y 11 en 2017) y Valparaíso (45 casos en 2016 y 37 en 2017). 
+This led to an exhaustive review process, in which 56 falsified cases were detected in the 2016 fieldwork and 47 in the 2017 fieldwork, concentrated in the regions of Tarapacá (11 cases in 2016 and 11 in 2017) and Valparaíso (45 cases in 2016 and 37 in 2017).
 
-La estrategia de campo de CMD se centra en encuestadores experimentados, asignando los mismos casos a los encuestadores en el tiempo, acorde a la recomendación de la literatura especializada. El problema se concentró en algunos encuestadores específicos en dichas zonas, el cual no fue detectado durante la supervisión de campo de las dos primeras olas.
+The CMD's field strategy focuses on experienced interviewers, assigning the same cases to interviewers over time, according to the recommendation of the specialized literature. The problem was concentrated in specific interviewers in those areas, which was not detected during the field supervision of the first two waves.
 
-Los casos falsificados representan el 1,9% del tamaño muestral efectivo de ELSOC 2016 (N = 2.984) y 1,9% de 2017 (N = 2.522), por lo que se considera que éstos tienen un impacto marginal a nivel general. A pesar de esto, se tomó la decisión de excluir de las bases de datos los casos falsificados, y se generó y puso a disposición una versión corregida de las bases de datos 2016 y 2017. Los ponderadores fueron corregidos considerando la eliminación de estos casos.
+The falsified cases represent 1.9% of the effective sample size of ELSOC 2016 (N = 2,984) and 1.9% of 2017 (N = 2,522), so they are considered to have a marginal impact at the general level. Despite this, the decision was made to exclude the falsified cases from the databases, and a corrected version of the 2016 and 2017 databases was generated and made available. The weights were corrected considering the elimination of these cases.
 
-Para evitar estos problemas en el futuro, se modificaron los protocolos de supervisión, aumentando la supervisión presencial y el porcentaje de casos supervisados por encuestador. Adicionalmente, se implementó un sistema de rotación de encuestadores de tal manera que la muestra no sea levantada por los mismos encuestadores en más de una ronda.
-
-
-### Implementación Ola 2017
-
-El levantamiento definitivo de la encuesta se llevó a cabo en un período de doce semanas, durante los meses de julio y octubre de 2017 (ver Figura \@ref(fig:graf-fechas-ola2)). Para la ejecución del terreno se contó con 120 encuestadores distribuidos en las 17 sedes de trabajo. 
-
-El terreno se llevó a cabo en un período mayor al pronosticado, pues se estimó que duraría nueve semanas, extendiéndose finalmente a doce. Sin embargo, el levantamiento de datos tuvo una duración menor al de la primera ola, que se extendió por 20 semanas. Esta mayor rapidez fue propiciada por la disponibilidad de datos de contacto de los encuestados obtenido en la ola anterior.
-
-La extensión del terreno por sobre la estimación original se debió principalmente a que en las regiones Metropolitana y de Valparaíso existió una mayor dificultad para contactar a los encuestados.
-
-El cierre definitivo del trabajo de campo del levantamiento de la encuesta se desarrolló una vez cubierta la totalidad de la muestra. El terreno se cerró finalmente con 2.521 encuestas realizadas.
+To avoid these problems in the future, the supervision protocols were modified, increasing the in-person supervision and the percentage of cases supervised per interviewer. Additionally, a rotation system for interviewers was implemented so that the sample is not surveyed by the same interviewers in more than one round.
 
 
-```{r graf-fechas-ola2, fig.cap = 'Número de entrevistas por semana, ola 2017'}
+### Implementation Wave 2017
 
-elsoc_long_2016_2022 %>%
+The final survey was conducted over a twelve-week period, from July to October 2017 (see Figure \@ref(fig:graf-fechas-ola2)). For the fieldwork, 120 interviewers were distributed in 17 work sites.
+
+The fieldwork was carried out over a longer period than predicted, as it was estimated to last nine weeks, finally extending to twelve. However, the data collection period was shorter than that of the first wave, which extended for 20 weeks. This greater speed was facilitated by the availability of contact data for the interviewees obtained in the previous wave.
+
+The extension of the fieldwork beyond the original estimate was mainly due to greater difficulty in contacting interviewees in the Metropolitan and Valparaíso regions.
+
+The final closure of the fieldwork was carried out once the entire sample was covered. The fieldwork was finally closed with 2,521 completed surveys.
+
+
+```{r graf-fechas-ola2, fig.cap = 'Number of interviews per week, wave 2017'}
+
+elsoc_long_2016_2023 %>%
   filter(ola == 2) %>% 
   mutate(fecha_entr = lubridate::ymd(fecha_entr),
          dia = lubridate::yday(fecha_entr),
@@ -219,7 +218,7 @@ elsoc_long_2016_2022 %>%
                date_breaks = '1 week') +
   scale_y_continuous(labels = scales::number,
                      limits = c(0, 1000)) +
-  ylab(label = 'Número de entrevistas semanales') +
+  ylab(label = 'Number of weekly interviews') +
   xlab(label = NULL) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
@@ -227,9 +226,9 @@ elsoc_long_2016_2022 %>%
 ```
 
 
-#### Indicadores levantamiento {-}
+#### Survey Indicators {-}
 
-A continuación se presentan las Tasas de Respuesta 1 (TRR1, definida por la AAPOR), Tasa de Cooperación 1 (TCC1), Tasa de Rechazo 1 (TR1) y Tasa de Contacto 1 (TC1):
+Below are the Response Rate 1 (TRR1, defined by AAPOR), Cooperation Rate 1 (TCC1), Refusal Rate 1 (TR1), and Contact Rate 1 (TC1):
 
 
 ```{r tabla-tasas-ola2}
@@ -240,44 +239,43 @@ tasas_ola2 <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'),
   mutate(original_2017 = scales::percent(original_2017, .1))
 
 tasas_ola2 %>% 
-  kbl(caption = 'Tasas de Respuesta, Cooperación, de Rechazo y de Contacto, ola 2017',
+  kbl(caption = 'Response, Cooperation, Refusal, and Contact Rates, wave 2017',
       align = c('l', 'c'),
       
       booktabs = TRUE,
-      col.name = c('Indicador', 'Muestra Original')) %>% 
+      col.name = c('Indicator', 'Original Sample')) %>% 
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
   kable_classic_2()
 
 ```
 
-#### Casos falsificados en ola 2017
+#### Falsified Cases in Wave 2017
 
-Luego de los registros y procedimientos aplicados por el CMD el año 2018 se encontraron y corrigieron anomalías en encuestas realizadas en 2016 y 2017. Para más detalle del problema encontrado y su corrección revisar [Corrección de datos por casos falsificados: Olas 2016 y 2017 ](#casos-falsificados).
+After the records and procedures applied by CMD in 2018, anomalies were found and corrected in surveys conducted in 2016 and 2017. For more details on the problem found and its correction, see [Data Correction for Falsified Cases: Waves 2016 and 2017](#casos-falsificados).
 
 
-### Implementación Ola 2018
+### Implementation Wave 2018
 
-El trabajo de terreno se desarrolló durante los meses de agosto a diciembre de 2018, dentro del tiempo estimado (15 semanas, aproximadamente) (ver Figura \@ref(fig:graf-fechas-ola3)). Para la ejecución del terreno se contó con 189 encuestadores distribuidos en 18 sedes de trabajo. 
+The fieldwork was conducted from August to December 2018, within the estimated time (approximately 15 weeks) (see Figure \@ref(fig:graf-fechas-ola3)). For the fieldwork, 189 interviewers were distributed in 18 work sites.
 
-Durante este levantamiento se incluyó la muestra de Refresco, lo que generó una dificultad para los encuestadores, ya que éstos deben explicar y motivar la participación en el estudio, tanto al grupo familiar como a los propios entrevistados.
+During this survey, the Refresh sample was included, which created a challenge for the interviewers, as they had to explain and motivate participation in the study to both the family group and the interviewees themselves.
 
-Por otra parte, la muestra de seguimiento (muestra Original) de los entrevistados 2016-2017 tuvo dificultades de contactabilidad, debido a una mayor presencia de cambios de domicilios registrados que en las versiones anteriores de la encuesta. El 6,9% se había cambiado a un domicilio diferente.
+On the other hand, the follow-up sample (Original sample) of the 2016-2017 interviewees had contactability difficulties due to a higher presence of recorded address changes than in previous versions of the survey. 6.9% had moved to a different address.
 
-Otra de las dificultades enfrentadas en ola tiene relación con los casos de falsificación detectados (ver [Corrección de datos por casos falsificados: Olas 2016 y 2017](#casos-falsificados)). Este problema implicó una revisión exhaustiva en terreno de estos casos, y un fortalecimiento al sistema de control, contemplando lo siguiente: 
+Another difficulty faced in this wave was related to the falsification cases detected (see [Data Correction for Falsified Cases: Waves 2016 and 2017](#casos-falsificados)). This problem involved an exhaustive field review of these cases and a strengthening of the control system, including the following:
 
-1. Aumentar el porcentaje de encuestas a controlar, de 10% a un 15% el 2018. Asegurando controlar al menos el 20% del trabajo realizado por cada encuestador.
+1. Increasing the percentage of surveys to be controlled from 10% to 15% in 2018. Ensuring to control at least 20% of the work done by each interviewer.
 
-2. Estipular para futuras olas del proyecto rotación de los encuestadores sobre el mismo entrevistado.
+2. Establishing for future waves of the project the rotation of interviewers over the same interviewee.
 
-3. Registro de las encuestadoras involucradas de manera de no ser consideradas en futuras
-aplicaciones del estudio. Respecto a la dinámica general del trabajo, se crearon incentivos económicos para que los encuestadores lograran la muestra esperada. Así mismo, se dispuso la movilización necesaria para que los encuestadores cubrieran toda la muestra en los distintos horarios.
+3. Registering the involved interviewers to ensure they are not considered in future applications of the study. Regarding the general dynamics of the work, economic incentives were created for interviewers to achieve the expected sample. Likewise, the necessary mobilization was provided for interviewers to cover the entire sample at different times.
 
-El cierre definitivo del trabajo de campo del levantamiento de la encuesta se desarrolló de común acuerdo con COES, una vez cubierta la totalidad de la muestra. El terreno se cerró con 2.274 encuestas en la muestra de seguimiento y 1.523 encuestas en la muestra de refresco.
+The final closure of the fieldwork was agreed upon with COES once the entire sample was covered. The fieldwork was closed with 2,274 surveys in the follow-up sample and 1,523 surveys in the refresh sample.
 
-```{r graf-fechas-ola3, fig.cap = 'Número de entrevistas por semana, ola 2018'}
+```{r graf-fechas-ola3, fig.cap = 'Number of interviews per week, wave 2018'}
 
-elsoc_long_2016_2022 %>%
+elsoc_long_2016_2023 %>%
   filter(ola == 3) %>% 
   mutate(fecha_entr = lubridate::ymd(fecha_entr),
          dia = lubridate::yday(fecha_entr),
@@ -302,7 +300,7 @@ elsoc_long_2016_2022 %>%
                date_breaks = '1 week') +
   scale_y_continuous(labels = scales::number,
                      limits = c(0, 1000)) +
-  ylab(label = 'Número de entrevistas semanales') +
+  ylab(label = 'Number of weekly interviews') +
   xlab(label = NULL) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
@@ -311,9 +309,9 @@ elsoc_long_2016_2022 %>%
 
 
 
-#### Indicadores levantamiento {-}
+#### Survey Indicators {-}
 
-A continuación se presentan las Tasas de Respuesta 1 (TRR1, definida por la AAPOR), Tasa de Cooperación 1 (TCC1), Tasa de Rechazo 1 (TR1) y Tasa de Contacto 1 (TC1):
+Below are the Response Rate 1 (TRR1, defined by AAPOR), Cooperation Rate 1 (TCC1), Refusal Rate 1 (TR1), and Contact Rate 1 (TC1):
 
 
 ```{r tabla-tasas-ola3}
@@ -325,11 +323,11 @@ tasas_ola3 <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'),
          refresco_2018 = scales::percent(refresco_2018, .1))
 
 tasas_ola3 %>% 
-  kbl(caption = 'Tasas de Respuesta, Cooperación, de Rechazo y de Contacto, ola 2018',
+  kbl(caption = 'Response, Cooperation, Refusal, and Contact Rates, wave 2018',
       align = c('l', 'c', 'c'),
       
       booktabs = TRUE,
-      col.name = c('Indicador', 'Muestra Original', 'Muestra Refresco')) %>% 
+      col.name = c('Indicator', 'Original Sample', 'Refresh Sample')) %>% 
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
   kable_classic_2()
@@ -337,16 +335,16 @@ tasas_ola3 %>%
 ```
 
 
-### Implementación Ola 2019
+### Implementation Wave 2019
 
-El levantamiento de datos de ELSOC 2019 estaba programado para comenzar el sábado 19 de octubre de 2019, sin embargo debido al Estallido Social ocurrido en Chile a partir del 18 de octubre de 2019, el trabajo de terreno debió ser suspendido hasta el jueves 21 de noviembre, fecha en que se inició finalmente la recolección de la información. Por lo tanto, el levantamiento se realizó durante el período de Estallido Social, lo que dificultó su ejecución.
+The data collection for ELSOC 2019 was scheduled to begin on Saturday, October 19, 2019, but due to the Social Outbreak that occurred in Chile starting on October 18, 2019, the fieldwork had to be suspended until Thursday, November 21, when the data collection finally began. Therefore, the survey was conducted during the period of the Social Outbreak, which made its execution difficult.
 
-Esta labor se extendió por un periodo de 13 semanas (Dado el desgaste propio de la muestra y del equipo de terreno, se decidió hacer una pausa en el levantamiento de datos durante las últimas 3 semanas de febrero de 2020) (ver Figura \@ref(fig:graf-fechas-ola4)). Para la ejecución del terreno se contó con 143 encuestadores distribuidos en 16 sedes de trabajo, administradas por coordinadores de zona debidamente capacitados. 
+This work extended over a period of 13 weeks (Due to the wear and tear of the sample and the field team, a pause in data collection was decided during the last 3 weeks of February 2020) (see Figure \@ref(fig:graf-fechas-ola4)). For the fieldwork, 143 interviewers were distributed in 16 work sites, managed by duly trained zone coordinators.
 
 
-```{r graf-fechas-ola4, fig.cap = 'Número de entrevistas por semana, ola 2019'}
+```{r graf-fechas-ola4, fig.cap = 'Number of interviews per week, wave 2019'}
 
-elsoc_long_2016_2022 %>%
+elsoc_long_2016_2023 %>%
   filter(ola == 4) %>% 
   mutate(fecha_entr = lubridate::ymd(fecha_entr),
          dia = lubridate::yday(fecha_entr),
@@ -371,7 +369,7 @@ elsoc_long_2016_2022 %>%
                date_breaks = '1 week') +
   scale_y_continuous(labels = scales::number,
                      limits = c(0, 1000)) +
-  ylab(label = 'Número de entrevistas semanales') +
+  ylab(label = 'Number of weekly interviews') +
   xlab(label = NULL) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
@@ -381,9 +379,9 @@ elsoc_long_2016_2022 %>%
 
 
 
-#### Indicadores levantamiento {-}
+#### Survey Indicators {-}
 
-A continuación se presentan las Tasas de Respuesta 1 (TRR1, definida por la AAPOR), Tasa de Cooperación 1 (TCC1), Tasa de Rechazo 1 (TR1) y Tasa de Contacto 1 (TC1):
+Below are the Response Rate 1 (TRR1, defined by AAPOR), Cooperation Rate 1 (TCC1), Refusal Rate 1 (TR1), and Contact Rate 1 (TC1):
 
 
 ```{r tabla-tasas-ola4}
@@ -395,29 +393,29 @@ tasas_ola4 <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'),
          refresco_2019 = scales::percent(refresco_2019, .1))
 
 tasas_ola4 %>% 
-  kbl(caption = 'Tasas de Respuesta, Cooperación, de Rechazo y de Contacto, ola 2019',
+  kbl(caption = 'Response, Cooperation, Refusal, and Contact Rates, wave 2019',
       align = c('l', 'c', 'c'),
       
       booktabs = TRUE,
-      col.name = c('Indicador', 'Muestra Original', 'Muestra Refresco')) %>% 
+      col.name = c('Indicator', 'Original Sample', 'Refresh Sample')) %>% 
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
   kable_classic_2()
 
 ```
 
-### Implementación Ola 2021
+### Implementation Wave 2021
 
-La crisis sanitaria producida por la pandemia de COVID-19 y las restricciones asociadas, implicaron cambiar la metodología de aplicación de la Encuesta Longitudinal Social de Chile de forma presencial a remota a través de una encuesta telefónica (Para más detalle ver [Cuestionario 2021: levantamiento durante la pandemia de COVID-19](#instrumento-covid)). Este cambio en la forma de levantar los datos, presentó un gran desafío logístico y operativo, ya que desde sus orígenes ELSOC se había levantado de manera presencial.
+The health crisis caused by the COVID-19 pandemic and the associated restrictions required changing the methodology of the Chilean Social Longitudinal Survey from face-to-face to remote through a telephone survey (For more details, see [Questionnaire 2021: survey during the COVID-19 pandemic](#instrumento-covid)). This change in the data collection method presented a significant logistical and operational challenge, as ELSOC had been conducted face-to-face since its inception.
 
-La pandemia de COVID-19 también afectó la fecha tradicional de levantamiento de ELSOC, la cual estaba programada para comenzar durante octubre de 2020, sin embargo, el levantamiento de la quinta ola se inició el sábado 30 de enero de 2021 con la asignación de la muestra a los encuestadores capacitados. Las razones para postergar el período de levantamiento fueron principalmente por la espera de condiciones sanitarias y de cuarentenas más favorables que permitieran un levantamiento presencial (sin embargo, prontamente se volvió clara la  imposibilidad de mantener la modalidad presencial); y por el tiempo adicional que tomó la preparación del terreno, producto del cambio de modalidad de levantamiento. El trabajo de campo se extendió hasta mediados de junio de 2021. Sin embargo, la aplicación se realizó mayoritariamente entre febrero y abril de 2021 (ver Figura \@ref(fig:graf-fechas-ola5)).
+The COVID-19 pandemic also affected the traditional survey period of ELSOC, which was scheduled to begin in October 2020. However, the fifth wave survey began on Saturday, January 30, 2021, with the assignment of the sample to trained interviewers. The reasons for postponing the survey period were mainly due to waiting for more favorable health conditions and quarantines that would allow face-to-face data collection (however, it soon became clear that maintaining the face-to-face modality was impossible); and the additional time required for field preparation due to the change in data collection modality. The fieldwork extended until mid-June 2021. However, the application was mostly conducted between February and April 2021 (see Figure \@ref(fig:graf-fechas-ola5)).
 
-Debido al degaste de la muestra y al desgaste del equipo de encuestadores por intentos infructuosos de contacto, es que a contar del mes de mayo se decidió cambiar la metodología de aplicación de producción por unidad muestral a conformar un grupo de encuestadores dedicado exclusivamente a repasar la muestra en una jornada laboral determinada.
+Due to the wear and tear of the sample and the field team from unsuccessful contact attempts, it was decided in May to change the production methodology from unit sample to forming a group of interviewers dedicated exclusively to reviewing the sample during a determined workday.
 
 
-```{r graf-fechas-ola5, fig.cap = 'Número de entrevistas por semana, ola 2021'}
+```{r graf-fechas-ola5, fig.cap = 'Number of interviews per week, wave 2021'}
 
-elsoc_long_2016_2022 %>%
+elsoc_long_2016_2023 %>%
   filter(ola == 5) %>% 
   mutate(fecha_entr = lubridate::ymd(fecha_entr),
          dia = lubridate::yday(fecha_entr),
@@ -442,7 +440,7 @@ elsoc_long_2016_2022 %>%
                date_breaks = '1 week') +
   scale_y_continuous(labels = scales::number,
                      limits = c(0, 1000)) +
-  ylab(label = 'Número de entrevistas semanales') +
+  ylab(label = 'Number of weekly interviews') +
   xlab(label = NULL) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
@@ -450,9 +448,9 @@ elsoc_long_2016_2022 %>%
 ```
 
 
-#### Indicadores levantamiento {-}
+#### Survey Indicators {-}
 
-A continuación se presentan las Tasas de Respuesta 1 (TRR1, definida por la AAPOR), Tasa de Cooperación 1 (TCC1), Tasa de Rechazo 1 (TR1) y Tasa de Contacto 1 (TC1):
+Below are the Response Rate 1 (TRR1, defined by AAPOR), Cooperation Rate 1 (TCC1), Refusal Rate 1 (TR1), and Contact Rate 1 (TC1):
 
 
 ```{r tabla-tasas-ola5}
@@ -464,10 +462,10 @@ tasas_ola5 <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'),
          refresco_2021 = scales::percent(refresco_2021, .1))
 
 tasas_ola5 %>% 
-  kbl(caption = 'Tasas de Respuesta, Cooperación, de Rechazo y de Contacto, ola 2021',
+  kbl(caption = 'Response, Cooperation, Refusal, and Contact Rates, wave 2021',
       align = c('l', 'c', 'c'),
       booktabs = TRUE,
-      col.name = c('Indicador', 'Muestra Original', 'Muestra Refresco')) %>% 
+      col.name = c('Indicator', 'Original Sample', 'Refresh Sample')) %>% 
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
   kable_classic_2()
@@ -475,15 +473,15 @@ tasas_ola5 %>%
 ```
 
 
-### Implementación Ola 2022
+### Implementation Wave 2022
 
-El proceso de levantamiento de datos se inició el viernes 22 de julio del 2022, con la asignación de la muestra a los encuestadores capacitados y seleccionados para el estudio, luego de haber realizado el proceso de reclutamiento y selección a nivel nacional. Esta labor se extendió por un periodo de 19 semanas, para culminar el 1 de diciembre de 2022 (ver Figura \@ref(fig:graf-fechas-ola6)).
+The data collection process began on Friday, July 22, 2022, with the assignment of the sample to the trained and selected interviewers for the study, after completing the national recruitment and selection process. This work extended over a period of 19 weeks, ending on December 1, 2022 (see Figure \@ref(fig:graf-fechas-ola6)).
 
-Como resultado, el Plebiscito Constitucional de Salida 2022 ocurrió durante el proceso de levantamiento (realizado el domingo 4 de septiembre), lo que obligó a actualizar las preguntas del cuestionario relacionadas a dicho plebiscito. En particular, se modificó la pregunta acerca del plebiscito, eliminando la que hacía referencia a su intención de voto y añadiendo, en cambio, dos preguntas nuevas: la primera hace referencia a si la persona participó o no en la votación del plebiscito, y la segunda al voto retrospectivo en cuestión.
+As a result, the 2022 Constitutional Exit Plebiscite occurred during the data collection process (held on Sunday, September 4), which required updating the questionnaire questions related to the plebiscite. In particular, the question about the plebiscite was modified, removing the one referring to the intention to vote and adding, instead, two new questions: the first refers to whether the person participated in the plebiscite vote, and the second to the retrospective vote in question.
 
-```{r graf-fechas-ola6, fig.cap = 'Número de entrevistas por semana, ola 2022'}
+```{r graf-fechas-ola6, fig.cap = 'Number of interviews per week, wave 2022'}
 
-elsoc_long_2016_2022 %>%
+elsoc_long_2016_2023 %>%
   filter(ola == 6) %>% 
   mutate(fecha_entr = lubridate::ymd(fecha_entr),
          dia = lubridate::yday(fecha_entr),
@@ -508,16 +506,16 @@ elsoc_long_2016_2022 %>%
                date_breaks = '1 week') +
   scale_y_continuous(labels = scales::number,
                      limits = c(0, 1000)) +
-  ylab(label = 'Número de entrevistas semanales') +
+  ylab(label = 'Number of weekly interviews') +
   xlab(label = NULL) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 
 ```
 
-#### Indicadores levantamiento {-}
+#### Survey Indicators {-}
 
-A continuación se presentan las Tasas de Respuesta 1 (TRR1, definida por la AAPOR), Tasa de Cooperación 1 (TCC1), Tasa de Rechazo 1 (TR1) y Tasa de Contacto 1 (TC1):
+Below are the Response Rate 1 (TRR1, defined by AAPOR), Cooperation Rate 1 (TCC1), Refusal Rate 1 (TR1), and Contact Rate 1 (TC1):
 
 
 ```{r tabla-tasas-ola6}
@@ -529,19 +527,83 @@ tasas_ola6 <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'),
          refresco_2022 = scales::percent(refresco_2022, .1))
 
 tasas_ola6 %>% 
-  kbl(caption = 'Tasas de Respuesta, Cooperación, de Rechazo y de Contacto, ola 2022',
+  kbl(caption = 'Response, Cooperation, Refusal, and Contact Rates, wave 2022',
       align = c('l', 'c', 'c'),
       booktabs = TRUE,
-      col.name = c('Indicador', 'Muestra Original', 'Muestra Refresco')) %>% 
+      col.name = c('Indicator', 'Original Sample', 'Refresh Sample')) %>% 
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
   kable_classic_2()
 
 ```
 
-## Indicadores levantamiento
+### Implementation Wave 2023
 
-A continuación, se muestran las tasas de contacto, cooperación, rechazo y respuesta para todas las muestras y olas. 
+The data collection process began on Friday, July 22, 2022, with the assignment of the sample to the trained and selected interviewers for the study, after completing the national recruitment and selection process. This work extended over a period of 19 weeks, ending on December 1, 2022 (see Figure \@ref(fig:graf-fechas-ola6)).
+
+As a result, the 2022 Constitutional Exit Plebiscite occurred during the data collection process (held on Sunday, September 4), which required updating the questionnaire questions related to the plebiscite. In particular, the question about the plebiscite was modified, removing the one referring to the intention to vote and adding, instead, two new questions: the first refers to whether the person participated in the plebiscite vote, and the second to the retrospective vote in question.
+
+```{r graf-fechas-ola6, fig.cap = 'Number of interviews per week, wave 2022'}
+
+elsoc_long_2016_2023 %>%
+  filter(ola == 7) %>% 
+  mutate(fecha_entr = lubridate::ymd(fecha_entr),
+         dia = lubridate::yday(fecha_entr),
+         año = lubridate::year(fecha_entr),
+         inicio = min(fecha_entr,na.rm=T),
+         termino = max(fecha_entr,na.rm=T),
+         año_inicio = min(año,na.rm=T),
+         dia_inicio = lubridate::yday(inicio),
+         semana = trunc((365*(año - año_inicio) + dia - dia_inicio) / 7 )) %>% 
+  group_by(semana, inicio, termino) %>% 
+  summarise(n = n()) %>% 
+  ungroup() %>% 
+  mutate(fecha = inicio + 7 * semana) %>% 
+  ggplot(aes(x = fecha, y = n, label = n)) + 
+  theme_bw() +
+  geom_col(position = 'dodge2') +
+  geom_text(vjust = -0.5,
+            position = position_dodge2(width = .9),
+            size = 3) +
+  geom_col(fill = viridis::viridis(1, begin = .33)) +
+  scale_x_date(date_labels = "%d-%m-%y",
+               date_breaks = '1 week') +
+  scale_y_continuous(labels = scales::number,
+                     limits = c(0, 1000)) +
+  ylab(label = 'Number of weekly interviews') +
+  xlab(label = NULL) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+```
+
+#### Survey Indicators {-}
+
+Below are the Response Rate 1 (TRR1, defined by AAPOR), Cooperation Rate 1 (TCC1), Refusal Rate 1 (TR1), and Contact Rate 1 (TC1):
+
+
+```{r tabla-tasas-ola6}
+
+tasas_ola7 <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'),
+                                sheet = 'tasa_respuesta') %>% 
+  select(ola, original_2023, refresco_2023) %>% 
+  mutate(original_2023 = scales::percent(original_2023, .1),
+         refresco_2023 = scales::percent(refresco_2023, .1))
+
+tasas_ola7 %>% 
+  kbl(caption = 'Response, Cooperation, Refusal, and Contact Rates, wave 2022',
+      align = c('l', 'c', 'c'),
+      booktabs = TRUE,
+      col.name = c('Indicator', 'Original Sample', 'Refresh Sample')) %>% 
+  kable_styling(full_width = FALSE,
+                latex_options = 'HOLD_position') %>% 
+  kable_classic_2()
+
+```
+
+## Survey Indicators
+
+Below are the contact, cooperation, refusal, and response rates for all samples and waves.
 
 ```{r tabla-de-tasas-varias-olas}
 tasas_olas <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'),
@@ -559,26 +621,26 @@ tasas_olas <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'),
 
 tasas_olas %>%
   select(-muestra) %>% 
-  kbl(caption = 'Tasas de Respuesta, de Cooperación, de Rechazo y de Contacto, según ola y muestra',
+  kbl(caption = 'Response, Cooperation, Refusal, and Contact Rates, by wave and sample',
       align = c('c', 'c', 'c', 'c', 'c'),
-      col.name = c('Ola', 'Tasa de Respuesta', 'Tasa de Cooperación', 'Tasa de Rechazo', 'Tasa de Contacto'),
+      col.name = c('Wave', 'Response Rate', 'Cooperation Rate', 'Refusal Rate', 'Contact Rate'),
       booktabs = TRUE) %>% 
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
   kable_classic_2() %>% 
-  pack_rows('Muestra Original', 1, 6) %>%
-  pack_rows('Muestra Refresco', 7, 10)
+  pack_rows('Original Sample', 1, 6) %>%
+  pack_rows('Refresh Sample', 7, 10)
 
 
 ```
 
 
-## Atrición de la encuesta {#atricion}
+## Survey Attrition {#atricion}
 
-A continuación, se presenta la atrición obtenida según Muestra: 
+Below is the attrition obtained by Sample:
 
 ```{r tabla-atricion}
-atricion <-  elsoc_long_2016_2022 %>% 
+atricion <-  elsoc_long_2016_2023 %>% 
   sjlabelled::as_label(ola, muestra) %>% 
   group_by(ola, muestra) %>% 
   summarise(n = n()) %>% 
@@ -591,21 +653,21 @@ atricion <-  elsoc_long_2016_2022 %>%
 atricion %>% 
   kbl(align = c('c', 'c', 'c', 'c', 'c'),
       booktabs = TRUE,
-      col.name = c('Medición', rep(c('Muestra Original', 'Muestra Refresco'), 2)),
-      caption = 'Atrición de las muestras de ELSOC entre olas') %>% 
+      col.name = c('Measurement', rep(c('Original Sample', 'Refresh Sample'), 2)),
+      caption = 'Attrition of ELSOC samples between waves') %>% 
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
   kable_classic_2() %>% 
-  add_header_above(c(" " = 1, "Muestra Lograda" = 2, "Tasa de Atrición" = 2))
+  add_header_above(c(" " = 1, "Achieved Sample" = 2, "Attrition Rate" = 2))
 
 ```
 
-- Según sexo:
+- By gender:
 
 ```{r tabla-atricion-sexo}
 
-atricion_sexo <-elsoc_long_2016_2022 %>%
-  left_join(elsoc_long_2016_2022  %>% filter(ola == 1 & muestra == 1 | ola == 3 & muestra == 2) %>% 
+atricion_sexo <-elsoc_long_2016_2023 %>%
+  left_join(elsoc_long_2016_2023  %>% filter(ola == 1 & muestra == 1 | ola == 3 & muestra == 2) %>% 
               select(idencuesta, m0_sexo) %>% 
               rename(m0_sexo0 = m0_sexo), by = 'idencuesta') %>% 
   sjlabelled::as_label(ola, muestra, m0_sexo0) %>% 
@@ -626,30 +688,30 @@ atricion_sexo %>%
   kbl(align = rep('c', 5),
       
       booktabs = TRUE,
-      col.name = c('Medición', 'Hombres', 'Mujeres', 'Hombres', 'Mujeres'),
-      caption = 'Atrición de las muestras de ELSOC entre olas, según sexo') %>% 
+      col.name = c('Measurement', 'Men', 'Women', 'Men', 'Women'),
+      caption = 'Attrition of ELSOC samples between waves, by gender') %>% 
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
   kable_classic_2() %>% 
-  pack_rows('Muestra Original', 1, 6) %>%
-  pack_rows('Muestra Refresco', 7, 10) %>% 
-  add_header_above(c(" " = 1, "Muestra Lograda" = 2, "Tasa de Atrición" = 2))
+  pack_rows('Original Sample', 1, 6) %>%
+  pack_rows('Refresh Sample', 7, 10) %>% 
+  add_header_above(c(" " = 1, "Achieved Sample" = 2, "Attrition Rate" = 2))
 
 
 ```
 
 
-- Según tramo etareo:
+- By age group:
 
 ```{r tabla-atricion-edad}
 
-atricion_edad <- elsoc_long_2016_2022 %>%
-  left_join(elsoc_long_2016_2022 %>% filter((ola == 1 & muestra == 1) | (ola == 3 & muestra == 2)) %>% 
+atricion_edad <- elsoc_long_2016_2023 %>%
+  left_join(elsoc_long_2016_2023 %>% filter((ola == 1 & muestra == 1) | (ola == 3 & muestra == 2)) %>% 
               select(idencuesta, m0_edad) %>% 
               rename(m0_edad0 = m0_edad), by = 'idencuesta') %>% 
     mutate(edadt = factor(car::recode(m0_edad0, "18:29 = 1; 30:49 = 2; 50:64 = 3; 65:150 = 4"),
                     levels = 1:4,
-                    labels = c('18-29', '30-49', '50-64', '65 o más'))) %>% 
+                    labels = c('18-29', '30-49', '50-64', '65 or older'))) %>% 
   sjlabelled::as_label(ola, muestra, edadt) %>% 
   group_by(ola, muestra, edadt) %>% 
   summarise(n = n()) %>% 
@@ -667,30 +729,30 @@ atricion_edad %>%
   kbl(align = rep('c', 9),
       
       booktabs = TRUE,
-      col.name = c('Medición', rep(c('19-29', '30-49', '50-64', '65 o más'), 2)),
-      caption = 'Atrición de las muestras de ELSOC entre olas, según tramo etáreo') %>% 
+      col.name = c('Measurement', rep(c('18-29', '30-49', '50-64', '65 or older'), 2)),
+      caption = 'Attrition of ELSOC samples between waves, by age group') %>% 
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
   kable_classic_2() %>% 
-  pack_rows('Muestra Original', 1, 6) %>%
-  pack_rows('Muestra Refresco', 7, 10) %>% 
-  add_header_above(c(" " = 1, "Muestra Lograda" = 4, "Tasa de Atrición" = 4))
+  pack_rows('Original Sample', 1, 6) %>%
+  pack_rows('Refresh Sample', 7, 10) %>% 
+  add_header_above(c(" " = 1, "Achieved Sample" = 4, "Attrition Rate" = 4))
 
 
 ```
 
 
-- Según nivel educacional:
+- By educational level:
 
 ```{r tabla-atricion-educ}
 
-atricion_educ <- elsoc_long_2016_2022 %>%
-  left_join(elsoc_long_2016_2022 %>% filter(ola == 1 & muestra == 1 | ola == 3 & muestra == 2) %>% 
+atricion_educ <- elsoc_long_2016_2023 %>%
+  left_join(elsoc_long_2016_2023 %>% filter(ola == 1 & muestra == 1 | ola == 3 & muestra == 2) %>% 
               select(idencuesta, m01) %>% 
               rename(m010 = m01), by = 'idencuesta') %>%
   mutate(educ = factor(car::recode(m010, "1:3 = 1; 4:5 = 2; 6:7 = 3; 8:10 = 4; -999:-666 = 5"),
                        levels = 1:5,
-                       labels = c("Basica", "Media", "Tecnica", "Universitaria", "NS/NR"))) %>% 
+                       labels = c("Basic", "Secondary", "Technical", "University", "NS/NR"))) %>% 
   sjlabelled::as_label(ola, muestra, educ) %>% 
   group_by(ola, muestra, educ) %>% 
   summarise(n = n()) %>% 
@@ -709,20 +771,20 @@ atricion_educ %>%
   kbl(align = rep('c', 9),
       
       booktabs = TRUE,
-      col.name = c('Medición', rep(c('Básica', 'Media', 'Técnica', 'Univ'), 2)),
-      caption = 'Atrición de las muestras de ELSOC entre olas, según nivel educacional') %>% 
+      col.name = c('Measurement', rep(c('Basic', 'Secondary', 'Technical', 'University'), 2)),
+      caption = 'Attrition of ELSOC samples between waves, by educational level') %>% 
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
   kable_classic_2() %>% 
-  pack_rows('Muestra Original', 1, 6) %>%
-  pack_rows('Muestra Refresco', 7, 10) %>% 
-  add_header_above(c(" " = 1, "Muestra Lograda" = 4, "Tasa de Atrición" = 4))
+  pack_rows('Original Sample', 1, 6) %>%
+  pack_rows('Refresh Sample', 7, 10) %>% 
+  add_header_above(c(" " = 1, "Achieved Sample" = 4, "Attrition Rate" = 4))
 
 ```
 
-### Atrición respecto a otras encuestas
+### Attrition Compared to Other Surveys
 
-A continuación, se presenta la muestra alcanzada por encuestas longitudinales para investigación social similares a ELSOC,  realizadas en otras partes del mundo. Para el caso de The UK Household Longitudinal Study, de Understanding Society, se encuentran las siguientes muestras alcanzadas y tasas de atrición por medición:
+Below is the sample achieved by longitudinal surveys for social research similar to ELSOC, conducted in other parts of the world. For the case of The UK Household Longitudinal Study, of Understanding Society, the following samples achieved and attrition rates by measurement are found:
 
 ```{r atricion-usocietya}
 
@@ -737,16 +799,16 @@ usociety <- readxl::read_xlsx(file.path('inputs', 'atriciones_encuestas.xlsx')) 
 usociety %>%
     kbl(align = c('l', 'c', 'c', 'c', 'c','c','c','c','c','c'),
       booktabs = TRUE,
-      col.name = c('Medición', rep(c('General \n Population \n Sample', 'British \n Household \n Panel \n Survey', 'Immigrant and \n Ethnic Minority \n Boost Sample', 'Ethnic Minority Boost Sample'), 2)),
+      col.name = c('Measurement', rep(c('General \n Population \n Sample', 'British \n Household \n Panel \n Survey', 'Immigrant and \n Ethnic Minority \n Boost Sample', 'Ethnic Minority Boost Sample'), 2)),
 ) %>% 
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
   kable_classic_2() %>%
-  add_header_above(c(" " = 1, "Muestra Lograda" = 4, "Tasa de Atrición" = 4))
+  add_header_above(c(" " = 1, "Achieved Sample" = 4, "Attrition Rate" = 4))
 
 ```
 
-Para el caso de The New Zealand Attitudes and Values Study (NZAVS), se encuentra la siguiente muestra alcanzada y atrición por medición:
+For the case of The New Zealand Attitudes and Values Study (NZAVS), the following sample achieved and attrition by measurement are found:
 
 ```{r atricion-usocietyb}
 
@@ -759,11 +821,11 @@ nzav <- readxl::read_xlsx(file.path('inputs', 'atriciones_encuestas.xlsx'),
 nzav %>%
     kbl(align = c('l', 'c', 'c', 'c', 'c','c','c','c'),
       booktabs = TRUE,
-      col.name = c('Medición','Prov. de 1ra Medición','Prov. de Medición Anterior','M. Total Acumulada','Relativa a 1ra Medición','Relativa a Medición Anterior')) %>% 
+      col.name = c('Measurement','Prov. of 1st Measurement','Prov. of Previous Measurement','Total Accumulated Sample','Relative to 1st Measurement','Relative to Previous Measurement')) %>% 
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
   kable_classic_2() %>%
-  add_header_above(c(" " = 1, "Muestra Lograda" = 2, "Tasa de Atrición" = 3))
+  add_header_above(c(" " = 1, "Achieved Sample" = 2, "Attrition Rate" = 3))
 
 ```
 

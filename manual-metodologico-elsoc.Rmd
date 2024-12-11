@@ -1,5 +1,5 @@
 --- 
-title: "Manual Metodológico ELSOC 2016-2022"
+title: "Manual Metodológico ELSOC 2016-2023"
 author: "Equipo ELSOC"
 site: bookdown::bookdown_site
 link-citations: yes
@@ -11,7 +11,7 @@ toc-depth: 1
 lof: True
 lot: True
 # author: "González, Roberto; Bargsted, Matías; Figuereido, Ana; Miranda, Daniel; Cerda, Edgardo; Plaza, Alejandro; Salas-Lewin, Rocío"
-description: "Manual Metodológico ELSOC 2016-2021"
+description: "Manual Metodológico ELSOC 2016-2023"
 github-repo: "elsoc-coes/manual-elsoc"
 # url: 'https://manual-metodologico-elsoc.netlify.app/'
 always_allow_html: true
@@ -68,7 +68,7 @@ table_format <- if (is_html_output()) {
 fullw <- if (is_html_output()) TRUE else if (is_latex_output()) FALSE
 fsize <- if (is_html_output()) 14 else if(is_latex_output()) 8
 
-load(file.path('inputs', 'ELSOC_Long_2016_2022_v1.00_R.RData'))
+load(file.path('inputs', 'ELSOC_Long.RData'))
 
 ```
 
@@ -156,7 +156,7 @@ estratos %>%
       col.name = c('Estrato', 'Definición (N° habitantes)', 'Tamaño población ciudades', 'Tamaño muestra ciudades',
                    rep(c('Tamaño población estrato', 'Tamaño muestra estrato'), 2))) %>% 
   kable_styling(full_width = FALSE,
-                latex_options = c('HOLD_position', 'scale_down')) %>%
+                latex_options = c('HOLD_position', 'scale_down')) %>% 
   column_spec(2:8, width = "4em") %>% 
   kable_classic_2() %>% 
   add_header_above(c(" " = 1, " " = 3, "Estrato Norte" = 2, "Estrato Sur" = 2))
@@ -526,7 +526,7 @@ items_olas_modulos %>%
   kbl(caption = 'Número de ítems por  módulo, según muestra y ola',
       align = c('l', 'c', 'c', 'c', 'c', 'c', 'c'),
       booktabs = TRUE,
-      col.name = c('Módulo', '2016', '2017', '2018', '2019', '2021', '2022')) %>% 
+      col.name = c('Módulo', '2016', '2017', '2018', '2019', '2021', '2022','2023')) %>% 
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
   kable_classic_2() %>% 
@@ -653,7 +653,7 @@ Dada la gran cantidad de ítems medidos en el tiempo, para examinar de manera de
 ```{r}
 library(tidyverse)
 library(kableExtra)
-load(file = file.path('inputs', 'ELSOC_Long_2016_2022_v1.00_R.RData'))
+load(file = file.path('inputs', 'ELSOC_Long.RData'))
 
 ```
 
@@ -759,7 +759,7 @@ El cierre definitivo del trabajo de campo del levantamiento de la encuesta se de
 
 ```{r graf-fechas-ola1, fig.cap = 'Número de entrevistas por semana, ola 2016'}
 
-elsoc_long_2016_2022 %>%
+elsoc_long_2016_2023 %>%
   filter(ola == 1) %>% 
   mutate(fecha_entr = lubridate::ymd(fecha_entr),
          dia = lubridate::yday(fecha_entr),
@@ -845,7 +845,7 @@ El cierre definitivo del trabajo de campo del levantamiento de la encuesta se de
 
 ```{r graf-fechas-ola2, fig.cap = 'Número de entrevistas por semana, ola 2017'}
 
-elsoc_long_2016_2022 %>%
+elsoc_long_2016_2023 %>%
   filter(ola == 2) %>% 
   mutate(fecha_entr = lubridate::ymd(fecha_entr),
          dia = lubridate::yday(fecha_entr),
@@ -928,7 +928,7 @@ El cierre definitivo del trabajo de campo del levantamiento de la encuesta se de
 
 ```{r graf-fechas-ola3, fig.cap = 'Número de entrevistas por semana, ola 2018'}
 
-elsoc_long_2016_2022 %>%
+elsoc_long_2016_2023 %>%
   filter(ola == 3) %>% 
   mutate(fecha_entr = lubridate::ymd(fecha_entr),
          dia = lubridate::yday(fecha_entr),
@@ -997,7 +997,7 @@ Esta labor se extendió por un periodo de 13 semanas (Dado el desgaste propio de
 
 ```{r graf-fechas-ola4, fig.cap = 'Número de entrevistas por semana, ola 2019'}
 
-elsoc_long_2016_2022 %>%
+elsoc_long_2016_2023 %>%
   filter(ola == 4) %>% 
   mutate(fecha_entr = lubridate::ymd(fecha_entr),
          dia = lubridate::yday(fecha_entr),
@@ -1068,7 +1068,7 @@ Debido al degaste de la muestra y al desgaste del equipo de encuestadores por in
 
 ```{r graf-fechas-ola5, fig.cap = 'Número de entrevistas por semana, ola 2021'}
 
-elsoc_long_2016_2022 %>%
+elsoc_long_2016_2023 %>%
   filter(ola == 5) %>% 
   mutate(fecha_entr = lubridate::ymd(fecha_entr),
          dia = lubridate::yday(fecha_entr),
@@ -1134,7 +1134,7 @@ Como resultado, el Plebiscito Constitucional de Salida 2022 ocurrió durante el 
 
 ```{r graf-fechas-ola6, fig.cap = 'Número de entrevistas por semana, ola 2022'}
 
-elsoc_long_2016_2022 %>%
+elsoc_long_2016_2023 %>%
   filter(ola == 6) %>% 
   mutate(fecha_entr = lubridate::ymd(fecha_entr),
          dia = lubridate::yday(fecha_entr),
@@ -1229,7 +1229,7 @@ tasas_olas %>%
 A continuación, se presenta la atrición obtenida según Muestra: 
 
 ```{r tabla-atricion}
-atricion <-  elsoc_long_2016_2022 %>% 
+atricion <-  elsoc_long_2016_2023 %>% 
   sjlabelled::as_label(ola, muestra) %>% 
   group_by(ola, muestra) %>% 
   summarise(n = n()) %>% 
@@ -1255,8 +1255,8 @@ atricion %>%
 
 ```{r tabla-atricion-sexo}
 
-atricion_sexo <-elsoc_long_2016_2022 %>%
-  left_join(elsoc_long_2016_2022  %>% filter(ola == 1 & muestra == 1 | ola == 3 & muestra == 2) %>% 
+atricion_sexo <-elsoc_long_2016_2023 %>%
+  left_join(elsoc_long_2016_2023  %>% filter(ola == 1 & muestra == 1 | ola == 3 & muestra == 2) %>% 
               select(idencuesta, m0_sexo) %>% 
               rename(m0_sexo0 = m0_sexo), by = 'idencuesta') %>% 
   sjlabelled::as_label(ola, muestra, m0_sexo0) %>% 
@@ -1294,8 +1294,8 @@ atricion_sexo %>%
 
 ```{r tabla-atricion-edad}
 
-atricion_edad <- elsoc_long_2016_2022 %>%
-  left_join(elsoc_long_2016_2022 %>% filter((ola == 1 & muestra == 1) | (ola == 3 & muestra == 2)) %>% 
+atricion_edad <- elsoc_long_2016_2023 %>%
+  left_join(elsoc_long_2016_2023 %>% filter((ola == 1 & muestra == 1) | (ola == 3 & muestra == 2)) %>% 
               select(idencuesta, m0_edad) %>% 
               rename(m0_edad0 = m0_edad), by = 'idencuesta') %>% 
     mutate(edadt = factor(car::recode(m0_edad0, "18:29 = 1; 30:49 = 2; 50:64 = 3; 65:150 = 4"),
@@ -1335,8 +1335,8 @@ atricion_edad %>%
 
 ```{r tabla-atricion-educ}
 
-atricion_educ <- elsoc_long_2016_2022 %>%
-  left_join(elsoc_long_2016_2022 %>% filter(ola == 1 & muestra == 1 | ola == 3 & muestra == 2) %>% 
+atricion_educ <- elsoc_long_2016_2023 %>%
+  left_join(elsoc_long_2016_2023 %>% filter(ola == 1 & muestra == 1 | ola == 3 & muestra == 2) %>% 
               select(idencuesta, m01) %>% 
               rename(m010 = m01), by = 'idencuesta') %>%
   mutate(educ = factor(car::recode(m010, "1:3 = 1; 4:5 = 2; 6:7 = 3; 8:10 = 4; -999:-666 = 5"),
@@ -1438,7 +1438,7 @@ Como parte de un proceso continuo de mejora, es posible que las bases de datos p
 
 ## Fichas Técnicas
 
-En este apartado se presenta la Ficha Técnica (Ver Cuadro \@ref(tab:ficha), dónde se sintetizan las principales características del Estudio Longitudinal Social de Chile (ELSOC COES):
+En este apartado se presenta la Ficha Técnica (Ver Cuadro \@ref(tab:ficha), d��nde se sintetizan las principales características del Estudio Longitudinal Social de Chile (ELSOC COES):
 
 ```{r ficha, echo=FALSE, message=FALSE, warning=FALSE}
 

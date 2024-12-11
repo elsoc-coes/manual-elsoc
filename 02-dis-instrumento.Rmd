@@ -1,53 +1,52 @@
-
 ```{r}
 library(tidyverse)
 library(kableExtra)
 ```
 
-# Diseño del Instrumento {#dis_ins}
+# Instrument Design {#dis_ins}
 
-El instrumento de recolección de información consiste en un cuestionario estructurado (tipo encuesta) aplicado a todos los participantes. Los cuestionarios de cada medición pueden encontrarse en [**coes.cl/cuestionarios**](https://coes.cl/cuestionarios/).
+The information collection instrument consists of a structured questionnaire (survey type) applied to all participants. The questionnaires for each measurement can be found at [**coes.cl/cuestionarios**](https://coes.cl/cuestionarios/).
 
-El cuestionario fue diseñado para medir una serie de aspectos conceptualmente relevantes que permiten caracterizar los niveles de conflicto y cohesión social en Chile, enfatizando su evolución a lo largo del tiempo. Los principales temas de interés analítico abordados por la encuesta corresponden a los módulos en los cuales se estructura:
+The questionnaire was designed to measure a series of conceptually relevant aspects that allow characterizing the levels of conflict and social cohesion in Chile, emphasizing its evolution over time. The main topics of analytical interest addressed by the survey correspond to the modules in which it is structured:
 
-- Ciudadanía y Democracia
-- Redes sociales e Interacciones inter-grupales
-- Legitimidad y desigualdad social
-- Conflicto social
-- Dimensión barrial
-- Salud y bienestar
-- Caracterización Socio demográfica
-- Género (agregado a la encuesta a partir de 2019)
+- Citizenship and Democracy
+- Social Networks and Inter-group Interactions
+- Legitimacy and Social Inequality
+- Social Conflict
+- Neighborhood Dimension
+- Health and Well-being
+- Socio-demographic Characterization
+- Gender (added to the survey since 2019)
 
-La aplicación del cuestinoario se realizó originalmente utilizando el sistema **CAPI** (Encuestas personales asistidas por computadores). Durante el levantamiento de la ola 2021 se cambió a aplicación bajo el sistema **CATI** (Encuesta telefónica asistica por computadores), debido a la contingencia COVID-19 (más detalle en la sección [Cuestionario 2021: levantamiento durante pandemia de COVID-19](#instrumento-covid)). Durante la ola 2022, se pasó a formato Mixto (o Mix-mode), en el cual se combinan los formatos presenciales (CAPI) y telefónicos (CATI) (más detalles en la sección [Cambio a levantamiento con modalidad mixta](#instrumento-mixmode)).
+The application of the questionnaire was originally carried out using the **CAPI** system (Computer-Assisted Personal Interviews). During the 2021 wave, it was changed to the **CATI** system (Computer-Assisted Telephone Interviews) due to the COVID-19 contingency (more details in the section [Questionnaire 2021: data collection during the COVID-19 pandemic](#instrumento-covid)). During the 2022 wave, it switched to a Mixed format (or Mix-mode), combining face-to-face (CAPI) and telephone (CATI) formats (more details in the section [Change to mixed-mode data collection](#instrumento-mixmode)).
 
-## Diseño del cuestionario {#dis-cuestionario}
+## Questionnaire Design {#dis-cuestionario}
 
-El diseño del cuestionario Original de ELSOC se desarrolló durante el año 2015 y abarcó la planificación de las olas 2016 y 2017. Las diferencias entre cuestionarios subsecuentes son descritas en el apartado [cambios en el Cuestionario entre olas](#dif-cuest-olas).
+The original ELSOC questionnaire design was developed during 2015 and covered the planning of the 2016 and 2017 waves. Differences between subsequent questionnaires are described in the section [Changes in the Questionnaire between waves](#dif-cuest-olas).
 
-La mayoría de las preguntas, escalas y/o items incluidos en los módulos de ELSOC provienen de otros estudios de opinión pública, investigaciones -en psicología, sociología, economía, ciencia política- realizadas por académicos nacionales e internacionales y encuestas sociales conducidas en Chile y otros países. En forma complementaria, algunas escalas fueron desarrolladas por los miembros del equipo COES y/o han sido adaptadas de estudios anteriores de éstos. El cuestionario fue diseñado aprovechando las principales recomendaciones técnicas y el estado del arte en las distintas áreas de estudio incluidas.
+Most of the questions, scales, and/or items included in the ELSOC modules come from other public opinion studies, research in psychology, sociology, economics, political science conducted by national and international academics, and social surveys conducted in Chile and other countries. Additionally, some scales were developed by COES team members and/or adapted from their previous studies. The questionnaire was designed by leveraging the main technical recommendations and the state of the art in the various areas of study included.
 
-Con el objetivo de satisfacer los criterios y estándares de calidad para cuestionarios y compatibilizar la multiplicidad de agendas de investigación desarrolladas por COES, se optó por elaborar un procedimiento de trabajo para la construcción de éste. Este proceso se desarrolló durante el año 2015 en distintas fases:
+To meet the quality criteria and standards for questionnaires and to reconcile the multiplicity of research agendas developed by COES, a working procedure was established for its construction. This process was carried out during 2015 in different phases:
 
-1. Se solicitó a los investigadores vinculados a COES proponer proyectos de investigación que contemplen un planteamiento teórico e hipótesis que fundamenten las escalas propuestas para ser incluidas en el cuestionario. Las propuestas podían ser presentadas de manera individual o colectiva y no existían restricciones en el número de ítems a proponer. Sólo se exigía una fundamentación teórica explícita que involucre hipótesis longitudinales y una operacionalización de los constructos a medir en los distintos items propuestos.
+1. COES-affiliated researchers were asked to propose research projects that include a theoretical framework and hypotheses supporting the proposed scales to be included in the questionnaire. Proposals could be submitted individually or collectively, with no restrictions on the number of items to propose. The only requirement was an explicit theoretical foundation involving longitudinal hypotheses and an operationalization of the constructs to be measured in the proposed items.
 
-2. El procedimiento anterior implicó la recepción y organización de un elevado número de agendas de investigación, los que se materializan en más 750 items (preguntas únicas o parte de una escala). El equipo ELSOC sistematizó las propuestas recibidas, clasificando los items en áreas temáticas. A la vez, se diseñaron mecanismos para reducir el número de items y coordinaron reuniones entre los investigadores COES para decidir sobre éstos. Los criterios de selección fueron principalmente teóricos, priorizando las preguntas fundamentales para el análisis longitudinal de los proyectos de investigación como su concordancia con la agenda sustantiva de COES. También se incluyeron criterios prácticos, relativos a la eliminación de items idénticos o muy semejantes; evidencia previa sobre la calidad de los items (encuestas anteriores, especialmente la encuesta de corte transversal desarrollada por COES el año 2014) y el diseño general del estudio (diseño muestral, unidad de análisis, tipo de informante, etc.)..
+2. The previous procedure involved receiving and organizing a large number of research agendas, resulting in more than 750 items (unique questions or part of a scale). The ELSOC team systematized the received proposals, classifying the items into thematic areas. Mechanisms were designed to reduce the number of items, and meetings were coordinated among COES researchers to decide on them. The selection criteria were mainly theoretical, prioritizing fundamental questions for the longitudinal analysis of research projects and their alignment with COES's substantive agenda. Practical criteria were also included, such as eliminating identical or very similar items, previous evidence on item quality (previous surveys, especially the cross-sectional survey conducted by COES in 2014), and the overall study design (sampling design, unit of analysis, type of informant, etc.).
 
-3. Luego de una selección de las escalas más relevantes para cada tema propuesto, se realizó un estudio piloto del cuestionario desarrollado. Esto implicó pilotear 430 items, donde el Centro MicroDatos de la Universidad de Chile se encargó de su ejecución. En base a los resultados de dicho piloto, el equipo panel realizó ajustes a algunos items y elaboró una propuesta de reducción de ítems que fue evaluada con los investigadores del Centro. 
+3. After selecting the most relevant scales for each proposed topic, a pilot study of the developed questionnaire was conducted. This involved piloting 430 items, with the MicroData Center of the University of Chile responsible for its execution. Based on the pilot results, the panel team made adjustments to some items and developed a proposal to reduce items, which was evaluated with the Center's researchers.
 
-4. La última etapa de ajuste del cuestionario se centró en identificar los aspectos conceptualmente más relevantes para COES y ponderar los requerimientos metodológicos para su evaluación empírica. De este modo, se clasificaron los items según el número de mediciones requeridas, distinguiendo entre items permanentes (que serán medidos en todas las olas, ya que constituyen el núcleo analítico del estudio) e intercalados (que serán medidos una única vez o una ola por medio). 
+4. The final stage of questionnaire adjustment focused on identifying the most conceptually relevant aspects for COES and weighing the methodological requirements for their empirical evaluation. Items were classified according to the number of required measurements, distinguishing between permanent items (measured in all waves, as they constitute the study's analytical core) and intercalated items (measured only once or every other wave).
 
-La versión final del instrumento de recolección de información consiste en un cuestionario estructurado (tipo encuesta) que se aplica cara a cara a todos los participantes con una periodicidad anual, con un total de 326 ítems o preguntas.
+The final version of the information collection instrument consists of a structured questionnaire (survey type) applied face-to-face to all participants annually, with a total of 326 items or questions.
 
-### Cambios en el Cuestionario entre olas {-#dif-cuest-olas}
+### Changes in the Questionnaire between waves {-#dif-cuest-olas}
 
-Como se describió en la sección anterior, las preguntas de ELSOC se encuentran clasificadas entre items permanentes e intercalados, dado que algunos de éstos no se miden en todas las olas. Por lo mismo, los cuestionarios implementados presentan diferencias entre las distintas olas de la encuesta.
+As described in the previous section, ELSOC questions are classified into permanent and intercalated items, as some are not measured in all waves. Therefore, the implemented questionnaires differ between the various waves of the survey.
 
-Adicionalmente, los cuestionarios implementados han sufrido modificaciones que no se encontraban originalmente planificadas, debido a un proceso constante de evaluación de la calidad del instrumento aplicado, que puede resultar en la modificación o eliminación de preguntas; por la existencia de coyunturas que, dada la naturaleza del estudio, motivan la inclusión de nuevos ítems; o por la emergencia de nuevas agendas de investigación relevantes para ELSOC.
+Additionally, the implemented questionnaires have undergone modifications that were not originally planned due to a constant evaluation process of the applied instrument's quality, which may result in modifying or eliminating questions; the existence of contingencies that, given the study's nature, motivate the inclusion of new items; or the emergence of new research agendas relevant to ELSOC.
 
-Un tema adicional que impactó en el cuestionario implementado es la duración promedio de la entrevista. Durante 2016 la duración promedio por encuestado fue de 55 minutos. CMD recomendó al equipo ELSOC reducir el tiempo de entrevista a 45 minutos promedio, dado que un tiempo superior implica una mayor fatiga en los encuestadores y entrevistados, afectando negativamente la calidad del levantamiento. Por este motivo, se decidió acortar la extensión del estudio. El Equipo ELSOC, en conjunto con investigadores COES, definió distintos ajustes que permitieron reducir la extensión del cuestionario. Mientras el cuestionario de la ola 2016 contenía 326 items, en el año 2017 el instrumento contemplaba 309. En las olas siguientes se han hechos esfuerzos por acortar el cuestionario.
+Another factor that impacted the implemented questionnaire is the average interview duration. During 2016, the average duration per respondent was 55 minutes. CMD recommended the ELSOC team reduce the interview time to an average of 45 minutes, as longer durations lead to greater fatigue for interviewers and respondents, negatively affecting data collection quality. Therefore, it was decided to shorten the study's length. The ELSOC team, together with COES researchers, defined various adjustments to reduce the questionnaire's length. While the 2016 wave questionnaire contained 326 items, the 2017 instrument included 309. Efforts have been made to shorten the questionnaire in subsequent waves.
 
-En la Tabla \@ref(tab:tabla-items-olas) se muestra el detalle del número de items medidos en cada ola del estudio en la muestra Original y Refresco:
+Table \@ref(tab:tabla-items-olas) shows the number of items measured in each wave of the study in the Original and Refresh samples:
 
 ```{r tabla-items-olas}
 
@@ -57,18 +56,17 @@ items_olas <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'),
   select(ola, muestra_original, muestra_refresco)
 
 items_olas %>% 
-  kbl(caption = 'Número de ítems por muestra, según ola',
+  kbl(caption = 'Number of items per sample, by wave',
       align = c('l', 'c', 'c'),
       booktabs = TRUE,
-      col.name = c('Ola', 'Items en muestra original', 'Items en muestra refresco')) %>% 
+      col.name = c('Wave', 'Items in original sample', 'Items in refresh sample')) %>% 
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
   kable_classic_2()
 
 ```
 
-En la Tabla \@ref(tab:tabla-items-olas-modulos) se muestra la distribución según módulo del cuestionario:
-
+Table \@ref(tab:tabla-items-olas-modulos) shows the distribution by questionnaire module:
 
 ```{r tabla-items-olas-modulos}
 
@@ -78,23 +76,23 @@ items_olas_modulos <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual
 
 items_olas_modulos %>% 
   dplyr::select(-muestra) %>% 
-  kbl(caption = 'Número de ítems por  módulo, según muestra y ola',
+  kbl(caption = 'Number of items per module, by sample and wave',
       align = c('l', 'c', 'c', 'c', 'c', 'c', 'c'),
       booktabs = TRUE,
-      col.name = c('Módulo', '2016', '2017', '2018', '2019', '2021', '2022')) %>% 
+      col.name = c('Module', '2016', '2017', '2018', '2019', '2021', '2022', '2023')) %>% 
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
   kable_classic_2() %>% 
-  pack_rows('Muestra Original', 1, 8) %>%
-  pack_rows('Muestra Refresco', 9, 16)
+  pack_rows('Original Sample', 1, 8) %>%
+  pack_rows('Refresh Sample', 9, 16)
 
 ```
 
-### Diferencias en Cuestionarios entre Muestras {-#dif-cuest-muestras}
+### Differences in Questionnaires between Samples {-#dif-cuest-muestras}
 
-A partir de 2018, se comienza a implementar la Muestra Refresco, la que busca complementar y compensar la atrición acumulada de la Muestra Original. El cuestionario de la muestra refresco es, en gran medida, similar al que presenta la muestra Original. Sin embargo, dada la amplia cantidad de agendas de investigación y temas relevantes para ELSOC, se ha permitido la inclusión de preguntas presentes solo en una de las dos muestras, de forma de aumentar la cantidad de temas cubiertos, pero manteniendo un número más acotado de preguntas realizada a cada encuestado. 
+Starting in 2018, the Refresh Sample was implemented to complement and compensate for the accumulated attrition of the Original Sample. The refresh sample questionnaire is largely similar to the original sample. However, given the wide range of research agendas and topics relevant to ELSOC, the inclusion of questions present only in one of the two samples has been allowed to increase the number of covered topics while maintaining a more limited number of questions asked to each respondent.
 
-En la Tabla \@ref(tab:tabla-items-compartidos) se muestra el detalle del número de items compartidos entre ambas muestras por Ola, así como aquellos items presentes exclusivamente en la muestra original o refresco.
+Table \@ref(tab:tabla-items-compartidos) shows the number of items shared between both samples by wave, as well as those items present exclusively in the original or refresh sample.
 
 ```{r tabla-items-compartidos}
 
@@ -103,11 +101,11 @@ items_compartidos <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.
   janitor::clean_names() 
 
 items_compartidos %>% 
-  kbl(caption = 'Número de ítems por muestra, según presencia en muestras Original y Refresco',
+  kbl(caption = 'Number of items per sample, by presence in Original and Refresh samples',
       align = c('l', 'c', 'c', 'c', 'c'),
       booktabs = TRUE,
-      col.name = c('Ola', 'Solo en muestra original', 'Solo en muestra refresco', 
-                   'Ambas muestras', 'Total')) %>% 
+      col.name = c('Wave', 'Only in original sample', 'Only in refresh sample', 
+                   'Both samples', 'Total')) %>% 
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
   kable_classic_2() %>% 
@@ -115,24 +113,24 @@ items_compartidos %>%
 
   
 ```
-### Cuestionario 2021: levantamiento durante la pandemia de COVID-19 {-#instrumento-covid}
+### Questionnaire 2021: data collection during the COVID-19 pandemic {-#instrumento-covid}
 
-La crisis sanitaria ocurrida a partir de 2020, a raíz del COVID-19, ha planteado una serie de desafíos importantes a los sistemas estadísticos a nivel general, y a las encuestas de opinión pública en particular. La Organización Internacional del Trabajo (OIT, 2020) reporta que la mayoría de las oficinas nacionales de estadística ha informado un impacto significativo en sus operaciones, particularmente en aquellas que se llevan a cabo de manera presencial. Para sobrellevar estos problemas, varias organizaciones han tenido que transformar sus operaciones presenciales a levantamientos por teléfono o encuestas web.
+The health crisis that began in 2020 due to COVID-19 has posed significant challenges to statistical systems in general and public opinion surveys in particular. The International Labour Organization (ILO, 2020) reports that most national statistical offices have experienced a significant impact on their operations, particularly those conducted in person. To address these issues, several organizations have had to transform their face-to-face operations into telephone or web surveys.
 
-En esta línea, con el objetivo de asegurar la factibilidad del proceso de producción de datos de la encuesta ELSOC 2021 y la seguridad tanto de entrevistados como encuestadores, el equipo ejecutivo de ELSOC, en conjunto con los profesionales del Centro de Microdatos de la Universidad de Chile, decidió adoptar una serie de medidas que implicaron transitar temporalmente a una aplicación del cuestionario en formato telefónico (modo CATI).
+In this context, to ensure the feasibility of the ELSOC 2021 survey data production process and the safety of both respondents and interviewers, the ELSOC executive team, together with professionals from the Microdata Center of the University of Chile, decided to adopt a series of measures that temporarily transitioned to a telephone questionnaire format (CATI mode).
 
-Dado que se esperaba un aumento en los tiempos de aplicación al pasar a formato telefónico, la aplicación del cuestionario se dividió en dos llamados, denominados Llamados A y B, respectívamente, con el objetivo de que cada uno tenga una duración máxima de 30 minutos, para así reducir el tiempo de aplicación de la entrevista y evitar la fatiga de los encuestados y los encuestadores.
+Since an increase in application times was expected when switching to the telephone format, the questionnaire application was divided into two calls, called Calls A and B, respectively, with the aim of each having a maximum duration of 30 minutes to reduce the interview application time and avoid respondent and interviewer fatigue.
 
-Para evaluar los desafíos y el cambio metodológico de la aplicación, durante el 2 y 21 de diciembre de 2020 se realizó una encuesta piloto, actividad que resultó relevante para evaluar tanto los aspectos técnicos como metodológicos asociados al cambio de aplicación. En este proceso se encontró que el tiempo de levantamiento excedía los 30 minutos en promedio de aplicación por llamado, por lo que se decidió:
+To evaluate the challenges and methodological change of the application, a pilot survey was conducted between December 2 and 21, 2020, which was relevant for evaluating both the technical and methodological aspects associated with the application change. In this process, it was found that the average application time exceeded 30 minutes per call, so it was decided to:
 
-1. Reducir el número de ítems de los cuestionarios
-2. Ajustar preguntas que generaron complicaciones, en base a lo encontrado durante la prueba piloto
+1. Reduce the number of questionnaire items
+2. Adjust questions that generated complications based on the pilot test findings
 
-Se definieron los siguientes criterios para reducir el tamaño del cuestionario: 1) reducir dimensiones que se han visto muy constreñidas por las cuarentenas, tales como participación política e interacción social; 2) priorizar ítems en función de la consistencia técnica y/o alineación con los objetivos de COES; 3) priorizar ítems que tienen menos de tres mediciones a lo largo del estudio; y 4) mantener ítems críticos a nivel socioeconómico y de salud, que permitan realizar una buena pesquisa del impacto de la pandemia y las cuarentenas. 
+The following criteria were defined to reduce the questionnaire size: 1) reduce dimensions that have been significantly constrained by quarantines, such as political participation and social interaction; 2) prioritize items based on technical consistency and/or alignment with COES objectives; 3) prioritize items with fewer than three measurements throughout the study; and 4) maintain critical socioeconomic and health items to adequately assess the pandemic and quarantine impacts.
 
-En cuanto a la asignación de las preguntas entre llamados A y B, los principales criterios utilizados fueron: 1) conservar la calidad del flujo de la encuesta, manteniendo preguntas de temáticas similares en un mismo llamado y asegurándose que las baterías de variables que compartieran un mismo encabezado inicial se mantuvieran juntas; y 2) que los ítems imprescindibles asociados a pandemia, cuarentenas y estallido social fueran preguntados de manera inmediata para poder monitorear y caracterizar a los encuestados durante este periodo.
+Regarding the allocation of questions between Calls A and B, the main criteria used were: 1) maintain the quality of the survey flow by keeping questions on similar topics in the same call and ensuring that variable batteries sharing the same initial header remained together; and 2) ask essential items related to the pandemic, quarantines, and social unrest immediately to monitor and characterize respondents during this period.
 
-En la Tabla \@ref(tab:tabla-llamados) se presenta la distribución de ítems por módulos para llamados A y B distribuido por el tipo de muestra.
+Table \@ref(tab:tabla-llamados) presents the distribution of items by module for Calls A and B, distributed by sample type.
 
 ```{r tabla-llamados}
 
@@ -141,31 +139,31 @@ items_llamado_2021 <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual
   janitor::clean_names()
 
 items_llamado_2021 %>% 
-  kbl(caption = 'Distribución de ítems por llamado y muestra, Ola 2021',
+  kbl(caption = 'Distribution of items by call and sample, Wave 2021',
       align = c('l', 'c', 'c', 'c', 'c'),
       booktabs = TRUE,
-      col.name = c('Ola', rep(c('Llamado A', 'Llamado B'), 2))) %>% 
+      col.name = c('Wave', rep(c('Call A', 'Call B'), 2))) %>% 
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
   kable_classic_2() %>% 
-  add_header_above(c(" "= 1, "Muestra Original" = 2, "Muestra Refresco" = 2))
+  add_header_above(c(" "= 1, "Original Sample" = 2, "Refresh Sample" = 2))
 
   
 ```
 
-En segundo lugar, y encadenado con lo anterior, se ajustaron las variables que teniendo más de 5 categorías de respuesta generaban mayores complicaciones para preguntar en las pruebas pilotos de esta encuesta. A continuación, se presentan los ítems que fueron reducidos en sus alternativas de respuesta y el criterio que se adoptó para cada caso:
+Secondly, and linked to the above, variables with more than five response categories that generated greater complications during the pilot tests of this survey were adjusted. Below are the items that had their response alternatives reduced and the criteria adopted for each case:
  
- - Batería de Redes Lejanas [r01, r02 y r04]: Esta batería consulta por la cantidad de personas en distintas ocupaciones y grupos sociales que el entrevistado conoce. Originalmente esta batería de preguntas tiene 7 valores (1. Ninguno; 2. Uno; 3. Entre 2 y 4; 4. Entre 5 y 7; 5. Entre 8 y 10; 6. Entre 11 y 15; 7. 16 o más). Debido a que los rangos de respuesta no son obedecen a un patrón claro, se tomo la decisión de preguntarles a los encuestados por el número puntual de conocidos.
+ - Distant Networks Battery [r01, r02, and r04]: This battery asks about the number of people in different occupations and social groups that the respondent knows. Originally, this battery of questions has 7 values (1. None; 2. One; 3. Between 2 and 4; 4. Between 5 and 7; 5. Between 8 and 10; 6. Between 11 and 15; 7. 16 or more). Since the response ranges do not follow a clear pattern, it was decided to ask respondents for the exact number of acquaintances.
  
-  - Peso del entrevistado [s07]: Esta variable presenta 9 tramos de respuesta, los cuales fueron establecidos en 5 tramos, tomando como referencia los quintiles de peso reportados por ELSOC en la ola 2018 en la variable s06
+  - Respondent's weight [s07]: This variable has 9 response ranges, which were established in 5 ranges, based on the weight quintiles reported by ELSOC in the 2018 wave in variable s06.
   
- - Variables de Ingreso en tramos [m14 y m30]: La variable m14 tiene 16 tramos de respuesta, mientras que la variable m30 tiene 30 tramos de respuesta. Ambas variables fueron establecidas en 5 tramos, tomando como referencia los quintiles de ingreso presentados por la encuesta Casen 2017.
+ - Income variables in ranges [m14 and m30]: Variable m14 has 16 response ranges, while variable m30 has 30 response ranges. Both variables were established in 5 ranges, based on the income quintiles presented by the Casen 2017 survey.
 
-### Cuestionario 2022: cambio a levantamiento con modalidad mixta {-#instrumento-mixmode}
+### Questionnaire 2022: change to mixed-mode data collection {-#instrumento-mixmode}
 
-A partir de la sexta ola de ELSOC se utilizó el método **mix-mode** o metodología **mixta** combinando los formatos CAPI y CATI para realizar las encuestas, optimizando así el proceso de levantamiento. 
+Starting from the sixth wave of ELSOC, the **mix-mode** method or **mixed** methodology was used, combining CAPI and CATI formats to conduct the surveys, thus optimizing the data collection process.
 
-La metodología principal de recolección de datos, sin embargo, continúa siendo la modalidad CAPI: se realizó la encuesta en modalidad CATI solo en los casos en que el informante declare que no pueda o no quiera contestar la encuesta de forma presencial. Como resultado, durante 2022, un 13,3% de la muestra original y un 15,8% de la muestra refresco fue realizada mediante formato telefónico (ver \@ref(tab:tabla-freq-mixmode)).
+The main data collection methodology, however, continues to be the CAPI modality: the survey was conducted in CATI mode only when the informant declared that they could not or did not want to answer the survey in person. As a result, during 2022, 13.3% of the original sample and 15.8% of the refresh sample were conducted by telephone format (see \@ref(tab:tabla-freq-mixmode)).
 
 ```{r tabla-freq-mixmode}
 
@@ -178,26 +176,45 @@ freq_mixmode <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'
 freq_mixmode %>% 
   kbl(align = rep('c', 7),
       booktabs = TRUE,
-      col.name = c('Medición', rep(c('CAPI', 'CATI', '% CATI'), 2)),
-      caption = 'Número de encuestas según formato de entrevista, por ola y muestra') %>% 
+      col.name = c('Measurement', rep(c('CAPI', 'CATI', '% CATI'), 2)),
+      caption = 'Number of surveys by interview format, by wave and sample') %>% 
   kable_styling(full_width = FALSE,
                 latex_options = 'HOLD_position') %>% 
   kable_classic_2() %>% 
-  add_header_above(c(" " = 1, "Muestra Original" = 3, "Muestra Refresco" = 3))
+  add_header_above(c(" " = 1, "Original Sample" = 3, "Refresh Sample" = 3))
+
+```
+
+As in the fifth wave data collection, the telephone modality considered conducting the interview in 2 calls to avoid exhausting the informant and thus prevent loss of data quality.
+
+Comparative evidence reveals that the mixed-mode interview modality increases coverage; and reduces measurement errors (Dillman et al., 2014^[Dillman, D. A., Smyth, J. D., & Christian, L. M. (2014). Internet, phone, mail, and mixed-mode surveys: The tailored design method. John Wiley & Sons.]), and representation biases of lower-income people and those with greater material deprivations (Lipps, 2016^[Lipps, O. (2016). Non-observation bias in an address-register-based CATI/CAPI mixed mode survey. methods, data, analyses, 10(1), 20.]), associated with the data collection process. Other studies show that there are no significant differences in the degree of confidence and stability of estimates when comparing CAPI and Mixed collection methods (Cernat, 2015^[Cernat, A. (2015). The impact of mixing modes on reliability in longitudinal studies. Sociological Methods & Research, 44(3), 427-457.]), nor in response rates (Bianchi, Biffignandi, and Lynn (2016)^[Bianchi, A., Biffignandi, S., & Lynn, P. (2016). Web-CAPI sequential mixed-mode design in a longitudinal survey: effects on participation rates, sample composition and costs (No. 2016-08). Understanding Society at the Institute for Social and Economic Research.]).
+
+Given the international evidence, it can be considered that there are no differences in the degree of confidence and stability associated with the different collection methods, and no differences in the characteristics of those who decide to participate should be expected. On the contrary, this new design could reduce representation bias, decrease attrition, and increase ELSOC's geographic coverage.
+
+### Questionnaire 2023 {-#instrumento-normal}
+
+```{r tabla-freq-normal}
+
+items_llamado_2023 <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'), 
+                         sheet = 'n_llamados_2023') %>% 
+  janitor::clean_names()
+
+items_llamado_2023 %>% 
+  kbl(caption = 'Distribution of items by call and sample, Wave 2023',
+      align = c('l', 'c', 'c', 'c', 'c'),
+      booktabs = TRUE,
+      col.name = c('Wave', rep(c('Call A', 'Call B'), 2))) %>% 
+  kable_styling(full_width = FALSE,
+                latex_options = 'HOLD_position') %>% 
+  kable_classic_2() %>% 
+  add_header_above(c(" "= 1, "Original Sample" = 2, "Refresh Sample" = 2))
 
 ```
 
 
-Al igual que en el levantamiento de la ola 5, la modalidad telefónica consideró realizar la entrevista en 2 llamados para no agotar al informante, y así evitar pérdida en la calidad de la información de los datos recolectados.
+## List of variables
 
-La evidencia comparada revela que la modalidad de entrevista mixta o *mix mode* aumenta la cobertura; y reduce los errores de medición (Dillman et al., 2014^[Dillman, D. A., Smyth, J. D., & Christian, L. M. (2014). Internet, phone, mail, and mixed-mode surveys: The tailored design method. John Wiley & Sons.]), y los sesgos de representación de personas de menores ingresos y con mayores privaciones materiales (Lipps, 2016^[Lipps, O. (2016). Non-observation bias in an address-register-based CATI/CAPI mixed mode survey. methods, data, analyses, 10(1), 20.]), asociados al proceso de levantamiento. Otros estudios muestran que no hay diferencias significativas en el grado de confianza y en la estabilidad de las estimaciones al comparar los métodos de recolección CAPI con Mixtos (Cernat, 2015^[Cernat, A. (2015). The impact of mixing modes on reliability in longitudinal studies. Sociological Methods & Research, 44(3), 427-457.]), ni en las tasas de respuesta(Bianchi, Biffignandi y Lynn (2016)^[Bianchi, A., Biffignandi, S., & Lynn, P. (2016). Web-CAPI sequential mixed-mode design in a longitudinal survey: effects on participation rates, sample composition and costs (No. 2016-08). Understanding Society at the Institute for Social and Economic Research.]).
-
-Dado la evidencia internacional, se puede considerar que no hay diferencias en el grado de confianza y estabilidad asociado a los distintos métodos de recolección, a la vez que no se debería esperar una diferencia en las características de quienes deciden participar. Por el contrario, este nuevo diseño podría permitir disminuir el sesgo de representación, reducir la atrición y aumentar la cobertura geográfica de ELSOC.
-
-
-## Listado de variables
-
-Dada la gran cantidad de ítems medidos en el tiempo, para examinar de manera detallada las diferencias entre los instrumentos aplicados, se sugiere a los interesados revisar los **Cuestionarios** de cada medición (disponibles en [**coes.cl/cuestionarios**](https://coes.cl/cuestionarios/)). De igual forma, se sugiere revisar el [**Listado de variables**](https://coes.cl/wp-content/uploads/Listado-de-Variables-ELSOC-2.xlsx) y el [**Libro de Códigos**](#libro-codigos), donde se incluyen todos los ítems medidos en ELSOC, con información detallada sobre las olas en que fueron medidas cada pregunta, así como las modificaciones y otras informaciones relevantes para el uso de los datos ELSOC.
+Given the large number of items measured over time, to examine in detail the differences between the applied instruments, interested parties are suggested to review the **Questionnaires** for each measurement (available at [**coes.cl/cuestionarios**](https://coes.cl/cuestionarios/)). Similarly, it is suggested to review the [**List of variables**](https://coes.cl/wp-content/uploads/Listado-de-Variables-ELSOC-2.xlsx) and the [**Codebook**](#libro-codigos), which include all items measured in ELSOC, with detailed information on the waves in which each question was measured, as well as modifications and other relevant information for the use of ELSOC data.
 
 \newpage
 

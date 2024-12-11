@@ -1,4 +1,3 @@
-
 ```{r, incluede=FALSE}
 knitr::opts_chunk$set(cache = FALSE, warning = FALSE, message = FALSE, echo = FALSE, fig.topcaption = TRUE, fig.align = 'center')
 options(knitr.kable.NA = ' ')
@@ -20,46 +19,46 @@ fsize <- if (is_html_output()) 14 else if(is_latex_output()) 8
 
 ```
 
-# Diseño Muestral del Estudio {#dis_muest}
+# Sample Design of the Study {#dis_muest}
 
-En el siguiente apartado se presenta la descripción del diseño muestral de ELSOC, correspondiente a la muestra original y a la muestra refresco del estudio. Al final de la sección se describen la construcción de los ponderadores de ELSOC.
+The following section presents the description of the sample design of ELSOC, corresponding to the original sample and the refresh sample of the study. At the end of the section, the construction of the ELSOC weights is described.
 
-## Diseño muestral Muestra original {#dis_muest_original}
+## Sample Design Original Sample {#dis_muest_original}
 
-El diseño de la muestra original de ELSOC tuvo como objetivo conciliar los múltiples intereses de investigación de los investigadores asociados al Centro. Entre las consideraciones más relevantes destacaron las siguientes:
+The design of the original ELSOC sample aimed to reconcile the multiple research interests of the researchers associated with the Center. Among the most relevant considerations were the following:
 
-1. Un diseño muestral que permitiera combinar las variables medidas en el cuestionario con las variables espaciales, registradas a nivel de manzana y comuna, contenidas en las bases de datos desarrolladas por el Centro de Inteligencia Territorial (CIT) de la Universidad Aldolfo Ibáñez. Dado que los datos del CIT no están disponibles para todas las manzanas del país, particularmente aquellas ubicadas en localidades rurales, se decidió incorporar en la muestra únicamente zonas urbanas. Esta consideración también coincidió con las preferencias de muchos investigadores del Centro, quiénes manifestaron estar principalmente interesados en una muestra de carácter urbano. 
+1. A sample design that would allow combining the variables measured in the questionnaire with the spatial variables, recorded at the block and commune level, contained in the databases developed by the Territorial Intelligence Center (CIT) of the Universidad Aldolfo Ibáñez. Since CIT data is not available for all blocks in the country, particularly those located in rural areas, it was decided to include only urban areas in the sample. This consideration also coincided with the preferences of many researchers at the Center, who expressed being mainly interested in an urban sample.
 
-2. Algunos investigadores solicitaron un diseño que permitiera estimar modelos multi-nivel (o jerárquicos) agrupados por ciudad y comuna, y por tanto, se estabció que la muestra contuviera un número suficiente de ciudades y comunas, así como un número suficiente de casos dentro de cada cuidad y comuna, que permitiera tal análisis (Snijders & Bosker, Capítulo 10).
+2. Some researchers requested a design that would allow estimating multi-level (or hierarchical) models grouped by city and commune, and therefore, it was established that the sample should contain a sufficient number of cities and communes, as well as a sufficient number of cases within each city and commune, to allow such analysis (Snijders & Bosker, Chapter 10).
 
-3. Otros investigadores estaban interesados en comparar a los habitantes de las tres ciudades más grandes del país, lo que se tradujo en un diseño no proporcional que incrementara el número de encuestados en las zonas del Gran Valparaíso (ciudades de Viña del Mar y Valparaíso) y Gran Concepción (Concepción, Talcahuano y otras).
+3. Other researchers were interested in comparing the inhabitants of the three largest cities in the country, which resulted in a non-proportional design that increased the number of respondents in the areas of Greater Valparaíso (cities of Viña del Mar and Valparaíso) and Greater Concepción (Concepción, Talcahuano, and others).
 
-4. Finalmente, algunos investigadores solicitaron un diseño que permitiera comparar a los encuestados que vivieran en ciudades grandes y pequeñas, lo que favoreció incrementar el tamaño de la muestra de viviendas en ciudades pequeñas (Kish, 1965, Sección 3.5), particularmente aquellas con entre 30 mil y 100 mil habitantes.
+4. Finally, some researchers requested a design that would allow comparing respondents living in large and small cities, which favored increasing the sample size of households in small cities (Kish, 1965, Section 3.5), particularly those with between 30,000 and 100,000 inhabitants.
 
-Los investigadores de COES trabajaron con la encargada del diseño muestral, Stephanie Eckman, para desarrollar un diseño que pudiera, razonablemente, cumplir con estas necesidades e intereses sustantivos. El diseño muestral final de la ola 1 de ELSOC COES proporciona una cobertura adecuada de las ciudades más grandes del país (Gran Santiago, Gran Valparaíso y Gran Concepción), así como ciudades más pequeñas, y también asegura la representación de personas en el norte y sur del país. En términos globales, el diseño muestral alcanza una representatividad aproximada del 77% de la población total del país, y del 93% de la población urbana. Las siguientes subsecciones detallan los distintos pasos del diseño de la muestra.
+COES researchers worked with the person in charge of the sample design, Stephanie Eckman, to develop a design that could reasonably meet these needs and substantive interests. The final sample design of wave 1 of ELSOC COES provides adequate coverage of the largest cities in the country (Greater Santiago, Greater Valparaíso, and Greater Concepción), as well as smaller cities, and also ensures the representation of people in the north and south of the country. Overall, the sample design achieves an approximate representativeness of 77% of the total population of the country and 93% of the urban population. The following subsections detail the different steps of the sample design.
 
-### Preparación del Marco Muestral {-}
+### Preparation of the Sampling Frame {-}
 
-El proceso de muestreo de la muestra original se realizó en base a los datos del pre-censo del año 2011, los cuales fueron formateados por el CIT. Aunque los recuentos de población del censo de 2012 no son precisos, el trabajo del pre-censo recolectando información sobre los viviendas en todos las manzanas (bloques) es de calidad. El conjunto de datos contenía un total de 155.757 bloques, pero se eliminaron cuatro tipos diferentes antes de que comenzara con la selección.
+The sampling process for the original sample was based on the 2011 pre-census data, which was formatted by the CIT. Although the population counts from the 2012 census are not accurate, the pre-census work collecting information on households in all blocks is of good quality. The dataset contained a total of 155,757 blocks, but four different types were removed before selection began.
 
-1. Siguiendo los intereses analíticos de los investigadores del Centro, sólo se utilizaron bloques urbanos. Para determinar qué bloques eran urbanos, se empleó la codificación del tipo de localidad (urbana o rural) contenida en la base de datos del pre-censo de 2011. Consecuentemente, 22.188 (14,2%) bloques fueron excluidos en este paso.
+1. Following the analytical interests of the Center's researchers, only urban blocks were used. To determine which blocks were urban, the locality type coding (urban or rural) contained in the 2011 pre-census database was used. Consequently, 22,188 (14.2%) blocks were excluded at this step.
 
-2. Nuevamente, en función de los intereses analíticos de los investigadores del Centro, sólo los bloques que habían sido previamente geo-referenciados por el CIT se conservaron para el muestreo. Esto implica que un total de 1.971 (1,5% de los bloques urbanos) que no estaban geo-referenciados fueron removidos en este paso.
+2. Again, based on the analytical interests of the Center's researchers, only blocks that had been previously geo-referenced by the CIT were retained for sampling. This implies that a total of 1,971 (1.5% of urban blocks) that were not geo-referenced were removed at this step.
 
-3. Sólo los bloques que contenían cinco o más viviendas (de acuerdo con el pre-censo de 2011) fueron retenidos. 503 bloques (menos del 1% de los bloques restantes tras los pasos 1 y 2) no alcanzaron este umbral y fueron eliminados.
+3. Only blocks containing five or more households (according to the 2011 pre-census) were retained. 503 blocks (less than 1% of the remaining blocks after steps 1 and 2) did not meet this threshold and were eliminated.
 
-4. Sólo los bloques en las ciudades con más de 10.000 personas eran elegibles para la selección. 10.238 bloques (7.8% de los bloques restantes) fueron excluidos del marco muestral.
+4. Only blocks in cities with more than 10,000 people were eligible for selection. 10,238 blocks (7.8% of the remaining blocks) were excluded from the sampling frame.
 
-De esta forma, el marco muestral final contiene 120.857 bloques. La muestra de COES representará solamente estos bloques y no aquellos que fueron excluidos. Las estimaciones derivadas de los datos de la muestra se aplicarán únicamente a esta población objetivo y no deben aplicarse a toda la población chilena. El proceso de selección de entrevistados se desarrolló en cuatro etapas, aunque durante el trabajo de campo se añadió una quinta etapa.
+Thus, the final sampling frame contains 120,857 blocks. The COES sample will represent only these blocks and not those that were excluded. Estimates derived from the sample data will apply only to this target population and should not be applied to the entire Chilean population. The selection process of respondents was developed in four stages, although a fifth stage was added during fieldwork.
 
-### Etapa 1: Selección de Ciudades {-#etapa1m1}
+### Stage 1: Selection of Cities {-#etapa1m1}
 
-El universo de bloques (los 120.857 bloques mencionados) fue agregado al nivel de la ciudad, resultando en 122 ciudades. Las tres ciudades más grandes (Gran Santiago, Viña del Mar - Valparaiso y Concepción - Talcahuano) fueron seleccionadas con certeza. Las ciudades restantes son estratificadas por la población. La tabla \@ref(tab:tabla-estratos) muestra las definiciones de los estratos y los tamaños de población y de muestra en cada uno.
+The universe of blocks (the 120,857 mentioned) was aggregated at the city level, resulting in 122 cities. The three largest cities (Greater Santiago, Viña del Mar - Valparaiso, and Concepción - Talcahuano) were selected with certainty. The remaining cities were stratified by population. Table \@ref(tab:tabla-estratos) shows the definitions of the strata and the population and sample sizes in each.
 
 ```{r tabla-estratos, echo=FALSE}
 
-estratos <- data.frame(estrato = c('Gran Santiago', 'Gran Valparaíso', 'Gran Concepción', 
-                               'Ciudades grandes', 'Ciudades medianas', 'Ciudades pequeñas'),
+estratos <- data.frame(estrato = c('Great Santiago', 'Great Valparaíso', 'Great Concepción', 
+                               'Large cities', 'Medium sized cities', 'Small cities'),
                    def_N = c(' ', ' ', ' ', '> 100 mil', '> 30 mil', '> 10 mil'),
                    N_ciudades = c(1, 1, 1, 18, 28, 73),
                    n_ciudades = c(1, 1, 1, 8, 10, 19),
@@ -70,48 +69,48 @@ estratos <- data.frame(estrato = c('Gran Santiago', 'Gran Valparaíso', 'Gran Co
                    )
 
 estratos %>% 
-  kbl(caption = 'Población por ciudad y tamaños de muestra, por estrato',
+  kbl(caption = 'Population by city and sample sizes, by stratum',
       align = c('l', rep('c', 7)),
       format = table_format,
       booktabs = TRUE,
-      col.name = c('Estrato', 'Definición (N° habitantes)', 'Tamaño población ciudades', 'Tamaño muestra ciudades',
-                   rep(c('Tamaño población estrato', 'Tamaño muestra estrato'), 2))) %>% 
+      col.name = c('Stratum', 'Definition (N° inhabitants)', 'City population size', 'City sample size',
+                   rep(c('Stratum population size', 'Stratum sample size'), 2))) %>% 
   kable_styling(full_width = FALSE,
-                latex_options = c('HOLD_position', 'scale_down')) %>%
+                latex_options = c('HOLD_position', 'scale_down')) %>% 
   column_spec(2:8, width = "4em") %>% 
   kable_classic_2() %>% 
-  add_header_above(c(" " = 1, " " = 3, "Estrato Norte" = 2, "Estrato Sur" = 2))
+  add_header_above(c(" " = 1, " " = 3, "North Stratum" = 2, "South Stratum" = 2))
 
 
 
 ```
 
-Los estratos de ciudades grandes, ciudades medianas y ciudades pequeñas fueron estratificados geográficamente por zona Norte o Sur, para asegurar que la muestra contuviera ciudades del norte y sur de Chile. Esto redunda en un total de nueve estratos. La muestra se asignó entre las dos áreas en proporción al tamaño de su población en el universo. Véase la Tabla \@ref(tab:tabla-estratos) para ver el detalle acerca de los tamaños de población y muestra en cada uno de los estratos norte y sur.
+The strata of large cities, medium cities, and small cities were geographically stratified by North or South zone, to ensure that the sample contained cities from both the north and south of Chile. This results in a total of nine strata. The sample was allocated between the two areas in proportion to the size of their population in the universe. See Table \@ref(tab:tabla-estratos) for details on population and sample sizes in each of the north and south strata.
 
-La selección de ciudades dentro de cada uno de estos estratos finales se realizó en forma proporcional al tamaño de la población de cada ciudad. Este método da mayores probabilidades de selección a las grandes ciudades.
+The selection of cities within each of these final strata was done proportionally to the size of the population of each city. This method gives higher probabilities of selection to larger cities.
 
-La probabilidad de selección de una ciudad $i$ dentro del estrato $h$ fue:
+The probability of selecting a city $i$ within stratum $h$ was:
 
 $$\pi_i=\frac{(nc_h)(pop_i)}{\sum_h pop}$$
 
-donde $nc_h$ es el número de ciudades seleccionadas en el estrato $h$ y $pop_i$ es la población de ciudad $i$.
+where $nc_h$ is the number of cities selected in stratum $h$ and $pop_i$ is the population of city $i$.
 
-### Etapa 2: Selección de Bloques (Manzanas) {-#etapa2m1}
+### Stage 2: Selection of Blocks (Manzanas) {-#etapa2m1}
 
-Las 40 ciudades seleccionadas contenían 87.839 bloques. En la segunda etapa se seleccionaron bloques en cada ciudad con población proporcional al tamaño, donde el tamaño fue determinado a partir del recuento de unidades de vivienda del pre-censo. La selección fue sistemática: la lista de bloques en las ciudades seleccionadas se ordenó según sub-distrito censal y número de bloque para asegurar que los bloques seleccionados se extendieran por toda la ciudad^[Los números de bloques y distritos censales fueron entregados por Matías Garretón, investigador de CIT. Los sub-distritos censales son unidades geográficas más pequeñas que la comuna, pero más grandes que los bloques.].
+The 40 selected cities contained 87,839 blocks. In the second stage, blocks were selected in each city with population proportional to size, where size was determined from the pre-census housing unit count. The selection was systematic: the list of blocks in the selected cities was ordered by sub-census district and block number to ensure that the selected blocks were spread throughout the city^[The block and census district numbers were provided by Matías Garretón, CIT researcher. Sub-census districts are smaller geographic units than the commune but larger than the blocks.].
 
-la Tabla \@ref(tab:tabla-ciudades) muestra el número de bloques seleccionados en cada ciudad, según estrato. La muestra de bloques se asignó de manera desproporcionada para que las áreas fuera de Santiago estuvieran sobre-representadas en relación con su tamaño en la población objetivo. Varios investigadores COES solicitaron esta asignación para asegurar que la muestra fuera diversa con respecto al tamaño de la ciudad.
+Table \@ref(tab:tabla-ciudades) shows the number of blocks selected in each city, by stratum. The block sample was allocated disproportionately so that areas outside Santiago were over-represented relative to their size in the target population. Several COES researchers requested this allocation to ensure that the sample was diverse with respect to city size.
 
-La probabilidad de selección de un bloque $j$ en la ciudad $i$, condicionada a la selección de la ciudad, fue:
+The probability of selecting a block $j$ in city $i$, conditional on the selection of the city, was:
 
 $$\pi_{j|i}=\frac{(nb_i)(hu_j)}{\sum_i hu}$$
 
-donde $nb_i$ es el número de bloques seleccionadas en la ciudad $i$ y $hu_j$ es la población de la ciudad $i$.
+where $nb_i$ is the number of blocks selected in city $i$ and $hu_j$ is the population of city $i$.
 
 ```{r tabla-ciudades, echo=FALSE}
 
-ciudades <- data.frame(estrato = c('Gran Santiago', 'Gran Valparaíso', 'Gran Concepción', 
-                               'Ciudades grandes', 'Ciudades medianas', 'Ciudades pequeñas',
+ciudades <- data.frame(estrato = c('Great Santiago', 'Great Valparaíso', 'Great Concepción', 
+                               'Large cities', 'Medium sized cities', 'Small cities',
                                'Total'),
                    def_N = c(' ', ' ', ' ', '> 100 mil', '> 30 mil', '> 10 mil', ' '),
                    N_ciudades = c(1, 1, 1, 8, 10, 19, 40),
@@ -119,11 +118,11 @@ ciudades <- data.frame(estrato = c('Gran Santiago', 'Gran Valparaíso', 'Gran Co
   mutate(N_bloques = N_ciudades * n_ciudades)
 
 ciudades %>% 
-  kbl(caption = 'Distribución de ciudades y bloques por estrato',
+  kbl(caption = 'Distribution of cities and blocks by stratum',
       align = c('l', rep('c', 4)),
       format = table_format,
       booktabs = TRUE,
-      col.name = c('Estrato', 'Definición (N° habitantes)', 'Tamaño muestra ciudades', 'Número de bloques por ciudad', 'Número de bloques')) %>% 
+      col.name = c('Stratum', 'Definition (N° inhabitants)', 'City sample size', 'Number of blocks per city', 'Number of blocks')) %>% 
   kable_styling(full_width = FALSE,
                 latex_options = c('HOLD_position')) %>% 
   column_spec(2:4, width = "6em") %>% 
@@ -132,62 +131,61 @@ ciudades %>%
 
 ```
 
-En 4 ciudades algunos bloques eran tan grandes que fueron selecciones certeras. Es decir, los recuentos de unidades de vivienda eran mayores que el intervalo de selección y se seleccionarían en cualquier muestra, e incluso podrían seleccionarse dos veces. Para evitar selecciones duplicadas, estos bloques se eligieron primero con certeza y luego se seleccionaron bloques adicionales entre los restantes para aquellas ciudades, de modo de alcanzar el tamaño de muestra total deseado para la ciudad (ver Tabla \@ref(tab:tabla-ciudades). $\pi_{j|i}$ para estas ciudades es 1.
+In 4 cities, some blocks were so large that they were selected with certainty. That is, the housing unit counts were greater than the selection interval and would be selected in any sample, and could even be selected twice. To avoid duplicate selections, these blocks were chosen first with certainty and then additional blocks were selected from the remaining ones for those cities, to reach the total desired sample size for the city (see Table \@ref(tab:tabla-ciudades). $\pi_{j|i}$ for these cities is 1.
 
-Los 1.067 bloques seleccionados en las 40 ciudades elegidas fueron enpadronados en terreno, con la finalidad de realizar la selección de los viviendas con la información más actualizada posible. El CIT proporcionó mapas de cada bloque seleccionado. El personal de campo de CMD visitó presencialmente cada bloque, y creó un empadronamiento de todas las unidades de vivienda de dichos bloques. Los listados fueron revisados cuidadosamente para detectar cualquier error o duplicado.
+The 1,067 blocks selected in the 40 chosen cities were listed in the field to carry out the selection of households with the most up-to-date information possible. The CIT provided maps of each selected block. CMD field staff visited each block in person and created a listing of all housing units in those blocks. The lists were carefully reviewed for any errors or duplicates.
 
-Durante el proceso de empadronamiento, el Centro de Microdatos encontró que algunos bloques tenían más de 100 viviendas, lo que dificulta excesivamente el proceso de empadronamiento. Consecuentemente, se dividieron estos  bloques en sub-bloques de tamaño aproximadamente igual (40 a 50 viviendas) y seleccionaron uno para ser empadronado. Debido a que los sub-bloques fueron creados para ser de tamaños similares, estos fueron seleccionados en base a igual probabilidad. En total, 301 bloques fueron sub-muestreados. Los bloques restantes no se vieron afectados por esta etapa.
+During the listing process, the Microdata Center found that some blocks had more than 100 households, which makes the listing process excessively difficult. Consequently, these blocks were divided into sub-blocks of approximately equal size (40 to 50 households) and one was selected to be listed. Since the sub-blocks were created to be of similar sizes, they were selected based on equal probability. In total, 301 blocks were sub-sampled. The remaining blocks were not affected by this stage.
 
-### Etapa 3: Selección de viviendas {-#etapa3m1}
+### Stage 3: Selection of Households {-#etapa3m1}
 
-El número de viviendas seleccionadas en cada bloque varió según el estrato, como se muestra en la Tabla \@ref(tab:bloques). Este diseño resultó en 4.001 unidades de vivienda, con lo cual se buscaba obtener aproximadamente 3.000 entrevistas completas, bajo el supuesto de una tasa de respuesta del 75% para todos los estratos.
+The number of households selected in each block varied by stratum, as shown in Table \@ref(tab:bloques). This design resulted in 4,001 housing units, aiming to obtain approximately 3,000 complete interviews, assuming a response rate of 75% for all strata.
 
 ```{r bloques, echo=FALSE, message=FALSE, warning=FALSE}
 
-bloques <- data.frame(estrato = c('Gran Santiago', 'Gran Valparaíso', 'Gran Concepción', 
-                               'Ciudades grandes', 'Ciudades medianas', 'Ciudades pequeñas',
+bloques <- data.frame(estrato = c('Great Santiago', 'Great Valparaíso', 'Great Concepción', 
+                               'Large cities', 'Medium sized cities', 'Small cities',
                                'Total'),
                    def_N = c(' ', ' ', ' ', '> 100 mil', '> 30 mil', '> 10 mil', ' '),
                    n_ciudades = c(5, 5, 5, 3, 3, 3, 4001))
 
 bloques %>% 
-  kbl(caption = 'Distribución de viviendas por bloques, según estrato',
+  kbl(caption = 'Distribution of households by blocks, by stratum',
       align = c('l', rep('c', 2)),
       format = table_format,
       booktabs = TRUE,
-      col.name = c('Estrato', 'Definición (N° habitantes)', 'Número de viviendas por bloque')) %>% 
+      col.name = c('Stratum', 'Definition (N° inhabitants)', 'Number of households per block')) %>% 
   kable_styling(full_width = FALSE,
                 latex_options = c('HOLD_position')) %>% 
   kable_classic_2()
 
 ```
 
-Se realizó una muestra aleatoria simple de viviendas en cada bloque. La combinación de la población proporcional al tamaño de muestreo en las dos primeras etapas y el muestreo aleatorio simple en la tercera y cuarta etapas dio lugar a una muestra de viviendas con aproximadamente igual probabilidad dentro de cada uno de los nueve estratos.
+A simple random sample of households was conducted in each block. The combination of population proportional to size sampling in the first two stages and simple random sampling in the third and fourth stages resulted in a sample of households with approximately equal probability within each of the nine strata.
 
-La probabilidad de selección de un vivienda $k$ en el bloque $j$ en la ciudad $i$ y el estrato $h$ fue:
+The probability of selecting a household $k$ in block $j$ in city $i$ and stratum $h$ was:
 
 $$\pi_{k|j,i}=\frac{nh_j}{NH_j}$$
 
-donde $nh_j$ es el número de viviendas seleccionadas en el bloque $j$, y $NH_j$ corresponde al número de viviendas alistadas en el bloque $j$.
+where $nh_j$ is the number of households selected in block $j$, and $NH_j$ corresponds to the number of households listed in block $j$.
 
-### Etapa 4: Selección de personas {-#etapa4m1}
+### Stage 4: Selection of Individuals {-#etapa4m1}
 
-Los encuestadores visitaron cada vivienda seleccionado e intentaron llevar a cabo la entrevista. El primer paso en el proceso de la entrevista fue identificar al entrevistado objetivo. Cuando había más de un adulto en el vivienda, uno fue seleccionado usando una muestra aleatoria simple, usando una tabla de Kish.
+Interviewers visited each selected household and attempted to conduct the interview. The first step in the interview process was to identify the target respondent. When there was more than one adult in the household, one was selected using a simple random sample, using a Kish table.
 
-La probabilidad de selección de una persona en el vivienda $k$ fue:
+The probability of selecting an individual in household $k$ was:
 
 $$\pi_{l|k,j,i}=\frac{1}{NP_j}$$
 
-donde $NP_j$ es el número de adultos (mayores a 18 años y menores de 75 años) que habitan la vivienda $j$.
+where $NP_j$ is the number of adults (over 18 years old and under 75 years old) living in household $j$.
 
-### Etapa 5: Aumento del tamaño muestral {-#etapa5m1}
+### Stage 5: Increasing the Sample Size {-#etapa5m1}
 
-Durante el trabajo de campo de la primera ola (2016), se observó que el supuesto de una tasa de respuesta del 75% para todos los estratos era incorrecto. En primer lugar, la tasa de respuesta general fue inferior a 75% y, en segundo lugar, hubo una significativa heteregoneidad en las tasas de respuestas entre regiones. Debido a esto, se decidió aumentar el número de viviendas por bloque para lograr efectivamente las 3.000 entrevistas.
+During the fieldwork of the first wave (2016), it was observed that the assumption of a 75% response rate for all strata was incorrect. First, the overall response rate was lower than 75%, and second, there was significant heterogeneity in response rates between regions. Due to this, it was decided to increase the number of households per block to effectively achieve the 3,000 interviews.
 
-Este aumento en el número de viviendas por bloque tiene un efecto limitado sobre la probabilidad de selección de cada vivienda. Solo afecta a la probabilidad calculada en la Etapa 3, ya que el número de viviendas disponibles es menor, pero no hay cambios en las probabilidades calculadas en las Etapas 1 y 2. Esto ocurre porque los bloques seleccionados (en la Etapa 2) fueron usados, y no se introdujeron nuevos bloques.
+This increase in the number of households per block has a limited effect on the probability of selection of each household. It only affects the probability calculated in Stage 3, as the number of available households is smaller, but there are no changes in the probabilities calculated in Stages 1 and 2. This occurs because the selected blocks (in Stage 2) were used, and no new blocks were introduced.
 
-Durante este proceso se añadieron a la muestra del estudio un total de 1.082 nuevos viviendas, ubicados dentro de los bloques seleccionados. La asignación de estos nuevos viviendas no fue uniforme en todos los bloques del país. En cambio, se concentraron en cuatro regiones: Regiones de Coquimbo, O´Higgins, Metropolitana, y Biobío, donde los encuestadores tuvieron mayores problemas para contactar a los encuestados. La Tabla \@ref(tab:tabla-aumento) detalla las comunas en que se aumentó el número de viviendas con respecto al diseño inicial, junto con el número total de viviendas incorporados por bloque.
-
+During this process, a total of 1,082 new households were added to the study sample, located within the selected blocks. The allocation of these new households was not uniform across all blocks in the country. Instead, they were concentrated in four regions: Coquimbo, O'Higgins, Metropolitan, and Biobío regions, where interviewers had more difficulty contacting respondents. Table \@ref(tab:tabla-aumento) details the communes where the number of households was increased compared to the initial design, along with the total number of households added per block.
 
 ```{r tabla-aumento, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -210,54 +208,52 @@ tabla_aumento_muestra <- data.frame(region = rep('', 3),
 
 
 tabla_aumento_muestra %>% 
-  kbl(caption = 'Número de viviendas agregados a la muestra según región y comuna',
+  kbl(caption = 'Number of households added to the sample by region and commune',
       align = c('l', 'l', 'c', 'c'),
       format = table_format,
       booktabs = TRUE,
       longtable = TRUE,
-      col.name = c('Región', 'Comuna', 'Total viviendas agregadas', 'Viviendas agregadas por bloque')) %>% 
+      col.name = c('Region', 'Commune', 'Total households added', 'Households added per block')) %>% 
   kable_styling(full_width = FALSE,
                 latex_options = c('repeat_header')) %>% 
   kable_classic_2() %>% 
-  pack_rows('Coquimbo', 1, 3) %>%
-  pack_rows('O’Higgins', 4, 6) %>%
-  pack_rows('Biobío', 7, 12) %>%
+  pack_rows('Coquimbo', 1, 3) %>% 
+  pack_rows('O’Higgins', 4, 6) %>% 
+  pack_rows('Biobío', 7, 12) %>% 
   pack_rows('Metropolitana', 13, 46)
 
 
 ```
 
+### Sample Design for Successive Waves in Original Sample {-}
 
-### Diseño muestral de olas sucesivas en Muestra Original {-}
+The sample design for successive waves is equivalent to the original sample design. The households added and the respondents selected during 2016, as well as those added during [Stage 5](#etapa5), were re-interviewed in the follow-up waves.
 
-El diseño muestral para las olas sucesivas es equivalente al diseño muestral original. Las viviendas agregadas y los entrevistados y entrevistadas seleccionadas durante 2016, así como aquellos añadidos durante la [Etapa 5](#etapa5), fueron reentrevistados en las olas de seguimiento.
+## Sample Design Refresh Sample {#dis_muest_refresco}
 
+Starting in 2018, it was decided to include a refresh sample to counteract the effects of attrition (see [Survey Attrition](#atricion)). The design is explained below.
 
-## Diseño muestral Muestra Refresco {#dis_muest_refresco}
+### Preparation of the Sampling Frame for the Refresh Sample {-}
 
-A partir de 2018 se decide la inclusión de una muestra de refresco, con el objetivo de contraarrestar los efectos de la atrición (ver [Atrición de la encuesta](#atricion)). A continuación se explica su diseño.
+Since the 2017 Census databases were not yet available to be used as a housing sampling frame at the time of preparing the sampling frame for the definition of the Refresh sample, it was decided to use the household listing conducted by CMD during 2016 as the sampling frame.
 
-### Preparación del marco muestral para la muestra refresco {-}
+The listing corresponds to a list of households surveyed in person in the first round of the ELSOC survey (Original sample), so it consists of the blocks (blocks) selected for the Original sample survey. This includes around 40,000 households in 1,067 blocks (see [Stage 2: Selection of Blocks](#etapa2)).
 
-Dado que a la fecha de preparación del marco muestral para la definición de la muestra Refresco, aún no se encontraban disponibles las bases de datos del Censo 2017 para ser utilizado como marco muestral de viviendas, se decide utilizar el empadronamiento de viviendas realizado por el CMD durante 2016 como marco muestral.
+Since the listing is two years old at the time of generating the sample design for the refresh sample, coverage problems may arise in the listed blocks. Additionally, there are 179 segments with fewer than 20 listed households; these segments were not considered for the selection of the new sample. If a selected segment was not residential, a replacement would be considered in the sample selection.
 
-El empadronamiento corresponde a un listado de viviendas catastradas presencialmente en la primera ronda de la encuesta ELSOC (muestra Original), por lo que consiste en los bloques (manzanas) seleccionados para el levantamiento de la muestra Original. Esto incluye alrededor de 40.000 viviendas en 1.067 manzanas (ver [Etapa 2: Selección de Bloques (Manzanas) ](#etapa2)).
+Again, the selection process of households and respondents was developed in 4 stages:
 
-Dado que al momento de generar el diseño muestral de la muestra refresco, el empadronamiento tiene dos años de antigüedad, pueden presentarse problemas de no cobertura en las manzanas empadronadas. Adicionalmente, existen 179 segmentos que tienen menos de 20 viviendas empadronadas, estos segmentos no se consideraron para la selección de la muestra nueva. Si un segmento seleccionado no fuera residencial, se considerará un reemplazo en la selección de la muestra.
+### Stage 1: Selection of Cities {-#etapa1m2}
 
-Nuevamente, el proceso de selección de viviendas y entrevistados se entrevistados se desarrolló en 4 etapas:
+For the selection of Cities, it was decided to use the same cities as the Original sample, present in the listing conducted by CMD. Therefore, the sample design of the Refresh Sample is equivalent to the sample design of the Original Sample up to Stage 1 of city selection.
 
-### Etapa 1: Selección de Ciudades {-#etapa1m2}
+### Stage 2: Selection of Blocks {-#etapa2m2}
 
-Para la selección de Ciudades se decidió utilizar las mismas ciudades de la muestra Original, presentes en el empadronamiento realizado por el CMD. Por lo tanto, el diseño muestral de la Muestra Refresco es equivalente al diseño muestral de la Muestra Original hasta la Etapa 1 de selección de Ciudades. 
+The blocks were selected following a simple random sample among those present in the CMD listing and selected in the Original Sample. This decision was made considering that it simplifies the information collection process, as it does not alter the blocks to be visited (thus increasing the productivity of the collection), and allows maintaining similar representativeness concerning the Original sample.
 
-### Etapa 2: Selección de Bloques (Manzanas)  {-#etapa2m2}
+However, before the selection, blocks with fewer than 20 households or those that were part of the pilot survey for the 2018 refresh sample are discarded. This means that the universe of available blocks is reduced from 1047 to 822. Finally, since the Refresh Sample has a target size of 1,400 individuals, 402 blocks are selected.
 
-Los bloques fueron seleccionados siguiendo un muestreo aleatorio simple entre aquellos presentes en el empadronamiento de CMD y que fueron seleccionados en la Muestra Original. Esta decisión se tomó considerando que permite simplificar el proceso de levantamiento de información, al no alterar los bloques que se deben visitar (aumentando así la productividad del levantamiento), y permite mantener una representatividad similar con respecto a la muestra Original.
-
-Previo a la selección, sin embargo, se descartan los bloques con menos de 20 viviendas o que hayan sido parte de la encuesta piloto para la muestra refresco de 2018. Esto significa que el universo de bloques disponibles se reduce de 1047 a 822. Finalmente, dado que la Muestra Refresco tiene una tamaño objetivo de 1.400 individuos, se seleccionan 402 bloques. 
-
-En la Tabla \@ref(tab:seleccion-bloques-m2) se presentan los bloques empadronados, los disponibles, y los seleccionados, según región:
+Table \@ref(tab:seleccion-bloques-m2) presents the listed blocks, available blocks, and selected blocks, by region:
 
 ```{r seleccion-bloques-m2, echo=FALSE}
 
@@ -269,11 +265,11 @@ bloques_refresco <- data.frame(region = c('Tarapacá', 'Antofagasta', 'Atacama',
                                segmentos_seleccionados = c(8, 9, 18, 23, 70, 100, 16, 32, 64, 38, 9, 10, 5, 402))
 
 bloques_refresco %>% 
-  kbl(caption = 'Bloques disponbibles y seleccionado, según región',
+  kbl(caption = 'Blocks available and selected, according to region',
       align = c('l', rep('c', 5)),
       format = table_format,
       booktabs = TRUE,
-      col.name = c('Región', 'Bloques empadronados', 'Bloques < 20 viviendas', 'Bloques Piloto 2018', 'Bloques disponibles', 'Bloques seleccionados')) %>% 
+      col.name = c('Region', 'Registered blocks', 'Blocks < 20 dwellings', '2018 Pilot Blocks', 'Available blocks', 'Selected blocks')) %>% 
   kable_styling(full_width = FALSE,
                 latex_options = c('HOLD_position')) %>% 
   column_spec(2:6, width = "5em") %>% 
@@ -283,39 +279,39 @@ bloques_refresco %>%
   
 ```
 
-### Etapa 3: Selección de viviendas {-#etapa3refresco}
+### Stage 3: Selection of Households {-#etapa3refresco}
 
-Las viviendas se seleccionan con un muestreo simple entre las viviendas de los bloques seleccionados. Dado que se define obtener 1.400 encuestas, se requieren seleccionar en promedio de 3,5 viviendas por bloque para cumplir con la muestra objetivo. Para esto, en aquellas manzanas que tienen más de 20 viviendas se seleccionan entre 4 y 6 viviendas por conglomerado, dependiendo del tamaño de los estratos y manzanas; y en aquellas manzanas de más de 50 viviendas se utiliza otra de las sub-manzanas generadas en el proceso de empadronamiento, cuidando que esta submanzana no sea en un mismo edificio ya seleccionado.
+The households are selected with a simple random sample among the households in the selected blocks. Since it is defined to obtain 1,400 surveys, it is necessary to select an average of 3.5 households per block to meet the target sample. For this, in those blocks that have more than 20 households, between 4 and 6 households per block are selected, depending on the size of the strata and blocks; and in those blocks with more than 50 households, another of the sub-blocks generated in the listing process is used, ensuring that this sub-block is not in the same building already selected.
 
-La probabilidad de que se seleccione la misma vivienda en la manzana es distinta de cero, por lo que se generará un reemplazo para aquella unidad con el mismo método de selección aleatorio, para lo que se debe verificar la muestra seleccionada con la muestra del panel ya definida en 2016.
+The probability of selecting the same household in the block is different from zero, so a replacement will be generated for that unit using the same random selection method, for which the selected sample must be verified with the panel sample already defined in 2016.
 
-### Etapa 4: Selección de personas {-#etapa4refresco}
+### Stage 4: Selection of Individuals {-#etapa4refresco}
 
-Al igual que en la Muestra Original, los encuestadores visitan cada vivienda seleccionada e intentan llevar a cabo la entrevista. El primer paso en el proceso de la entrevista es identificar al entrevistado objetivo, el que es seleccionado usando una muestra aleatoria simple entre los adultos entre 18 y 75 años que habitan la vivienda. 
+As in the Original Sample, interviewers visit each selected household and attempt to conduct the interview. The first step in the interview process is to identify the target respondent, who is selected using a simple random sample among the adults between 18 and 75 years old living in the household.
 
-## Diseño de Ponderadores {#dis_ponderadores}
+## Weight Design {#dis_ponderadores}
 
-Considerando que a partir de las entrevistas efectivamente realizadas se desea extrapolar a la población objetivo respectiva, es necesario ponderar adecuadamente a cada encuestado según su representación en la población objetivo. Para esto, en cada ola del estudio se proveen ponderadores que permiten ajustar por las diferencias en atributos demográficos de la muestra de ELSOC en relación a la población objetivo. Los ponderadores que incluye la base de datos de ELSOC son el producto de tres factores: Un peso de diseño, un ajuste por no respuesta, y un ajuste mediante post-estratificación.
+Considering that from the interviews actually conducted, it is desired to extrapolate to the respective target population, it is necessary to adequately weight each respondent according to their representation in the target population. For this, in each wave of the study, weights are provided that allow adjusting for differences in demographic attributes of the ELSOC sample concerning the target population. The weights included in the ELSOC database are the product of three factors: A design weight, a non-response adjustment, and a post-stratification adjustment.
 
-A continuación se describe el proceso de elaboración de dichos ponderadores^[Dichos ponderadores pueden entenderse como "ponderadores  de corte transversal", ya que se ignoran los problemas derivados de su naturaleza longitudinal.] para lograr una correspondencia entre la muestra y la población objetivo.
+The process of developing these weights is described below^[These weights can be understood as "cross-sectional weights," as they ignore the problems derived from their longitudinal nature.] to achieve a correspondence between the sample and the target population.
 
-### Pesos de diseño
+### Design Weights
 
-El primer paso en la construcción de los ponderadores de ELSOC corresponde a considerar el  inverso de la probabilidad de selección de un individuo a la muestra. En este caso la probabilidad de selección del individuo $i$ de la vivienda $j$ que pertenece a la manzana $l$ dentro del estrato $k$, $P_{ijlk}$ viene dada por:
+The first step in constructing the ELSOC weights is to consider the inverse of the probability of selecting an individual into the sample. In this case, the probability of selecting individual $i$ from household $j$ belonging to block $l$ within stratum $k$, $P_{ijlk}$ is given by:
 
 $$P_{ijlk} = \pi_{i|jlk}\pi_{j|lk}\pi_{lk}$$
 
-Donde:
+Where:
 
-* $\pi_{i|jlk}$ es la probabilidad de que el individuo $i$ sea seleccionado en la muestra dado que la vivienda dónde vive y la manzana dónde se localiza fueron seleccionadas,dentro del estrato $k$.
-* $\pi_{_j|lk}$ es la probabilidad de que la vivienda $j$ sea seleccionada en la muestra dado que la manzana $l$ (que contiene a la vivienda $j$) fue seleccionada.
-* $\pi_{lk}$ es la probabilidad de que lamanzana $l$ del estrato $k$ sea seleccionada en la muestra.
+* $\pi_{i|jlk}$ is the probability that individual $i$ is selected in the sample given that the household where they live and the block where it is located were selected, within stratum $k$.
+* $\pi_{_j|lk}$ is the probability that household $j$ is selected in the sample given that block $l$ (which contains household $j$) was selected.
+* $\pi_{lk}$ is the probability that block $l$ of stratum $k$ is selected in the sample.
 
-Se define el ponderador de diseño $w_{ijlk}$ como el inverso de la probabilidad de selección de cada individuo en la muestra:
+The design weight $w_{ijlk}$ is defined as the inverse of the probability of selection of each individual in the sample:
 
 $$w_{ijlk}=\frac{1}{ P_{ijlk}}$$
 
-Las probabilidades que componen la probabilidad de selección son calculadas mediante:
+The probabilities that make up the selection probability are calculated by:
 
 $$\pi_{lk} = n_k\frac{M_{lk}}{M_k}$$
 
@@ -323,41 +319,36 @@ $$\pi_{j|lk} = \frac{m_{lk}}{M'_{lk}}$$
 
 $$\pi_{i|jlk} = \frac{1}{N_{jlk}}$$
 
-Donde se tiene que $n_k$ es el número de manzanas a seleccionar del estrato $k$, $M_{lk}$ es el número de viviendas de la manzana $l$ del estrato $k$, $M_k$ es el número total de viviendas del estrato $k$. $m_{lk}$ es el número de viviendas a encuestar dentro de la manzana $l$, $M'_k$ es el número actualizado de viviendas de la manzana $l$ post-empadronamiento, y $N_{jlk}$ es el número de personas de la
-población objetivo que vive en la vivienda $j$ de la manzana $l$ del estrato $k$.
+Where $n_k$ is the number of blocks to be selected from stratum $k$, $M_{lk}$ is the number of households in block $l$ of stratum $k$, $M_k$ is the total number of households in stratum $k$. $m_{lk}$ is the number of households to be surveyed within block $l$, $M'_k$ is the updated number of households in block $l$ post-listing, and $N_{jlk}$ is the number of people in the target population living in household $j$ of block $l$ of stratum $k$.
 
+### Non-Response Adjustments
 
-### Ajustes por no respuesta
+The previous weight is then adjusted based on the initial non-response of the block in which each individual is located. In this way, more weight is given to observations in blocks where few people respond.
 
-El ponderador anterior luego es ajustado en base a la no respuesta inicial de la manzana en la que se encuentra cada individuo. De este modo, damos más peso a las observaciones que están en manzanas donde pocas personas responden. 
-
-Este ajuste se realiza en base a un factor de no respuesta para la manzana $f_l$, y se estima como el inverso de la proporción de viviendas dentro de la manzana $l$ que responden la encuesta.
+This adjustment is made based on a non-response factor for block $f_l$, and is estimated as the inverse of the proportion of households within block $l$ that respond to the survey.
 
 $$f_l=\frac{m_l}{resp_l}$$
 
-Donde $m_l$ es el número de viviendas seleccionadas para estar en la muestra, y $resp_l$ es el número de viviendas seleccionadas que participan en ELSOC.
+Where $m_l$ is the number of households selected to be in the sample, and $resp_l$ is the number of selected households that participate in ELSOC.
 
-### Post-Estratificación
+### Post-Stratification
 
-La post-estratificación es un ajuste que suele hacerse en las encuestas para incorporar información conocida sobre la población en el análisis de datos de encuestas. Su objetivo principal es que la distribución de los estimadores ponderados sean capaces de reproducir la distribución poblacional en variables claves como totales regionales y por sexo.
+Post-stratification is an adjustment commonly made in surveys to incorporate known information about the population into the analysis of survey data. Its main objective is that the distribution of weighted estimators can reproduce the population distribution in key variables such as regional totals and by sex.
 
-El ajuste de no respuesta puede pensarse como un factor que ajusta:
+The non-response adjustment can be thought of as a factor that adjusts:
 
 $$ps=N_j/\hat{N_j}$$
-Donde $N_j$ es el número total de personas en la población dentro del estrato j (Por ejemplo, número total de mujeres en la población), y $\hat N_j$ es el total estimado de dicho total a partir de los datos de la muestra.
+Where $N_j$ is the total number of people in the population within stratum j (e.g., total number of women in the population), and $\hat N_j$ is the estimated total of that total from the sample data.
 
-Finalmente, los ponderadores de corte transversal de ELSOC tienen la forma:
+Finally, the cross-sectional weights of ELSOC have the form:
 
 $$w=w^{dis}*f_l*ps$$
-Es decir, son una combinación de la probabilidad de inclusión de los individuos, un ajuste por no respuesta en la manzana en la que residen y un ajuste de post-estratificación.
+That is, they are a combination of the probability of inclusion of individuals, a non-response adjustment in the block where they reside, and a post-stratification adjustment.
 
+### Longitudinal Weights
 
-### Ponderadores Longitudinales
+The use of weights in statistical analyses has multiple motivations, one of the most important being the interest in avoiding biases due to the sample design of the study. Given the longitudinal nature of ELSOC, it is particularly important to control for attrition biases that arise from the existence of systematic patterns in non-participation in the study after the first wave. Another relevant motivation for the use of weighted estimators is their ability to incorporate known information about the target population in the construction of the weights. To achieve this, the weights are adjusted so that they can reproduce population totals or proportions.
 
-El uso de ponderadores en análisis estadísticos tiene múltiples motivaciones, una de las más importantes radica en el interés por evitar sesgos debido al diseño muestral del estudio. Dada la naturaleza longitudinal de ELSOC interesa particularmente poder controlar por los sesgos de atrición que se derivan de la existencia de patrones sistemáticos en la no participación del estudio posterior a la primera ola. Otra motivación relevante para el uso de estimadores ponderados es su capacidad para incorporar información conocida sobre la población objetivo en la construcción de los ponderadores. Para lograr esto, se ajustan los pesos de manera que puedan reproducir totales o proporciones poblacionales.
-
-Se ha generado un informe completo respecto a la generación y uso de los ponderadores longitudinales para los datos ELSOC, que es posible revisar en el sitio [https://pondedradores-long-elsoc.netlify.app](https://pondedradores-long-elsoc.netlify.app).
-
-
+A complete report on the generation and use of longitudinal weights for ELSOC data has been generated, which can be reviewed on the site [https://pondedradores-long-elsoc.netlify.app](https://pondedradores-long-elsoc.netlify.app).
 
 \newpage

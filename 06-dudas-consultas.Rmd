@@ -1,5 +1,5 @@
-# Dudas y Consultas
+# Questions and Inquiries
 
-En caso de que detecte problemas con la base de datos, desee plantear solicitudes y/o tenga dudas sobre aspectos no cubiertos por el presente Manual de Usuario, las cuales no puedan ser resueltas por otros medios, puede comunicarse con el Equipo de Encuestas COES al correo electrónico [elsoc@uc.cl](elsoc@uc.cl). El equipo procesará su solicitud y tratará de contestar en el más breve plazo.
+If you detect problems with the database, want to make requests, and/or have questions about aspects not covered by this User Manual, which cannot be resolved by other means, you can contact the COES Survey Team at the email address [elsoc@uc.cl](elsoc@uc.cl). The team will process your request and try to respond as soon as possible.
 
 \newpage

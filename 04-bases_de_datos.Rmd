@@ -1,39 +1,39 @@
-# Bases de Datos {#bases-datos}
+# Databases {#databases}
 
-## Descarga de Bases de datos
+## Downloading Databases
 
-Las bases de datos ELSOC son puestas a disposición al público general en el momento en que se ha completado su proceso de revisión y validación. Las bases de datos son publicadas y archivadas en el repositorio de **Harvard Dataverse**, en la [carpeta de datos de COES](https://dataverse.harvard.edu/dataverse/coes_data_repository). Este repositorio permite un acceso gratuito y seguro a las bases de datos.
+The ELSOC databases are made available to the general public once their review and validation process has been completed. The databases are published and archived in the **Harvard Dataverse** repository, in the [COES data folder](https://dataverse.harvard.edu/dataverse/coes_data_repository). This repository allows free and secure access to the databases.
 
-ELSOC se pone a disposición como bases de datos transversales según ola: olas 2016, 2017, 2018, 2019, 2021 y 2022, en formato de datos de R (.RData), SPSS (.sav), y Stata 14 (.dta).
+ELSOC is made available as cross-sectional databases by wave: waves 2016, 2017, 2018, 2019, 2021, and 2022, in R data format (.RData), SPSS (.sav), and Stata 14 (.dta).
 
-Adicionalmente, a partir de 2019, se publican las bases de datos en formato longitudinal, para facilitar su uso como encuesta panel. A la fecha se encuentran publicadas la  base longitudinal de olas 2016-2019 en formato wide, y bases longitudinal de olas 2016-2021 y 2016-2022 en formato wide y long. Las variables que han presentado cambios en el tiempo se encuentran armonizadas para permitir su uso longitudinal.
+Additionally, starting in 2019, the databases are published in longitudinal format to facilitate their use as a panel survey. To date, the longitudinal database of waves 2016-2019 in wide format, and longitudinal databases of waves 2016-2021 and 2016-2022 in wide and long format are published. Variables that have changed over time are harmonized to allow longitudinal use.
 
-Como parte de un proceso continuo de mejora, es posible que las bases de datos publicadas sean actualizadas durante el desarrollo de ELSOC, debido a la corrección de potenciales errores, mejoras en el formato de los datos, actualización de códigos de no respuesta, etc. Dado esto, en el repositorio de Harvard Dataverse se encuentra publicada la última versión disponible, así como todas las versiones anteriores en caso de ser necesarias. 
+As part of a continuous improvement process, it is possible that the published databases are updated during the development of ELSOC, due to the correction of potential errors, improvements in data format, updating of non-response codes, etc. Given this, the latest available version is published in the Harvard Dataverse repository, as well as all previous versions if necessary.
 
-## Fichas Técnicas
+## Technical Sheets
 
-En este apartado se presenta la Ficha Técnica (Ver Cuadro \@ref(tab:ficha), dónde se sintetizan las principales características del Estudio Longitudinal Social de Chile (ELSOC COES):
+In this section, the Technical Sheet (See Table \@ref(tab:sheet)) is presented, summarizing the main characteristics of the Chilean Social Longitudinal Study (ELSOC COES):
 
 ```{r ficha, echo=FALSE, message=FALSE, warning=FALSE}
 
-ficha <- data.frame(caracteristicas = c('Objetivo', 'Diseño', 'Instrumento', 'Unidad de análisis', 'Población objetivo', 'Marco muestral', 'Diseño muestral', 'Unidades de muestreo', 'Periodicidad', 'Modo de aplicación', 'Informante', 'Duración promedio', 'Representatividad', 'Organismo responsable', 'Organismo ejecutor'),
-                    ELSOC = c('Analizar longitudinalmente la evolución del conflicto y cohesión
-                              en la sociedad chilena',
-                              'Estudio cuantitativo por medio de un cuestionario estructurado',
-                              'Cuestionario compuesto por preguntas cerradas de carácter simple y múltiple junto a algunas preguntas abiertas', 
-                              'Individuos',
-                              'Hombres y mujeres de 18 a 75 años, residentes habituales de viviendas particulares',
-                              'Marco de muestreo de manzanas del pre-censo 2011, trabajo elaborado por el Centro de Inteligencia Territorial (CIT) de la Universidad Adolfo Ibáñez', 
-                              'Probabilístico, estratificado, por conglomerados y multietápico',
-                              'Primero se eligen ciudades (UPM), luego manzanas (USM), y sub-bloques y viviendas (UTM). La unidad final de selección es la persona',
-                              'Anual. Muestra de refresco a oartir del 3er año',
-                              'Formato CAPI en vivienda del entrevistado. Formato CATI durante 2021. Formato Mix-mode en 2022',
-                              'Hombre o mujer residente en la vivienda, con edad entre 18 y 75 años.',
-                              '51 minutos',
-                              'Aproximadamente el 77% de la población total del país y 93% de la
-              población urbana con la muestra de Ola 2016',
-              'Centro de Estudios del Conflicto y Cohesión Social (COES)',
-              'CentroMicroDatos (CMD) de la Universidad de Chile'))
+ficha <- data.frame(caracteristicas = c('Objective', 'Design', 'Instrument', 'Unit of analysis', 'Target population', 'Sampling frame', 'Sampling design', 'Sampling units', 'Periodicity', 'Mode of application', 'Respondent', 'Average duration', 'Representativeness', 'Responsible organization', 'Executing organization'),
+                    ELSOC = c('Analyze longitudinally the evolution of conflict and cohesion
+                              in Chilean society',
+                              'Quantitative study through a structured questionnaire',
+                              'Questionnaire composed of closed questions of a simple and multiple nature along with some open questions', 
+                              'Individuals',
+                              'Men and women aged 18 to 75, habitual residents of private households',
+                              'Sampling frame of blocks from the 2011 pre-census, work prepared by the Territorial Intelligence Center (CIT) of the Adolfo Ibáñez University', 
+                              'Probabilistic, stratified, by clusters and multi-stage',
+                              'First cities are chosen (UPM), then blocks (USM), and sub-blocks and households (UTM). The final selection unit is the person',
+                              'Annual. Refreshment sample from the 3rd year',
+                              'CAPI format in the respondent\'s home. CATI format during 2021. Mix-mode format in 2022',
+                              'Man or woman residing in the household, aged between 18 and 75 years.',
+                              '51 minutes',
+                              'Approximately 77% of the total population of the country and 93% of the
+              urban population with the 2016 Wave sample',
+              'Center for Social Conflict and Cohesion Studies (COES)',
+              'CentroMicroDatos (CMD) of the University of Chile'))
           
 
 ficha %>% 
@@ -41,8 +41,8 @@ ficha %>%
       format = table_format,
       booktabs = TRUE,
       longtable = TRUE,
-      col.name = c('Características', 'ELSOC'),
-      caption = 'Ficha Técnica ELSOC COES') %>% 
+      col.name = c('Characteristics', 'ELSOC'),
+      caption = 'ELSOC COES Technical Sheet') %>% 
   kable_styling(full_width = FALSE,
                 latex_options = c('HOLD_position', 'scale_down', 'repeat_header')) %>%
   column_spec(1, width = "8em") %>% 
@@ -52,47 +52,51 @@ ficha %>%
 ```
 
 
-## Protocolo de Uso de Base de Datos
+## Database Usage Protocol
 
-Cualquier publicación que utilize las bases de datos ELSOC, en cualquiera de sus versiones, debe citar la fuente de las siguientes formas (dependiendo de la base utilizada):
+Any publication that uses the ELSOC databases, in any of its versions, must cite the source in the following ways (depending on the database used):
 
 - ELSOC 2016:
 
-**Centro de Estudios de Conflicto y Cohesión Social (2016). Estudio Longitudinal Social de Chile, Primera Ola (ELSOC_W01_v1.00). [Archivo de datos]. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl**
+**Center for Social Conflict and Cohesion Studies (2016). Chilean Social Longitudinal Study, First Wave (ELSOC_W01_v1.00). [Data file]. Santiago, Chile: Center for Social Conflict and Cohesion Studies (COES). www.coes.cl**
 
 - ELSOC 2017:
 
-**Centro de Estudios de Conflicto y Cohesión Social (2017). Estudio Longitudinal Social de Chile, Segunda Ola (ELSOC_W02_v1.00). [Archivo de datos]. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl**
+**Center for Social Conflict and Cohesion Studies (2017). Chilean Social Longitudinal Study, Second Wave (ELSOC_W02_v1.00). [Data file]. Santiago, Chile: Center for Social Conflict and Cohesion Studies (COES). www.coes.cl**
 
 - ELSOC 2018:
 
-**Centro de Estudios de Conflicto y Cohesión Social (2018). Estudio Longitudinal Social de Chile, Tercera Ola (ELSOC_W03_v1.00). [Archivo de datos]. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl**
+**Center for Social Conflict and Cohesion Studies (2018). Chilean Social Longitudinal Study, Third Wave (ELSOC_W03_v1.00). [Data file]. Santiago, Chile: Center for Social Conflict and Cohesion Studies (COES). www.coes.cl**
 
 - ELSOC 2019:
 
-**Centro de Estudios de Conflicto y Cohesión Social (2019). Estudio Longitudinal Social de Chile, Cuarta Ola (ELSOC_W04_v1.00). [Archivo de datos]. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl**
+**Center for Social Conflict and Cohesion Studies (2019). Chilean Social Longitudinal Study, Fourth Wave (ELSOC_W04_v1.00). [Data file]. Santiago, Chile: Center for Social Conflict and Cohesion Studies (COES). www.coes.cl**
 
 - ELSOC 2021:
 
-**Centro de Estudios de Conflicto y Cohesión Social (2021). Estudio Longitudinal Social de Chile, Quinta Ola (ELSOC_W05_v1.00). [Archivo de datos]. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl**
+**Center for Social Conflict and Cohesion Studies (2021). Chilean Social Longitudinal Study, Fifth Wave (ELSOC_W05_v1.00). [Data file]. Santiago, Chile: Center for Social Conflict and Cohesion Studies (COES). www.coes.cl**
 
 - ELSOC 2022:
 
-**Centro de Estudios de Conflicto y Cohesión Social (2022). Estudio Longitudinal Social de Chile, Quinta Ola (ELSOC_W06_v1.00). [Archivo de datos]. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl**
+**Center for Social Conflict and Cohesion Studies (2022). Chilean Social Longitudinal Study, Fifth Wave (ELSOC_W06_v1.00). [Data file]. Santiago, Chile: Center for Social Conflict and Cohesion Studies (COES). www.coes.cl**
 
-O en su formato longitudinal:
+- ELSOC 2023:
 
-- Versión Wide:
+**Center for Social Conflict and Cohesion Studies (2023). Chilean Social Longitudinal Study, Fifth Wave (ELSOC_W07_v1.00). [Data file]. Santiago, Chile: Center for Social Conflict and Cohesion Studies (COES). www.coes.cl**
 
-**Centro de Estudios de Conflicto y Cohesión Social (2022). Estudio Longitudinal Social de Chile, Versión Panel Combinada (ELSOC_Wide). [Archivo de datos]. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl**
+Or in its longitudinal format:
 
-- Versión Long:
+- Wide Version:
 
-**Centro de Estudios de Conflicto y Cohesión Social (2022). Estudio Longitudinal Social de Chile, Versión Panel Combinada (ELSOC_Long). [Archivo de datos]. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl**
+**Center for Social Conflict and Cohesion Studies (2023). Chilean Social Longitudinal Study, Combined Panel Version (ELSOC_Wide). [Data file]. Santiago, Chile: Center for Social Conflict and Cohesion Studies (COES). www.coes.cl**
 
-Por último, en caso de que se desee citar el presente Manual de Usuario:
+- Long Version:
 
-**Centro de Estudios de Conflicto y Cohesión Social (2022). Manual de Usuario de Estudio Longitudinal Social de Chile. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES).**
+**Center for Social Conflict and Cohesion Studies (2023). Chilean Social Longitudinal Study, Combined Panel Version (ELSOC_Long). [Data file]. Santiago, Chile: Center for Social Conflict and Cohesion Studies (COES). www.coes.cl**
+
+Finally, if you wish to cite this User Manual:
+
+**Center for Social Conflict and Cohesion Studies (2023). User Manual of the Chilean Social Longitudinal Study. Santiago, Chile: Center for Social Conflict and Cohesion Studies (COES).**
 
 \newpage
 
