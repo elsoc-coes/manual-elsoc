@@ -1223,6 +1223,103 @@ tasas_olas %>%
 
 ```
 
+### Implementación Ola 2023
+
+El proceso de recolección de datos comenzó el viernes 11 de diciembre de 2023, con la asignación de la muestra a los encuestadores capacitados y seleccionados para el estudio, después de completar el proceso de reclutamiento y selección a nivel nacional. Este trabajo se extendió por un período de 21 semanas, finalizando el 20 de mayo de 2024 (ver Figura \@ref(fig:graf-fechas-ola6)).
+
+Como resultado, el Plebiscito Constitucional de Salida 2023 ocurrió durante el proceso de recolección de datos (realizado el domingo 17 de diciembre), lo que requirió actualizar las preguntas del cuestionario relacionadas con el plebiscito. En particular, se modificó la pregunta sobre el plebiscito, eliminando la que hacía referencia a la intención de voto y añadiendo, en cambio, dos nuevas preguntas: la primera se refiere a si la persona participó en la votación del plebiscito, y la segunda al voto retrospectivo en cuestión.
+
+```{r graf-fechas-ola6, fig.cap = 'Número de entrevistas por semana, ola 2023'}
+
+elsoc_long_2016_2023 %>%
+  filter(ola == 7) %>% 
+  mutate(fecha_entr = lubridate::ymd(fecha_entr),
+         dia = lubridate::yday(fecha_entr),
+         año = lubridate::year(fecha_entr),
+         inicio = min(fecha_entr,na.rm=T),
+         termino = max(fecha_entr,na.rm=T),
+         año_inicio = min(año,na.rm = T),
+         dia_inicio = lubridate::yday(inicio),
+         semana = trunc((365*(año - año_inicio) + dia - dia_inicio) / 7 )) %>% 
+  group_by(semana, inicio, termino) %>% 
+  summarise(n = n()) %>% 
+  ungroup() %>% 
+  mutate(fecha = inicio + 7 * semana) %>% 
+  ggplot(aes(x = fecha, y = n, label = n)) + 
+  theme_bw() +
+  geom_col(position = 'dodge2') +
+  geom_text(vjust = -0.5,
+            position = position_dodge2(width = .9),
+            size = 3) +
+  geom_col(fill = viridis::viridis(1, begin = .33)) +
+  scale_x_date(date_labels = "%d-%m-%y",
+               date_breaks = '1 week') +
+  scale_y_continuous(labels = scales::number,
+                     limits = c(0, 1000)) +
+  ylab(label = 'Número de entrevistas semanales') +
+  xlab(label = NULL) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+```
+
+#### Indicadores de levantamiento {-}
+
+A continuación se presentan las Tasas de Respuesta 1 (TRR1, definida por la AAPOR), Tasa de Cooperación 1 (TCC1), Tasa de Rechazo 1 (TR1) y Tasa de Contacto 1 (TC1):
+
+
+```{r tabla-tasas-ola7}
+
+tasas_ola7 <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'),
+                                sheet = 'tasa_respuesta') %>% 
+  select(ola, original_2023, refresco_2023) %>% 
+  mutate(original_2023 = scales::percent(original_2023, .1),
+         refresco_2023 = scales::percent(refresco_2023, .1))
+
+tasas_ola7 %>% 
+  kbl(caption = 'Tasas de Respuesta, Cooperación, de Rechazo y de Contacto, ola 2023',
+      align = c('l', 'c', 'c'),
+      booktabs = TRUE,
+      col.name = c('Indicador', 'Muestra Original', 'Muestra Refresco')) %>% 
+  kable_styling(full_width = FALSE,
+                latex_options = 'HOLD_position') %>% 
+  kable_classic_2()
+
+```
+
+## Indicadores de levantamiento
+
+A continuación, se muestran las tasas de contacto, cooperación, rechazo y respuesta para todas las muestras y olas.
+
+```{r tabla-de-tasas-varias-olas}
+tasas_olas <- readxl::read_xlsx(path = file.path('inputs', 'datos_manual.xlsx'),
+                                sheet = 'tasa_respuesta') %>% 
+  rename(variable = ola) %>% 
+  pivot_longer(cols = starts_with(c('original_', 'refresco_')),
+               names_to = c('muestra', 'ola'),
+               names_sep = '_') %>% 
+  mutate(value = scales::percent(value, accuracy = .1)) %>% 
+  pivot_wider(names_from = variable,
+              values_from = value) %>% 
+  janitor::clean_names() %>% 
+  arrange(muestra, ola) %>% 
+  select(ola, muestra, tasa_de_respuesta, tasa_de_cooperacion, tasa_de_rechazo, tasa_de_contacto)
+
+tasas_olas %>%
+  select(-muestra) %>% 
+  kbl(caption = 'Tasas de Respuesta, de Cooperación, de Rechazo y de Contacto, según ola y muestra',
+      align = c('c', 'c', 'c', 'c', 'c'),
+      col.name = c('Ola', 'Tasa de Respuesta', 'Tasa de Cooperación', 'Tasa de Rechazo', 'Tasa de Contacto'),
+      booktabs = TRUE) %>% 
+  kable_styling(full_width = FALSE,
+                latex_options = 'HOLD_position') %>% 
+  kable_classic_2() %>% 
+  pack_rows('Muestra Original', 1, 7) %>%
+  pack_rows('Muestra Refresco', 8, 12)
+
+
+```
+
 
 ## Atrición de la encuesta {#atricion}
 
